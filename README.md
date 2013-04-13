@@ -61,6 +61,7 @@ After running, you may want to look through the rows and edit as necessary.
 You can also use the -t arg to filter for tables within a topical area.
 
 `>> python taxonify.py -f generated_csv/file.csv -t poverty`
+`>> python taxonify.py -f generated_csv/file.csv -t "health insurance"`
 
 This will generate a separate csv with only the tables that match the topic
 you're interested in. The Census `subject_area` field is a good starting point
