@@ -26,8 +26,7 @@ table IDs, table size (number of columns) and subject areas.
 
 ### process_shells.py ###
 
-Processes table shell files in xls format from the Census FTP site
-
+Processes table shell files in xls format from the Census FTP site.
 To run, first download the proper Census release sequence file, and run
 `process_sequences.py` against it. Next, fetch a `TableShells.xls` file from
 the same Census release, e.g. [ftp://ftp2.census.gov/acs2011_1yr/summaryfile/](ftp://ftp2.census.gov/acs2011_1yr/summaryfile/).
@@ -45,3 +44,25 @@ This will create a `Metadata` csv, merging information about tables and columns
 with data from the previous output of `process_sequences.py`. This provides
 complete metadata for every column of every table, including information about
 parent/child relationships with other columns.
+
+
+### taxonify.py ###
+
+Processes the `Table_Names_and_Subject_Areas` files generated earlier by
+`process_sequences`. It creates a new csv that adds custom taxonomy fields,
+the mapping for which is controlled by two dicts: `SUBJECT_AREA_TO_TOPICS`
+and `TABLE_NAME_TEXT_TO_TOPICS`.
+
+Use the -f arg to pass the filepath to a `Table_Names_and_Subject_Areas` file.
+
+`>> python taxonify.py -f generated_csv/file.csv`
+
+After running, you may want to look through the rows and edit as necessary.
+You can also use the -t arg to filter for tables within a topical area.
+
+`>> python taxonify.py -f generated_csv/file.csv -t poverty`
+
+This will generate a separate csv with only the tables that match the topic
+you're interested in. The Census `subject_area` field is a good starting point
+for getting a handle on the data available on specific subjects, but tables
+often touch on multiple themes, so this can be a useful exploratory tool.
