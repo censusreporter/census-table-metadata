@@ -15,7 +15,6 @@ filename = sys.argv[1]
 
 xlsfile = open_workbook(filename)
 sheet = xlsfile.sheet_by_index(0)
-keys = sheet.row_values(0)
 
 fieldnames = [
     'table_id',
