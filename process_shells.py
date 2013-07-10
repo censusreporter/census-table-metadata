@@ -15,8 +15,9 @@ file you downloaded.
 This will write a `metadata` csv alongside the `TableShells` file with information
 about each column in each table.
 '''
-import csv, os, sys, traceback
-from os.path import isdir, join, normpath
+import csv
+import sys
+import os
 from xlrd import open_workbook
 
 filename = sys.argv[1]
@@ -68,7 +69,7 @@ for r in range(1, sheet.nrows):
         one_row['column_id'] = column_id
         one_row['column_title'] = title.encode('utf8')
 
-        cell = sheet.cell(row_index, 3)
+        cell = sheet.cell(r, 3)
         indent = xlsfile.xf_list[cell.xf_index].alignment.indent_level
         one_row['indent'] = indent
 
