@@ -56,7 +56,7 @@ for r in range(1, sheet.nrows):
         # ... this row also includes the subject area text
         one_row['subject_area'] = subject_area
     elif not line_number and not cells and title.lower().startswith('universe:'):
-        one_row['universe'] = title[11:]
+        one_row['universe'] = title[11:].strip()
     else:
         one_row['line_number'] = line_number
         one_row['column_id'] = '%s%03d' % (one_row['table_id'], line_number)

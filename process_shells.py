@@ -61,10 +61,10 @@ for r in range(1, sheet.nrows):
         one_row['table_title'] = title.encode('utf8')
 
         # New table, so clear out the heirarchy stack
-        heirarchy_stack = []
+        heirarchy_stack = [None]*10
     elif not line_number and title.lower().startswith('universe:'):
-        one_row['universe'] = title[11:]
-    else:
+        one_row['universe'] = title[11:].strip()
+    elif line_number and title:
         one_row['line_number'] = line_number
         one_row['column_id'] = column_id
         one_row['column_title'] = title.encode('utf8')
