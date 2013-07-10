@@ -29,6 +29,7 @@ fieldnames = [
     'indent',
     'parent_column_id'
 ]
+
 csvfilename = "%s/merge_heirarchy.csv" % os.path.dirname(filename)
 csvfile = csv.DictWriter(open(csvfilename, 'w'), fieldnames)
 csvfile.writeheader()
