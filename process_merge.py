@@ -47,18 +47,25 @@ for r in range(1, sheet.nrows):
         title = str(r_data[7].value)
     else:
         title = r_data[7].value
+    title = title.strip()
     subject_area = r_data[8].value
 
     if not line_number and cells:
         # The all-caps description of the table
         one_row['table_title'] = title.encode('utf8')
         # ... this row also includes the subject area text
-        one_row['subject_area'] = subject_area
+        one_row['subject_area'] = subject_area.strip()
     elif not line_number and not cells and title.lower().startswith('universe:'):
         one_row['universe'] = title[11:].strip()
-    else:
+    elif line_number:
         one_row['line_number'] = line_number
-        one_row['column_id'] = '%s%03d' % (one_row['table_id'], line_number)
+
+        line_number_str = str(line_number)
+        if line_number_str.endswith('.7') or line_number_str.endswith('.5'):
+            # This is a subhead (not an actual data column), so we'll have to synthesize a column_id
+            one_row['column_id'] = "%s%05.1f" % (one_row['table_id'], line_number)
+        else:
+            one_row['column_id'] = '%s%03d' % (one_row['table_id'], line_number)
         one_row['column_title'] = title.encode('utf8')
 
         csvfile.writerow(one_row)

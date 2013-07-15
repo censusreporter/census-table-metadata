@@ -35,7 +35,7 @@ for r in range(1, sheet.nrows):
     r_data = sheet.row(r)
 
     table_id = r_data[1].value
-    sqn = r_data[2].value
+    sqn = int(r_data[2].value)
     subject_area = r_data[8].value.strip()
 
     if subject_area:
@@ -68,38 +68,53 @@ for r in range(1, sheet.nrows):
     r_data = sheet.row(r)
 
     # The column names seem to change between releases but their order doesn't
-    one_row['table_id'] = r_data[0].value
+    table_id = r_data[0].value
     line_number = r_data[1].value
     column_id = r_data[2].value
     if r_data[3].ctype == 2:
         title = str(r_data[3].value)
     else:
         title = r_data[3].value
+    title = title.strip()
 
     if not line_number and title and title.isupper():
+        # New table, so clear out the heirarchy stack
+        heirarchy_stack = [None]*10
+        one_row = dict()
+
         # The all-caps description of the table
         one_row['table_title'] = title.encode('utf8')
 
-        sqn_data = sqn_table_lookup.get(table_id)
+        one_row['table_id'] = table_id
+        sqn_data = sqn_table_lookup.get(one_row['table_id'])
         if sqn_data:
             one_row['sequence_number'] = sqn_data[0]
             one_row['subject_area'] = sqn_data[1]
-
-        # New table, so clear out the heirarchy stack
-        heirarchy_stack = [None]*10
     elif not line_number and title.lower().startswith('universe:'):
-        one_row['universe'] = title[11:].strip()
-    elif line_number and title:
+        one_row['universe'] = title[11:]
+    elif line_number and (r_data[1].ctype == 2) and title:
         one_row['line_number'] = line_number
-        one_row['column_id'] = column_id
+
+        line_number_str = str(line_number)
+        if line_number_str.endswith('.7') or line_number_str.endswith('.5'):
+            # This is a subhead (not an actual data column), so we'll have to synthesize a column_id
+            one_row['column_id'] = "%s%05.1f" % (table_id, line_number)
+        else:
+            one_row['column_id'] = "%s%03d" % (table_id, line_number)
         one_row['column_title'] = title.encode('utf8')
 
         cell = sheet.cell(r, 3)
         indent = xlsfile.xf_list[cell.xf_index].alignment.indent_level
         one_row['indent'] = indent
 
-        heirarchy_stack[indent] = column_id
+        heirarchy_stack[indent] = one_row['column_id']
         if indent > 0:
-            one_row['parent_column_id'] = heirarchy_stack[indent - 1]
+            parent_column_id = heirarchy_stack[indent - 1]
+
+            # Sometimes the parent is actually 2 levels up for some reason
+            if not parent_column_id:
+                parent_column_id = heirarchy_stack[indent - 2]
+
+            one_row['parent_column_id'] = parent_column_id
 
         csvfile.writerow(one_row)
