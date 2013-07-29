@@ -83,12 +83,14 @@ csvfilename = "%s/merge_heirarchy.csv" % os.path.dirname(filename)
 csvfile = csv.DictWriter(open(csvfilename, 'w'), fieldnames)
 csvfile.writeheader()
 
+external_shell_lookup = {}
+
 one_row = dict()
 for r in range(1, sheet.nrows):
     r_data = sheet.row(r)
 
     # The column names seem to change between releases but their order doesn't
-    one_row['table_id'] = r_data[1].value
+    one_row['table_id'] = r_data[1].value.strip()
     one_row['sequence_number'] = int(r_data[2].value)
     line_number = r_data[3].value
     position = r_data[4].value

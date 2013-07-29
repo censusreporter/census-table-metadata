@@ -68,7 +68,7 @@ for r in range(1, sheet.nrows):
     r_data = sheet.row(r)
 
     # The column names seem to change between releases but their order doesn't
-    table_id = r_data[0].value
+    table_id = r_data[0].value.strip()
     line_number = r_data[1].value
     column_id = r_data[2].value
     if r_data[3].ctype == 2:
