@@ -59,7 +59,10 @@ fieldnames = [
     'parent_column_id'
 ]
 
-csvfilename = "%s/merge_heirarchy.csv" % os.path.dirname(filename)
+root_dir = os.path.dirname(filename)
+if not root_dir:
+    root_dir = "./"
+csvfilename = "%s/merge_heirarchy.csv" % root_dir
 csvfile = csv.DictWriter(open(csvfilename, 'w'), fieldnames)
 csvfile.writeheader()
 
