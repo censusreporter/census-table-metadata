@@ -2,7 +2,7 @@
 Processes `TableShells` xls files from the Census site to produce a new csv
 with complete metadata for every column of every table. This is very similar
 to the `process_merge` script in this repo, but since it uses XLS files with
-more data it can give you heirarchy information for each column.
+more data it can give you hierarchy information for each column.
 
 To run, first download `TableShells.xls` and `merge_5_6.xls` files from e.g.
 http://www2.census.gov/acs2009_1yr/summaryfile/
@@ -62,7 +62,7 @@ fieldnames = [
 root_dir = os.path.dirname(filename)
 if not root_dir:
     root_dir = "./"
-csvfilename = "%s/merge_heirarchy.csv" % root_dir
+csvfilename = "%s/merge_hierarchy.csv" % root_dir
 csvfile = csv.DictWriter(open(csvfilename, 'w'), fieldnames)
 csvfile.writeheader()
 
@@ -81,8 +81,8 @@ for r in range(1, sheet.nrows):
     title = title.strip()
 
     if not line_number and title and title.isupper():
-        # New table, so clear out the heirarchy stack
-        heirarchy_stack = [None]*10
+        # New table, so clear out the hierarchy stack
+        hierarchy_stack = [None]*10
         one_row = dict()
 
         # The all-caps description of the table
@@ -110,13 +110,13 @@ for r in range(1, sheet.nrows):
         indent = xlsfile.xf_list[cell.xf_index].alignment.indent_level
         one_row['indent'] = indent
 
-        heirarchy_stack[indent] = one_row['column_id']
+        hierarchy_stack[indent] = one_row['column_id']
         if indent > 0:
-            parent_column_id = heirarchy_stack[indent - 1]
+            parent_column_id = hierarchy_stack[indent - 1]
 
             # Sometimes the parent is actually 2 levels up for some reason
             if not parent_column_id:
-                parent_column_id = heirarchy_stack[indent - 2]
+                parent_column_id = hierarchy_stack[indent - 2]
 
             one_row['parent_column_id'] = parent_column_id
 

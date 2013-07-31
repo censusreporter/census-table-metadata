@@ -32,7 +32,7 @@ table IDs, table size (number of columns) and subject areas.
 Processes `TableShells` xls files from the Census site to produce a new csv
 with complete metadata for every column of every table. This is very similar
 to the `process_merge` script in this repo, but since it uses XLS files with
-more data it can give you heirarchy information for each column.
+more data it can give you hierarchy information for each column.
 
 To run, first download `TableShells.xls` and `merge_5_6.xls` files from e.g.
 http://www2.census.gov/acs2009_1yr/summaryfile/

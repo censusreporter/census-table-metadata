@@ -2,7 +2,7 @@
 Processes the merge_5_6.xls (renamed Sequence_Number_and_Table_Number_Lookup.xls
 in 2009 3yr ACS and beyond) into a CSV with metadata about each column in the dataset.
 
-There's not enough information about heirarchy in the merge_5_6.xls files, so those
+There's not enough information about hierarchy in the merge_5_6.xls files, so those
 columns are left blank in the output of this script.
 '''
 
@@ -22,7 +22,7 @@ def read_shell(table_id):
         table_id = 'B%s' % table_id[1:]
 
     lookup = {}
-    heirarchy_stack = [None]*10
+    hierarchy_stack = [None]*10
     try:
         xlsfile = open_workbook('%s/%s.xls' % (sys.argv[2], table_id), formatting_info=True)
     except IOError, e:
@@ -47,14 +47,14 @@ def read_shell(table_id):
             cell = sheet.cell(r, 2)
             indent = xlsfile.xf_list[cell.xf_index].alignment.indent_level
 
-            heirarchy_stack[indent] = column_id
+            hierarchy_stack[indent] = column_id
             parent_column_id = None
             if indent > 0:
-                parent_column_id = heirarchy_stack[indent - 1]
+                parent_column_id = hierarchy_stack[indent - 1]
 
                 # Sometimes the parent is actually 2 levels up for some reason
                 if not parent_column_id:
-                    parent_column_id = heirarchy_stack[indent - 2]
+                    parent_column_id = hierarchy_stack[indent - 2]
 
             lookup[column_id] = {
                 "indent": indent,
@@ -82,7 +82,7 @@ fieldnames = [
 root_dir = os.path.dirname(filename)
 if not root_dir:
     root_dir = "./"
-csvfilename = "%s/merge_heirarchy.csv" % root_dir
+csvfilename = "%s/merge_hierarchy.csv" % root_dir
 csvfile = csv.DictWriter(open(csvfilename, 'w'), fieldnames)
 csvfile.writeheader()
 
