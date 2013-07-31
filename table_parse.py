@@ -15,6 +15,7 @@ import re
 from titlecase import titlecase
 from collections import defaultdict
 import csv
+import sys
 
 def load_rows():
     table_data = defaultdict(dict)
@@ -23,23 +24,28 @@ def load_rows():
     return list(r)
         
 SUBTABLE_STRINGS = [ 
- '(AMERICAN INDIAN AND ALASKA NATIVE  ALONE)',# stupid double white space!
- '(AMERICAN INDIAN AND ALASKA NATIVE ALONE HOUSEHOLDER)',
- '(AMERICAN INDIAN AND ALASKA NATIVE ALONE)',
- '(ASIAN ALONE HOUSEHOLDER)',
- '(ASIAN ALONE)',
- '(BLACK OR AFRICAN AMERICAN ALONE HOUSEHOLDER)',
- '(BLACK OR AFRICAN AMERICAN ALONE)',
- '(NATIVE HAWAIIAN AND OTHER PACIFIC ISLANDER ALONE HOUSEHOLDER)',
- '(NATIVE HAWAIIAN AND OTHER PACIFIC ISLANDER ALONE)',
- '(SOME OTHER RACE ALONE HOUSEHOLDER)',
- '(SOME OTHER RACE ALONE)',
- '(WHITE ALONE HOUSEHOLDER)',
- '(WHITE ALONE)',
- '(WHITE ALONE, NOT HISPANIC OR LATINO HOUSEHOLDER)',
- '(WHITE ALONE, NOT HISPANIC OR LATINO)',
+ re.compile('\(AMERICAN INDIAN AND ALASKA NATIVE ALONE HOUSEHOLDER\)',re.IGNORECASE),
+ re.compile('\(AMERICAN INDIAN AND ALASKA NATIVE ALONE\)',re.IGNORECASE),
+ re.compile('\(ASIAN ALONE HOUSEHOLDER\)',re.IGNORECASE),
+ re.compile('\(ASIAN ALONE\)',re.IGNORECASE),
+ re.compile('\(BLACK OR AFRICAN AMERICAN ALONE HOUSEHOLDER\)',re.IGNORECASE),
+ re.compile('\(BLACK OR AFRICAN AMERICAN ALONE\)',re.IGNORECASE),
+ re.compile('\(NATIVE HAWAIIAN AND OTHER PACIFIC ISLANDER ALONE HOUSEHOLDER\)',re.IGNORECASE),
+ re.compile('\(NATIVE HAWAIIAN AND OTHER PACIFIC ISLANDER ALONE\)',re.IGNORECASE),
+ re.compile('\(SOME OTHER RACE ALONE HOUSEHOLDER\)',re.IGNORECASE),
+ re.compile('\(SOME OTHER RACE ALONE\)',re.IGNORECASE),
+ re.compile('\(WHITE ALONE HOUSEHOLDER\)',re.IGNORECASE),
+ re.compile('\(WHITE ALONE\)',re.IGNORECASE),
+ re.compile('\(WHITE ALONE, NOT HISPANIC OR LATINO HOUSEHOLDER\)',re.IGNORECASE),
+ re.compile('\(WHITE ALONE, NOT HISPANIC OR LATINO\)',re.IGNORECASE),
 ]
 
+def strip_subtable_string(table_name):
+    for pattern in SUBTABLE_STRINGS:
+        if pattern.search(table_name):
+            return re.sub(pattern,'',table_name)
+    return table_name.strip()
+    
 def build_subtable_map(rows):
     """
     outlier: a PR table with no corresponding US table (relates to B06010/B06010PR) only seems to omit income levels for foreign born. can we just skip this one?
@@ -110,24 +116,37 @@ def build_table_dict(row):
     
     return d
 
-STRINGS_TO_STRIP = [
-    r'in the Past 12 Months',
-    r'(In \d{4} Inflation-adjusted Dollars)'
-    r'hildren Under 18 Years', # leave off the 'c' to get grandchildren and children both
+TABLE_NAME_REPLACEMENTS = [
+    (r'minor Civil Division Level for 12 Selected States (Ct, Me, Ma, Mi, Mn, Nh, Nj, Ny, Pa, Ri, Vt, Wi)',
+        'Minor Civil Division Level for 12 Selected States (CT, ME, MA, MI, MN, NH, NJ, NY, PA, RI, VT, WI)'),
+    (r'/snap','/SNAP'),
+    (r'\(Ssi\)','(SSI)'),
+    (r'Va Health Care',r'VA Health Care')
 ]
+
+COLLOQUIAL_REPLACEMENTS = [
+    (re.compile(r'in the Past 12 Months'),''),
+    (re.compile(r'\(In \d{4} Inflation-adjusted Dollars\)',re.IGNORECASE),''),
+    (re.compile('for the Population \d+ Years and Over',re.IGNORECASE), ''),
+    (re.compile('Civilian Employed Population 16 Years and Over',re.IGNORECASE),'Civilian Population'),
+    (re.compile(r'((grand)?children) Under 18 Years',re.IGNORECASE),r'\1'), 
+    (re.compile(r'Women \d+ to \d+ Years Who Had a Birth'),'Women Who Had a Birth'),
+]    
+
 def simplified_table(table_name):
-    for regexp in STRINGS_TO_STRIP:
-        table_name = re.sub(regexp,' ',table_name)
+    for regexp,substitution in COLLOQUIAL_REPLACEMENTS:
+        table_name = re.sub(regexp,substitution,table_name)
     table_name = re.sub('\s+',' ',table_name)
-    return table_name
+    return table_name.strip()
 
 def build_pretty_table():
     x = []
     for table_id, table_name, universe in load_rows():
         table_name = re.sub('\s+',' ',table_name) # some have multiple white spaces
         table_name = titlecase(table_name.lower())
-        table_name = re.sub('/snap','/SNAP',table_name)
-        x.append([table_id,table_name,simplified_table(table_name),titlecase(universe.lower())])
+        for problem,fix in TABLE_NAME_REPLACEMENTS:
+            table_name = re.sub(problem,fix,table_name)
+        x.append([table_id.strip(),table_name.strip(),simplified_table(table_name),titlecase(universe.lower())])
     return x
  # long strings from http://stackoverflow.com/questions/13560037/effcient-way-to-find-longest-duplicate-string-for-python-from-programming-pearl
 from itertools import imap, izip, starmap, tee
@@ -480,4 +499,14 @@ COMPONENTS = [
  'YEAR OF ENTRY',
  'YEAR STRUCTURE BUILT'
 ]
+
+if __name__ == '__main__':
+    try:
+        filename = sys.argv[1]
+        w = csv.writer(open(filename,"w"))
+    except IndexError:
+        print "No filename specified, writing to standard out"
+        w = csv.writer(sys.stdout)
+    w.writerow(['table_id','table_title','colloquial_title','universe'])
+    w.writerows(build_pretty_table())
 
