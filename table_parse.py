@@ -12,22 +12,15 @@
 #   racial breakdowns
 
 import re
+from titlecase import titlecase
 from collections import defaultdict
 import csv
 
 def load_rows():
     table_data = defaultdict(dict)
-    r = csv.reader(open("acs2011_1yr_Sequence_Number_and_Table_Number_Lookup.csv"))
+    r = csv.reader(open("original_table_names.csv"))
     headers = r.next()
-    for row in r:
-        if not row[3]:
-            title = row[7]
-            if title.startswith('Universe'):
-                junk,uni = title.split(':',1)
-                table_data[row[1]]['universe'] = uni.strip()
-            else:
-                table_data[row[1]]['title'] = title
-    return [(k,v['title'],v['universe']) for k,v in table_data.items()]
+    return list(r)
         
 SUBTABLE_STRINGS = [ 
  '(AMERICAN INDIAN AND ALASKA NATIVE  ALONE)',# stupid double white space!
@@ -116,6 +109,52 @@ def build_table_dict(row):
         d['components'].extend(component.split(' AND '))
     
     return d
+
+STRINGS_TO_STRIP = [
+    r'in the Past 12 Months',
+    r'(In \d{4} Inflation-adjusted Dollars)'
+    r'hildren Under 18 Years', # leave off the 'c' to get grandchildren and children both
+]
+def simplified_table(table_name):
+    for regexp in STRINGS_TO_STRIP:
+        table_name = re.sub(regexp,' ',table_name)
+    table_name = re.sub('\s+',' ',table_name)
+    return table_name
+
+def build_pretty_table():
+    x = []
+    for table_id, table_name, universe in load_rows():
+        table_name = re.sub('\s+',' ',table_name) # some have multiple white spaces
+        table_name = titlecase(table_name.lower())
+        table_name = re.sub('/snap','/SNAP',table_name)
+        x.append([table_id,table_name,simplified_table(table_name),titlecase(universe.lower())])
+    return x
+ # long strings from http://stackoverflow.com/questions/13560037/effcient-way-to-find-longest-duplicate-string-for-python-from-programming-pearl
+from itertools import imap, izip, starmap, tee
+from os.path   import commonprefix
+
+def pairwise(iterable): # itertools recipe
+    a, b = tee(iterable)
+    next(b, None)
+    return izip(a, b)
+
+def longest_duplicate_small(data):
+    suffixes = sorted(data[i:] for i in xrange(len(data))) # O(n*n) in memory
+    return max(imap(commonprefix, pairwise(suffixes)), key=len)
+# buffer() allows to get a substring without copying:
+
+def longest_duplicate_buffer(data):
+    n = len(data)
+    sa = sorted(xrange(n), key=lambda i: buffer(data, i)) # suffix array
+    def lcp_item(i, j):  # find longest common prefix array item
+        start = i
+        while i < n and data[i] == data[i + j - start]:
+            i += 1
+        return i - start, start
+    size, start = max(starmap(lcp_item, pairwise(sa)), key=lambda x: x[0])
+    return data[start:start + size]
+
+ # end http://stackoverflow.com/questions/13560037/effcient-way-to-find-longest-duplicate-string-for-python-from-programming-pearl
     
 #323 components...
 COMPONENTS = [
@@ -426,6 +465,7 @@ COMPONENTS = [
  'WAGE OR SALARY INCOME IN THE PAST 12 MONTHS',
  'WEEKS WORKED IN THE PAST 12 MONTHS',
  'WHITE ALONE OR IN COMBINATION WITH ONE OR MORE OTHER RACES',
+ # these components might be better found with "mother" or "new mother"?
  'WOMEN 15 TO 50 YEARS WHO HAD A BIRTH IN THE PAST 12 MONTHS', # are this
  'WOMEN 16 TO 50 YEARS WHO HAD A BIRTH IN THE PAST 12 MONTHS', # and this meant to be the same?
  'WORK EXPERIENCE',
