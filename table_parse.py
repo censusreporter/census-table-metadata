@@ -38,12 +38,18 @@ SUBTABLE_STRINGS = [
  re.compile('\(WHITE ALONE\)',re.IGNORECASE),
  re.compile('\(WHITE ALONE, NOT HISPANIC OR LATINO HOUSEHOLDER\)',re.IGNORECASE),
  re.compile('\(WHITE ALONE, NOT HISPANIC OR LATINO\)',re.IGNORECASE),
+ re.compile('\(Hispanic or Latino\)',re.IGNORECASE),
+ re.compile('\(Two or More Races\)',re.IGNORECASE),
+ re.compile('\(Hispanic or Latino Householder\)',re.IGNORECASE),
+ re.compile('\(Two or More Races Householder\)',re.IGNORECASE),
 ]
 
 def strip_subtable_string(table_name):
     for pattern in SUBTABLE_STRINGS:
         if pattern.search(table_name):
-            return re.sub(pattern,'',table_name)
+            table_name = re.sub(pattern,'',table_name)
+            table_name = table_name.strip()
+            return re.sub('\s+',' ',table_name)
     return table_name.strip()
     
 def build_subtable_map(rows):
@@ -73,7 +79,31 @@ def prune_subtables(rows):
         for tup in v.values():
             rows.remove(tup)
     return rows, smap
-    
+
+UNIVERSE_FIXES = [
+    (re.compile(r'^amilies',re.IGNORECASE),'Families'),
+    (re.compile(r'^ative',re.IGNORECASE),'Native'),
+    (re.compile(r'^enter-',re.IGNORECASE),'Renter-'),
+    (re.compile(r'^hite',re.IGNORECASE),'White'),
+    (re.compile(r'^ispanic',re.IGNORECASE),'Hispanic'),
+    (re.compile(r'^ivilian',re.IGNORECASE),'Civilian'),
+    (re.compile(r'^lack',re.IGNORECASE),'Black'),
+    (re.compile(r'^merican',re.IGNORECASE),'American'),
+    (re.compile(r'^ome',re.IGNORECASE),'Home'),
+    (re.compile(r'^opulation',re.IGNORECASE),'Population'),
+    (re.compile(r'^oreign',re.IGNORECASE),'Foreign'),
+    (re.compile(r'^orkers',re.IGNORECASE),'Workers'),
+    (re.compile(r'^otal',re.IGNORECASE),'Total'),
+    (re.compile(r'^ousing',re.IGNORECASE),'Housing'),
+    (re.compile(r'^sian',re.IGNORECASE),'Asian'),
+    (re.compile(r'^wn',re.IGNORECASE),'Own'),
+    (re.compile(r'^wo',re.IGNORECASE),'Two'),
+]
+def fix_universe(univ):
+    for pat,rep in UNIVERSE_FIXES:
+        if pat.search(univ):
+            return re.sub(pat,rep,univ)
+    return univ
     
 def prune_technical(rows):
     rows = list(rows)
@@ -116,12 +146,27 @@ def build_table_dict(row):
     
     return d
 
+def unique_clean_table_names(by_length=False):
+    tns  = set(x[-2] for x in build_pretty_table())
+    simpler = set(map(strip_subtable_string,tns))
+    if by_length:
+        tups = [(len(x),x) for x in simpler]
+        tups.sort()
+        tups.reverse()
+        return [x[-1] for x in tups]
+    return sorted(simpler)
+
 TABLE_NAME_REPLACEMENTS = [
     (r'minor Civil Division Level for 12 Selected States (Ct, Me, Ma, Mi, Mn, Nh, Nj, Ny, Pa, Ri, Vt, Wi)',
         'Minor Civil Division Level for 12 Selected States (CT, ME, MA, MI, MN, NH, NJ, NY, PA, RI, VT, WI)'),
     (r'/snap','/SNAP'),
     (r'\(Ssi\)','(SSI)'),
-    (r'Va Health Care',r'VA Health Care')
+    (r'Va Health Care',r'VA Health Care'),
+    (r'/military',r'/Military'),
+    (r'--metropolitan',r'--Metropolitan'),
+    (r'--micropolitan',r'--Micropolitan'),
+    (r'--state',r'--State'),
+    (r'\(Aian\)',r'(AIAN)'),
 ]
 
 COLLOQUIAL_REPLACEMENTS = [
@@ -131,6 +176,10 @@ COLLOQUIAL_REPLACEMENTS = [
     (re.compile('Civilian Employed Population 16 Years and Over',re.IGNORECASE),'Civilian Population'),
     (re.compile(r'((grand)?children) Under 18 Years',re.IGNORECASE),r'\1'), 
     (re.compile(r'Women \d+ to \d+ Years Who Had a Birth'),'Women Who Had a Birth'),
+    (re.compile(r'Field of Bachelor\'s Degree for First Major the Population 25 Years and Over'),'Field of Bachelor\'s Degree for First Major'),
+    (re.compile(r'Married Population 15 Years and Over'),'Married Population'),
+    (re.compile(r'Population 16 Years and Over'),'Population'), # seems to always have to do with employment, where I think we can take the age for granted
+    (re.compile(r'Place of Work for Workers 16 Years and Over'),'Place of Work'),
 ]    
 
 def simplified_table(table_name):
@@ -146,7 +195,7 @@ def build_pretty_table():
         table_name = titlecase(table_name.lower())
         for problem,fix in TABLE_NAME_REPLACEMENTS:
             table_name = re.sub(problem,fix,table_name)
-        x.append([table_id.strip(),table_name.strip(),simplified_table(table_name),titlecase(universe.lower())])
+        x.append([table_id.strip(),table_name.strip(),simplified_table(table_name),titlecase(fix_universe(universe.lower()))])
     return x
  # long strings from http://stackoverflow.com/questions/13560037/effcient-way-to-find-longest-duplicate-string-for-python-from-programming-pearl
 from itertools import imap, izip, starmap, tee
