@@ -17,11 +17,131 @@ from collections import defaultdict
 import csv
 import sys
 
-def load_rows():
+def load_rows(): # a bunch of other things in here expect data in a common format that this produces.
     table_data = defaultdict(dict)
-    r = csv.reader(open("original_table_names.csv"))
+    r = csv.reader(open("acs2011_1yr_Sequence_Number_and_Table_Number_Lookup.csv"))
     headers = r.next()
-    return list(r)
+    for fileid,table_id,seq,line_number,position,cells,total,table_title,subject_area in r:
+        if line_number: continue # skip rows with a line number as unimportant to this process
+        if 'universe' in table_title.lower():
+            table_data[table_id]['universe'] = table_title.split(':')[-1].strip()
+        else:
+            table_data[table_id]['title'] = table_title
+            table_data[table_id]['subject_area'] = subject_area
+
+    rows = []
+    for table_id in sorted(table_data):
+        data = table_data[table_id]
+        rows.append((table_id,data['title'],data['universe'],data['subject_area']))
+    return rows
+
+SUBJECT_AREA_TO_TOPICS = {
+    'Age-Sex': 'age, sex',
+    'Hispanic Origin': 'race',
+    'Race': 'race',
+
+    'Earnings': 'income',
+    'Employment Status': 'employment',
+    'Health Insurance': 'health insurance',
+    'Income': 'income',
+    'Industry-Occupation-Class of Worker': 'employment',
+    'Journey to Work': 'employment, transportation',
+    'Poverty': 'poverty',
+    'Transfer Programs': 'public assistance',
+
+    'Ancestry': 'ancestry',
+    'Children - Relationship': 'children',
+    'Disability': 'disability',
+    'Educational Attainment': 'education',
+    'Fertility': 'fertility',
+    'Foreign Birth': 'place of birth',
+    'Grand(Persons) - Age of HH Members': 'children, grandparents',
+    'Households - Families': 'households, families',
+    'Language': 'language',
+    'Marital Status': 'marital status',
+    'Place of Birth - Native': 'place of birth',
+    'Residence Last Year - Migration': 'migration',
+    'School Enrollment': 'education',
+    'Veteran Status': 'veterans',
+
+    'Housing': 'housing',
+    'Unweighted Count': 'technical',
+    'Group Quarters': 'group quarters',
+    'Quality Measures': 'technical',
+    'Imputations': 'technical',
+}
+
+TABLE_NAME_TEXT_TO_TOPICS = {
+    'children': 'children',
+    'disability': 'disability',
+    'bachelor\'s degree': 'education',
+    'education': 'education',
+    'school': 'education',
+    'employ': 'employment',
+    'occupation': 'employment',
+    'work': 'employment',
+    'families': 'families',
+    'family': 'families',
+    'grandparent': 'grandparents',
+    'health insurance': 'health insurance',
+    'living arrang': 'families',
+    'household': 'households',
+    'earnings': 'income',
+    'income': 'income',
+    'geographical mobility': 'migration',
+    'poverty': 'poverty',
+    'food stamps': 'public assistance',
+    'public assistance': 'public assistance',
+    '65 years and over': 'seniors',
+    'transportation': 'transportation',
+    'va health care': 'veterans',
+    'veteran': 'veterans',
+}
+
+TABLE_NAME_TEXT_TO_FACETS = {
+    'by age': 'age',
+    'age by': 'age',
+    'citizenship': 'citizenship',
+    'naturalization': 'citizenship',
+    'by famil': 'family type',
+    'by sex': 'sex',
+    'sex by': 'sex',
+    'by household': 'household type',
+    'household type by': 'household type',
+    'language': 'language',
+    'marriage': 'marital status',
+    'marital': 'marital status',
+    'nativity': 'place of birth',
+    'place of birth': 'place of birth',
+    'by relationship': 'relationship type',
+    '(white': 'race',
+    '(black': 'race',
+    '(american': 'race',
+    '(asian': 'race',
+    '(native': 'race',
+    '(some other race': 'race',
+    '(two or more races': 'race',
+    'hispanic': 'race',
+    'gross rent': 'costs and value',
+    'contract rent': 'costs and value',
+    'rent asked': 'costs and value',
+    'price asked': 'costs and value',
+    'value': 'costs and value',
+    'utilities': 'costs and value',
+    'costs': 'costs and value',
+    'real estate taxes': 'costs and value',
+    'rooms': 'physical characteristics', # including bedrooms
+    'facilities': 'physical characteristics',
+    'heating': 'physical characteristics',
+    'units in structure': 'physical characteristics',
+    'year structure built': 'physical characteristics',
+    'tenure': 'tenure',
+    'moved into unit': 'tenure',
+    'occupan': 'occupancy', # add vacancy to topic?
+    'vacan': 'occupancy',
+    'mortgage': 'mortgage',
+}
+
         
 SUBTABLE_STRINGS = [ 
  re.compile('\(AMERICAN INDIAN AND ALASKA NATIVE ALONE HOUSEHOLDER\)',re.IGNORECASE),
@@ -134,20 +254,22 @@ Exactly 7 tables have the word 'FOR' more than once. 3 are imputation tables. Th
   "POPULATION 25 YEARS AND OVER WITH A BACHELOR'S DEGREE OR HIGHER ATTAINMENT")]
 
 """    
-def build_table_dict(row):
-    d = { 'table_id': row[0], 'original_name': row[1], 'universe': row[2], 'components': [] }
-    name = row[1]
-    parts = name.rsplit(' FOR ',1) # see above; sometimes 'FOR' appears more than once
+def factor_table_name(table_name):
+    """From some experiments at factoring table_names to tease out topics"""
+    table_name = strip_subtable_string(table_name)
+    d = { 'original_name': table_name, 'components': [] }
+    parts = table_name.rsplit(' FOR ',1) # see above; sometimes 'FOR' appears more than once
     if len(parts) == 2:
         d['universe_from_name'] = parts[1]
-        name = parts[0]
-    for component in name.split(' BY '):
-        d['components'].extend(component.split(' AND '))
-    
+        table_name = parts[0]
+    for component in re.split(re.compile(r'\bby\b',re.IGNORECASE),table_name):
+        d['components'].extend(re.split(re.compile(r'\band\b',re.IGNORECASE),component))
+    d['components'] = map(lambda x: x.strip(),d['components'])
     return d
 
 def unique_clean_table_names(by_length=False):
-    tns  = set(x[-2] for x in build_pretty_table())
+    """A handy utility while exploring data"""
+    tns  = set(x[2] for x in build_pretty_table())
     simpler = set(map(strip_subtable_string,tns))
     if by_length:
         tups = [(len(x),x) for x in simpler]
@@ -176,378 +298,46 @@ COLLOQUIAL_REPLACEMENTS = [
     (re.compile('Civilian Employed Population 16 Years and Over',re.IGNORECASE),'Civilian Population'),
     (re.compile(r'((grand)?children) Under 18 Years',re.IGNORECASE),r'\1'), 
     (re.compile(r'Women \d+ to \d+ Years Who Had a Birth'),'Women Who Had a Birth'),
-    (re.compile(r'Field of Bachelor\'s Degree for First Major the Population 25 Years and Over'),'Field of Bachelor\'s Degree for First Major'),
-    (re.compile(r'Married Population 15 Years and Over'),'Married Population'),
-    (re.compile(r'Population 16 Years and Over'),'Population'), # seems to always have to do with employment, where I think we can take the age for granted
-    (re.compile(r'Place of Work for Workers 16 Years and Over'),'Place of Work'),
+    (re.compile(r'Field of Bachelor\'s Degree for First Major the Population 25 Years and Over',re.IGNORECASE),'Field of Bachelor\'s Degree for First Major'),
+    (re.compile(r'Married Population 15 Years and Over',re.IGNORECASE),'Married Population'),
+    (re.compile(r'Population 16 Years and Over',re.IGNORECASE),'Population'), # seems to always have to do with employment, where I think we can take the age for granted
+    (re.compile(r'Place of Work for Workers 16 Years and Over',re.IGNORECASE),'Place of Work'),
+    (re.compile(r'For Workplace Geography',re.IGNORECASE),''),
+    (re.compile(r'\(In Minutes\)',re.IGNORECASE),''),
 ]    
 
-def simplified_table(table_name):
+def simplified_table_name(table_name):
     for regexp,substitution in COLLOQUIAL_REPLACEMENTS:
         table_name = re.sub(regexp,substitution,table_name)
     table_name = re.sub('\s+',' ',table_name)
     return table_name.strip()
 
+def build_topics(table_name, subject_area):
+    all_areas = set(map(lambda x: x.strip(),SUBJECT_AREA_TO_TOPICS[subject_area].split(',')))
+    for k,v in TABLE_NAME_TEXT_TO_TOPICS.items():
+        if k in table_name.lower():
+            all_areas.update(map(lambda x: x.strip(),v.split(',')))
+    for k,v in TABLE_NAME_TEXT_TO_FACETS.items():
+        if k in table_name.lower():
+            all_areas.update(map(lambda x:x.strip(),v.split()))
+    return sorted(set(map(lambda x: x.strip(), all_areas)))
+
 def build_pretty_table():
     x = []
-    for table_id, table_name, universe in load_rows():
+    for table_id, table_name, universe, subject_area in load_rows():
         table_name = re.sub('\s+',' ',table_name) # some have multiple white spaces
         table_name = titlecase(table_name.lower())
         for problem,fix in TABLE_NAME_REPLACEMENTS:
             table_name = re.sub(problem,fix,table_name)
-        x.append([table_id.strip(),table_name.strip(),simplified_table(table_name),titlecase(fix_universe(universe.lower()))])
+            
+        table_id = table_id.strip()     
+        table_name = table_name.strip()
+        simple_name = simplified_table_name(table_name)
+        universe = titlecase(fix_universe(universe.lower()))
+        topics = build_topics(table_name,subject_area)
+        topics = '|'.join(topics)
+        x.append([table_id,table_name,simple_name,universe,topics])
     return x
- # long strings from http://stackoverflow.com/questions/13560037/effcient-way-to-find-longest-duplicate-string-for-python-from-programming-pearl
-from itertools import imap, izip, starmap, tee
-from os.path   import commonprefix
-
-def pairwise(iterable): # itertools recipe
-    a, b = tee(iterable)
-    next(b, None)
-    return izip(a, b)
-
-def longest_duplicate_small(data):
-    suffixes = sorted(data[i:] for i in xrange(len(data))) # O(n*n) in memory
-    return max(imap(commonprefix, pairwise(suffixes)), key=len)
-# buffer() allows to get a substring without copying:
-
-def longest_duplicate_buffer(data):
-    n = len(data)
-    sa = sorted(xrange(n), key=lambda i: buffer(data, i)) # suffix array
-    def lcp_item(i, j):  # find longest common prefix array item
-        start = i
-        while i < n and data[i] == data[i + j - start]:
-            i += 1
-        return i - start, start
-    size, start = max(starmap(lcp_item, pairwise(sa)), key=lambda x: x[0])
-    return data[start:start + size]
-
- # end http://stackoverflow.com/questions/13560037/effcient-way-to-find-longest-duplicate-string-for-python-from-programming-pearl
-    
-#323 components...
-COMPONENTS = [
- 'ABILITY TO SPEAK ENGLISH',
- 'ABILITY TO SPEAK ENGLISH OF GRANDPARENTS LIVING WITH OWN GRANDCHILDREN UNDER 18 YEARS',
- 'AGE',
- 'AGE OF GRANDCHILD',
- 'AGE OF HOUSEHOLDER',
- 'AGE OF OWN CHILDREN',
- 'AGE OF OWN CHILDREN UNDER 18 YEARS',
- 'AGE OF OWN CHILDREN UNDER 18 YEARS IN FAMILIES',
- 'AGE OF RELATED CHILDREN',
- 'AGE OF RELATED CHILDREN UNDER 18 YEARS',
- 'AGGREGATE CONTRACT RENT (DOLLARS)',
- 'AGGREGATE EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)',
- 'AGGREGATE FAMILY INCOME IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)',
- 'AGGREGATE GROSS RENT (DOLLARS)',
- 'AGGREGATE HOUSEHOLD INCOME IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)',
- 'AGGREGATE INCOME DEFICIT (DOLLARS) IN THE PAST 12 MONTHS',
- 'AGGREGATE INCOME DEFICIT (DOLLARS) IN THE PAST 12 MONTHS OF UNRELATED INDIVIDUALS',
- 'AGGREGATE INTEREST, DIVIDENDS, OR NET RENTAL INCOME IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)',
- 'AGGREGATE NONFAMILY HOUSEHOLD INCOME IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)',
- 'AGGREGATE NUMBER OF ROOMS',
- 'AGGREGATE NUMBER OF VEHICLES (CAR, TRUCK, OR VAN) USED IN COMMUTING',
- 'AGGREGATE NUMBER OF VEHICLES AVAILABLE',
- 'AGGREGATE OTHER TYPES OF INCOME IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)',
- 'AGGREGATE PRICE ASKED (DOLLARS)',
- 'AGGREGATE PUBLIC ASSISTANCE INCOME IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)',
- 'AGGREGATE REAL ESTATE TAXES PAID (DOLLARS)',
- 'AGGREGATE RENT ASKED (DOLLARS)',
- 'AGGREGATE RETIREMENT INCOME IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)',
- 'AGGREGATE SELECTED MONTHLY OWNER COSTS (DOLLARS)',
- 'AGGREGATE SELF-EMPLOYMENT INCOME IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)',
- 'AGGREGATE SOCIAL SECURITY INCOME IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)',
- 'AGGREGATE SUPPLEMENTAL SECURITY INCOME (SSI) IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)',
- 'AGGREGATE TRAVEL TIME TO WORK (IN MINUTES) OF WORKERS',
- 'AGGREGATE USUAL HOURS WORKED IN THE PAST 12 MONTHS',
- 'AGGREGATE VALUE (DOLLARS)',
- 'AGGREGATE WAGE OR SALARY INCOME IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)',
- 'ALASKA NATIVE (AIAN) ALONE OR IN ANY COMBINATION',
- 'ALASKA NATIVE ALONE',
- 'ALASKA NATIVE ALONE OR IN COMBINATION WITH ONE OR MORE OTHER RACES',
- 'AMBULATORY DIFFICULTY',
- 'AMERICAN INDIAN',
- 'ANCESTRY',
- 'ASIAN ALONE',
- 'ASIAN ALONE OR IN ANY COMBINATION',
- 'ASIAN ALONE OR IN COMBINATION WITH ONE OR MORE OTHER RACES',
- 'AVERAGE HOUSEHOLD SIZE OF OCCUPIED HOUSING UNITS',
- 'BEDROOMS',
- 'BLACK OR AFRICAN AMERICAN ALONE OR IN COMBINATION WITH ONE OR MORE OTHER RACES',
- 'CASH PUBLIC ASSISTANCE INCOME',
- 'CITIZENSHIP STATUS',
- 'CITIZENSHIP STATUS IN THE UNITED STATES',
- 'CLASS OF WORKER',
- 'CLASS OF WORKER ',
- 'COGNITIVE DIFFICULTY',
- 'COLLEGE OR GRADUATE SCHOOL ENROLLMENT',
- 'CONTRACT RENT',
- 'COUNTY LEVEL',
- "DETAILED FIELD OF BACHELOR'S DEGREE FOR FIRST MAJOR",
- 'DETAILED OCCUPATION',
- 'DETAILED RACE',
- 'DIRECT-PURCHASE HEALTH INSURANCE',
- 'DISABILITY STATUS',
- 'DISABILITY STATUS OF GRANDPARENTS LIVING WITH OWN GRANDCHILDREN UNDER 18 YEARS',
- 'DIVORCES IN THE LAST YEAR',
- 'EARNINGS IN THE PAST 12 MONTHS',
- 'EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)',
- 'EDUCATIONAL ATTAINMENT',
- 'EDUCATIONAL ATTAINMENT OF HOUSEHOLDER',
- 'EMPLOYER-BASED HEALTH INSURANCE ',
- 'EMPLOYMENT STATUS',
- 'EMPLOYMENT STATUS OF GRANDPARENTS LIVING WITH OWN GRANDCHILDREN UNDER 18 YEARS',
- 'EMPLOYMENT STATUS OF PARENTS',
- 'FAMILIES',
- 'FAMILY INCOME IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)',
- 'FAMILY SIZE',
- 'FAMILY TYPE',
- "FIELD OF BACHELOR'S DEGREE FOR FIRST MAJOR",
- 'FINANCIAL CONDITIONS',
- 'FIRST ANCESTRY REPORTED',
- 'FULL-TIME WORK STATUS IN THE PAST 12 MONTHS',
- 'GEOGRAPHICAL MOBILITY IN THE PAST YEAR',
- 'GINI INDEX OF INCOME INEQUALITY',
- 'GRANDCHILDREN UNDER 18 YEARS LIVING WITH A GRANDPARENT HOUSEHOLDER',
- 'GRANDPARENT RESPONSIBILITY',
- 'GRANDPARENTS LIVING WITH OWN GRANDCHILDREN UNDER 18 YEARS',
- 'GRANDPARENTS RESPONSIBLE',
- 'GROSS RENT',
- 'GROSS RENT AS A PERCENTAGE OF HOUSEHOLD INCOME IN THE PAST 12 MONTHS',
- 'GROUP QUARTERS POPULATION',
- 'HEALTH INSURANCE COVERAGE STATUS',
- 'HEARING DIFFICULTY',
- 'HISPANIC OR LATINO ORIGIN',
- 'HOUSE HEATING FUEL',
- 'HOUSEHOLD INCOME',
- 'HOUSEHOLD INCOME IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)',
- 'HOUSEHOLD INCOME QUINTILE UPPER LIMITS',
- 'HOUSEHOLD LANGUAGE',
- 'HOUSEHOLD SIZE',
- 'HOUSEHOLD TYPE',
- 'HOUSEHOLD TYPE (INCLUDING LIVING ALONE)',
- 'HOUSEHOLDER STATUS',
- 'HOUSEHOLDS',
- 'HOUSEHOLDS IN WHICH NO ONE 14',
- 'HOUSEHOLDS WITH GRANDPARENTS LIVING WITH OWN GRANDCHILDREN UNDER 18 YEARS',
- 'HOUSING COSTS AS A PERCENTAGE OF HOUSEHOLD INCOME IN THE PAST 12 MONTHS',
- 'HOUSING UNITS',
- 'INCLUSION OF UTILITIES IN RENT',
- 'INCOME IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)',
- 'INDEPENDENT LIVING DIFFICULTY',
- 'INDUSTRY',
- 'INTEREST, DIVIDENDS, OR NET RENTAL INCOME IN THE PAST 12 MONTHS',
- 'KITCHEN FACILITIES',
- 'LABOR FORCE PARTICIPATION',
- 'LABOR FORCE STATUS',
- 'LANGUAGE',
- 'LANGUAGE SPOKEN AT HOME',
- 'LANGUAGE SPOKEN AT HOME ABILITY TO SPEAK ENGLISH',
- 'LENGTH OF TIME RESPONSIBLE FOR OWN GRANDCHILDREN',
- 'LEVEL OF SCHOOL',
- 'LIVING ALONE',
- 'LIVING ARRANGEMENT',
- 'LIVING ARRANGEMENTS',
- 'LOWER CONTRACT RENT QUARTILE (DOLLARS)',
- 'LOWER VALUE QUARTILE (DOLLARS)',
- 'MARITAL STATUS',
- 'MARRIAGES ENDING IN WIDOWHOOD IN THE LAST YEAR',
- 'MARRIAGES IN THE LAST YEAR',
- 'MEALS INCLUDED IN RENT',
- 'MEAN HOUSEHOLD INCOME OF QUINTILES',
- 'MEAN USUAL HOURS WORKED IN THE PAST 12 MONTHS',
- 'MEANS OF TRANSPORTATION TO WORK',
- 'MEDIAN AGE',
- 'MEDIAN CONTRACT RENT (DOLLARS)',
- 'MEDIAN DURATION OF CURRENT MARRIAGE IN YEARS',
- 'MEDIAN EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)',
- 'MEDIAN FAMILY INCOME FOR FAMILIES WITH GRANDPARENT HOUSEHOLDERS AND/OR SPOUSES LIVING WITH OWN GRANDCHILDREN UNDER 18 YEARS',
- 'MEDIAN FAMILY INCOME IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)',
- 'MEDIAN GROSS RENT',
- 'MEDIAN GROSS RENT (DOLLARS)',
- 'MEDIAN GROSS RENT AS A PERCENTAGE OF HOUSEHOLD INCOME IN THE PAST 12 MONTHS (DOLLARS)',
- 'MEDIAN HOUSEHOLD INCOME IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)',
- 'MEDIAN HOUSEHOLD INCOME THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)',
- 'MEDIAN INCOME IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)',
- 'MEDIAN MONTHLY HOUSING COSTS (DOLLARS)',
- 'MEDIAN NONFAMILY HOUSEHOLD INCOME IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)',
- 'MEDIAN NUMBER OF ROOMS',
- 'MEDIAN REAL ESTATE TAXES PAID (DOLLARS)',
- 'MEDIAN SELECTED MONTHLY OWNER COSTS (DOLLARS)',
- 'MEDIAN SELECTED MONTHLY OWNER COSTS AS A PERCENTAGE OF HOUSEHOLD INCOME IN THE PAST 12 MONTHS',
- 'MEDIAN VALUE',
- 'MEDIAN VALUE (DOLLARS)',
- 'MEDIAN YEAR HOUSEHOLDER MOVED INTO UNIT',
- 'MEDIAN YEAR STRUCTURE BUILT',
- 'MEDICAID/MEANS-TESTED PUBLIC COVERAGE',
- 'MEDICARE COVERAGE',
- 'MONTHLY HOUSING COSTS',
- 'MONTHLY HOUSING COSTS AS A PERCENTAGE OF HOUSEHOLD INCOME IN THE PAST 12 MONTHS',
- 'MORTGAGE STATUS',
- 'MOVERS BETWEEN REGIONS IN THE UNITED STATES',
- 'MULTIGENERATIONAL HOUSEHOLDS',
- 'NATIVE HAWAIIAN',
- 'NATIVITY',
- 'NATIVITY IN THE UNITED STATES',
- 'NATIVITY OF CHILDREN UNDER 18 YEARS IN FAMILIES',
- 'NATIVITY OF OWN CHILDREN UNDER 18 YEARS IN FAMILIES',
- 'NATIVITY OF PARENTS',
- 'NONFAMILY HOUSEHOLD INCOME IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)',
- 'NONFAMILY HOUSEHOLDS',
- 'NUMBER',
- 'NUMBER OF DISABILITIES',
- 'NUMBER OF EARNERS IN FAMILY',
- 'NUMBER OF OWN CHILDREN UNDER 18 YEARS',
- 'NUMBER OF PERSONS IN FAMILY',
- 'NUMBER OF RELATED CHILDREN UNDER 18 YEARS',
- 'NUMBER OF TIMES MARRIED',
- 'NUMBER OF WORKERS IN FAMILY',
- 'NUMBER OF WORKERS IN FAMILY IN THE PAST 12 MONTHS',
- 'NUMBER OF WORKERS IN HOUSEHOLD',
- 'OCCUPANCY STATUS',
- 'OCCUPANTS PER ROOM',
- 'OCCUPATION',
- 'OTHER PACIFIC ISLANDER ALONE',
- 'OTHER PACIFIC ISLANDER ALONE OR IN ANY COMBINATION',
- 'OTHER PACIFIC ISLANDER ALONE OR IN COMBINATION WITH ONE OR MORE OTHER RACES',
- 'OTHER TYPES OF INCOME IN THE PAST 12 MONTHS',
- 'OVER', ## from "AND OVER"? wouldn't want to split that
- 'OVER SPEAKS ENGLISH ONLY OR SPEAKS A LANGUAGE OTHER THAN ENGLISH AT HOME', ## from "AND OVER"? wouldn't want to split that
- 'OVER, HOUSEHOLD SIZE', ## from "AND OVER"? wouldn't want to split that
- 'OWN CHILDREN UNDER 18 YEARS',
- 'PEOPLE REPORTING ANCESTRY',
- 'PEOPLE REPORTING MULTIPLE ANCESTRY',
- 'PEOPLE REPORTING SINGLE ANCESTRY',
- 'PERIOD OF MILITARY SERVICE',
- 'PERIOD OF NATURALIZATION',
- 'PLACE OF BIRTH',
- 'PLACE OF WORK',
- 'PLACE OF WORK--MINOR CIVIL DIVISION LEVEL',
- 'PLACE OF WORK--PLACE LEVEL',
- 'PLACE OF WORK--STATE',
- 'PLUMBING FACILITIES',
- 'POPULATION IN SUBFAMILIES',
- 'POPULATION UNDER 18 YEARS',
- 'POVERTY STATUS',
- 'POVERTY STATUS IN THE PAST 12 MONTHS',
- 'POVERTY STATUS IN THE PAST 12 MONTHS OF FAMILIES',
- 'POVERTY STATUS IN THE PAST 12 MONTHS OF GRANDPARENTS LIVING WITH OWN GRANDCHILDREN UNDER 18 YEARS',
- 'POVERTY STATUS IN THE PAST 12 MONTHS OF INDIVIDUALS',
- 'POVERTY STATUS IN THE PAST 12 MONTHS OF RELATED CHILDREN UNDER 18 YEARS',
- 'POVERTY STATUS IN THE PAST 12 MONTHS OF UNRELATED INDIVIDUALS 15 YEARS',
- 'POVERTY STATUS OF INDIVIDUALS IN THE PAST 12 MONTHS',
- 'PRESENCE',
- 'PRESENCE OF CHILDREN UNDER 18 YEARS',
- 'PRESENCE OF NONRELATIVES',
- 'PRESENCE OF OWN CHILDREN',
- 'PRESENCE OF OWN CHILDREN UNDER 18 YEARS',
- 'PRESENCE OF OWN CHILDREN UNDER 18 YEARS IN MARRIED-COUPLE FAMILIES',
- 'PRESENCE OF PARENT',
- 'PRESENCE OF PEOPLE 60 YEARS',
- 'PRESENCE OF PEOPLE 65 YEARS',
- 'PRESENCE OF PEOPLE UNDER 18 YEARS',
- 'PRESENCE OF RELATED CHILDREN UNDER 18 YEARS',
- 'PRESENCE OF UNMARRIED PARTNER',
- 'PRESENCE OF UNMARRIED PARTNER OF HOUSEHOLDER',
- 'PRICE ASKED',
- 'PRIVATE HEALTH INSURANCE',
- 'PRIVATE HEALTH INSURANCE ',
- 'PRIVATE HEALTH INSURANCE STATUS',
- 'PUBLIC ASSISTANCE INCOME',
- 'PUBLIC ASSISTANCE INCOME IN THE PAST 12 MONTHS',
- 'PUBLIC ASSISTANCE INCOME OR FOOD STAMPS/SNAP IN THE PAST 12 MONTHS',
- 'PUBLIC HEALTH INSURANCE',
- 'PUBLIC HEALTH INSURANCE STATUS',
- 'QUINTILE',
- 'RACE',
- 'RACE OF HOUSEHOLDER',
- 'RATINGS',
- 'RATIO OF INCOME TO POVERTY LEVEL IN THE PAST 12 MONTHS',
- 'RATIO OF INCOME TO POVERTY LEVEL IN THE PAST 12 MONTHS OF FAMILIES',
- 'RATIO OF INCOME TO POVERTY LEVEL OF FAMILIES IN THE PAST 12 MONTHS',
- 'RATIO OF VALUE TO HOUSEHOLD INCOME IN THE PAST 12 MONTHS',
- 'REAL ESTATE TAXES PAID',
- 'RECEIPT OF FOOD STAMPS/SNAP IN THE PAST 12 MONTHS',
- 'RECEIPT OF PUBLIC ASSISTANCE INCOME IN THE PAST 12 MONTHS',
- 'RECEIPT OF SUPPLEMENTAL SECURITY INCOME (SSI), CASH PUBLIC ASSISTANCE INCOME, OR FOOD STAMPS/SNAP IN THE PAST 12 MONTHS',
- 'RELATIONSHIP',
- 'RELATIONSHIP TO HOUSEHOLDER',
- 'RENT ASKED',
- 'RESPONSIBILITY',
- 'RESPONSIBILITY FOR OWN GRANDCHILDREN',
- 'RETIREMENT INCOME IN THE PAST 12 MONTHS',
- 'ROOMS',
- 'SCHOOL ENROLLMENT',
- 'SECOND ANCESTRY REPORTED',
- 'SELECTED GROUPS',
- 'SELECTED MONTHLY OWNER COSTS',
- 'SELECTED MONTHLY OWNER COSTS AS A PERCENTAGE OF HOUSEHOLD INCOME IN THE PAST 12 MONTHS',
- 'SELECTED PHYSICAL', # ???? 
- 'SELECTED TRIBAL GROUPINGS',
- 'SELF-CARE DIFFICULTY',
- 'SELF-EMPLOYMENT INCOME IN THE PAST 12 MONTHS',
- 'SERVICE-CONNECTED DISABILITY-RATING STATUS',
- 'SEX',
- 'SEX OF GRANDPARENTS LIVING WITH OWN GRANDCHILDREN UNDER 18 YEARS',
- 'SEX OF HOUSEHOLDER',
- 'SEX OF PARTNER',
- 'SEX OF WORKERS',
- 'SHARES OF AGGREGATE HOUSEHOLD INCOME',
- 'SOCIAL SECURITY INCOME',
- 'SOCIAL SECURITY INCOME IN THE PAST 12 MONTHS',
- 'SOME OTHER RACE ALONE OR IN COMBINATION WITH ONE OR MORE OTHER RACES',
- 'SPEAKS ENGLISH "VERY WELL"',
- 'SPECIFIC ORIGIN',
- 'SPOUSE',
- 'SUBFAMILIES',
- 'SUBFAMILY TYPE',
- 'SUPPLEMENTAL SECURITY INCOME (SSI)',
- 'SUPPLEMENTAL SECURITY INCOME (SSI) IN THE PAST 12 MONTHS',
- 'TELEPHONE SERVICE AVAILABLE',
- 'TENURE',
- 'TENURE OF GRANDPARENTS LIVING WITH OWN GRANDCHILDREN UNDER 18 YEARS',
- 'TIME ARRIVING AT WORK FROM HOME',
- 'TIME LEAVING HOME TO GO TO WORK',
- 'TOTAL ANCESTRY REPORTED',
- "TOTAL FIELDS OF BACHELOR'S DEGREES REPORTED",
- 'TOTAL POPULATION',
- 'TOTAL POPULATION IN OCCUPIED HOUSING UNITS',
- 'TRAVEL TIME TO WORK',
- 'TRICARE/MILITARY HEALTH COVERAGE',
- 'TYPE', #?????
- 'TYPE OF SCHOOL',
- 'TYPES OF HEALTH INSURANCE COVERAGE',
- 'UNITS IN STRUCTURE',
- 'UNITS IN STRUCTURE OF GRANDPARENTS LIVING WITH OWN GRANDCHILDREN UNDER 18 YEARS',
- 'UNMARRIED-PARTNER HOUSEHOLDS',
- 'UPPER CONTRACT RENT QUARTILE (DOLLARS)',
- 'UPPER VALUE QUARTILE (DOLLARS)',
- 'USUAL HOURS WORKED PER WEEK IN THE PAST 12 MONTHS',
- 'VA HEALTH CARE',
- 'VACANCY STATUS',
- 'VACANT - CURRENT RESIDENCE ELSEWHERE',
- 'VALUE',
- 'VEHICLES AVAILABLE',
- 'VETERAN STATUS',
- 'VISION DIFFICULTY',
- 'WAGE OR SALARY INCOME IN THE PAST 12 MONTHS',
- 'WEEKS WORKED IN THE PAST 12 MONTHS',
- 'WHITE ALONE OR IN COMBINATION WITH ONE OR MORE OTHER RACES',
- # these components might be better found with "mother" or "new mother"?
- 'WOMEN 15 TO 50 YEARS WHO HAD A BIRTH IN THE PAST 12 MONTHS', # are this
- 'WOMEN 16 TO 50 YEARS WHO HAD A BIRTH IN THE PAST 12 MONTHS', # and this meant to be the same?
- 'WORK EXPERIENCE',
- 'WORK EXPERIENCE IN THE PAST 12 MONTHS',
- 'WORK EXPERIENCE OF HOUSEHOLDER',
- 'WORK EXPERIENCE OF UNRELATED INDIVIDUALS',
- 'WORK STATUS IN THE PAST 12 MONTHS',
- 'WORKER POPULATION',
- 'WORKERS 16 YEARS',
- "WORKERS' EARNINGS IN THE PAST 12 MONTHS (IN 2011 INFLATION-ADJUSTED DOLLARS)",
- 'YEAR HOUSEHOLDER MOVED INTO UNIT',
- 'YEAR OF ENTRY',
- 'YEAR STRUCTURE BUILT'
-]
 
 if __name__ == '__main__':
     try:
@@ -556,6 +346,6 @@ if __name__ == '__main__':
     except IndexError:
         print "No filename specified, writing to standard out"
         w = csv.writer(sys.stdout)
-    w.writerow(['table_id','table_title','colloquial_title','universe'])
+    w.writerow(['table_id','table_title','colloquial_title','universe','topics'])
     w.writerows(build_pretty_table())
 
