@@ -18,6 +18,7 @@ import csv
 import sys
 
 def load_rows(): # a bunch of other things in here expect data in a common format that this produces.
+    # specifically, table_id, table_name, universe, subject_area 
     table_data = defaultdict(dict)
     r = csv.reader(open("acs2011_1yr_Sequence_Number_and_Table_Number_Lookup.csv"))
     headers = r.next()
@@ -45,7 +46,7 @@ SUBJECT_AREA_TO_TOPICS = {
     'Health Insurance': 'health insurance',
     'Income': 'income',
     'Industry-Occupation-Class of Worker': 'employment',
-    'Journey to Work': 'employment, transportation',
+    'Journey to Work': 'commute',
     'Poverty': 'poverty',
     'Transfer Programs': 'public assistance',
 
@@ -56,7 +57,7 @@ SUBJECT_AREA_TO_TOPICS = {
     'Fertility': 'fertility',
     'Foreign Birth': 'place of birth',
     'Grand(Persons) - Age of HH Members': 'children, grandparents',
-    'Households - Families': 'households, families',
+    'Households - Families': 'families',
     'Language': 'language',
     'Marital Status': 'marital status',
     'Place of Birth - Native': 'place of birth',
@@ -72,6 +73,9 @@ SUBJECT_AREA_TO_TOPICS = {
 }
 
 TABLE_NAME_TEXT_TO_TOPICS = {
+    'ancestry': 'ancestry',
+    'race': 'race',
+    'total population': 'age, sex',
     'children': 'children',
     'disability': 'disability',
     'bachelor\'s degree': 'education',
@@ -85,7 +89,7 @@ TABLE_NAME_TEXT_TO_TOPICS = {
     'grandparent': 'grandparents',
     'health insurance': 'health insurance',
     'living arrang': 'families',
-    'household': 'households',
+    'household': 'families',
     'earnings': 'income',
     'income': 'income',
     'geographical mobility': 'migration',
@@ -93,35 +97,29 @@ TABLE_NAME_TEXT_TO_TOPICS = {
     'food stamps': 'public assistance',
     'public assistance': 'public assistance',
     '65 years and over': 'seniors',
-    'transportation': 'transportation',
     'va health care': 'veterans',
     'veteran': 'veterans',
-}
-
-TABLE_NAME_TEXT_TO_FACETS = {
-    'by age': 'age',
-    'age by': 'age',
-    'citizenship': 'citizenship',
-    'naturalization': 'citizenship',
-    'by famil': 'family type',
-    'by sex': 'sex',
-    'sex by': 'sex',
-    'by household': 'household type',
-    'household type by': 'household type',
-    'language': 'language',
-    'marriage': 'marital status',
-    'marital': 'marital status',
-    'nativity': 'place of birth',
-    'place of birth': 'place of birth',
-    'by relationship': 'relationship type',
-    '(white': 'race',
-    '(black': 'race',
-    '(american': 'race',
-    '(asian': 'race',
-    '(native': 'race',
-    '(some other race': 'race',
-    '(two or more races': 'race',
-    'hispanic': 'race',
+    'means of transportation': 'commute',
+    'travel time': 'commute',
+    'vehicles': 'commute',
+    'workplace geography': 'commute',
+    'time leaving home': 'commute',
+    'imputation': 'technical',
+    'unweighted': 'technical',
+    'coverage rate': 'technical',
+    'nonresponse rate': 'technical',
+    'movers': 'migration',
+    'place of work': 'commute',
+    'workers': 'employment',
+    'group quarters': 'group quarters',
+    'had a birth': 'fertility',
+    'income deficit': 'poverty',
+    'difficulty': 'disability',
+    'disabilities': 'disability',
+    'tricare': 'health insurance',
+    'medicare': 'health insurance',
+    'medicaid': 'health insurance',
+    'va health care': 'health insurance',
     'gross rent': 'costs and value',
     'contract rent': 'costs and value',
     'rent asked': 'costs and value',
@@ -140,6 +138,36 @@ TABLE_NAME_TEXT_TO_FACETS = {
     'occupan': 'occupancy', # add vacancy to topic?
     'vacan': 'occupancy',
     'mortgage': 'mortgage',
+    'under 18 years': 'children',
+    'family type': 'families',
+    'household': 'families',
+}
+
+TABLE_NAME_TEXT_TO_FACETS = {
+    'by age': 'age',
+    'age by': 'age',
+    'citizenship': 'citizenship',
+    'naturalization': 'citizenship, place of birth',
+    'by famil': 'family type',
+    'by sex': 'sex',
+    'sex by': 'sex',
+    # 'by household': 'household type',
+    # 'household type by': 'household type',
+    'language': 'language',
+    'marriage': 'marital status',
+    'marital': 'marital status',
+    'nativity': 'place of birth',
+    'place of birth': 'place of birth',
+    'by relationship': 'relationship type',
+    '(white': 'race',
+    '(black': 'race',
+    'american indian': 'race',
+    'asian alone': 'race',
+    'alaska native': 'race',
+    'native hawaiian': 'race',
+    'some other race': 'race',
+    'two or more races': 'race',
+    'hispanic': 'race',
 }
 
         
@@ -278,15 +306,18 @@ def unique_clean_table_names(by_length=False):
         return [x[-1] for x in tups]
     return sorted(simpler)
 
-TABLE_NAME_REPLACEMENTS = [
-    (r'minor Civil Division Level for 12 Selected States (Ct, Me, Ma, Mi, Mn, Nh, Nj, Ny, Pa, Ri, Vt, Wi)',
+TABLE_NAME_REPLACEMENTS = [ # mostly problems with slashes and -- characters
+    (r'minor Civil Division Level for 12 Selected States \(Ct, Me, Ma, Mi, Mn, Nh, Nj, Ny, Pa, Ri, Vt, Wi\)',
         'Minor Civil Division Level for 12 Selected States (CT, ME, MA, MI, MN, NH, NJ, NY, PA, RI, VT, WI)'),
     (r'/snap','/SNAP'),
     (r'\(Ssi\)','(SSI)'),
     (r'Va Health Care',r'VA Health Care'),
+    (r'Medicaid/means-tested',r'Medicaid/Means-tested'),
     (r'/military',r'/Military'),
     (r'--metropolitan',r'--Metropolitan'),
     (r'--micropolitan',r'--Micropolitan'),
+    (r'--place Level',r'--Place Level'),
+    
     (r'--state',r'--State'),
     (r'\(Aian\)',r'(AIAN)'),
 ]
@@ -306,38 +337,59 @@ COLLOQUIAL_REPLACEMENTS = [
     (re.compile(r'\(In Minutes\)',re.IGNORECASE),''),
 ]    
 
-def simplified_table_name(table_name):
-    for regexp,substitution in COLLOQUIAL_REPLACEMENTS:
-        table_name = re.sub(regexp,substitution,table_name)
-    table_name = re.sub('\s+',' ',table_name)
-    return table_name.strip()
-
-def build_topics(table_name, subject_area):
-    all_areas = set(map(lambda x: x.strip(),SUBJECT_AREA_TO_TOPICS[subject_area].split(',')))
+def build_topics(table_name, subject_area=None):
+    all_areas = set()
+    if subject_area:
+        all_areas.update(map(lambda x: x.strip(),SUBJECT_AREA_TO_TOPICS[subject_area].split(',')))
     for k,v in TABLE_NAME_TEXT_TO_TOPICS.items():
         if k in table_name.lower():
             all_areas.update(map(lambda x: x.strip(),v.split(',')))
     for k,v in TABLE_NAME_TEXT_TO_FACETS.items():
         if k in table_name.lower():
-            all_areas.update(map(lambda x:x.strip(),v.split()))
+            all_areas.update(map(lambda x:x.strip(),v.split(',')))
     return sorted(set(map(lambda x: x.strip(), all_areas)))
+
+def clean_table_name(table_name):
+    """ title case, strip bogus white space, a few observed direct fixes for title casing..."""
+    table_name = re.sub('\s+',' ',table_name) # some have multiple white spaces
+    table_name = titlecase(table_name.lower())
+    for problem,fix in TABLE_NAME_REPLACEMENTS:
+        table_name = re.sub(problem,fix,table_name)
+    return table_name.strip()
+
+def simplified_table_name(table_name):
+    """Make some editorial choices about how to simplify table names for more casual use"""
+    for regexp,substitution in COLLOQUIAL_REPLACEMENTS:
+        table_name = re.sub(regexp,substitution,table_name)
+    table_name = re.sub('\s+',' ',table_name)
+    return table_name.strip()
 
 def build_pretty_table():
     x = []
     for table_id, table_name, universe, subject_area in load_rows():
-        table_name = re.sub('\s+',' ',table_name) # some have multiple white spaces
-        table_name = titlecase(table_name.lower())
-        for problem,fix in TABLE_NAME_REPLACEMENTS:
-            table_name = re.sub(problem,fix,table_name)
-            
         table_id = table_id.strip()     
-        table_name = table_name.strip()
+        table_name = clean_table_name(table_name)
         simple_name = simplified_table_name(table_name)
         universe = titlecase(fix_universe(universe.lower()))
         topics = build_topics(table_name,subject_area)
         topics = '|'.join(topics)
         x.append([table_id,table_name,simple_name,universe,topics])
     return x
+
+def find_dependent_upon_subject_area():
+    rows = build_pretty_table()
+    problems = []
+    for row in rows:
+        if row[0].endswith('08202'): continue # Journey to Work but not commute so don't bug me
+        old_topics = set(row[-1].split('|'))
+        new_topics = set(build_topics(row[1]))
+        if new_topics != old_topics:
+            diff = old_topics.difference(new_topics)
+            if 'housing' in diff: continue # we're losing that one happily
+            if 'fertility' in diff: continue # that one checks out
+            if 'children' in diff: continue # that one checks out
+            problems.append((row,diff))
+    return problems
 
 if __name__ == '__main__':
     try:
