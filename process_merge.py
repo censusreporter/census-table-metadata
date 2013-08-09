@@ -168,7 +168,7 @@ for r in range(1, sheet.nrows):
 
         external_shell_lookup = read_shell(table['table_id'])
     elif not line_number and not cells and title.lower().startswith('universe:'):
-        table['universe'] = title.split(':')[-1].strip()
+        table['universe'] = titlecase(title.split(':')[-1]).strip()
     elif line_number:
         row = {}
         row['line_number'] = line_number
