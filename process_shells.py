@@ -24,6 +24,8 @@ import csv
 import sys
 import os
 from xlrd import open_workbook
+import re
+from titlecase import titlecase
 
 # Parse the Sequence_Number_And_Table_Number_Lookup.xls/merge_5_6.xls file
 # so we can get the subject area and sequence number data to match up with
@@ -72,6 +74,30 @@ column_metadata_fieldnames = [
 column_csv = csv.DictWriter(open("%s/census_column_metadata.csv" % root_dir, 'w'), column_metadata_fieldnames)
 column_csv.writeheader()
 
+TABLE_NAME_REPLACEMENTS = [ # mostly problems with slashes and -- characters
+    (r'minor Civil Division Level for 12 Selected States \(Ct, Me, Ma, Mi, Mn, Nh, Nj, Ny, Pa, Ri, Vt, Wi\)',
+        'Minor Civil Division Level for 12 Selected States (CT, ME, MA, MI, MN, NH, NJ, NY, PA, RI, VT, WI)'),
+    (r'/snap','/SNAP'),
+    (r'\(Ssi\)','(SSI)'),
+    (r'Va Health Care',r'VA Health Care'),
+    (r'Medicaid/means-tested',r'Medicaid/Means-tested'),
+    (r'/military',r'/Military'),
+    (r'--metropolitan',r'--Metropolitan'),
+    (r'--micropolitan',r'--Micropolitan'),
+    (r'--place Level',r'--Place Level'),
+
+    (r'--state',r'--State'),
+    (r'\(Aian\)',r'(AIAN)'),
+]
+
+def clean_table_name(table_name):
+    """ title case, strip bogus white space, a few observed direct fixes for title casing..."""
+    table_name = re.sub('\s+',' ',table_name) # some have multiple white spaces
+    table_name = titlecase(table_name.lower())
+    for problem,fix in TABLE_NAME_REPLACEMENTS:
+        table_name = re.sub(problem,fix,table_name)
+    return table_name.strip()
+
 table = {}
 rows = []
 for r in range(1, sheet.nrows):
@@ -99,7 +125,7 @@ for r in range(1, sheet.nrows):
             rows = []
 
         # The all-caps description of the table
-        table['table_title'] = title.encode('utf8')
+        table['table_title'] = clean_table_name(title).encode('utf8')
 
         table['table_id'] = table_id
         sqn_data = sqn_table_lookup.get(table['table_id'])
