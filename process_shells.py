@@ -46,27 +46,34 @@ filename = sys.argv[1]
 xlsfile = open_workbook(filename, formatting_info=True)
 sheet = xlsfile.sheet_by_index(0)
 
-fieldnames = [
+root_dir = os.path.dirname(filename)
+if not root_dir:
+    root_dir = "./"
+
+table_metadata_fieldnames = [
+    'table_id',
+    'sequence_number',
+    'table_title',
+    'subject_area',
+    'universe'
+]
+table_csv = csv.DictWriter(open("%s/census_table_metadata.csv" % root_dir, 'w'), table_metadata_fieldnames)
+table_csv.writeheader()
+
+column_metadata_fieldnames = [
     'table_id',
     'sequence_number',
     'line_number',
     'column_id',
-    'subject_area',
-    'table_title',
-    'universe',
     'column_title',
     'indent',
     'parent_column_id'
 ]
+column_csv = csv.DictWriter(open("%s/census_column_metadata.csv" % root_dir, 'w'), column_metadata_fieldnames)
+column_csv.writeheader()
 
-root_dir = os.path.dirname(filename)
-if not root_dir:
-    root_dir = "./"
-csvfilename = "%s/merge_hierarchy.csv" % root_dir
-csvfile = csv.DictWriter(open(csvfilename, 'w'), fieldnames)
-csvfile.writeheader()
-
-one_row = dict()
+table = {}
+rows = []
 for r in range(1, sheet.nrows):
     r_data = sheet.row(r)
 
@@ -83,34 +90,44 @@ for r in range(1, sheet.nrows):
     if not line_number and title and title.isupper():
         # New table, so clear out the hierarchy stack
         hierarchy_stack = [None]*10
-        one_row = dict()
+
+        # Write out the previous table's data
+        if table:
+            table_csv.writerow(table)
+            column_csv.writerows(rows)
+            table = {}
+            rows = []
 
         # The all-caps description of the table
-        one_row['table_title'] = title.encode('utf8')
+        table['table_title'] = title.encode('utf8')
 
-        one_row['table_id'] = table_id
-        sqn_data = sqn_table_lookup.get(one_row['table_id'])
+        table['table_id'] = table_id
+        sqn_data = sqn_table_lookup.get(table['table_id'])
         if sqn_data:
-            one_row['sequence_number'] = sqn_data[0]
-            one_row['subject_area'] = sqn_data[1]
+            table['sequence_number'] = sqn_data[0]
+            table['subject_area'] = sqn_data[1]
     elif not line_number and title.lower().startswith('universe:'):
-        one_row['universe'] = title[11:]
+        # TODO Need to be better about this split here
+        table['universe'] = title[11:]
     elif line_number and (r_data[1].ctype == 2) and title:
-        one_row['line_number'] = line_number
+        row = {}
+        row['line_number'] = line_number
+        row['table_id'] = table['table_id']
+        row['sequence_number'] = table['sequence_number']
 
         line_number_str = str(line_number)
         if line_number_str.endswith('.7') or line_number_str.endswith('.5'):
             # This is a subhead (not an actual data column), so we'll have to synthesize a column_id
-            one_row['column_id'] = "%s%05.1f" % (table_id, line_number)
+            row['column_id'] = "%s%05.1f" % (table_id, line_number)
         else:
-            one_row['column_id'] = "%s%03d" % (table_id, line_number)
-        one_row['column_title'] = title.encode('utf8')
+            row['column_id'] = "%s%03d" % (table_id, line_number)
+        row['column_title'] = title.encode('utf8')
 
         cell = sheet.cell(r, 3)
         indent = xlsfile.xf_list[cell.xf_index].alignment.indent_level
-        one_row['indent'] = indent
+        row['indent'] = indent
 
-        hierarchy_stack[indent] = one_row['column_id']
+        hierarchy_stack[indent] = row['column_id']
         if indent > 0:
             parent_column_id = hierarchy_stack[indent - 1]
 
@@ -118,6 +135,6 @@ for r in range(1, sheet.nrows):
             if not parent_column_id:
                 parent_column_id = hierarchy_stack[indent - 2]
 
-            one_row['parent_column_id'] = parent_column_id
+            row['parent_column_id'] = parent_column_id
 
-        csvfile.writerow(one_row)
+        rows.append(row)

@@ -66,35 +66,40 @@ def read_shell(table_id):
 xlsfile = open_workbook(filename)
 sheet = xlsfile.sheet_by_index(0)
 
-fieldnames = [
+root_dir = os.path.dirname(filename)
+if not root_dir:
+    root_dir = "./"
+
+table_metadata_fieldnames = [
+    'table_id',
+    'sequence_number',
+    'table_title',
+    'subject_area',
+    'universe'
+]
+table_csv = csv.DictWriter(open("%s/census_table_metadata.csv" % root_dir, 'w'), table_metadata_fieldnames)
+table_csv.writeheader()
+
+column_metadata_fieldnames = [
     'table_id',
     'sequence_number',
     'line_number',
     'column_id',
-    'subject_area',
-    'table_title',
-    'universe',
     'column_title',
     'indent',
     'parent_column_id'
 ]
+column_csv = csv.DictWriter(open("%s/census_column_metadata.csv" % root_dir, 'w'), column_metadata_fieldnames)
+column_csv.writeheader()
 
-root_dir = os.path.dirname(filename)
-if not root_dir:
-    root_dir = "./"
-csvfilename = "%s/merge_hierarchy.csv" % root_dir
-csvfile = csv.DictWriter(open(csvfilename, 'w'), fieldnames)
-csvfile.writeheader()
-
-external_shell_lookup = {}
-
-one_row = dict()
+table = {}
+rows = []
 for r in range(1, sheet.nrows):
     r_data = sheet.row(r)
 
     # The column names seem to change between releases but their order doesn't
-    one_row['table_id'] = r_data[1].value.strip()
-    one_row['sequence_number'] = int(r_data[2].value)
+    table['table_id'] = r_data[1].value.strip()
+    table['sequence_number'] = int(r_data[2].value)
     line_number = r_data[3].value
     position = r_data[4].value
     cells = r_data[5].value
@@ -107,27 +112,30 @@ for r in range(1, sheet.nrows):
 
     if not line_number and cells:
         # The all-caps description of the table
-        one_row['table_title'] = title.encode('utf8')
+        table['table_title'] = title.encode('utf8')
         # ... this row also includes the subject area text
-        one_row['subject_area'] = subject_area.strip()
+        table['subject_area'] = subject_area.strip()
 
-        external_shell_lookup = read_shell(one_row['table_id'])
+        external_shell_lookup = read_shell(table['table_id'])
     elif not line_number and not cells and title.lower().startswith('universe:'):
-        one_row['universe'] = title[11:].strip()
+        table['universe'] = title[11:].strip()
     elif line_number:
-        one_row['line_number'] = line_number
+        row = {}
+        row['line_number'] = line_number
+        row['table_id'] = table['table_id']
+        row['sequence_number'] = table['sequence_number']
 
         line_number_str = str(line_number)
         if line_number_str.endswith('.7') or line_number_str.endswith('.5'):
             # This is a subhead (not an actual data column), so we'll have to synthesize a column_id
-            one_row['column_id'] = "%s%05.1f" % (one_row['table_id'], line_number)
+            row['column_id'] = "%s%05.1f" % (row['table_id'], line_number)
         else:
-            one_row['column_id'] = '%s%03d' % (one_row['table_id'], line_number)
-        one_row['column_title'] = title.encode('utf8')
+            row['column_id'] = '%s%03d' % (row['table_id'], line_number)
+        row['column_title'] = title.encode('utf8')
 
-        column_info = external_shell_lookup.get(one_row['column_id'])
+        column_info = external_shell_lookup.get(row['column_id'])
         if column_info:
-            one_row['indent'] = column_info['indent']
-            one_row['parent_column_id'] = column_info['parent_column_id']
+            row['indent'] = column_info['indent']
+            row['parent_column_id'] = column_info['parent_column_id']
 
-        csvfile.writerow(one_row)
+        rows.append(row)
