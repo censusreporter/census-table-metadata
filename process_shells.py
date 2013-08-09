@@ -108,7 +108,7 @@ for r in range(1, sheet.nrows):
             table['subject_area'] = sqn_data[1]
     elif not line_number and title.lower().startswith('universe:'):
         # TODO Need to be better about this split here
-        table['universe'] = title[11:]
+        table['universe'] = title.split(':')[-1].strip()
     elif line_number and (r_data[1].ctype == 2) and title:
         row = {}
         row['line_number'] = line_number
