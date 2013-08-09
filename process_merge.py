@@ -76,6 +76,7 @@ table_metadata_fieldnames = [
     'table_id',
     'sequence_number',
     'table_title',
+    'simple_table_title',
     'subject_area',
     'universe'
 ]
@@ -118,6 +119,28 @@ def clean_table_name(table_name):
         table_name = re.sub(problem,fix,table_name)
     return table_name.strip()
 
+COLLOQUIAL_REPLACEMENTS = [
+    (re.compile(r'in the Past 12 Months'),''),
+    (re.compile(r'\(In \d{4} Inflation-adjusted Dollars\)',re.IGNORECASE),''),
+    (re.compile('for the Population \d+ Years and Over',re.IGNORECASE), ''),
+    (re.compile('Civilian Employed Population 16 Years and Over',re.IGNORECASE),'Civilian Population'),
+    (re.compile(r'((grand)?children) Under 18 Years',re.IGNORECASE),r'\1'),
+    (re.compile(r'Women \d+ to \d+ Years Who Had a Birth'),'Women Who Had a Birth'),
+    (re.compile(r'Field of Bachelor\'s Degree for First Major the Population 25 Years and Over',re.IGNORECASE),'Field of Bachelor\'s Degree for First Major'),
+    (re.compile(r'Married Population 15 Years and Over',re.IGNORECASE),'Married Population'),
+    (re.compile(r'Population 16 Years and Over',re.IGNORECASE),'Population'), # seems to always have to do with employment, where I think we can take the age for granted
+    (re.compile(r'Place of Work for Workers 16 Years and Over',re.IGNORECASE),'Place of Work'),
+    (re.compile(r'For Workplace Geography',re.IGNORECASE),''),
+    (re.compile(r'\(In Minutes\)',re.IGNORECASE),''),
+]
+
+def simplified_table_name(table_name):
+    """Make some editorial choices about how to simplify table names for more casual use"""
+    for regexp,substitution in COLLOQUIAL_REPLACEMENTS:
+        table_name = re.sub(regexp,substitution,table_name)
+    table_name = re.sub('\s+',' ',table_name)
+    return table_name.strip()
+
 table = {}
 rows = []
 for r in range(1, sheet.nrows):
@@ -139,6 +162,7 @@ for r in range(1, sheet.nrows):
     if not line_number and cells:
         # The all-caps description of the table
         table['table_title'] = clean_table_name(title).encode('utf8')
+        table['simple_table_title'] = simplified_table_name(table['table_title'])
         # ... this row also includes the subject area text
         table['subject_area'] = subject_area.strip()
 
