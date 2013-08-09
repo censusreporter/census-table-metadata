@@ -87,6 +87,21 @@ table_metadata_fieldnames = [
 table_csv = csv.DictWriter(open("%s/census_table_metadata.csv" % root_dir, 'w'), table_metadata_fieldnames)
 table_csv.writeheader()
 
+topic_fieldnames = [
+    'topic_id',
+    'topic'
+]
+topics_csv = csv.DictWriter(open("%s/census_topics.csv" % root_dir, 'w'), topic_fieldnames)
+topics_csv.writeheader()
+
+table_topic_fieldnames = [
+    'table_id',
+    'sequence_number',
+    'topic_id'
+]
+table_topics_csv = csv.DictWriter(open("%s/census_table_topics.csv" % root_dir, 'w'), table_topic_fieldnames)
+table_topics_csv.writeheader()
+
 column_metadata_fieldnames = [
     'table_id',
     'sequence_number',
@@ -145,14 +160,173 @@ def simplified_table_name(table_name):
     table_name = re.sub('\s+',' ',table_name)
     return table_name.strip()
 
+SUBJECT_AREA_TO_TOPICS = {
+    'Age-Sex': 'age, sex',
+    'Hispanic Origin': 'race',
+    'Race': 'race',
+
+    'Earnings': 'income',
+    'Employment Status': 'employment',
+    'Health Insurance': 'health insurance',
+    'Income': 'income',
+    'Industry-Occupation-Class of Worker': 'employment',
+    'Journey to Work': 'commute',
+    'Poverty': 'poverty',
+    'Transfer Programs': 'public assistance',
+
+    'Ancestry': 'ancestry',
+    'Children - Relationship': 'children',
+    'Disability': 'disability',
+    'Educational Attainment': 'education',
+    'Fertility': 'fertility',
+    'Foreign Birth': 'place of birth',
+    'Grand(Persons) - Age of HH Members': 'children, grandparents',
+    'Households - Families': 'families',
+    'Language': 'language',
+    'Marital Status': 'marital status',
+    'Place of Birth - Native': 'place of birth',
+    'Residence Last Year - Migration': 'migration',
+    'School Enrollment': 'education',
+    'Veteran Status': 'veterans',
+
+    'Housing': 'housing',
+    'Unweighted Count': 'technical',
+    'Group Quarters': 'group quarters',
+    'Quality Measures': 'technical',
+    'Imputations': 'technical',
+}
+
+TABLE_NAME_TEXT_TO_TOPICS = {
+    'ancestry': 'ancestry',
+    'race': 'race',
+    'total population': 'age, sex',
+    'children': 'children',
+    'disability': 'disability',
+    'bachelor\'s degree': 'education',
+    'education': 'education',
+    'school': 'education',
+    'employ': 'employment',
+    'occupation': 'employment',
+    'work': 'employment',
+    'families': 'families',
+    'family': 'families',
+    'grandparent': 'grandparents',
+    'health insurance': 'health insurance',
+    'living arrang': 'families',
+    'household': 'families',
+    'earnings': 'income',
+    'income': 'income',
+    'geographical mobility': 'migration',
+    'poverty': 'poverty',
+    'food stamps': 'public assistance',
+    'public assistance': 'public assistance',
+    '65 years and over': 'seniors',
+    'va health care': 'veterans',
+    'veteran': 'veterans',
+    'means of transportation': 'commute',
+    'travel time': 'commute',
+    'vehicles': 'commute',
+    'workplace geography': 'commute',
+    'time leaving home': 'commute',
+    'imputation': 'technical',
+    'unweighted': 'technical',
+    'coverage rate': 'technical',
+    'nonresponse rate': 'technical',
+    'movers': 'migration',
+    'place of work': 'commute',
+    'workers': 'employment',
+    'group quarters': 'group quarters',
+    'had a birth': 'fertility',
+    'income deficit': 'poverty',
+    'difficulty': 'disability',
+    'disabilities': 'disability',
+    'tricare': 'health insurance',
+    'medicare': 'health insurance',
+    'medicaid': 'health insurance',
+    'va health care': 'health insurance',
+    'gross rent': 'costs and value',
+    'contract rent': 'costs and value',
+    'rent asked': 'costs and value',
+    'price asked': 'costs and value',
+    'value': 'costs and value',
+    'utilities': 'costs and value',
+    'costs': 'costs and value',
+    'real estate taxes': 'costs and value',
+    'rooms': 'physical characteristics', # including bedrooms
+    'facilities': 'physical characteristics',
+    'heating': 'physical characteristics',
+    'units in structure': 'physical characteristics',
+    'year structure built': 'physical characteristics',
+    'tenure': 'tenure',
+    'moved into unit': 'tenure',
+    'occupan': 'occupancy', # add vacancy to topic?
+    'vacan': 'occupancy',
+    'mortgage': 'mortgage',
+    'under 18 years': 'children',
+    'family type': 'families',
+    'household': 'families',
+}
+
+TABLE_NAME_TEXT_TO_FACETS = {
+    'by age': 'age',
+    'age by': 'age',
+    'citizenship': 'citizenship',
+    'naturalization': 'citizenship, place of birth',
+    'by famil': 'family type',
+    'by sex': 'sex',
+    'sex by': 'sex',
+    # 'by household': 'household type',
+    # 'household type by': 'household type',
+    'language': 'language',
+    'marriage': 'marital status',
+    'marital': 'marital status',
+    'nativity': 'place of birth',
+    'place of birth': 'place of birth',
+    'by relationship': 'relationship type',
+    '(white': 'race',
+    '(black': 'race',
+    'american indian': 'race',
+    'asian alone': 'race',
+    'alaska native': 'race',
+    'native hawaiian': 'race',
+    'some other race': 'race',
+    'two or more races': 'race',
+    'hispanic': 'race',
+}
+
+next_topic_id = 0
+def add_autoinc_id(container, new_entry):
+    global next_topic_id
+    if new_entry not in container:
+        topics[new_entry] = next_topic_id
+        next_topic_id += 1
+
+    return dict(topic_id=container[new_entry], topic=new_entry)
+
+def build_topics(table):
+    table_name = table['table_title']
+    subject_area = table['subject_area']
+    all_areas = set()
+    if subject_area:
+        all_areas.update(map(lambda x: x.strip(),SUBJECT_AREA_TO_TOPICS[subject_area].split(',')))
+    for k,v in TABLE_NAME_TEXT_TO_TOPICS.items():
+        if k in table_name.lower():
+            all_areas.update(map(lambda x: x.strip(),v.split(',')))
+    for k,v in TABLE_NAME_TEXT_TO_FACETS.items():
+        if k in table_name.lower():
+            all_areas.update(map(lambda x:x.strip(),v.split(',')))
+    return map(lambda x: add_autoinc_id(topics, x.strip()), all_areas)
+
+topics = {}
+this_tables_topics = set()
 table = {}
 rows = []
 for r in range(1, sheet.nrows):
     r_data = sheet.row(r)
 
     # The column names seem to change between releases but their order doesn't
-    table['table_id'] = r_data[1].value.strip()
-    table['sequence_number'] = int(r_data[2].value)
+    table_id = r_data[1].value.strip()
+    sequence_number = int(r_data[2].value)
     line_number = r_data[3].value
     position = r_data[4].value
     cells = r_data[5].value
@@ -164,11 +338,23 @@ for r in range(1, sheet.nrows):
     subject_area = r_data[8].value
 
     if not line_number and cells:
+        # Write out the previous table's data
+        if table:
+            table_csv.writerow(table)
+            table_topics_csv.writerows([dict(table_id=table['table_id'], sequence_number=table['sequence_number'], topic_id=topic['topic_id']) for topic in build_topics(table)])
+            column_csv.writerows(rows)
+            table = {}
+            this_tables_topics = set()
+            rows = []
+
         # The all-caps description of the table
         table['table_title'] = clean_table_name(title).encode('utf8')
         table['simple_table_title'] = simplified_table_name(table['table_title'])
         # ... this row also includes the subject area text
         table['subject_area'] = subject_area.strip()
+
+        table['table_id'] = table_id
+        table['sequence_number'] = sequence_number
 
         external_shell_lookup = read_shell(table['table_id'])
     elif not line_number and not cells and title.lower().startswith('universe:'):
@@ -193,3 +379,15 @@ for r in range(1, sheet.nrows):
             row['parent_column_id'] = column_info['parent_column_id']
 
         rows.append(row)
+
+# Write out the last table's data
+if table:
+    table_csv.writerow(table)
+    table_topics_csv.writerows([dict(table_id=table['table_id'], sequence_number=table['sequence_number'], topic_id=topic['topic_id']) for topic in build_topics(table)])
+    column_csv.writerows(rows)
+    table = {}
+    this_tables_topics = set()
+    rows = []
+
+# Write out the topic data
+topics_csv.writerows([dict(topic_id=topic_id, topic=topic) for (topic, topic_id) in topics.iteritems()])
