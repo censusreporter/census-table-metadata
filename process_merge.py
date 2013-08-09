@@ -48,6 +48,10 @@ def read_shell(table_id):
 
             cell = sheet.cell(r, 2)
             indent = xlsfile.xf_list[cell.xf_index].alignment.indent_level
+            if not indent and cell.value.startswith('  '):
+                # In the 2008 shells they show the indent level with two spaces instead of XLS indents
+                (spaces, table_name) = re.search('^([  ]*)(.*)$', cell.value).groups()
+                indent = len(spaces) / 2
 
             hierarchy_stack[indent] = column_id
             parent_column_id = None
