@@ -1,9 +1,15 @@
 '''
-Processes the merge_5_6.xls (renamed Sequence_Number_and_Table_Number_Lookup.xls
-in 2009 3yr ACS and beyond) into a CSV with metadata about each column in the dataset.
+Processes the merge_5_6.xls from 2007 and 2008 vintage ACS releases into a CSV
+with metadata about each column in the dataset.
 
-There's not enough information about hierarchy in the merge_5_6.xls files, so those
-columns are left blank in the output of this script.
+There's not enough information about hierarchy in the merge_5_6.xls files, so the
+second argument is the base directory containing the shell files for each table
+as found in on the Census website [0].
+
+Run as follows:
+    python process_merge.py acs2007_1yr_merge_5_6.xls acs2007_shells
+
+[0] http://www2.census.gov/acs/downloads/shells/2007/Detailed_Tables/
 '''
 
 import csv
