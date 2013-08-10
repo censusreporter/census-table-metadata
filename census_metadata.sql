@@ -31,7 +31,7 @@ CREATE TABLE acs2007_1yr.census_column_metadata (
     column_title text,
     indent smallint,
     parent_column_id varchar(16),
-    PRIMARY KEY (column_id)
+    PRIMARY KEY (column_id, sequence_number)
 )
 WITH (autovacuum_enabled = FALSE);
 
@@ -68,7 +68,7 @@ CREATE TABLE acs2007_3yr.census_column_metadata (
     column_title text,
     indent smallint,
     parent_column_id varchar(16),
-    PRIMARY KEY (column_id)
+    PRIMARY KEY (column_id, sequence_number)
 )
 WITH (autovacuum_enabled = FALSE);
 
@@ -105,7 +105,7 @@ CREATE TABLE acs2008_1yr.census_column_metadata (
     column_title text,
     indent smallint,
     parent_column_id varchar(16),
-    PRIMARY KEY (column_id)
+    PRIMARY KEY (column_id, sequence_number)
 )
 WITH (autovacuum_enabled = FALSE);
 
@@ -142,7 +142,7 @@ CREATE TABLE acs2008_3yr.census_column_metadata (
     column_title text,
     indent smallint,
     parent_column_id varchar(16),
-    PRIMARY KEY (column_id)
+    PRIMARY KEY (column_id, sequence_number)
 )
 WITH (autovacuum_enabled = FALSE);
 
@@ -179,7 +179,7 @@ CREATE TABLE acs2009_1yr.census_column_metadata (
     column_title text,
     indent smallint,
     parent_column_id varchar(16),
-    PRIMARY KEY (column_id)
+    PRIMARY KEY (column_id, sequence_number)
 )
 WITH (autovacuum_enabled = FALSE);
 
@@ -216,7 +216,7 @@ CREATE TABLE acs2009_3yr.census_column_metadata (
     column_title text,
     indent smallint,
     parent_column_id varchar(16),
-    PRIMARY KEY (column_id)
+    PRIMARY KEY (column_id, sequence_number)
 )
 WITH (autovacuum_enabled = FALSE);
 
@@ -253,7 +253,7 @@ CREATE TABLE acs2010_1yr.census_column_metadata (
     column_title text,
     indent smallint,
     parent_column_id varchar(16),
-    PRIMARY KEY (column_id)
+    PRIMARY KEY (column_id, sequence_number)
 )
 WITH (autovacuum_enabled = FALSE);
 
@@ -290,7 +290,7 @@ CREATE TABLE acs2010_3yr.census_column_metadata (
     column_title text,
     indent smallint,
     parent_column_id varchar(16),
-    PRIMARY KEY (column_id)
+    PRIMARY KEY (column_id, sequence_number)
 )
 WITH (autovacuum_enabled = FALSE);
 
@@ -327,7 +327,7 @@ CREATE TABLE acs2010_5yr.census_column_metadata (
     column_title text,
     indent smallint,
     parent_column_id varchar(16),
-    PRIMARY KEY (column_id)
+    PRIMARY KEY (column_id, sequence_number)
 )
 WITH (autovacuum_enabled = FALSE);
 
@@ -364,7 +364,7 @@ CREATE TABLE acs2011_1yr.census_column_metadata (
     column_title text,
     indent smallint,
     parent_column_id varchar(16),
-    PRIMARY KEY (column_id)
+    PRIMARY KEY (column_id, sequence_number)
 )
 WITH (autovacuum_enabled = FALSE);
 
@@ -401,7 +401,7 @@ CREATE TABLE acs2011_3yr.census_column_metadata (
     column_title text,
     indent smallint,
     parent_column_id varchar(16),
-    PRIMARY KEY (column_id)
+    PRIMARY KEY (column_id, sequence_number)
 )
 WITH (autovacuum_enabled = FALSE);
 
@@ -438,6 +438,6 @@ CREATE TABLE acs2011_5yr.census_column_metadata (
     column_title text,
     indent smallint,
     parent_column_id varchar(16),
-    PRIMARY KEY (column_id)
+    PRIMARY KEY (column_id, sequence_number)
 )
 WITH (autovacuum_enabled = FALSE);
