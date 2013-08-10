@@ -35,6 +35,7 @@ second argument is the base directory containing the shell files for each table
 as found in [on the Census website](http://www2.census.gov/acs/downloads/shells/2007/Detailed_Tables/).
 
 Run as follows:
+
     python process_merge.py acs2007_1yr_merge_5_6.xls acs2007_shells
 
 ### process_shells.py ###
@@ -50,7 +51,7 @@ http://www2.census.gov/acs2009_1yr/summaryfile/
 Then run this script with the filename of the `TableShells` and `merge_5_6.xls`
 file you downloaded.
 
->> python process_shells.py ACS2009TableShells.xls merge_5_6.xls
+    python process_shells.py ACS2009TableShells.xls merge_5_6.xls
 
 This will write a `metadata` csv alongside the `TableShells` file with information
 about each column in each table.
