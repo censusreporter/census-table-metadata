@@ -34,7 +34,7 @@ CREATE TABLE acs2007_1yr.census_column_metadata (
     indent smallint,
     parent_column_id varchar(16),
     PRIMARY KEY (column_id),
-    FOREIGN KEY (table_id, sequence_number) REFERENCES cacs2007_1yr.ensus_table_metadata (table_id, sequence_number)
+    FOREIGN KEY (table_id, sequence_number) REFERENCES acs2007_1yr.ensus_table_metadata (table_id, sequence_number)
 )
 WITH (autovacuum_enabled = FALSE);
 
