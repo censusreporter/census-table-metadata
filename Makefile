@@ -17,20 +17,18 @@ all: \
 
 acs2007_shells/:
 	mkdir acs2007_shells
-	cd acs2007_shells
-	wget -q "http://www2.census.gov/acs/downloads/shells/2007/Detailed_Tables/" --no-parent --accept="*.xls" --recursive -nH --cut-dirs=5
-	rm -f robots.txt
-	cd ..
+	wget -q "http://www2.census.gov/acs/downloads/shells/2007/Detailed_Tables/" --no-parent --accept="*.xls" --recursive -nH --cut-dirs=5 -P acs2007_shells
+	rm -f acs2007_shells/robots.txt
+	# CENNSSUUUSS!!
+	mv "acs2007_shells/B19113 .xls" "acs2007_shells/B19113.xls"
 
 acs2007_1yr_merge_5_6.xls:
 	curl -f "http://www2.census.gov/acs2007_1yr/summaryfile/merge_5_6_final.xls" -o acs2007_1yr_merge_5_6.xls
 
 acs2008_shells/:
 	mkdir acs2008_shells
-	cd acs2008_shells
-	wget -q "http://www2.census.gov/acs/downloads/shells/2008/Detailed_Tables/" --no-parent --accept="*.xls" --recursive -nH --cut-dirs=5
-	rm -f robots.txt
-	cd ..
+	wget -q "http://www2.census.gov/acs/downloads/shells/2008/Detailed_Tables/" --no-parent --accept="*.xls" --recursive -nH --cut-dirs=5 -P acs2008_shells
+	rm -f acs2008_shells/robots.txt
 
 acs2007_3yr_merge_5_6.xls:
 	curl -f "http://www2.census.gov/acs2007_3yr/summaryfile/merge_5_6_final.xls" -o acs2007_3yr_merge_5_6.xls
