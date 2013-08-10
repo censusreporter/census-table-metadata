@@ -17219,7 +17219,7 @@ B19101I,89,14.0,B19101I014,"$100,000 to $124,999",1,B19101I001
 B19101I,89,15.0,B19101I015,"$125,000 to $149,999",1,B19101I001
 B19101I,89,16.0,B19101I016,"$150,000 to $199,999",1,B19101I001
 B19101I,89,17.0,B19101I017,"$200,000 or more",1,B19101I001
-B19113,89,1.0,B19113001,Median family income in the past 12 months (in 2007 inflation-adjusted dollars),,
+B19113,89,1.0,B19113001,Median family income in the past 12 months (in 2007 inflation-adjusted dollars),0,
 B19113A,89,1.0,B19113A001,Median family income in the past 12 months (in 2007 inflation-adjusted dollars),0,
 B19113B,89,1.0,B19113B001,Median family income in the past 12 months (in 2007 inflation-adjusted dollars),0,
 B19113C,89,1.0,B19113C001,Median family income in the past 12 months (in 2007 inflation-adjusted dollars),0,
