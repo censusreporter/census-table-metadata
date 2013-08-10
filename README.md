@@ -6,6 +6,9 @@ based on sequence lookup and table shell files.
 
 ### Usage ###
 
+You can use the CSV files inside the `precomputed` directory or build them
+yourself with the `make` command:
+
 Set up a virtualenv with the requirements and then run `make`. You'll end up
 with the ACS table metadata downloaded and parsed into CSV appropriate for
 loading in to a PostgreSQL schema:
