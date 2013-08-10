@@ -22,7 +22,6 @@ CREATE TABLE acs2007_1yr.census_table_topics (
     topic_id smallint
 )
 WITH (autovacuum_enabled = FALSE);
-CREATE INDEX ON acs2007_1yr.census_table_topics (table_id, sequence_number);
 CREATE TABLE acs2007_1yr.census_column_metadata (
     table_id varchar(10),
     sequence_number smallint,
@@ -34,6 +33,9 @@ CREATE TABLE acs2007_1yr.census_column_metadata (
     PRIMARY KEY (column_id, sequence_number)
 )
 WITH (autovacuum_enabled = FALSE);
+CREATE INDEX ON acs2007_1yr.census_table_topics (table_id, sequence_number);
+CREATE INDEX ON acs2007_1yr.census_table_metadata (lower(table_title) text_pattern_ops);
+CREATE INDEX ON acs2007_1yr.census_column_metadata (lower(column_title) text_pattern_ops);
 
 CREATE TABLE acs2007_3yr.census_table_metadata (
     table_id varchar(10),
@@ -59,7 +61,6 @@ CREATE TABLE acs2007_3yr.census_table_topics (
     topic_id smallint
 )
 WITH (autovacuum_enabled = FALSE);
-CREATE INDEX ON acs2007_3yr.census_table_topics (table_id, sequence_number);
 CREATE TABLE acs2007_3yr.census_column_metadata (
     table_id varchar(10),
     sequence_number smallint,
@@ -71,6 +72,9 @@ CREATE TABLE acs2007_3yr.census_column_metadata (
     PRIMARY KEY (column_id, sequence_number)
 )
 WITH (autovacuum_enabled = FALSE);
+CREATE INDEX ON acs2007_3yr.census_table_topics (table_id, sequence_number);
+CREATE INDEX ON acs2007_3yr.census_table_metadata (lower(table_title) text_pattern_ops);
+CREATE INDEX ON acs2007_3yr.census_column_metadata (lower(column_title) text_pattern_ops);
 
 CREATE TABLE acs2008_1yr.census_table_metadata (
     table_id varchar(10),
@@ -96,7 +100,6 @@ CREATE TABLE acs2008_1yr.census_table_topics (
     topic_id smallint
 )
 WITH (autovacuum_enabled = FALSE);
-CREATE INDEX ON acs2008_1yr.census_table_topics (table_id, sequence_number);
 CREATE TABLE acs2008_1yr.census_column_metadata (
     table_id varchar(10),
     sequence_number smallint,
@@ -108,6 +111,9 @@ CREATE TABLE acs2008_1yr.census_column_metadata (
     PRIMARY KEY (column_id, sequence_number)
 )
 WITH (autovacuum_enabled = FALSE);
+CREATE INDEX ON acs2008_1yr.census_table_topics (table_id, sequence_number);
+CREATE INDEX ON acs2008_1yr.census_table_metadata (lower(table_title) text_pattern_ops);
+CREATE INDEX ON acs2008_1yr.census_column_metadata (lower(column_title) text_pattern_ops);
 
 CREATE TABLE acs2008_3yr.census_table_metadata (
     table_id varchar(10),
@@ -133,7 +139,6 @@ CREATE TABLE acs2008_3yr.census_table_topics (
     topic_id smallint
 )
 WITH (autovacuum_enabled = FALSE);
-CREATE INDEX ON acs2008_3yr.census_table_topics (table_id, sequence_number);
 CREATE TABLE acs2008_3yr.census_column_metadata (
     table_id varchar(10),
     sequence_number smallint,
@@ -145,6 +150,9 @@ CREATE TABLE acs2008_3yr.census_column_metadata (
     PRIMARY KEY (column_id, sequence_number)
 )
 WITH (autovacuum_enabled = FALSE);
+CREATE INDEX ON acs2008_3yr.census_table_topics (table_id, sequence_number);
+CREATE INDEX ON acs2008_3yr.census_table_metadata (lower(table_title) text_pattern_ops);
+CREATE INDEX ON acs2008_3yr.census_column_metadata (lower(column_title) text_pattern_ops);
 
 CREATE TABLE acs2009_1yr.census_table_metadata (
     table_id varchar(10),
@@ -170,7 +178,6 @@ CREATE TABLE acs2009_1yr.census_table_topics (
     topic_id smallint
 )
 WITH (autovacuum_enabled = FALSE);
-CREATE INDEX ON acs2009_1yr.census_table_topics (table_id, sequence_number);
 CREATE TABLE acs2009_1yr.census_column_metadata (
     table_id varchar(10),
     sequence_number smallint,
@@ -182,6 +189,9 @@ CREATE TABLE acs2009_1yr.census_column_metadata (
     PRIMARY KEY (column_id, sequence_number)
 )
 WITH (autovacuum_enabled = FALSE);
+CREATE INDEX ON acs2009_1yr.census_table_topics (table_id, sequence_number);
+CREATE INDEX ON acs2009_1yr.census_table_metadata (lower(table_title) text_pattern_ops);
+CREATE INDEX ON acs2009_1yr.census_column_metadata (lower(column_title) text_pattern_ops);
 
 CREATE TABLE acs2009_3yr.census_table_metadata (
     table_id varchar(10),
@@ -207,7 +217,6 @@ CREATE TABLE acs2009_3yr.census_table_topics (
     topic_id smallint
 )
 WITH (autovacuum_enabled = FALSE);
-CREATE INDEX ON acs2009_3yr.census_table_topics (table_id, sequence_number);
 CREATE TABLE acs2009_3yr.census_column_metadata (
     table_id varchar(10),
     sequence_number smallint,
@@ -219,6 +228,9 @@ CREATE TABLE acs2009_3yr.census_column_metadata (
     PRIMARY KEY (column_id, sequence_number)
 )
 WITH (autovacuum_enabled = FALSE);
+CREATE INDEX ON acs2009_3yr.census_table_topics (table_id, sequence_number);
+CREATE INDEX ON acs2009_3yr.census_table_metadata (lower(table_title) text_pattern_ops);
+CREATE INDEX ON acs2009_3yr.census_column_metadata (lower(column_title) text_pattern_ops);
 
 CREATE TABLE acs2010_1yr.census_table_metadata (
     table_id varchar(10),
@@ -244,7 +256,6 @@ CREATE TABLE acs2010_1yr.census_table_topics (
     topic_id smallint
 )
 WITH (autovacuum_enabled = FALSE);
-CREATE INDEX ON acs2010_1yr.census_table_topics (table_id, sequence_number);
 CREATE TABLE acs2010_1yr.census_column_metadata (
     table_id varchar(10),
     sequence_number smallint,
@@ -256,6 +267,9 @@ CREATE TABLE acs2010_1yr.census_column_metadata (
     PRIMARY KEY (column_id, sequence_number)
 )
 WITH (autovacuum_enabled = FALSE);
+CREATE INDEX ON acs2010_1yr.census_table_topics (table_id, sequence_number);
+CREATE INDEX ON acs2010_1yr.census_table_metadata (lower(table_title) text_pattern_ops);
+CREATE INDEX ON acs2010_1yr.census_column_metadata (lower(column_title) text_pattern_ops);
 
 CREATE TABLE acs2010_3yr.census_table_metadata (
     table_id varchar(10),
@@ -281,7 +295,6 @@ CREATE TABLE acs2010_3yr.census_table_topics (
     topic_id smallint
 )
 WITH (autovacuum_enabled = FALSE);
-CREATE INDEX ON acs2010_3yr.census_table_topics (table_id, sequence_number);
 CREATE TABLE acs2010_3yr.census_column_metadata (
     table_id varchar(10),
     sequence_number smallint,
@@ -293,6 +306,9 @@ CREATE TABLE acs2010_3yr.census_column_metadata (
     PRIMARY KEY (column_id, sequence_number)
 )
 WITH (autovacuum_enabled = FALSE);
+CREATE INDEX ON acs2010_3yr.census_table_topics (table_id, sequence_number);
+CREATE INDEX ON acs2010_3yr.census_table_metadata (lower(table_title) text_pattern_ops);
+CREATE INDEX ON acs2010_3yr.census_column_metadata (lower(column_title) text_pattern_ops);
 
 CREATE TABLE acs2010_5yr.census_table_metadata (
     table_id varchar(10),
@@ -318,7 +334,6 @@ CREATE TABLE acs2010_5yr.census_table_topics (
     topic_id smallint
 )
 WITH (autovacuum_enabled = FALSE);
-CREATE INDEX ON acs2010_5yr.census_table_topics (table_id, sequence_number);
 CREATE TABLE acs2010_5yr.census_column_metadata (
     table_id varchar(10),
     sequence_number smallint,
@@ -330,6 +345,9 @@ CREATE TABLE acs2010_5yr.census_column_metadata (
     PRIMARY KEY (column_id, sequence_number)
 )
 WITH (autovacuum_enabled = FALSE);
+CREATE INDEX ON acs2010_5yr.census_table_topics (table_id, sequence_number);
+CREATE INDEX ON acs2010_5yr.census_table_metadata (lower(table_title) text_pattern_ops);
+CREATE INDEX ON acs2010_5yr.census_column_metadata (lower(column_title) text_pattern_ops);
 
 CREATE TABLE acs2011_1yr.census_table_metadata (
     table_id varchar(10),
@@ -355,7 +373,6 @@ CREATE TABLE acs2011_1yr.census_table_topics (
     topic_id smallint
 )
 WITH (autovacuum_enabled = FALSE);
-CREATE INDEX ON acs2011_1yr.census_table_topics (table_id, sequence_number);
 CREATE TABLE acs2011_1yr.census_column_metadata (
     table_id varchar(10),
     sequence_number smallint,
@@ -367,6 +384,9 @@ CREATE TABLE acs2011_1yr.census_column_metadata (
     PRIMARY KEY (column_id, sequence_number)
 )
 WITH (autovacuum_enabled = FALSE);
+CREATE INDEX ON acs2011_1yr.census_table_topics (table_id, sequence_number);
+CREATE INDEX ON acs2011_1yr.census_table_metadata (lower(table_title) text_pattern_ops);
+CREATE INDEX ON acs2011_1yr.census_column_metadata (lower(column_title) text_pattern_ops);
 
 CREATE TABLE acs2011_3yr.census_table_metadata (
     table_id varchar(10),
@@ -392,7 +412,6 @@ CREATE TABLE acs2011_3yr.census_table_topics (
     topic_id smallint
 )
 WITH (autovacuum_enabled = FALSE);
-CREATE INDEX ON acs2011_3yr.census_table_topics (table_id, sequence_number);
 CREATE TABLE acs2011_3yr.census_column_metadata (
     table_id varchar(10),
     sequence_number smallint,
@@ -404,6 +423,9 @@ CREATE TABLE acs2011_3yr.census_column_metadata (
     PRIMARY KEY (column_id, sequence_number)
 )
 WITH (autovacuum_enabled = FALSE);
+CREATE INDEX ON acs2011_3yr.census_table_topics (table_id, sequence_number);
+CREATE INDEX ON acs2011_3yr.census_table_metadata (lower(table_title) text_pattern_ops);
+CREATE INDEX ON acs2011_3yr.census_column_metadata (lower(column_title) text_pattern_ops);
 
 CREATE TABLE acs2011_5yr.census_table_metadata (
     table_id varchar(10),
@@ -429,7 +451,6 @@ CREATE TABLE acs2011_5yr.census_table_topics (
     topic_id smallint
 )
 WITH (autovacuum_enabled = FALSE);
-CREATE INDEX ON acs2011_5yr.census_table_topics (table_id, sequence_number);
 CREATE TABLE acs2011_5yr.census_column_metadata (
     table_id varchar(10),
     sequence_number smallint,
@@ -441,3 +462,6 @@ CREATE TABLE acs2011_5yr.census_column_metadata (
     PRIMARY KEY (column_id, sequence_number)
 )
 WITH (autovacuum_enabled = FALSE);
+CREATE INDEX ON acs2011_5yr.census_table_topics (table_id, sequence_number);
+CREATE INDEX ON acs2011_5yr.census_table_metadata (lower(table_title) text_pattern_ops);
+CREATE INDEX ON acs2011_5yr.census_column_metadata (lower(column_title) text_pattern_ops);
