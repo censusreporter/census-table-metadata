@@ -15,6 +15,31 @@ all: \
 	precomputed/acs2011_3yr/census_table_metadata.csv \
 	precomputed/acs2011_5yr/census_table_metadata.csv
 
+clean:
+	rm -rf acs2007_shells/ \
+		acs2008_shells/ \
+		precomputed/ \
+		acs2007_1yr_merge_5_6.xls \
+		acs2007_3yr_merge_5_6.xls \
+		acs2008_1yr_merge_5_6.xls \
+		acs2008_3yr_merge_5_6.xls \
+		acs2009_1yr_merge_5_6.xls \
+		acs2009_1yr_table_shells.xls \
+		acs2009_3yr_merge_5_6.xls \
+		acs2009_3yr_table_shells.xls \
+		acs2010_1yr_merge_5_6.xls \
+		acs2010_1yr_table_shells.xls \
+		acs2010_3yr_merge_5_6.xls \
+		acs2010_3yr_table_shells.xls \
+		acs2010_5yr_merge_5_6.xls \
+		acs2010_5yr_table_shells.xls \
+		acs2011_1yr_merge_5_6.xls \
+		acs2011_1yr_table_shells.xls \
+		acs2011_3yr_merge_5_6.xls \
+		acs2011_3yr_table_shells.xls \
+		acs2011_5yr_merge_5_6.xls \
+		acs2011_5yr_table_shells.xls
+
 acs2007_shells/:
 	mkdir acs2007_shells
 	wget -q "http://www2.census.gov/acs/downloads/shells/2007/Detailed_Tables/" --no-parent --accept="*.xls" --recursive -nH --cut-dirs=5 -P acs2007_shells
