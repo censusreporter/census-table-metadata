@@ -10,16 +10,14 @@ CREATE TABLE acs2007_1yr.census_table_metadata (
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2007_1yr.census_topics (
-    topic_id smallint,
     topic text,
-    PRIMARY KEY (topic_id),
-    UNIQUE (topic)
+    PRIMARY KEY (topic)
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2007_1yr.census_table_topics (
     table_id varchar(10),
     sequence_number smallint,
-    topic_id smallint
+    topic text
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2007_1yr.census_column_metadata (
@@ -49,16 +47,14 @@ CREATE TABLE acs2007_3yr.census_table_metadata (
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2007_3yr.census_topics (
-    topic_id smallint,
     topic text,
-    PRIMARY KEY (topic_id),
-    UNIQUE (topic)
+    PRIMARY KEY (topic)
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2007_3yr.census_table_topics (
     table_id varchar(10),
     sequence_number smallint,
-    topic_id smallint
+    topic text
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2007_3yr.census_column_metadata (
@@ -88,16 +84,14 @@ CREATE TABLE acs2008_1yr.census_table_metadata (
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2008_1yr.census_topics (
-    topic_id smallint,
     topic text,
-    PRIMARY KEY (topic_id),
-    UNIQUE (topic)
+    PRIMARY KEY (topic)
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2008_1yr.census_table_topics (
     table_id varchar(10),
     sequence_number smallint,
-    topic_id smallint
+    topic text
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2008_1yr.census_column_metadata (
@@ -127,16 +121,14 @@ CREATE TABLE acs2008_3yr.census_table_metadata (
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2008_3yr.census_topics (
-    topic_id smallint,
     topic text,
-    PRIMARY KEY (topic_id),
-    UNIQUE (topic)
+    PRIMARY KEY (topic)
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2008_3yr.census_table_topics (
     table_id varchar(10),
     sequence_number smallint,
-    topic_id smallint
+    topic text
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2008_3yr.census_column_metadata (
@@ -166,16 +158,14 @@ CREATE TABLE acs2009_1yr.census_table_metadata (
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2009_1yr.census_topics (
-    topic_id smallint,
     topic text,
-    PRIMARY KEY (topic_id),
-    UNIQUE (topic)
+    PRIMARY KEY (topic)
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2009_1yr.census_table_topics (
     table_id varchar(10),
     sequence_number smallint,
-    topic_id smallint
+    topic text
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2009_1yr.census_column_metadata (
@@ -205,16 +195,14 @@ CREATE TABLE acs2009_3yr.census_table_metadata (
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2009_3yr.census_topics (
-    topic_id smallint,
     topic text,
-    PRIMARY KEY (topic_id),
-    UNIQUE (topic)
+    PRIMARY KEY (topic)
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2009_3yr.census_table_topics (
     table_id varchar(10),
     sequence_number smallint,
-    topic_id smallint
+    topic text
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2009_3yr.census_column_metadata (
@@ -244,16 +232,14 @@ CREATE TABLE acs2010_1yr.census_table_metadata (
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2010_1yr.census_topics (
-    topic_id smallint,
     topic text,
-    PRIMARY KEY (topic_id),
-    UNIQUE (topic)
+    PRIMARY KEY (topic)
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2010_1yr.census_table_topics (
     table_id varchar(10),
     sequence_number smallint,
-    topic_id smallint
+    topic text
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2010_1yr.census_column_metadata (
@@ -283,16 +269,14 @@ CREATE TABLE acs2010_3yr.census_table_metadata (
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2010_3yr.census_topics (
-    topic_id smallint,
     topic text,
-    PRIMARY KEY (topic_id),
-    UNIQUE (topic)
+    PRIMARY KEY (topic)
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2010_3yr.census_table_topics (
     table_id varchar(10),
     sequence_number smallint,
-    topic_id smallint
+    topic text
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2010_3yr.census_column_metadata (
@@ -322,16 +306,14 @@ CREATE TABLE acs2010_5yr.census_table_metadata (
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2010_5yr.census_topics (
-    topic_id smallint,
     topic text,
-    PRIMARY KEY (topic_id),
-    UNIQUE (topic)
+    PRIMARY KEY (topic)
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2010_5yr.census_table_topics (
     table_id varchar(10),
     sequence_number smallint,
-    topic_id smallint
+    topic text
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2010_5yr.census_column_metadata (
@@ -361,16 +343,14 @@ CREATE TABLE acs2011_1yr.census_table_metadata (
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2011_1yr.census_topics (
-    topic_id smallint,
     topic text,
-    PRIMARY KEY (topic_id),
-    UNIQUE (topic)
+    PRIMARY KEY (topic)
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2011_1yr.census_table_topics (
     table_id varchar(10),
     sequence_number smallint,
-    topic_id smallint
+    topic text
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2011_1yr.census_column_metadata (
@@ -400,16 +380,14 @@ CREATE TABLE acs2011_3yr.census_table_metadata (
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2011_3yr.census_topics (
-    topic_id smallint,
     topic text,
-    PRIMARY KEY (topic_id),
-    UNIQUE (topic)
+    PRIMARY KEY (topic)
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2011_3yr.census_table_topics (
     table_id varchar(10),
     sequence_number smallint,
-    topic_id smallint
+    topic text
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2011_3yr.census_column_metadata (
@@ -439,16 +417,14 @@ CREATE TABLE acs2011_5yr.census_table_metadata (
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2011_5yr.census_topics (
-    topic_id smallint,
     topic text,
-    PRIMARY KEY (topic_id),
-    UNIQUE (topic)
+    PRIMARY KEY (topic)
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2011_5yr.census_table_topics (
     table_id varchar(10),
     sequence_number smallint,
-    topic_id smallint
+    topic text
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2011_5yr.census_column_metadata (

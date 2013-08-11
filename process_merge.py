@@ -95,7 +95,6 @@ table_csv = csv.DictWriter(open("%s/census_table_metadata.csv" % root_dir, 'w'),
 table_csv.writeheader()
 
 topic_fieldnames = [
-    'topic_id',
     'topic'
 ]
 topics_csv = csv.DictWriter(open("%s/census_topics.csv" % root_dir, 'w'), topic_fieldnames)
@@ -104,7 +103,7 @@ topics_csv.writeheader()
 table_topic_fieldnames = [
     'table_id',
     'sequence_number',
-    'topic_id'
+    'topic'
 ]
 table_topics_csv = csv.DictWriter(open("%s/census_table_topics.csv" % root_dir, 'w'), table_topic_fieldnames)
 table_topics_csv.writeheader()
@@ -301,15 +300,6 @@ TABLE_NAME_TEXT_TO_FACETS = {
     'hispanic': 'race',
 }
 
-next_topic_id = 0
-def add_autoinc_id(container, new_entry):
-    global next_topic_id
-    if new_entry not in container:
-        topics[new_entry] = next_topic_id
-        next_topic_id += 1
-
-    return dict(topic_id=container[new_entry], topic=new_entry)
-
 def build_topics(table):
     table_name = table['table_title']
     subject_area = table['subject_area']
@@ -322,7 +312,7 @@ def build_topics(table):
     for k,v in TABLE_NAME_TEXT_TO_FACETS.items():
         if k in table_name.lower():
             all_areas.update(map(lambda x:x.strip(),v.split(',')))
-    return map(lambda x: add_autoinc_id(topics, x.strip()), all_areas)
+    return map(lambda x: x.strip(), all_areas)
 
 def find_denominator_column(rows):
     if rows[0]['column_title'].lower().startswith('total'):
@@ -330,7 +320,7 @@ def find_denominator_column(rows):
     else:
         return None
 
-topics = {}
+topics = set()
 this_tables_topics = set()
 table = {}
 rows = []
@@ -355,10 +345,11 @@ for r in range(1, sheet.nrows):
         if table:
             table['denominator_column_id'] = find_denominator_column(rows)
             table_csv.writerow(table)
-            table_topics_csv.writerows([dict(table_id=table['table_id'], sequence_number=table['sequence_number'], topic_id=topic['topic_id']) for topic in build_topics(table)])
+            for topic in build_topics(table):
+                table_topics_csv.writerow(dict(table_id=table['table_id'], sequence_number=table['sequence_number'], topic=topic))
+                topics.add(topic)
             column_csv.writerows(rows)
             table = {}
-            this_tables_topics = set()
             rows = []
 
         # The all-caps description of the table
@@ -398,11 +389,13 @@ for r in range(1, sheet.nrows):
 if table:
     table['denominator_column_id'] = find_denominator_column(rows)
     table_csv.writerow(table)
-    table_topics_csv.writerows([dict(table_id=table['table_id'], sequence_number=table['sequence_number'], topic_id=topic['topic_id']) for topic in build_topics(table)])
+    for topic in build_topics(table):
+        table_topics_csv.writerow(dict(table_id=table['table_id'], sequence_number=table['sequence_number'], topic=topic))
+        topics.add(topic)
     column_csv.writerows(rows)
     table = {}
-    this_tables_topics = set()
     rows = []
 
 # Write out the topic data
-topics_csv.writerows([dict(topic_id=topic_id, topic=topic) for (topic, topic_id) in topics.iteritems()])
+for topic in topics:
+    topics_csv.writerow(dict(topic=topic))
