@@ -270,7 +270,7 @@ TABLE_NAME_TEXT_TO_TOPICS = {
     'mortgage': 'mortgage',
     'under 18 years': 'children',
     'family type': 'families',
-    'household': 'families',
+    'nonfamily': 'roommates',
 }
 
 TABLE_NAME_TEXT_TO_FACETS = {
@@ -288,7 +288,6 @@ TABLE_NAME_TEXT_TO_FACETS = {
     'marital': 'marital status',
     'nativity': 'place of birth',
     'place of birth': 'place of birth',
-    'by relationship': 'relationship type',
     '(white': 'race',
     '(black': 'race',
     'american indian': 'race',
