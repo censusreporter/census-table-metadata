@@ -903,10 +903,8 @@ B09010,50,children
 B09010,50,income
 B09016,50,families
 B09016,50,children
-B09016,50,relationship type
 C09016,50,families
 C09016,50,children
-C09016,50,relationship type
 B09017,50,seniors
 B09017,50,families
 B09017,50,children
@@ -914,7 +912,6 @@ B09018,50,families
 B09018,50,children
 B09019,50,families
 B09019,50,children
-B09019,50,relationship type
 B09020,50,seniors
 B09020,50,families
 B09020,50,children
@@ -1077,9 +1074,11 @@ B11007,53,seniors
 B11007,53,families
 B11009,53,families
 B11009,53,sex
+B11010,53,roommates
 B11010,53,age
 B11010,53,families
 B11010,53,sex
+C11010,53,roommates
 C11010,53,age
 C11010,53,families
 C11010,53,sex
@@ -1091,7 +1090,6 @@ B11013,53,families
 B11013,53,children
 C11013,53,families
 B11014,53,families
-B11014,53,relationship type
 C11014,53,families
 B11015,53,families
 B11016,54,families
@@ -1590,9 +1588,9 @@ B17010A,72,poverty
 B17010A,72,children
 C17010A,74,families
 C17010A,74,family type
+C17010A,74,race
 C17010A,74,poverty
 C17010A,74,children
-C17010A,74,race
 B17010B,72,race
 B17010B,72,families
 B17010B,72,age
@@ -1612,9 +1610,9 @@ B17010C,73,poverty
 B17010C,73,children
 C17010C,74,families
 C17010C,74,family type
+C17010C,74,race
 C17010C,74,poverty
 C17010C,74,children
-C17010C,74,race
 B17010D,73,race
 B17010D,73,families
 B17010D,73,age
@@ -1623,9 +1621,9 @@ B17010D,73,poverty
 B17010D,73,children
 C17010D,74,families
 C17010D,74,family type
-C17010D,74,race
 C17010D,74,poverty
 C17010D,74,children
+C17010D,74,race
 B17010E,73,race
 B17010E,73,families
 B17010E,73,age
@@ -1667,9 +1665,9 @@ B17010H,74,poverty
 B17010H,74,children
 C17010H,74,families
 C17010H,74,family type
+C17010H,74,race
 C17010H,74,poverty
 C17010H,74,children
-C17010H,74,race
 B17010I,74,race
 B17010I,74,families
 B17010I,74,age
@@ -2276,45 +2274,60 @@ C19131,93,family type
 C19131,93,families
 C19131,93,children
 C19131,93,income
+B19201,93,roommates
 B19201,93,families
 B19201,93,income
+C19201,93,roommates
 C19201,93,families
 C19201,93,income
+B19202,93,roommates
 B19202,93,families
 B19202,93,income
+B19202A,93,roommates
 B19202A,93,race
 B19202A,93,families
 B19202A,93,income
+B19202B,93,roommates
 B19202B,93,race
 B19202B,93,families
 B19202B,93,income
+B19202C,93,roommates
 B19202C,93,race
 B19202C,93,families
 B19202C,93,income
+B19202D,93,roommates
 B19202D,93,race
 B19202D,93,families
 B19202D,93,income
+B19202E,93,roommates
 B19202E,93,race
 B19202E,93,families
 B19202E,93,income
+B19202F,93,roommates
 B19202F,93,race
 B19202F,93,families
 B19202F,93,income
+B19202G,93,roommates
 B19202G,93,race
 B19202G,93,families
 B19202G,93,income
+B19202H,93,roommates
 B19202H,93,race
 B19202H,93,families
 B19202H,93,income
+B19202I,93,roommates
 B19202I,93,race
 B19202I,93,families
 B19202I,93,income
+B19214,93,roommates
 B19214,93,families
 B19214,93,income
+B19215,93,roommates
 B19215,93,age
 B19215,93,sex
 B19215,93,families
 B19215,93,income
+B19216,93,roommates
 B19216,93,age
 B19216,93,sex
 B19216,93,families
@@ -2380,12 +2393,12 @@ C20005,100,sex
 C20005,100,employment
 C20005,100,income
 B20005A,96,sex
-B20005A,96,employment
 B20005A,96,race
+B20005A,96,employment
 B20005A,96,income
 C20005A,100,sex
-C20005A,100,employment
 C20005A,100,race
+C20005A,100,employment
 C20005A,100,income
 B20005B,96,sex
 B20005B,96,employment
@@ -2412,12 +2425,12 @@ C20005D,101,race
 C20005D,101,employment
 C20005D,101,income
 B20005E,98,sex
-B20005E,98,employment
 B20005E,98,race
+B20005E,98,employment
 B20005E,98,income
 C20005E,101,sex
-C20005E,101,employment
 C20005E,101,race
+C20005E,101,employment
 C20005E,101,income
 B20005F,98,sex
 B20005F,98,race
@@ -2436,12 +2449,12 @@ C20005G,101,race
 C20005G,101,employment
 C20005G,101,income
 B20005H,99,sex
-B20005H,99,employment
 B20005H,99,race
+B20005H,99,employment
 B20005H,99,income
 C20005H,101,sex
-C20005H,101,employment
 C20005H,101,race
+C20005H,101,employment
 C20005H,101,income
 B20005I,100,sex
 B20005I,100,employment
@@ -2455,8 +2468,8 @@ B20017,102,sex
 B20017,102,employment
 B20017,102,income
 B20017A,102,sex
-B20017A,102,employment
 B20017A,102,race
+B20017A,102,employment
 B20017A,102,income
 B20017B,102,sex
 B20017B,102,employment
@@ -2471,8 +2484,8 @@ B20017D,102,race
 B20017D,102,employment
 B20017D,102,income
 B20017E,102,sex
-B20017E,102,employment
 B20017E,102,race
+B20017E,102,employment
 B20017E,102,income
 B20017F,102,sex
 B20017F,102,race
@@ -2483,8 +2496,8 @@ B20017G,102,race
 B20017G,102,employment
 B20017G,102,income
 B20017H,102,sex
-B20017H,102,employment
 B20017H,102,race
+B20017H,102,employment
 B20017H,102,income
 B20017I,102,sex
 B20017I,102,employment
@@ -3842,6 +3855,7 @@ B99193,176,technical
 B99193,176,families
 B99193,176,income
 B99194,176,technical
+B99194,176,roommates
 B99194,176,families
 B99194,176,income
 B99201,176,technical
