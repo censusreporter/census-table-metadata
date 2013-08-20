@@ -59,24 +59,11 @@ table_metadata_fieldnames = [
     'simple_table_title',
     'subject_area',
     'universe',
-    'denominator_column_id'
+    'denominator_column_id',
+    'topics'
 ]
 table_csv = csv.DictWriter(open("%s/census_table_metadata.csv" % root_dir, 'w'), table_metadata_fieldnames)
 table_csv.writeheader()
-
-topic_fieldnames = [
-    'topic'
-]
-topics_csv = csv.DictWriter(open("%s/census_topics.csv" % root_dir, 'w'), topic_fieldnames)
-topics_csv.writeheader()
-
-table_topic_fieldnames = [
-    'table_id',
-    'sequence_number',
-    'topic'
-]
-table_topics_csv = csv.DictWriter(open("%s/census_table_topics.csv" % root_dir, 'w'), table_topic_fieldnames)
-table_topics_csv.writeheader()
 
 column_metadata_fieldnames = [
     'table_id',
@@ -289,7 +276,6 @@ def find_denominator_column(rows):
     else:
         return None
 
-topics = set()
 table = {}
 rows = []
 for r in range(1, sheet.nrows):
@@ -312,10 +298,8 @@ for r in range(1, sheet.nrows):
         # Write out the previous table's data
         if table:
             table['denominator_column_id'] = find_denominator_column(rows)
+            table['topics'] = '{%s}' % ','.join(['"%s"' % topic for topic in build_topics(table)])
             table_csv.writerow(table)
-            for topic in build_topics(table):
-                table_topics_csv.writerow(dict(table_id=table['table_id'], sequence_number=table['sequence_number'], topic=topic))
-                topics.add(topic)
             column_csv.writerows(rows)
             table = {}
             rows = []
@@ -364,14 +348,8 @@ for r in range(1, sheet.nrows):
 # Write out the last table's data
 if table:
     table['denominator_column_id'] = find_denominator_column(rows)
+    table['topics'] = '{%s}' % ','.join(['"%s"' % topic for topic in build_topics(table)])
     table_csv.writerow(table)
-    for topic in build_topics(table):
-        table_topics_csv.writerow(dict(table_id=table['table_id'], sequence_number=table['sequence_number'], topic=topic))
-        topics.add(topic)
     column_csv.writerows(rows)
     table = {}
     rows = []
-
-# Write out the topic data
-for topic in topics:
-    topics_csv.writerow(dict(topic=topic))
