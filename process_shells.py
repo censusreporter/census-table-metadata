@@ -271,7 +271,7 @@ def build_topics(table):
     return map(lambda x: x.strip(), all_areas)
 
 def find_denominator_column(rows):
-    if rows[0]['column_title'].lower().startswith('total'):
+    if rows and len(rows) > 1 and rows[0]['column_title'].lower().startswith('total'):
         return rows[0]['column_id']
     else:
         return None
