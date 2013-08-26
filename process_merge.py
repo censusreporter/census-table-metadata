@@ -300,8 +300,8 @@ def build_topics(table):
             all_areas.update(map(lambda x:x.strip(),v.split(',')))
     return map(lambda x: x.strip(), all_areas)
 
-def find_denominator_column(rows):
-    if rows and len(rows) > 1 and rows[0]['column_title'].lower().startswith('total'):
+def find_denominator_column(table, rows):
+    if rows and len(rows) > 1 and rows[0]['column_title'].lower().startswith('total') and table and not table['table_title'].lower().startswith('median'):
         return rows[0]['column_id']
     else:
         return None
@@ -327,7 +327,7 @@ for r in range(1, sheet.nrows):
     if not line_number and cells:
         # Write out the previous table's data
         if table:
-            table['denominator_column_id'] = find_denominator_column(rows)
+            table['denominator_column_id'] = find_denominator_column(table, rows)
             table['topics'] = '{%s}' % ','.join(['"%s"' % topic for topic in build_topics(table)])
             table_csv.writerow(table)
             column_csv.writerows(rows)
@@ -369,7 +369,7 @@ for r in range(1, sheet.nrows):
 
 # Write out the last table's data
 if table:
-    table['denominator_column_id'] = find_denominator_column(rows)
+    table['denominator_column_id'] = find_denominator_column(table, rows)
     table['topics'] = '{%s}' % ','.join(['"%s"' % topic for topic in build_topics(table)])
     table_csv.writerow(table)
     column_csv.writerows(rows)
