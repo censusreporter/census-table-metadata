@@ -327,10 +327,12 @@ for r in range(1, sheet.nrows):
         if table:
             table['denominator_column_id'] = find_denominator_column(table, rows)
             table['topics'] = '{%s}' % ','.join(['"%s"' % topic for topic in build_topics(table)])
-            if table_id not in table_ids_already_written:
+            if table['table_id'] in table_ids_already_written:
+                print 'Skipping %s' % table['table_id']
+            else:
                 table_csv.writerow(table)
                 column_csv.writerows(rows)
-            table_ids_already_written.add(table_id)
+            table_ids_already_written.add(table['table_id'])
             table = {}
             rows = []
 
@@ -369,9 +371,11 @@ for r in range(1, sheet.nrows):
 if table:
     table['denominator_column_id'] = find_denominator_column(table, rows)
     table['topics'] = '{%s}' % ','.join(['"%s"' % topic for topic in build_topics(table)])
-    if table_id not in table_ids_already_written:
+    if table['table_id'] in table_ids_already_written:
+        print 'Skipping %s' % table['table_id']
+    else:
         table_csv.writerow(table)
         column_csv.writerows(rows)
-    table_ids_already_written.add(table_id)
+    table_ids_already_written.add(table['table_id'])
     table = {}
     rows = []
