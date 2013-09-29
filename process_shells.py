@@ -272,6 +272,7 @@ def find_denominator_column(table, rows):
     else:
         return None
 
+hierarchy_stack = [None]*10
 table = {}
 rows = []
 for r in range(1, sheet.nrows):
@@ -288,15 +289,13 @@ for r in range(1, sheet.nrows):
     title = title.strip()
 
     if not line_number and title and title.isupper():
-        # New table, so clear out the hierarchy stack
-        hierarchy_stack = [None]*10
-
         # Write out the previous table's data
-        if table:
+        if table and table_id != table['table_id']:
             table['denominator_column_id'] = find_denominator_column(table, rows)
             table['topics'] = '{%s}' % ','.join(['"%s"' % topic for topic in build_topics(table)])
             table_csv.writerow(table)
             column_csv.writerows(rows)
+            hierarchy_stack = [None]*10
             table = {}
             rows = []
 

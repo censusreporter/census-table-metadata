@@ -324,7 +324,7 @@ for r in range(1, sheet.nrows):
 
     if not line_number and cells:
         # Write out the previous table's data
-        if table:
+        if table and table_id != table['table_id']:
             table['denominator_column_id'] = find_denominator_column(table, rows)
             table['topics'] = '{%s}' % ','.join(['"%s"' % topic for topic in build_topics(table)])
             if table['table_id'] in table_ids_already_written:
