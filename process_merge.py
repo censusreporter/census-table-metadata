@@ -84,7 +84,6 @@ if not root_dir:
 
 table_metadata_fieldnames = [
     'table_id',
-    'sequence_number',
     'table_title',
     'simple_table_title',
     'subject_area',
@@ -97,7 +96,6 @@ table_csv.writeheader()
 
 column_metadata_fieldnames = [
     'table_id',
-    'sequence_number',
     'line_number',
     'column_id',
     'column_title',
@@ -313,7 +311,6 @@ for r in range(1, sheet.nrows):
 
     # The column names seem to change between releases but their order doesn't
     table_id = r_data[1].value.strip()
-    sequence_number = int(r_data[2].value)
     line_number = r_data[3].value
     position = r_data[4].value
     cells = r_data[5].value
@@ -341,7 +338,6 @@ for r in range(1, sheet.nrows):
         table['subject_area'] = subject_area.strip()
 
         table['table_id'] = table_id
-        table['sequence_number'] = sequence_number
 
         external_shell_lookup = read_shell(table['table_id'])
     elif not line_number and not cells and title.lower().startswith('universe:'):
@@ -350,7 +346,6 @@ for r in range(1, sheet.nrows):
         row = {}
         row['line_number'] = line_number
         row['table_id'] = table['table_id']
-        row['sequence_number'] = table['sequence_number']
 
         line_number_str = str(line_number)
         if line_number_str.endswith('.7') or line_number_str.endswith('.5'):

@@ -28,8 +28,7 @@ import re
 from titlecase import titlecase
 
 # Parse the Sequence_Number_And_Table_Number_Lookup.xls/merge_5_6.xls file
-# so we can get the subject area and sequence number data to match up with
-# the shells.
+# so we can get the subject area data to match up with the shells.
 sqn_table_lookup = {}
 xlsfile = open_workbook(sys.argv[2])
 sheet = xlsfile.sheet_by_index(0)
@@ -37,11 +36,10 @@ for r in range(1, sheet.nrows):
     r_data = sheet.row(r)
 
     table_id = r_data[1].value
-    sqn = int(r_data[2].value)
     subject_area = r_data[8].value.strip()
 
     if subject_area:
-        sqn_table_lookup[table_id] = (sqn, subject_area)
+        sqn_table_lookup[table_id] = subject_area
 
 filename = sys.argv[1]
 
@@ -54,7 +52,6 @@ if not root_dir:
 
 table_metadata_fieldnames = [
     'table_id',
-    'sequence_number',
     'table_title',
     'simple_table_title',
     'subject_area',
@@ -67,7 +64,6 @@ table_csv.writeheader()
 
 column_metadata_fieldnames = [
     'table_id',
-    'sequence_number',
     'line_number',
     'column_id',
     'column_title',
@@ -309,17 +305,15 @@ for r in range(1, sheet.nrows):
         table['simple_table_title'] = simplified_table_name(table['table_title'])
 
         table['table_id'] = table_id
-        sqn_data = sqn_table_lookup.get(table['table_id'])
-        if sqn_data:
-            table['sequence_number'] = sqn_data[0]
-            table['subject_area'] = sqn_data[1]
+        subject_area = sqn_table_lookup.get(table['table_id'])
+        if subject_area:
+            table['subject_area'] = subject_area
     elif not line_number and title.lower().startswith('universe:'):
         table['universe'] = titlecase(title.split(':')[-1]).strip()
     elif line_number and (r_data[1].ctype == 2) and title:
         row = {}
         row['line_number'] = line_number
         row['table_id'] = table['table_id']
-        row['sequence_number'] = table['sequence_number']
 
         line_number_str = str(line_number)
         if line_number_str.endswith('.7') or line_number_str.endswith('.5'):

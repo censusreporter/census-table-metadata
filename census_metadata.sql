@@ -1,6 +1,5 @@
 CREATE TABLE acs2007_1yr.census_table_metadata (
     table_id varchar(10),
-    sequence_number smallint,
     table_title text,
     simple_table_title text,
     subject_area text,
@@ -12,7 +11,6 @@ CREATE TABLE acs2007_1yr.census_table_metadata (
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2007_1yr.census_column_metadata (
     table_id varchar(10),
-    sequence_number smallint,
     line_number numeric(4,1),
     column_id varchar(16),
     column_title text,
@@ -27,7 +25,6 @@ CREATE INDEX ON acs2007_1yr.census_column_metadata (lower(column_title) text_pat
 
 CREATE TABLE acs2007_3yr.census_table_metadata (
     table_id varchar(10),
-    sequence_number smallint,
     table_title text,
     simple_table_title text,
     subject_area text,
@@ -39,7 +36,6 @@ CREATE TABLE acs2007_3yr.census_table_metadata (
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2007_3yr.census_column_metadata (
     table_id varchar(10),
-    sequence_number smallint,
     line_number numeric(4,1),
     column_id varchar(16),
     column_title text,
@@ -54,7 +50,6 @@ CREATE INDEX ON acs2007_3yr.census_column_metadata (lower(column_title) text_pat
 
 CREATE TABLE acs2008_1yr.census_table_metadata (
     table_id varchar(10),
-    sequence_number smallint,
     table_title text,
     simple_table_title text,
     subject_area text,
@@ -66,7 +61,6 @@ CREATE TABLE acs2008_1yr.census_table_metadata (
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2008_1yr.census_column_metadata (
     table_id varchar(10),
-    sequence_number smallint,
     line_number numeric(4,1),
     column_id varchar(16),
     column_title text,
@@ -81,7 +75,6 @@ CREATE INDEX ON acs2008_1yr.census_column_metadata (lower(column_title) text_pat
 
 CREATE TABLE acs2008_3yr.census_table_metadata (
     table_id varchar(10),
-    sequence_number smallint,
     table_title text,
     simple_table_title text,
     subject_area text,
@@ -93,7 +86,6 @@ CREATE TABLE acs2008_3yr.census_table_metadata (
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2008_3yr.census_column_metadata (
     table_id varchar(10),
-    sequence_number smallint,
     line_number numeric(4,1),
     column_id varchar(16),
     column_title text,
@@ -108,7 +100,6 @@ CREATE INDEX ON acs2008_3yr.census_column_metadata (lower(column_title) text_pat
 
 CREATE TABLE acs2009_1yr.census_table_metadata (
     table_id varchar(10),
-    sequence_number smallint,
     table_title text,
     simple_table_title text,
     subject_area text,
@@ -120,7 +111,6 @@ CREATE TABLE acs2009_1yr.census_table_metadata (
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2009_1yr.census_column_metadata (
     table_id varchar(10),
-    sequence_number smallint,
     line_number numeric(4,1),
     column_id varchar(16),
     column_title text,
@@ -135,7 +125,6 @@ CREATE INDEX ON acs2009_1yr.census_column_metadata (lower(column_title) text_pat
 
 CREATE TABLE acs2009_3yr.census_table_metadata (
     table_id varchar(10),
-    sequence_number smallint,
     table_title text,
     simple_table_title text,
     subject_area text,
@@ -147,7 +136,6 @@ CREATE TABLE acs2009_3yr.census_table_metadata (
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2009_3yr.census_column_metadata (
     table_id varchar(10),
-    sequence_number smallint,
     line_number numeric(4,1),
     column_id varchar(16),
     column_title text,
@@ -162,7 +150,6 @@ CREATE INDEX ON acs2009_3yr.census_column_metadata (lower(column_title) text_pat
 
 CREATE TABLE acs2010_1yr.census_table_metadata (
     table_id varchar(10),
-    sequence_number smallint,
     table_title text,
     simple_table_title text,
     subject_area text,
@@ -174,7 +161,6 @@ CREATE TABLE acs2010_1yr.census_table_metadata (
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2010_1yr.census_column_metadata (
     table_id varchar(10),
-    sequence_number smallint,
     line_number numeric(4,1),
     column_id varchar(16),
     column_title text,
@@ -189,7 +175,6 @@ CREATE INDEX ON acs2010_1yr.census_column_metadata (lower(column_title) text_pat
 
 CREATE TABLE acs2010_3yr.census_table_metadata (
     table_id varchar(10),
-    sequence_number smallint,
     table_title text,
     simple_table_title text,
     subject_area text,
@@ -201,7 +186,6 @@ CREATE TABLE acs2010_3yr.census_table_metadata (
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2010_3yr.census_column_metadata (
     table_id varchar(10),
-    sequence_number smallint,
     line_number numeric(4,1),
     column_id varchar(16),
     column_title text,
@@ -216,7 +200,6 @@ CREATE INDEX ON acs2010_3yr.census_column_metadata (lower(column_title) text_pat
 
 CREATE TABLE acs2010_5yr.census_table_metadata (
     table_id varchar(10),
-    sequence_number smallint,
     table_title text,
     simple_table_title text,
     subject_area text,
@@ -228,7 +211,6 @@ CREATE TABLE acs2010_5yr.census_table_metadata (
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2010_5yr.census_column_metadata (
     table_id varchar(10),
-    sequence_number smallint,
     line_number numeric(4,1),
     column_id varchar(16),
     column_title text,
@@ -243,7 +225,6 @@ CREATE INDEX ON acs2010_5yr.census_column_metadata (lower(column_title) text_pat
 
 CREATE TABLE acs2011_1yr.census_table_metadata (
     table_id varchar(10),
-    sequence_number smallint,
     table_title text,
     simple_table_title text,
     subject_area text,
@@ -255,7 +236,6 @@ CREATE TABLE acs2011_1yr.census_table_metadata (
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2011_1yr.census_column_metadata (
     table_id varchar(10),
-    sequence_number smallint,
     line_number numeric(4,1),
     column_id varchar(16),
     column_title text,
@@ -270,7 +250,6 @@ CREATE INDEX ON acs2011_1yr.census_column_metadata (lower(column_title) text_pat
 
 CREATE TABLE acs2011_3yr.census_table_metadata (
     table_id varchar(10),
-    sequence_number smallint,
     table_title text,
     simple_table_title text,
     subject_area text,
@@ -282,7 +261,6 @@ CREATE TABLE acs2011_3yr.census_table_metadata (
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2011_3yr.census_column_metadata (
     table_id varchar(10),
-    sequence_number smallint,
     line_number numeric(4,1),
     column_id varchar(16),
     column_title text,
@@ -297,7 +275,6 @@ CREATE INDEX ON acs2011_3yr.census_column_metadata (lower(column_title) text_pat
 
 CREATE TABLE acs2011_5yr.census_table_metadata (
     table_id varchar(10),
-    sequence_number smallint,
     table_title text,
     simple_table_title text,
     subject_area text,
@@ -309,7 +286,6 @@ CREATE TABLE acs2011_5yr.census_table_metadata (
 WITH (autovacuum_enabled = FALSE);
 CREATE TABLE acs2011_5yr.census_column_metadata (
     table_id varchar(10),
-    sequence_number smallint,
     line_number numeric(4,1),
     column_id varchar(16),
     column_title text,
