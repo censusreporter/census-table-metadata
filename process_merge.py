@@ -304,6 +304,7 @@ def find_denominator_column(table, rows):
     else:
         return None
 
+table_ids_already_written = set()
 table = {}
 rows = []
 for r in range(1, sheet.nrows):
@@ -326,8 +327,10 @@ for r in range(1, sheet.nrows):
         if table:
             table['denominator_column_id'] = find_denominator_column(table, rows)
             table['topics'] = '{%s}' % ','.join(['"%s"' % topic for topic in build_topics(table)])
-            table_csv.writerow(table)
-            column_csv.writerows(rows)
+            if table_id not in table_ids_already_written:
+                table_csv.writerow(table)
+                column_csv.writerows(rows)
+            table_ids_already_written.add(table_id)
             table = {}
             rows = []
 
@@ -366,7 +369,9 @@ for r in range(1, sheet.nrows):
 if table:
     table['denominator_column_id'] = find_denominator_column(table, rows)
     table['topics'] = '{%s}' % ','.join(['"%s"' % topic for topic in build_topics(table)])
-    table_csv.writerow(table)
-    column_csv.writerows(rows)
+    if table_id not in table_ids_already_written:
+        table_csv.writerow(table)
+        column_csv.writerows(rows)
+    table_ids_already_written.add(table_id)
     table = {}
     rows = []
