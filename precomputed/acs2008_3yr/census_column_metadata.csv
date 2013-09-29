@@ -19513,6 +19513,132 @@ B24010,124.0,B24010124,Other transportation workers,4,B24010117
 B24010,125.0,B24010125,Material moving workers:,4,B24010117
 B24010,126.0,B24010126,"Laborers and material movers, hand",5,B24010125
 B24010,127.0,B24010127,"Material moving workers except laborers and material movers, hand",5,B24010125
+B24010,128.0,B24010128,Female:,1,B24010001
+B24010,129.0,B24010129,"Management, professional, and related occupations:",2,B24010128
+B24010,130.0,B24010130,"Management, business, and financial occupations:",3,B24010129
+B24010,131.0,B24010131,Management occupations:,4,B24010130
+B24010,132.0,B24010132,Top executives,5,B24010131
+B24010,133.0,B24010133,"Advertising, marketing, promotions, public relations, and sales managers",5,B24010131
+B24010,134.0,B24010134,Financial managers,5,B24010131
+B24010,135.0,B24010135,Operations specialties managers except financial managers,5,B24010131
+B24010,136.0,B24010136,Farmers and farm managers,5,B24010131
+B24010,137.0,B24010137,Other management occupations except farmers and farm managers,5,B24010131
+B24010,138.0,B24010138,Business and financial operations occupations:,4,B24010130
+B24010,139.0,B24010139,Business operations specialists,5,B24010138
+B24010,140.0,B24010140,Financial specialists:,5,B24010138
+B24010,141.0,B24010141,Accountants and auditors,6,B24010140
+B24010,142.0,B24010142,Other financial specialists,6,B24010140
+B24010,143.0,B24010143,Professional and related occupations:,3,B24010129
+B24010,144.0,B24010144,Computer and mathematical occupations:,4,B24010143
+B24010,145.0,B24010145,Computer specialists,5,B24010144
+B24010,146.0,B24010146,Mathematical science occupations,5,B24010144
+B24010,147.0,B24010147,Architecture and engineering occupations:,4,B24010143
+B24010,148.0,B24010148,"Architects, surveyors, and cartographers",5,B24010147
+B24010,149.0,B24010149,Engineers,5,B24010147
+B24010,150.0,B24010150,"Drafters, engineering, and mapping technicians",5,B24010147
+B24010,151.0,B24010151,"Life, physical, and social science occupations:",4,B24010143
+B24010,152.0,B24010152,Life and physical scientists,5,B24010151
+B24010,153.0,B24010153,Social scientists and related workers,5,B24010151
+B24010,154.0,B24010154,"Life, physical, and social science technicians",5,B24010151
+B24010,155.0,B24010155,Community and social services occupations:,4,B24010143
+B24010,156.0,B24010156,"Counselors, social workers, and other community and social service specialists",5,B24010155
+B24010,157.0,B24010157,Religious workers,5,B24010155
+B24010,158.0,B24010158,Legal occupations:,4,B24010143
+B24010,159.0,B24010159,Lawyers,5,B24010158
+B24010,160.0,B24010160,"Judges, magistrates, and other judicial workers",5,B24010158
+B24010,161.0,B24010161,Legal support workers,5,B24010158
+B24010,162.0,B24010162,"Education, training, and library occupations:",4,B24010143
+B24010,163.0,B24010163,Postsecondary teachers,5,B24010162
+B24010,164.0,B24010164,"Primary, secondary, and special education school teachers:",5,B24010162
+B24010,165.0,B24010165,"Preschool, kindergarten, elementary and middle school teachers",6,B24010164
+B24010,166.0,B24010166,Secondary school teachers,6,B24010164
+B24010,167.0,B24010167,Special education teachers,6,B24010164
+B24010,168.0,B24010168,"Librarians, curators, and archivists",5,B24010162
+B24010,169.0,B24010169,"Other teachers and instructors, education, training, and library occupations",5,B24010162
+B24010,170.0,B24010170,"Arts, design, entertainment, sports, and media occupations:",4,B24010143
+B24010,171.0,B24010171,Art and design workers,5,B24010170
+B24010,172.0,B24010172,"Entertainers and performers, sports, and related workers",5,B24010170
+B24010,173.0,B24010173,Media and communication equipment workers,5,B24010170
+B24010,174.0,B24010174,Healthcare practitioner and technical occupations:,4,B24010143
+B24010,175.0,B24010175,Health diagnosing and treating practitioners and other technical occupations:,5,B24010174
+B24010,176.0,B24010176,Physicians and surgeons,6,B24010175
+B24010,177.0,B24010177,Registered nurses,6,B24010175
+B24010,178.0,B24010178,Therapists,6,B24010175
+B24010,179.0,B24010179,Other health diagnosing and treating practitioners and technical occupations,6,B24010175
+B24010,180.0,B24010180,Health technologists and technicians,5,B24010174
+B24010,181.0,B24010181,Service occupations:,2,B24010128
+B24010,182.0,B24010182,Healthcare support occupations:,3,B24010181
+B24010,183.0,B24010183,"Nursing, psychiatric, and home health aides",4,B24010182
+B24010,184.0,B24010184,Occupational and physical therapist assistants and aides,4,B24010182
+B24010,185.0,B24010185,Other healthcare support occupations,4,B24010182
+B24010,186.0,B24010186,Protective service occupations:,3,B24010181
+B24010,187.0,B24010187,Fire fighting and prevention workers including supervisors,4,B24010186
+B24010,188.0,B24010188,Law enforcement workers including supervisors,4,B24010186
+B24010,189.0,B24010189,Other protective service workers including supervisors,4,B24010186
+B24010,190.0,B24010190,Food preparation and serving related occupations:,3,B24010181
+B24010,191.0,B24010191,Cooks and food preparation workers,4,B24010190
+B24010,192.0,B24010192,Waiters and waitresses,4,B24010190
+B24010,193.0,B24010193,Food and beverage serving workers except waiters/waitresses,4,B24010190
+B24010,194.0,B24010194,Other food preparation and serving workers including supervisors,4,B24010190
+B24010,195.0,B24010195,Building and grounds cleaning and maintenance occupations,3,B24010181
+B24010,196.0,B24010196,Personal care and service occupations:,3,B24010181
+B24010,197.0,B24010197,Personal appearance workers,4,B24010196
+B24010,198.0,B24010198,"Transportation, tourism, and lodging attendants",4,B24010196
+B24010,199.0,B24010199,Child care workers,4,B24010196
+B24010,200.0,B24010200,"Supervisors and other personal care and service workers except personal appearance, transportation, and child care workers",4,B24010196
+B24010,201.0,B24010201,Sales and office occupations:,2,B24010128
+B24010,202.0,B24010202,Sales and related occupations:,3,B24010201
+B24010,203.0,B24010203,Cashiers,4,B24010202
+B24010,204.0,B24010204,Retail sales workers except cashiers,4,B24010202
+B24010,205.0,B24010205,"Sales representatives, services, wholesale and manufacturing",4,B24010202
+B24010,206.0,B24010206,Other sales and related workers including supervisors,4,B24010202
+B24010,207.0,B24010207,Office and administrative support occupations:,3,B24010201
+B24010,208.0,B24010208,Communications equipment operators,4,B24010207
+B24010,209.0,B24010209,"Financial clerks except bookkeeping, accounting, and auditing clerks",4,B24010207
+B24010,210.0,B24010210,"Bookkeeping, accounting, and auditing clerks",4,B24010207
+B24010,211.0,B24010211,Information and record clerks except customer service representatives,4,B24010207
+B24010,212.0,B24010212,Customer service representatives,4,B24010207
+B24010,213.0,B24010213,"Material recording, scheduling, dispatching, and distributing workers",4,B24010207
+B24010,214.0,B24010214,Secretaries and administrative assistants,4,B24010207
+B24010,215.0,B24010215,Other office and administrative support workers including supervisors,4,B24010207
+B24010,216.0,B24010216,"Farming, fishing, and forestry occupations:",2,B24010128
+B24010,217.0,B24010217,Agricultural workers including supervisors,3,B24010216
+B24010,218.0,B24010218,"Fishing and hunting, and forest and logging workers",3,B24010216
+B24010,219.0,B24010219,"Construction, extraction, maintenance, and repair occupations:",2,B24010128
+B24010,220.0,B24010220,Construction and extraction occupations:,3,B24010219
+B24010,221.0,B24010221,"Supervisors, construction and extraction workers",4,B24010220
+B24010,222.0,B24010222,Carpenters,4,B24010220
+B24010,223.0,B24010223,Construction laborers,4,B24010220
+B24010,224.0,B24010224,Electricians,4,B24010220
+B24010,225.0,B24010225,Painters and paperhangers,4,B24010220
+B24010,226.0,B24010226,"Pipelayers, plumbers, pipefitters, and steamfitters",4,B24010220
+B24010,227.0,B24010227,"Construction trades workers except carpenters, electricians, painters, plumbers, and construction laborers",4,B24010220
+B24010,228.0,B24010228,Other construction workers and helpers,4,B24010220
+B24010,229.0,B24010229,Extraction workers,4,B24010220
+B24010,230.0,B24010230,"Installation, maintenance, and repair occupations:",3,B24010219
+B24010,231.0,B24010231,"Vehicle and mobile equipment mechanics, installers, and repairers",4,B24010230
+B24010,232.0,B24010232,"Electrical equipment mechanics and other installation, maintenance, and repair occupations including supervisors",4,B24010230
+B24010,233.0,B24010233,"Production, transportation, and material moving occupations:",2,B24010128
+B24010,234.0,B24010234,Production occupations:,3,B24010233
+B24010,235.0,B24010235,Assemblers and fabricators,4,B24010234
+B24010,236.0,B24010236,Food processing workers,4,B24010234
+B24010,237.0,B24010237,Metal workers and plastic workers,4,B24010234
+B24010,238.0,B24010238,Printing workers,4,B24010234
+B24010,239.0,B24010239,"Textile, apparel, and furnishings workers",4,B24010234
+B24010,240.0,B24010240,Woodworkers,4,B24010234
+B24010,241.0,B24010241,Plant and system operators,4,B24010234
+B24010,242.0,B24010242,Other production occupations including supervisors,4,B24010234
+B24010,243.0,B24010243,Transportation and material moving occupations:,3,B24010233
+B24010,244.0,B24010244,"Supervisors, transportation and material moving workers",4,B24010243
+B24010,245.0,B24010245,Air transportation workers,4,B24010243
+B24010,246.0,B24010246,Rail and water transportation workers,4,B24010243
+B24010,247.0,B24010247,Bus drivers,4,B24010243
+B24010,248.0,B24010248,Driver/sales workers and truck drivers,4,B24010243
+B24010,249.0,B24010249,Motor vehicle operators except bus and truck drivers,4,B24010243
+B24010,250.0,B24010250,Other transportation workers,4,B24010243
+B24010,251.0,B24010251,Material moving workers:,4,B24010243
+B24010,252.0,B24010252,"Laborers and material movers, hand",5,B24010251
+B24010,253.0,B24010253,"Material moving workers except laborers and material movers, hand",5,B24010251
 B24010A,1.0,B24010A001,Total:,0,
 B24010A,2.0,B24010A002,Male:,1,B24010A001
 B24010A,3.0,B24010A003,"Management, professional, and related occupations:",2,B24010A002
@@ -20528,6 +20654,132 @@ B24020,124.0,B24020124,Other transportation workers,4,B24020117
 B24020,125.0,B24020125,Material moving workers:,4,B24020117
 B24020,126.0,B24020126,"Laborers and material movers, hand",5,B24020125
 B24020,127.0,B24020127,"Material moving workers except laborers and material movers, hand",5,B24020125
+B24020,128.0,B24020128,Female:,1,B24020001
+B24020,129.0,B24020129,"Management, professional, and related occupations:",2,B24020128
+B24020,130.0,B24020130,"Management, business, and financial occupations:",3,B24020129
+B24020,131.0,B24020131,Management occupations:,4,B24020130
+B24020,132.0,B24020132,Top executives,5,B24020131
+B24020,133.0,B24020133,"Advertising, marketing, promotions, public relations, and sales managers",5,B24020131
+B24020,134.0,B24020134,Financial managers,5,B24020131
+B24020,135.0,B24020135,Operations specialties managers except financial managers,5,B24020131
+B24020,136.0,B24020136,Farmers and farm managers,5,B24020131
+B24020,137.0,B24020137,Other management occupations except farmers and farm managers,5,B24020131
+B24020,138.0,B24020138,Business and financial operations occupations:,4,B24020130
+B24020,139.0,B24020139,Business operations specialists,5,B24020138
+B24020,140.0,B24020140,Financial specialists:,5,B24020138
+B24020,141.0,B24020141,Accountants and auditors,6,B24020140
+B24020,142.0,B24020142,Other financial specialists,6,B24020140
+B24020,143.0,B24020143,Professional and related occupations:,3,B24020129
+B24020,144.0,B24020144,Computer and mathematical occupations:,4,B24020143
+B24020,145.0,B24020145,Computer specialists,5,B24020144
+B24020,146.0,B24020146,Mathematical science occupations,5,B24020144
+B24020,147.0,B24020147,Architecture and engineering occupations:,4,B24020143
+B24020,148.0,B24020148,"Architects, surveyors, and cartographers",5,B24020147
+B24020,149.0,B24020149,Engineers,5,B24020147
+B24020,150.0,B24020150,"Drafters, engineering, and mapping technicians",5,B24020147
+B24020,151.0,B24020151,"Life, physical, and social science occupations:",4,B24020143
+B24020,152.0,B24020152,Life and physical scientists,5,B24020151
+B24020,153.0,B24020153,Social scientists and related workers,5,B24020151
+B24020,154.0,B24020154,"Life, physical, and social science technicians",5,B24020151
+B24020,155.0,B24020155,Community and social services occupations:,4,B24020143
+B24020,156.0,B24020156,"Counselors, social workers, and other community and social service specialists",5,B24020155
+B24020,157.0,B24020157,Religious workers,5,B24020155
+B24020,158.0,B24020158,Legal occupations:,4,B24020143
+B24020,159.0,B24020159,Lawyers,5,B24020158
+B24020,160.0,B24020160,"Judges, magistrates, and other judicial workers",5,B24020158
+B24020,161.0,B24020161,Legal support workers,5,B24020158
+B24020,162.0,B24020162,"Education, training, and library occupations:",4,B24020143
+B24020,163.0,B24020163,Postsecondary teachers,5,B24020162
+B24020,164.0,B24020164,"Primary, secondary, and special education school teachers:",5,B24020162
+B24020,165.0,B24020165,"Preschool, kindergarten, elementary and middle school teachers",6,B24020164
+B24020,166.0,B24020166,Secondary school teachers,6,B24020164
+B24020,167.0,B24020167,Special education teachers,6,B24020164
+B24020,168.0,B24020168,"Librarians, curators, and archivists",5,B24020162
+B24020,169.0,B24020169,"Other teachers and instructors, education, training, and library occupations",5,B24020162
+B24020,170.0,B24020170,"Arts, design, entertainment, sports, and media occupations:",4,B24020143
+B24020,171.0,B24020171,Art and design workers,5,B24020170
+B24020,172.0,B24020172,"Entertainers and performers, sports, and related workers",5,B24020170
+B24020,173.0,B24020173,Media and communication equipment workers,5,B24020170
+B24020,174.0,B24020174,Healthcare practitioner and technical occupations:,4,B24020143
+B24020,175.0,B24020175,Health diagnosing and treating practitioners and other technical occupations:,5,B24020174
+B24020,176.0,B24020176,Physicians and surgeons,6,B24020175
+B24020,177.0,B24020177,Registered nurses,6,B24020175
+B24020,178.0,B24020178,Therapists,6,B24020175
+B24020,179.0,B24020179,Other health diagnosing and treating practitioners and technical occupations,6,B24020175
+B24020,180.0,B24020180,Health technologists and technicians,5,B24020174
+B24020,181.0,B24020181,Service occupations:,2,B24020128
+B24020,182.0,B24020182,Healthcare support occupations:,3,B24020181
+B24020,183.0,B24020183,"Nursing, psychiatric, and home health aides",4,B24020182
+B24020,184.0,B24020184,Occupational and physical therapist assistants and aides,4,B24020182
+B24020,185.0,B24020185,Other healthcare support occupations,4,B24020182
+B24020,186.0,B24020186,Protective service occupations:,3,B24020181
+B24020,187.0,B24020187,Fire fighting and prevention workers including supervisors,4,B24020186
+B24020,188.0,B24020188,Law enforcement workers including supervisors,4,B24020186
+B24020,189.0,B24020189,Other protective service workers including supervisors,4,B24020186
+B24020,190.0,B24020190,Food preparation and serving related occupations:,3,B24020181
+B24020,191.0,B24020191,Cooks and food preparation workers,4,B24020190
+B24020,192.0,B24020192,Waiters and waitresses,4,B24020190
+B24020,193.0,B24020193,Food and beverage serving workers except waiters/waitresses,4,B24020190
+B24020,194.0,B24020194,Other food preparation and serving workers including supervisors,4,B24020190
+B24020,195.0,B24020195,Building and grounds cleaning and maintenance occupations,3,B24020181
+B24020,196.0,B24020196,Personal care and service occupations:,3,B24020181
+B24020,197.0,B24020197,Personal appearance workers,4,B24020196
+B24020,198.0,B24020198,"Transportation, tourism, and lodging attendants",4,B24020196
+B24020,199.0,B24020199,Child care workers,4,B24020196
+B24020,200.0,B24020200,"Supervisors and other personal care and service workers except personal appearance, transportation, and child care workers",4,B24020196
+B24020,201.0,B24020201,Sales and office occupations:,2,B24020128
+B24020,202.0,B24020202,Sales and related occupations:,3,B24020201
+B24020,203.0,B24020203,Cashiers,4,B24020202
+B24020,204.0,B24020204,Retail sales workers except cashiers,4,B24020202
+B24020,205.0,B24020205,"Sales representatives, services, wholesale and manufacturing",4,B24020202
+B24020,206.0,B24020206,Other sales and related workers including supervisors,4,B24020202
+B24020,207.0,B24020207,Office and administrative support occupations:,3,B24020201
+B24020,208.0,B24020208,Communications equipment operators,4,B24020207
+B24020,209.0,B24020209,"Financial clerks except bookkeeping, accounting, and auditing clerks",4,B24020207
+B24020,210.0,B24020210,"Bookkeeping, accounting, and auditing clerks",4,B24020207
+B24020,211.0,B24020211,Information and record clerks except customer service representatives,4,B24020207
+B24020,212.0,B24020212,Customer service representatives,4,B24020207
+B24020,213.0,B24020213,"Material recording, scheduling, dispatching, and distributing workers",4,B24020207
+B24020,214.0,B24020214,Secretaries and administrative assistants,4,B24020207
+B24020,215.0,B24020215,Other office and administrative support workers including supervisors,4,B24020207
+B24020,216.0,B24020216,"Farming, fishing, and forestry occupations:",2,B24020128
+B24020,217.0,B24020217,Agricultural workers including supervisors,3,B24020216
+B24020,218.0,B24020218,"Fishing and hunting, and forest and logging workers",3,B24020216
+B24020,219.0,B24020219,"Construction, extraction, maintenance, and repair occupations:",2,B24020128
+B24020,220.0,B24020220,Construction and extraction occupations:,3,B24020219
+B24020,221.0,B24020221,"Supervisors, construction and extraction workers",4,B24020220
+B24020,222.0,B24020222,Carpenters,4,B24020220
+B24020,223.0,B24020223,Construction laborers,4,B24020220
+B24020,224.0,B24020224,Electricians,4,B24020220
+B24020,225.0,B24020225,Painters and paperhangers,4,B24020220
+B24020,226.0,B24020226,"Pipelayers, plumbers, pipefitters, and steamfitters",4,B24020220
+B24020,227.0,B24020227,"Construction trades workers except carpenters, electricians, painters, plumbers, and construction laborers",4,B24020220
+B24020,228.0,B24020228,Other construction workers and helpers,4,B24020220
+B24020,229.0,B24020229,Extraction workers,4,B24020220
+B24020,230.0,B24020230,"Installation, maintenance, and repair occupations:",3,B24020219
+B24020,231.0,B24020231,"Vehicle and mobile equipment mechanics, installers, and repairers",4,B24020230
+B24020,232.0,B24020232,"Electrical equipment mechanics and other installation, maintenance, and repair occupations including supervisors",4,B24020230
+B24020,233.0,B24020233,"Production, transportation, and material moving occupations:",2,B24020128
+B24020,234.0,B24020234,Production occupations:,3,B24020233
+B24020,235.0,B24020235,Assemblers and fabricators,4,B24020234
+B24020,236.0,B24020236,Food processing workers,4,B24020234
+B24020,237.0,B24020237,Metal workers and plastic workers,4,B24020234
+B24020,238.0,B24020238,Printing workers,4,B24020234
+B24020,239.0,B24020239,"Textile, apparel, and furnishings workers",4,B24020234
+B24020,240.0,B24020240,Woodworkers,4,B24020234
+B24020,241.0,B24020241,Plant and system operators,4,B24020234
+B24020,242.0,B24020242,Other production occupations including supervisors,4,B24020234
+B24020,243.0,B24020243,Transportation and material moving occupations:,3,B24020233
+B24020,244.0,B24020244,"Supervisors, transportation and material moving workers",4,B24020243
+B24020,245.0,B24020245,Air transportation workers,4,B24020243
+B24020,246.0,B24020246,Rail and water transportation workers,4,B24020243
+B24020,247.0,B24020247,Bus drivers,4,B24020243
+B24020,248.0,B24020248,Driver/sales workers and truck drivers,4,B24020243
+B24020,249.0,B24020249,Motor vehicle operators except bus and truck drivers,4,B24020243
+B24020,250.0,B24020250,Other transportation workers,4,B24020243
+B24020,251.0,B24020251,Material moving workers:,4,B24020243
+B24020,252.0,B24020252,"Laborers and material movers, hand",5,B24020251
+B24020,253.0,B24020253,"Material moving workers except laborers and material movers, hand",5,B24020251
 B24021,1.0,B24021001,Total:,0,
 B24021,2.0,B24021002,"Management, professional, and related occupations:",1,B24021001
 B24021,3.0,B24021003,"Management, business, and financial occupations:",2,B24021002
@@ -22652,6 +22904,338 @@ B24121,164.0,B24121164,"Health diagnosing and treating practitioners, all other"
 B24121,165.0,B24121165,Clinical laboratory technologists and technicians,1,B24121001
 B24121,166.0,B24121166,Dental hygienists,1,B24121001
 B24121,167.0,B24121167,Diagnostic related technologists and technicians,1,B24121001
+B24121,168.0,B24121168,Emergency medical technicians and paramedics,1,B24121001
+B24121,169.0,B24121169,Health diagnosing and treating practitioner support technicians,1,B24121001
+B24121,170.0,B24121170,Licensed practical and licensed vocational nurses,1,B24121001
+B24121,171.0,B24121171,Medical records and health information technicians,1,B24121001
+B24121,172.0,B24121172,"Opticians, dispensing",1,B24121001
+B24121,173.0,B24121173,Miscellaneous health technologists and technicians,1,B24121001
+B24121,174.0,B24121174,Other healthcare practitioners and technical occupations,1,B24121001
+B24121,175.0,B24121175,"Nursing, psychiatric, and home health aides",1,B24121001
+B24121,176.0,B24121176,Occupational therapist assistants and aides,1,B24121001
+B24121,177.0,B24121177,Physical therapist assistants and aides,1,B24121001
+B24121,178.0,B24121178,Massage therapists,1,B24121001
+B24121,179.0,B24121179,Dental assistants,1,B24121001
+B24121,180.0,B24121180,Medical assistants and other healthcare support occupations,1,B24121001
+B24121,181.0,B24121181,First-line supervisors/managers of correctional officers,1,B24121001
+B24121,182.0,B24121182,First-line supervisors/managers of police and detectives,1,B24121001
+B24121,183.0,B24121183,First-line supervisors/managers of fire fighting and prevention workers,1,B24121001
+B24121,184.0,B24121184,"Supervisors, protective service workers, all other",1,B24121001
+B24121,185.0,B24121185,Fire fighters,1,B24121001
+B24121,186.0,B24121186,Fire inspectors,1,B24121001
+B24121,187.0,B24121187,"Bailiffs, correctional officers, and jailers",1,B24121001
+B24121,188.0,B24121188,Detectives and criminal investigators,1,B24121001
+B24121,189.0,B24121189,Fish and game wardens,1,B24121001
+B24121,190.0,B24121190,Parking enforcement workers,1,B24121001
+B24121,191.0,B24121191,Police and sheriff's patrol officers,1,B24121001
+B24121,192.0,B24121192,Animal control workers,1,B24121001
+B24121,193.0,B24121193,Private detectives and investigators,1,B24121001
+B24121,194.0,B24121194,Security guards and gaming surveillance officers,1,B24121001
+B24121,195.0,B24121195,Crossing guards,1,B24121001
+B24121,196.0,B24121196,Lifeguards and other protective service workers,1,B24121001
+B24121,197.0,B24121197,Chefs and head cooks,1,B24121001
+B24121,198.0,B24121198,First-line supervisors/managers of food preparation and serving workers,1,B24121001
+B24121,199.0,B24121199,Cooks,1,B24121001
+B24121,200.0,B24121200,Food preparation workers,1,B24121001
+B24121,201.0,B24121201,Bartenders,1,B24121001
+B24121,202.0,B24121202,"Combined food preparation and serving workers, including fast food",1,B24121001
+B24121,203.0,B24121203,"Counter attendants, cafeteria, food concession, and coffee shop",1,B24121001
+B24121,204.0,B24121204,Waiters and waitresses,1,B24121001
+B24121,205.0,B24121205,"Food servers, nonrestaurant",1,B24121001
+B24121,206.0,B24121206,Dining room and cafeteria attendants and bartender helpers,1,B24121001
+B24121,207.0,B24121207,Dishwashers,1,B24121001
+B24121,208.0,B24121208,"Hosts and hostesses, restaurant, lounge, and coffee shop",1,B24121001
+B24121,209.0,B24121209,"Food preparation and serving related workers, all other",1,B24121001
+B24121,210.0,B24121210,First-line supervisors/managers of housekeeping and janitorial workers,1,B24121001
+B24121,211.0,B24121211,"First-line supervisors/managers of landscaping, lawn service, and groundskeeping workers",1,B24121001
+B24121,212.0,B24121212,Janitors and building cleaners,1,B24121001
+B24121,213.0,B24121213,Maids and housekeeping cleaners,1,B24121001
+B24121,214.0,B24121214,Pest control workers,1,B24121001
+B24121,215.0,B24121215,Grounds maintenance workers,1,B24121001
+B24121,216.0,B24121216,First-line supervisors/managers of gaming workers,1,B24121001
+B24121,217.0,B24121217,First-line supervisors/managers of personal service workers,1,B24121001
+B24121,218.0,B24121218,Animal trainers,1,B24121001
+B24121,219.0,B24121219,Nonfarm animal caretakers,1,B24121001
+B24121,220.0,B24121220,Gaming services workers,1,B24121001
+B24121,221.0,B24121221,Motion picture projectionists,1,B24121001
+B24121,222.0,B24121222,"Ushers, lobby attendants, and ticket takers",1,B24121001
+B24121,223.0,B24121223,Miscellaneous entertainment attendants and related workers,1,B24121001
+B24121,224.0,B24121224,Funeral service workers,1,B24121001
+B24121,225.0,B24121225,Barbers,1,B24121001
+B24121,226.0,B24121226,"Hairdressers, hairstylists, and cosmetologists",1,B24121001
+B24121,227.0,B24121227,Miscellaneous personal appearance workers,1,B24121001
+B24121,228.0,B24121228,"Baggage porters, bellhops, and concierges",1,B24121001
+B24121,229.0,B24121229,Tour and travel guides,1,B24121001
+B24121,230.0,B24121230,Transportation attendants,1,B24121001
+B24121,231.0,B24121231,Child care workers,1,B24121001
+B24121,232.0,B24121232,Personal and home care aides,1,B24121001
+B24121,233.0,B24121233,Recreation and fitness workers,1,B24121001
+B24121,234.0,B24121234,Residential advisors,1,B24121001
+B24121,235.0,B24121235,"Personal care and service workers, all other",1,B24121001
+B24121,236.0,B24121236,First-line supervisors/managers of retail sales workers,1,B24121001
+B24121,237.0,B24121237,First-line supervisors/managers of non-retail sales workers,1,B24121001
+B24121,238.0,B24121238,Cashiers,1,B24121001
+B24121,239.0,B24121239,Counter and rental clerks,1,B24121001
+B24121,240.0,B24121240,Parts salespersons,1,B24121001
+B24121,241.0,B24121241,Retail salespersons,1,B24121001
+B24121,242.0,B24121242,Advertising sales agents,1,B24121001
+B24121,243.0,B24121243,Insurance sales agents,1,B24121001
+B24121,244.0,B24121244,"Securities, commodities, and financial services sales agents",1,B24121001
+B24121,245.0,B24121245,Travel agents,1,B24121001
+B24121,246.0,B24121246,"Sales representatives, services, all other",1,B24121001
+B24121,247.0,B24121247,"Sales representatives, wholesale and manufacturing",1,B24121001
+B24121,248.0,B24121248,"Models, demonstrators, and product promoters",1,B24121001
+B24121,249.0,B24121249,Real estate brokers and sales agents,1,B24121001
+B24121,250.0,B24121250,Sales engineers,1,B24121001
+B24121,251.0,B24121251,Telemarketers,1,B24121001
+B24121,252.0,B24121252,"Door-to-door sales workers, news and street vendors, and related workers",1,B24121001
+B24121,253.0,B24121253,"Sales and related workers, all other",1,B24121001
+B24121,254.0,B24121254,First-line supervisors/managers of office and administrative support workers,1,B24121001
+B24121,255.0,B24121255,"Switchboard operators, including answering service",1,B24121001
+B24121,256.0,B24121256,Telephone operators,1,B24121001
+B24121,257.0,B24121257,"Communications equipment operators, all other",1,B24121001
+B24121,258.0,B24121258,Bill and account collectors,1,B24121001
+B24121,259.0,B24121259,Billing and posting clerks and machine operators,1,B24121001
+B24121,260.0,B24121260,"Bookkeeping, accounting, and auditing clerks",1,B24121001
+B24121,261.0,B24121261,Gaming cage workers,1,B24121001
+B24121,262.0,B24121262,Payroll and timekeeping clerks,1,B24121001
+B24121,263.0,B24121263,Procurement clerks,1,B24121001
+B24121,264.0,B24121264,Tellers,1,B24121001
+B24121,265.0,B24121265,Brokerage clerks,1,B24121001
+B24121,266.0,B24121266,Correspondence clerks,1,B24121001
+B24121,267.0,B24121267,"Court, municipal, and license clerks",1,B24121001
+B24121,268.0,B24121268,"Credit authorizers, checkers, and clerks",1,B24121001
+B24121,269.0,B24121269,Customer service representatives,1,B24121001
+B24121,270.0,B24121270,"Eligibility interviewers, government programs",1,B24121001
+B24121,271.0,B24121271,File clerks,1,B24121001
+B24121,272.0,B24121272,"Hotel, motel, and resort desk clerks",1,B24121001
+B24121,273.0,B24121273,"Interviewers, except eligibility and loan",1,B24121001
+B24121,274.0,B24121274,"Library assistants, clerical",1,B24121001
+B24121,275.0,B24121275,Loan interviewers and clerks,1,B24121001
+B24121,276.0,B24121276,New accounts clerks,1,B24121001
+B24121,277.0,B24121277,Order clerks,1,B24121001
+B24121,278.0,B24121278,"Human resources assistants, except payroll and timekeeping",1,B24121001
+B24121,279.0,B24121279,Receptionists and information clerks,1,B24121001
+B24121,280.0,B24121280,Reservation and transportation ticket agents and travel clerks,1,B24121001
+B24121,281.0,B24121281,"Information and record clerks, all other",1,B24121001
+B24121,282.0,B24121282,Cargo and freight agents,1,B24121001
+B24121,283.0,B24121283,Couriers and messengers,1,B24121001
+B24121,284.0,B24121284,Dispatchers,1,B24121001
+B24121,285.0,B24121285,"Meter readers, utilities",1,B24121001
+B24121,286.0,B24121286,Postal service clerks,1,B24121001
+B24121,287.0,B24121287,Postal service mail carriers,1,B24121001
+B24121,288.0,B24121288,"Postal service mail sorters, processors, and processing machine operators",1,B24121001
+B24121,289.0,B24121289,"Production, planning, and expediting clerks",1,B24121001
+B24121,290.0,B24121290,"Shipping, receiving, and traffic clerks",1,B24121001
+B24121,291.0,B24121291,Stock clerks and order fillers,1,B24121001
+B24121,292.0,B24121292,"Weighers, measurers, checkers, and samplers, recordkeeping",1,B24121001
+B24121,293.0,B24121293,Secretaries and administrative assistants,1,B24121001
+B24121,294.0,B24121294,Computer operators,1,B24121001
+B24121,295.0,B24121295,Data entry keyers,1,B24121001
+B24121,296.0,B24121296,Word processors and typists,1,B24121001
+B24121,297.0,B24121297,Desktop publishers,1,B24121001
+B24121,298.0,B24121298,Insurance claims and policy processing clerks,1,B24121001
+B24121,299.0,B24121299,"Mail clerks and mail machine operators, except postal service",1,B24121001
+B24121,300.0,B24121300,"Office clerks, general",1,B24121001
+B24121,301.0,B24121301,"Office machine operators, except computer",1,B24121001
+B24121,302.0,B24121302,Proofreaders and copy markers,1,B24121001
+B24121,303.0,B24121303,Statistical assistants,1,B24121001
+B24121,304.0,B24121304,"Office and administrative support workers, all other",1,B24121001
+B24121,305.0,B24121305,"First-line supervisors/managers of farming, fishing, and forestry workers",1,B24121001
+B24121,306.0,B24121306,Agricultural inspectors,1,B24121001
+B24121,307.0,B24121307,Animal breeders,1,B24121001
+B24121,308.0,B24121308,"Graders and sorters, agricultural products",1,B24121001
+B24121,309.0,B24121309,Miscellaneous agricultural workers,1,B24121001
+B24121,310.0,B24121310,Fishers and related fishing workers,1,B24121001
+B24121,311.0,B24121311,Forest and conservation workers,1,B24121001
+B24121,312.0,B24121312,Logging workers,1,B24121001
+B24121,313.0,B24121313,First-line supervisors/managers of construction trades and extraction workers,1,B24121001
+B24121,314.0,B24121314,Boilermakers,1,B24121001
+B24121,315.0,B24121315,"Brickmasons, blockmasons, and stonemasons",1,B24121001
+B24121,316.0,B24121316,Carpenters,1,B24121001
+B24121,317.0,B24121317,"Carpet, floor, and tile installers and finishers",1,B24121001
+B24121,318.0,B24121318,"Cement masons, concrete finishers, and terrazzo workers",1,B24121001
+B24121,319.0,B24121319,Construction laborers,1,B24121001
+B24121,320.0,B24121320,"Paving, surfacing, and tamping equipment operators",1,B24121001
+B24121,321.0,B24121321,Operating engineers and other construction equipment operators,1,B24121001
+B24121,322.0,B24121322,"Drywall installers, ceiling tile installers, and tapers",1,B24121001
+B24121,323.0,B24121323,Electricians,1,B24121001
+B24121,324.0,B24121324,Glaziers,1,B24121001
+B24121,325.0,B24121325,Insulation workers,1,B24121001
+B24121,326.0,B24121326,"Painters, construction and maintenance",1,B24121001
+B24121,327.0,B24121327,Paperhangers,1,B24121001
+B24121,328.0,B24121328,"Pipelayers, plumbers, pipefitters, and steamfitters",1,B24121001
+B24121,329.0,B24121329,Plasterers and stucco masons,1,B24121001
+B24121,330.0,B24121330,Reinforcing iron and rebar workers,1,B24121001
+B24121,331.0,B24121331,Roofers,1,B24121001
+B24121,332.0,B24121332,Sheet metal workers,1,B24121001
+B24121,333.0,B24121333,Structural iron and steel workers,1,B24121001
+B24121,334.0,B24121334,"Helpers, construction trades",1,B24121001
+B24121,335.0,B24121335,Construction and building inspectors,1,B24121001
+B24121,336.0,B24121336,Elevator installers and repairers,1,B24121001
+B24121,337.0,B24121337,Fence erectors,1,B24121001
+B24121,338.0,B24121338,Hazardous materials removal workers,1,B24121001
+B24121,339.0,B24121339,Highway maintenance workers,1,B24121001
+B24121,340.0,B24121340,Rail-track laying and maintenance equipment operators,1,B24121001
+B24121,341.0,B24121341,Septic tank servicers and sewer pipe cleaners,1,B24121001
+B24121,342.0,B24121342,Miscellaneous construction and related workers,1,B24121001
+B24121,343.0,B24121343,"Derrick, rotary drill, and service unit operators, oil, gas, and mining",1,B24121001
+B24121,344.0,B24121344,"Earth drillers, except oil and gas",1,B24121001
+B24121,345.0,B24121345,"Explosives workers, ordnance handling experts, and blasters",1,B24121001
+B24121,346.0,B24121346,Mining machine operators,1,B24121001
+B24121,347.0,B24121347,"Roof bolters, mining",1,B24121001
+B24121,348.0,B24121348,Helpers--extraction workers,1,B24121001
+B24121,349.0,B24121349,Roustabouts and other extraction workers,1,B24121001
+B24121,350.0,B24121350,"First-line supervisors/managers of mechanics, installers, and repairers",1,B24121001
+B24121,351.0,B24121351,"Computer, automated teller, and office machine repairers",1,B24121001
+B24121,352.0,B24121352,Radio and telecommunications equipment installers and repairers,1,B24121001
+B24121,353.0,B24121353,Avionics technicians,1,B24121001
+B24121,354.0,B24121354,"Electric motor, power tool, and related repairers",1,B24121001
+B24121,355.0,B24121355,"Electrical and electronics installers and repairers, transportation equipment",1,B24121001
+B24121,356.0,B24121356,"Electrical and electronics repairers, industrial and utility",1,B24121001
+B24121,357.0,B24121357,"Electronic equipment installers and repairers, motor vehicles",1,B24121001
+B24121,358.0,B24121358,Electronic home entertainment equipment installers and repairers,1,B24121001
+B24121,359.0,B24121359,Security and fire alarm systems installers,1,B24121001
+B24121,360.0,B24121360,Aircraft mechanics and service technicians,1,B24121001
+B24121,361.0,B24121361,Automotive body and related repairers,1,B24121001
+B24121,362.0,B24121362,Automotive glass installers and repairers,1,B24121001
+B24121,363.0,B24121363,Automotive service technicians and mechanics,1,B24121001
+B24121,364.0,B24121364,Bus and truck mechanics and diesel engine specialists,1,B24121001
+B24121,365.0,B24121365,Heavy vehicle and mobile equipment service technicians and mechanics,1,B24121001
+B24121,366.0,B24121366,Small engine mechanics,1,B24121001
+B24121,367.0,B24121367,"Miscellaneous vehicle and mobile equipment mechanics, installers, and repairers",1,B24121001
+B24121,368.0,B24121368,Control and valve installers and repairers,1,B24121001
+B24121,369.0,B24121369,"Heating, air conditioning, and refrigeration mechanics and installers",1,B24121001
+B24121,370.0,B24121370,Home appliance repairers,1,B24121001
+B24121,371.0,B24121371,Industrial and refractory machinery mechanics,1,B24121001
+B24121,372.0,B24121372,"Maintenance and repair workers, general",1,B24121001
+B24121,373.0,B24121373,"Maintenance workers, machinery",1,B24121001
+B24121,374.0,B24121374,Millwrights,1,B24121001
+B24121,375.0,B24121375,Electrical power-line installers and repairers,1,B24121001
+B24121,376.0,B24121376,Telecommunications line installers and repairers,1,B24121001
+B24121,377.0,B24121377,Precision instrument and equipment repairers,1,B24121001
+B24121,378.0,B24121378,"Coin, vending, and amusement machine servicers and repairers",1,B24121001
+B24121,379.0,B24121379,Commercial divers,1,B24121001
+B24121,380.0,B24121380,Locksmiths and safe repairers,1,B24121001
+B24121,381.0,B24121381,Manufactured building and mobile home installers,1,B24121001
+B24121,382.0,B24121382,Riggers,1,B24121001
+B24121,383.0,B24121383,Signal and track switch repairers,1,B24121001
+B24121,384.0,B24121384,"Helpers--installation, maintenance, and repair workers",1,B24121001
+B24121,385.0,B24121385,"Other installation, maintenance, and repair workers",1,B24121001
+B24121,386.0,B24121386,First-line supervisors/managers of production and operating workers,1,B24121001
+B24121,387.0,B24121387,"Aircraft structure, surfaces, rigging, and systems assemblers",1,B24121001
+B24121,388.0,B24121388,"Electrical, electronics, and electromechanical assemblers",1,B24121001
+B24121,389.0,B24121389,Engine and other machine assemblers,1,B24121001
+B24121,390.0,B24121390,Structural metal fabricators and fitters,1,B24121001
+B24121,391.0,B24121391,Miscellaneous assemblers and fabricators,1,B24121001
+B24121,392.0,B24121392,Bakers,1,B24121001
+B24121,393.0,B24121393,"Butchers and other meat, poultry, and fish processing workers",1,B24121001
+B24121,394.0,B24121394,"Food and tobacco roasting, baking, and drying machine operators and tenders",1,B24121001
+B24121,395.0,B24121395,Food batchmakers,1,B24121001
+B24121,396.0,B24121396,Food cooking machine operators and tenders,1,B24121001
+B24121,397.0,B24121397,Computer control programmers and operators,1,B24121001
+B24121,398.0,B24121398,"Extruding and drawing machine setters, operators, and tenders, metal and plastic",1,B24121001
+B24121,399.0,B24121399,"Forging machine setters, operators, and tenders, metal and plastic",1,B24121001
+B24121,400.0,B24121400,"Rolling machine setters, operators, and tenders, metal and plastic",1,B24121001
+B24121,401.0,B24121401,"Cutting, punching, and press machine setters, operators, and tenders, metal and plastic",1,B24121001
+B24121,402.0,B24121402,"Drilling and boring machine tool setters, operators, and tenders, metal and plastic",1,B24121001
+B24121,403.0,B24121403,"Grinding, lapping, polishing, and buffing machine tool setters, operators, and tenders, metal and plastic",1,B24121001
+B24121,404.0,B24121404,"Lathe and turning machine tool setters, operators, and tenders, metal and plastic",1,B24121001
+B24121,405.0,B24121405,"Milling and planing machine setters, operators, and tenders, metal and plastic",1,B24121001
+B24121,406.0,B24121406,Machinists,1,B24121001
+B24121,407.0,B24121407,Metal furnace and kiln operators and tenders,1,B24121001
+B24121,408.0,B24121408,"Model makers and patternmakers, metal and plastic",1,B24121001
+B24121,409.0,B24121409,"Molders and molding machine setters, operators, and tenders, metal and plastic",1,B24121001
+B24121,410.0,B24121410,"Multiple machine tool setters, operators, and tenders, metal and plastic",1,B24121001
+B24121,411.0,B24121411,Tool and die makers,1,B24121001
+B24121,412.0,B24121412,"Welding, soldering, and brazing workers",1,B24121001
+B24121,413.0,B24121413,"Heat treating equipment setters, operators, and tenders, metal and plastic",1,B24121001
+B24121,414.0,B24121414,"Lay-out workers, metal and plastic",1,B24121001
+B24121,415.0,B24121415,"Plating and coating machine setters, operators, and tenders, metal and plastic",1,B24121001
+B24121,416.0,B24121416,"Tool grinders, filers, and sharpeners",1,B24121001
+B24121,417.0,B24121417,"Metalworkers and plastic workers, all other",1,B24121001
+B24121,418.0,B24121418,Bookbinders and bindery workers,1,B24121001
+B24121,419.0,B24121419,Job printers,1,B24121001
+B24121,420.0,B24121420,Prepress technicians and workers,1,B24121001
+B24121,421.0,B24121421,Printing machine operators,1,B24121001
+B24121,422.0,B24121422,Laundry and dry-cleaning workers,1,B24121001
+B24121,423.0,B24121423,"Pressers, textile, garment, and related materials",1,B24121001
+B24121,424.0,B24121424,Sewing machine operators,1,B24121001
+B24121,425.0,B24121425,Shoe and leather workers and repairers,1,B24121001
+B24121,426.0,B24121426,Shoe machine operators and tenders,1,B24121001
+B24121,427.0,B24121427,"Tailors, dressmakers, and sewers",1,B24121001
+B24121,428.0,B24121428,Textile bleaching and dyeing machine operators and tenders,1,B24121001
+B24121,429.0,B24121429,"Textile cutting machine setters, operators, and tenders",1,B24121001
+B24121,430.0,B24121430,"Textile knitting and weaving machine setters, operators, and tenders",1,B24121001
+B24121,431.0,B24121431,"Textile winding, twisting, and drawing out machine setters, operators, and tenders",1,B24121001
+B24121,432.0,B24121432,Fabric and apparel patternmakers,1,B24121001
+B24121,433.0,B24121433,Upholsterers,1,B24121001
+B24121,434.0,B24121434,"Miscellaneous textile, apparel, and furnishings workers",1,B24121001
+B24121,435.0,B24121435,Cabinetmakers and bench carpenters,1,B24121001
+B24121,436.0,B24121436,Furniture finishers,1,B24121001
+B24121,437.0,B24121437,"Sawing machine setters, operators, and tenders, wood",1,B24121001
+B24121,438.0,B24121438,"Woodworking machine setters, operators, and tenders, except sawing",1,B24121001
+B24121,439.0,B24121439,"Miscellenous woodworkers, including model makers and patternmakers",1,B24121001
+B24121,440.0,B24121440,"Power plant operators, distributors, and dispatchers",1,B24121001
+B24121,441.0,B24121441,Stationary engineers and boiler operators,1,B24121001
+B24121,442.0,B24121442,Water and liquid waste treatment plant and system operators,1,B24121001
+B24121,443.0,B24121443,Miscellaneous plant and system operators,1,B24121001
+B24121,444.0,B24121444,"Chemical processing machine setters, operators, and tenders",1,B24121001
+B24121,445.0,B24121445,"Crushing, grinding, polishing, mixing, and blending workers",1,B24121001
+B24121,446.0,B24121446,Cutting workers,1,B24121001
+B24121,447.0,B24121447,"Extruding, forming, pressing, and compacting machine setters, operators, and tenders",1,B24121001
+B24121,448.0,B24121448,"Furnace, kiln, oven, drier, and kettle operators and tenders",1,B24121001
+B24121,449.0,B24121449,"Inspectors, testers, sorters, samplers, and weighers",1,B24121001
+B24121,450.0,B24121450,Jewelers and precious stone and metal workers,1,B24121001
+B24121,451.0,B24121451,"Medical, dental, and ophthalmic laboratory technicians",1,B24121001
+B24121,452.0,B24121452,Packaging and filling machine operators and tenders,1,B24121001
+B24121,453.0,B24121453,Painting workers,1,B24121001
+B24121,454.0,B24121454,Photographic process workers and processing machine operators,1,B24121001
+B24121,455.0,B24121455,Semiconductor processors,1,B24121001
+B24121,456.0,B24121456,Cementing and gluing machine operators and tenders,1,B24121001
+B24121,457.0,B24121457,"Cleaning, washing, and metal pickling equipment operators and tenders",1,B24121001
+B24121,458.0,B24121458,Cooling and freezing equipment operators and tenders,1,B24121001
+B24121,459.0,B24121459,Etchers and engravers,1,B24121001
+B24121,460.0,B24121460,"Molders, shapers, and casters, except metal and plastic",1,B24121001
+B24121,461.0,B24121461,"Paper goods machine setters, operators, and tenders",1,B24121001
+B24121,462.0,B24121462,Tire builders,1,B24121001
+B24121,463.0,B24121463,Helpers--production workers,1,B24121001
+B24121,464.0,B24121464,"Production workers, all other",1,B24121001
+B24121,465.0,B24121465,"Supervisors, transportation and material moving workers",1,B24121001
+B24121,466.0,B24121466,Aircraft pilots and flight engineers,1,B24121001
+B24121,467.0,B24121467,Air traffic controllers and airfield operations specialists,1,B24121001
+B24121,468.0,B24121468,"Ambulance drivers and attendants, except emergency medical technicians",1,B24121001
+B24121,469.0,B24121469,Bus drivers,1,B24121001
+B24121,470.0,B24121470,Driver/sales workers and truck drivers,1,B24121001
+B24121,471.0,B24121471,Taxi drivers and chauffeurs,1,B24121001
+B24121,472.0,B24121472,"Motor vehicle operators, all other",1,B24121001
+B24121,473.0,B24121473,Locomotive engineers and operators,1,B24121001
+B24121,474.0,B24121474,"Railroad brake, signal, and switch operators",1,B24121001
+B24121,475.0,B24121475,Railroad conductors and yardmasters,1,B24121001
+B24121,476.0,B24121476,"Subway, streetcar, and other rail transportation workers",1,B24121001
+B24121,477.0,B24121477,Sailors and marine oilers,1,B24121001
+B24121,478.0,B24121478,Ship and boat captains and operators,1,B24121001
+B24121,479.0,B24121479,Ship engineers,1,B24121001
+B24121,480.0,B24121480,Bridge and lock tenders,1,B24121001
+B24121,481.0,B24121481,Parking lot attendants,1,B24121001
+B24121,482.0,B24121482,Service station attendants,1,B24121001
+B24121,483.0,B24121483,Transportation inspectors,1,B24121001
+B24121,484.0,B24121484,Other transportation workers,1,B24121001
+B24121,485.0,B24121485,Conveyor operators and tenders,1,B24121001
+B24121,486.0,B24121486,Crane and tower operators,1,B24121001
+B24121,487.0,B24121487,"Dredge, excavating, and loading machine operators",1,B24121001
+B24121,488.0,B24121488,Hoist and winch operators,1,B24121001
+B24121,489.0,B24121489,Industrial truck and tractor operators,1,B24121001
+B24121,490.0,B24121490,Cleaners of vehicles and equipment,1,B24121001
+B24121,491.0,B24121491,"Laborers and freight, stock, and material movers, hand",1,B24121001
+B24121,492.0,B24121492,Machine feeders and offbearers,1,B24121001
+B24121,493.0,B24121493,"Packers and packagers, hand",1,B24121001
+B24121,494.0,B24121494,Pumping station operators,1,B24121001
+B24121,495.0,B24121495,Refuse and recyclable material collectors,1,B24121001
+B24121,496.0,B24121496,Shuttle car operators,1,B24121001
+B24121,497.0,B24121497,"Tank car, truck, and ship loaders",1,B24121001
+B24121,498.0,B24121498,"Material moving workers, all other",1,B24121001
+B24121,499.0,B24121499,"Other occupations including other media and communication workers, transit and railroad police, hunters and trappers, and pile-driver operators",1,B24121001
 B24122,1.0,B24122001,Total:,0,
 B24122,2.0,B24122002,Chief executives,1,B24122001
 B24122,3.0,B24122003,General and operations managers,1,B24122001
@@ -22819,6 +23403,338 @@ B24122,164.0,B24122164,"Health diagnosing and treating practitioners, all other"
 B24122,165.0,B24122165,Clinical laboratory technologists and technicians,1,B24122001
 B24122,166.0,B24122166,Dental hygienists,1,B24122001
 B24122,167.0,B24122167,Diagnostic related technologists and technicians,1,B24122001
+B24122,168.0,B24122168,Emergency medical technicians and paramedics,1,B24122001
+B24122,169.0,B24122169,Health diagnosing and treating practitioner support technicians,1,B24122001
+B24122,170.0,B24122170,Licensed practical and licensed vocational nurses,1,B24122001
+B24122,171.0,B24122171,Medical records and health information technicians,1,B24122001
+B24122,172.0,B24122172,"Opticians, dispensing",1,B24122001
+B24122,173.0,B24122173,Miscellaneous health technologists and technicians,1,B24122001
+B24122,174.0,B24122174,Other healthcare practitioners and technical occupations,1,B24122001
+B24122,175.0,B24122175,"Nursing, psychiatric, and home health aides",1,B24122001
+B24122,176.0,B24122176,Occupational therapist assistants and aides,1,B24122001
+B24122,177.0,B24122177,Physical therapist assistants and aides,1,B24122001
+B24122,178.0,B24122178,Massage therapists,1,B24122001
+B24122,179.0,B24122179,Dental assistants,1,B24122001
+B24122,180.0,B24122180,Medical assistants and other healthcare support occupations,1,B24122001
+B24122,181.0,B24122181,First-line supervisors/managers of correctional officers,1,B24122001
+B24122,182.0,B24122182,First-line supervisors/managers of police and detectives,1,B24122001
+B24122,183.0,B24122183,First-line supervisors/managers of fire fighting and prevention workers,1,B24122001
+B24122,184.0,B24122184,"Supervisors, protective service workers, all other",1,B24122001
+B24122,185.0,B24122185,Fire fighters,1,B24122001
+B24122,186.0,B24122186,Fire inspectors,1,B24122001
+B24122,187.0,B24122187,"Bailiffs, correctional officers, and jailers",1,B24122001
+B24122,188.0,B24122188,Detectives and criminal investigators,1,B24122001
+B24122,189.0,B24122189,Fish and game wardens,1,B24122001
+B24122,190.0,B24122190,Parking enforcement workers,1,B24122001
+B24122,191.0,B24122191,Police and sheriff's patrol officers,1,B24122001
+B24122,192.0,B24122192,Animal control workers,1,B24122001
+B24122,193.0,B24122193,Private detectives and investigators,1,B24122001
+B24122,194.0,B24122194,Security guards and gaming surveillance officers,1,B24122001
+B24122,195.0,B24122195,Crossing guards,1,B24122001
+B24122,196.0,B24122196,Lifeguards and other protective service workers,1,B24122001
+B24122,197.0,B24122197,Chefs and head cooks,1,B24122001
+B24122,198.0,B24122198,First-line supervisors/managers of food preparation and serving workers,1,B24122001
+B24122,199.0,B24122199,Cooks,1,B24122001
+B24122,200.0,B24122200,Food preparation workers,1,B24122001
+B24122,201.0,B24122201,Bartenders,1,B24122001
+B24122,202.0,B24122202,"Combined food preparation and serving workers, including fast food",1,B24122001
+B24122,203.0,B24122203,"Counter attendants, cafeteria, food concession, and coffee shop",1,B24122001
+B24122,204.0,B24122204,Waiters and waitresses,1,B24122001
+B24122,205.0,B24122205,"Food servers, nonrestaurant",1,B24122001
+B24122,206.0,B24122206,Dining room and cafeteria attendants and bartender helpers,1,B24122001
+B24122,207.0,B24122207,Dishwashers,1,B24122001
+B24122,208.0,B24122208,"Hosts and hostesses, restaurant, lounge, and coffee shop",1,B24122001
+B24122,209.0,B24122209,"Food preparation and serving related workers, all other",1,B24122001
+B24122,210.0,B24122210,First-line supervisors/managers of housekeeping and janitorial workers,1,B24122001
+B24122,211.0,B24122211,"First-line supervisors/managers of landscaping, lawn service, and groundskeeping workers",1,B24122001
+B24122,212.0,B24122212,Janitors and building cleaners,1,B24122001
+B24122,213.0,B24122213,Maids and housekeeping cleaners,1,B24122001
+B24122,214.0,B24122214,Pest control workers,1,B24122001
+B24122,215.0,B24122215,Grounds maintenance workers,1,B24122001
+B24122,216.0,B24122216,First-line supervisors/managers of gaming workers,1,B24122001
+B24122,217.0,B24122217,First-line supervisors/managers of personal service workers,1,B24122001
+B24122,218.0,B24122218,Animal trainers,1,B24122001
+B24122,219.0,B24122219,Nonfarm animal caretakers,1,B24122001
+B24122,220.0,B24122220,Gaming services workers,1,B24122001
+B24122,221.0,B24122221,Motion picture projectionists,1,B24122001
+B24122,222.0,B24122222,"Ushers, lobby attendants, and ticket takers",1,B24122001
+B24122,223.0,B24122223,Miscellaneous entertainment attendants and related workers,1,B24122001
+B24122,224.0,B24122224,Funeral service workers,1,B24122001
+B24122,225.0,B24122225,Barbers,1,B24122001
+B24122,226.0,B24122226,"Hairdressers, hairstylists, and cosmetologists",1,B24122001
+B24122,227.0,B24122227,Miscellaneous personal appearance workers,1,B24122001
+B24122,228.0,B24122228,"Baggage porters, bellhops, and concierges",1,B24122001
+B24122,229.0,B24122229,Tour and travel guides,1,B24122001
+B24122,230.0,B24122230,Transportation attendants,1,B24122001
+B24122,231.0,B24122231,Child care workers,1,B24122001
+B24122,232.0,B24122232,Personal and home care aides,1,B24122001
+B24122,233.0,B24122233,Recreation and fitness workers,1,B24122001
+B24122,234.0,B24122234,Residential advisors,1,B24122001
+B24122,235.0,B24122235,"Personal care and service workers, all other",1,B24122001
+B24122,236.0,B24122236,First-line supervisors/managers of retail sales workers,1,B24122001
+B24122,237.0,B24122237,First-line supervisors/managers of non-retail sales workers,1,B24122001
+B24122,238.0,B24122238,Cashiers,1,B24122001
+B24122,239.0,B24122239,Counter and rental clerks,1,B24122001
+B24122,240.0,B24122240,Parts salespersons,1,B24122001
+B24122,241.0,B24122241,Retail salespersons,1,B24122001
+B24122,242.0,B24122242,Advertising sales agents,1,B24122001
+B24122,243.0,B24122243,Insurance sales agents,1,B24122001
+B24122,244.0,B24122244,"Securities, commodities, and financial services sales agents",1,B24122001
+B24122,245.0,B24122245,Travel agents,1,B24122001
+B24122,246.0,B24122246,"Sales representatives, services, all other",1,B24122001
+B24122,247.0,B24122247,"Sales representatives, wholesale and manufacturing",1,B24122001
+B24122,248.0,B24122248,"Models, demonstrators, and product promoters",1,B24122001
+B24122,249.0,B24122249,Real estate brokers and sales agents,1,B24122001
+B24122,250.0,B24122250,Sales engineers,1,B24122001
+B24122,251.0,B24122251,Telemarketers,1,B24122001
+B24122,252.0,B24122252,"Door-to-door sales workers, news and street vendors, and related workers",1,B24122001
+B24122,253.0,B24122253,"Sales and related workers, all other",1,B24122001
+B24122,254.0,B24122254,First-line supervisors/managers of office and administrative support workers,1,B24122001
+B24122,255.0,B24122255,"Switchboard operators, including answering service",1,B24122001
+B24122,256.0,B24122256,Telephone operators,1,B24122001
+B24122,257.0,B24122257,"Communications equipment operators, all other",1,B24122001
+B24122,258.0,B24122258,Bill and account collectors,1,B24122001
+B24122,259.0,B24122259,Billing and posting clerks and machine operators,1,B24122001
+B24122,260.0,B24122260,"Bookkeeping, accounting, and auditing clerks",1,B24122001
+B24122,261.0,B24122261,Gaming cage workers,1,B24122001
+B24122,262.0,B24122262,Payroll and timekeeping clerks,1,B24122001
+B24122,263.0,B24122263,Procurement clerks,1,B24122001
+B24122,264.0,B24122264,Tellers,1,B24122001
+B24122,265.0,B24122265,Brokerage clerks,1,B24122001
+B24122,266.0,B24122266,Correspondence clerks,1,B24122001
+B24122,267.0,B24122267,"Court, municipal, and license clerks",1,B24122001
+B24122,268.0,B24122268,"Credit authorizers, checkers, and clerks",1,B24122001
+B24122,269.0,B24122269,Customer service representatives,1,B24122001
+B24122,270.0,B24122270,"Eligibility interviewers, government programs",1,B24122001
+B24122,271.0,B24122271,File clerks,1,B24122001
+B24122,272.0,B24122272,"Hotel, motel, and resort desk clerks",1,B24122001
+B24122,273.0,B24122273,"Interviewers, except eligibility and loan",1,B24122001
+B24122,274.0,B24122274,"Library assistants, clerical",1,B24122001
+B24122,275.0,B24122275,Loan interviewers and clerks,1,B24122001
+B24122,276.0,B24122276,New accounts clerks,1,B24122001
+B24122,277.0,B24122277,Order clerks,1,B24122001
+B24122,278.0,B24122278,"Human resources assistants, except payroll and timekeeping",1,B24122001
+B24122,279.0,B24122279,Receptionists and information clerks,1,B24122001
+B24122,280.0,B24122280,Reservation and transportation ticket agents and travel clerks,1,B24122001
+B24122,281.0,B24122281,"Information and record clerks, all other",1,B24122001
+B24122,282.0,B24122282,Cargo and freight agents,1,B24122001
+B24122,283.0,B24122283,Couriers and messengers,1,B24122001
+B24122,284.0,B24122284,Dispatchers,1,B24122001
+B24122,285.0,B24122285,"Meter readers, utilities",1,B24122001
+B24122,286.0,B24122286,Postal service clerks,1,B24122001
+B24122,287.0,B24122287,Postal service mail carriers,1,B24122001
+B24122,288.0,B24122288,"Postal service mail sorters, processors, and processing machine operators",1,B24122001
+B24122,289.0,B24122289,"Production, planning, and expediting clerks",1,B24122001
+B24122,290.0,B24122290,"Shipping, receiving, and traffic clerks",1,B24122001
+B24122,291.0,B24122291,Stock clerks and order fillers,1,B24122001
+B24122,292.0,B24122292,"Weighers, measurers, checkers, and samplers, recordkeeping",1,B24122001
+B24122,293.0,B24122293,Secretaries and administrative assistants,1,B24122001
+B24122,294.0,B24122294,Computer operators,1,B24122001
+B24122,295.0,B24122295,Data entry keyers,1,B24122001
+B24122,296.0,B24122296,Word processors and typists,1,B24122001
+B24122,297.0,B24122297,Desktop publishers,1,B24122001
+B24122,298.0,B24122298,Insurance claims and policy processing clerks,1,B24122001
+B24122,299.0,B24122299,"Mail clerks and mail machine operators, except postal service",1,B24122001
+B24122,300.0,B24122300,"Office clerks, general",1,B24122001
+B24122,301.0,B24122301,"Office machine operators, except computer",1,B24122001
+B24122,302.0,B24122302,Proofreaders and copy markers,1,B24122001
+B24122,303.0,B24122303,Statistical assistants,1,B24122001
+B24122,304.0,B24122304,"Office and administrative support workers, all other",1,B24122001
+B24122,305.0,B24122305,"First-line supervisors/managers of farming, fishing, and forestry workers",1,B24122001
+B24122,306.0,B24122306,Agricultural inspectors,1,B24122001
+B24122,307.0,B24122307,Animal breeders,1,B24122001
+B24122,308.0,B24122308,"Graders and sorters, agricultural products",1,B24122001
+B24122,309.0,B24122309,Miscellaneous agricultural workers,1,B24122001
+B24122,310.0,B24122310,Fishers and related fishing workers,1,B24122001
+B24122,311.0,B24122311,Forest and conservation workers,1,B24122001
+B24122,312.0,B24122312,Logging workers,1,B24122001
+B24122,313.0,B24122313,First-line supervisors/managers of construction trades and extraction workers,1,B24122001
+B24122,314.0,B24122314,Boilermakers,1,B24122001
+B24122,315.0,B24122315,"Brickmasons, blockmasons, and stonemasons",1,B24122001
+B24122,316.0,B24122316,Carpenters,1,B24122001
+B24122,317.0,B24122317,"Carpet, floor, and tile installers and finishers",1,B24122001
+B24122,318.0,B24122318,"Cement masons, concrete finishers, and terrazzo workers",1,B24122001
+B24122,319.0,B24122319,Construction laborers,1,B24122001
+B24122,320.0,B24122320,"Paving, surfacing, and tamping equipment operators",1,B24122001
+B24122,321.0,B24122321,Operating engineers and other construction equipment operators,1,B24122001
+B24122,322.0,B24122322,"Drywall installers, ceiling tile installers, and tapers",1,B24122001
+B24122,323.0,B24122323,Electricians,1,B24122001
+B24122,324.0,B24122324,Glaziers,1,B24122001
+B24122,325.0,B24122325,Insulation workers,1,B24122001
+B24122,326.0,B24122326,"Painters, construction and maintenance",1,B24122001
+B24122,327.0,B24122327,Paperhangers,1,B24122001
+B24122,328.0,B24122328,"Pipelayers, plumbers, pipefitters, and steamfitters",1,B24122001
+B24122,329.0,B24122329,Plasterers and stucco masons,1,B24122001
+B24122,330.0,B24122330,Reinforcing iron and rebar workers,1,B24122001
+B24122,331.0,B24122331,Roofers,1,B24122001
+B24122,332.0,B24122332,Sheet metal workers,1,B24122001
+B24122,333.0,B24122333,Structural iron and steel workers,1,B24122001
+B24122,334.0,B24122334,"Helpers, construction trades",1,B24122001
+B24122,335.0,B24122335,Construction and building inspectors,1,B24122001
+B24122,336.0,B24122336,Elevator installers and repairers,1,B24122001
+B24122,337.0,B24122337,Fence erectors,1,B24122001
+B24122,338.0,B24122338,Hazardous materials removal workers,1,B24122001
+B24122,339.0,B24122339,Highway maintenance workers,1,B24122001
+B24122,340.0,B24122340,Rail-track laying and maintenance equipment operators,1,B24122001
+B24122,341.0,B24122341,Septic tank servicers and sewer pipe cleaners,1,B24122001
+B24122,342.0,B24122342,Miscellaneous construction and related workers,1,B24122001
+B24122,343.0,B24122343,"Derrick, rotary drill, and service unit operators, oil, gas, and mining",1,B24122001
+B24122,344.0,B24122344,"Earth drillers, except oil and gas",1,B24122001
+B24122,345.0,B24122345,"Explosives workers, ordnance handling experts, and blasters",1,B24122001
+B24122,346.0,B24122346,Mining machine operators,1,B24122001
+B24122,347.0,B24122347,"Roof bolters, mining",1,B24122001
+B24122,348.0,B24122348,Helpers--extraction workers,1,B24122001
+B24122,349.0,B24122349,Roustabouts and other extraction workers,1,B24122001
+B24122,350.0,B24122350,"First-line supervisors/managers of mechanics, installers, and repairers",1,B24122001
+B24122,351.0,B24122351,"Computer, automated teller, and office machine repairers",1,B24122001
+B24122,352.0,B24122352,Radio and telecommunications equipment installers and repairers,1,B24122001
+B24122,353.0,B24122353,Avionics technicians,1,B24122001
+B24122,354.0,B24122354,"Electric motor, power tool, and related repairers",1,B24122001
+B24122,355.0,B24122355,"Electrical and electronics installers and repairers, transportation equipment",1,B24122001
+B24122,356.0,B24122356,"Electrical and electronics repairers, industrial and utility",1,B24122001
+B24122,357.0,B24122357,"Electronic equipment installers and repairers, motor vehicles",1,B24122001
+B24122,358.0,B24122358,Electronic home entertainment equipment installers and repairers,1,B24122001
+B24122,359.0,B24122359,Security and fire alarm systems installers,1,B24122001
+B24122,360.0,B24122360,Aircraft mechanics and service technicians,1,B24122001
+B24122,361.0,B24122361,Automotive body and related repairers,1,B24122001
+B24122,362.0,B24122362,Automotive glass installers and repairers,1,B24122001
+B24122,363.0,B24122363,Automotive service technicians and mechanics,1,B24122001
+B24122,364.0,B24122364,Bus and truck mechanics and diesel engine specialists,1,B24122001
+B24122,365.0,B24122365,Heavy vehicle and mobile equipment service technicians and mechanics,1,B24122001
+B24122,366.0,B24122366,Small engine mechanics,1,B24122001
+B24122,367.0,B24122367,"Miscellaneous vehicle and mobile equipment mechanics, installers, and repairers",1,B24122001
+B24122,368.0,B24122368,Control and valve installers and repairers,1,B24122001
+B24122,369.0,B24122369,"Heating, air conditioning, and refrigeration mechanics and installers",1,B24122001
+B24122,370.0,B24122370,Home appliance repairers,1,B24122001
+B24122,371.0,B24122371,Industrial and refractory machinery mechanics,1,B24122001
+B24122,372.0,B24122372,"Maintenance and repair workers, general",1,B24122001
+B24122,373.0,B24122373,"Maintenance workers, machinery",1,B24122001
+B24122,374.0,B24122374,Millwrights,1,B24122001
+B24122,375.0,B24122375,Electrical power-line installers and repairers,1,B24122001
+B24122,376.0,B24122376,Telecommunications line installers and repairers,1,B24122001
+B24122,377.0,B24122377,Precision instrument and equipment repairers,1,B24122001
+B24122,378.0,B24122378,"Coin, vending, and amusement machine servicers and repairers",1,B24122001
+B24122,379.0,B24122379,Commercial divers,1,B24122001
+B24122,380.0,B24122380,Locksmiths and safe repairers,1,B24122001
+B24122,381.0,B24122381,Manufactured building and mobile home installers,1,B24122001
+B24122,382.0,B24122382,Riggers,1,B24122001
+B24122,383.0,B24122383,Signal and track switch repairers,1,B24122001
+B24122,384.0,B24122384,"Helpers--installation, maintenance, and repair workers",1,B24122001
+B24122,385.0,B24122385,"Other installation, maintenance, and repair workers",1,B24122001
+B24122,386.0,B24122386,First-line supervisors/managers of production and operating workers,1,B24122001
+B24122,387.0,B24122387,"Aircraft structure, surfaces, rigging, and systems assemblers",1,B24122001
+B24122,388.0,B24122388,"Electrical, electronics, and electromechanical assemblers",1,B24122001
+B24122,389.0,B24122389,Engine and other machine assemblers,1,B24122001
+B24122,390.0,B24122390,Structural metal fabricators and fitters,1,B24122001
+B24122,391.0,B24122391,Miscellaneous assemblers and fabricators,1,B24122001
+B24122,392.0,B24122392,Bakers,1,B24122001
+B24122,393.0,B24122393,"Butchers and other meat, poultry, and fish processing workers",1,B24122001
+B24122,394.0,B24122394,"Food and tobacco roasting, baking, and drying machine operators and tenders",1,B24122001
+B24122,395.0,B24122395,Food batchmakers,1,B24122001
+B24122,396.0,B24122396,Food cooking machine operators and tenders,1,B24122001
+B24122,397.0,B24122397,Computer control programmers and operators,1,B24122001
+B24122,398.0,B24122398,"Extruding and drawing machine setters, operators, and tenders, metal and plastic",1,B24122001
+B24122,399.0,B24122399,"Forging machine setters, operators, and tenders, metal and plastic",1,B24122001
+B24122,400.0,B24122400,"Rolling machine setters, operators, and tenders, metal and plastic",1,B24122001
+B24122,401.0,B24122401,"Cutting, punching, and press machine setters, operators, and tenders, metal and plastic",1,B24122001
+B24122,402.0,B24122402,"Drilling and boring machine tool setters, operators, and tenders, metal and plastic",1,B24122001
+B24122,403.0,B24122403,"Grinding, lapping, polishing, and buffing machine tool setters, operators, and tenders, metal and plastic",1,B24122001
+B24122,404.0,B24122404,"Lathe and turning machine tool setters, operators, and tenders, metal and plastic",1,B24122001
+B24122,405.0,B24122405,"Milling and planing machine setters, operators, and tenders, metal and plastic",1,B24122001
+B24122,406.0,B24122406,Machinists,1,B24122001
+B24122,407.0,B24122407,Metal furnace and kiln operators and tenders,1,B24122001
+B24122,408.0,B24122408,"Model makers and patternmakers, metal and plastic",1,B24122001
+B24122,409.0,B24122409,"Molders and molding machine setters, operators, and tenders, metal and plastic",1,B24122001
+B24122,410.0,B24122410,"Multiple machine tool setters, operators, and tenders, metal and plastic",1,B24122001
+B24122,411.0,B24122411,Tool and die makers,1,B24122001
+B24122,412.0,B24122412,"Welding, soldering, and brazing workers",1,B24122001
+B24122,413.0,B24122413,"Heat treating equipment setters, operators, and tenders, metal and plastic",1,B24122001
+B24122,414.0,B24122414,"Lay-out workers, metal and plastic",1,B24122001
+B24122,415.0,B24122415,"Plating and coating machine setters, operators, and tenders, metal and plastic",1,B24122001
+B24122,416.0,B24122416,"Tool grinders, filers, and sharpeners",1,B24122001
+B24122,417.0,B24122417,"Metalworkers and plastic workers, all other",1,B24122001
+B24122,418.0,B24122418,Bookbinders and bindery workers,1,B24122001
+B24122,419.0,B24122419,Job printers,1,B24122001
+B24122,420.0,B24122420,Prepress technicians and workers,1,B24122001
+B24122,421.0,B24122421,Printing machine operators,1,B24122001
+B24122,422.0,B24122422,Laundry and dry-cleaning workers,1,B24122001
+B24122,423.0,B24122423,"Pressers, textile, garment, and related materials",1,B24122001
+B24122,424.0,B24122424,Sewing machine operators,1,B24122001
+B24122,425.0,B24122425,Shoe and leather workers and repairers,1,B24122001
+B24122,426.0,B24122426,Shoe machine operators and tenders,1,B24122001
+B24122,427.0,B24122427,"Tailors, dressmakers, and sewers",1,B24122001
+B24122,428.0,B24122428,Textile bleaching and dyeing machine operators and tenders,1,B24122001
+B24122,429.0,B24122429,"Textile cutting machine setters, operators, and tenders",1,B24122001
+B24122,430.0,B24122430,"Textile knitting and weaving machine setters, operators, and tenders",1,B24122001
+B24122,431.0,B24122431,"Textile winding, twisting, and drawing out machine setters, operators, and tenders",1,B24122001
+B24122,432.0,B24122432,Fabric and apparel patternmakers,1,B24122001
+B24122,433.0,B24122433,Upholsterers,1,B24122001
+B24122,434.0,B24122434,"Miscellaneous textile, apparel, and furnishings workers",1,B24122001
+B24122,435.0,B24122435,Cabinetmakers and bench carpenters,1,B24122001
+B24122,436.0,B24122436,Furniture finishers,1,B24122001
+B24122,437.0,B24122437,"Sawing machine setters, operators, and tenders, wood",1,B24122001
+B24122,438.0,B24122438,"Woodworking machine setters, operators, and tenders, except sawing",1,B24122001
+B24122,439.0,B24122439,"Miscellenous woodworkers, including model makers and patternmakers",1,B24122001
+B24122,440.0,B24122440,"Power plant operators, distributors, and dispatchers",1,B24122001
+B24122,441.0,B24122441,Stationary engineers and boiler operators,1,B24122001
+B24122,442.0,B24122442,Water and liquid waste treatment plant and system operators,1,B24122001
+B24122,443.0,B24122443,Miscellaneous plant and system operators,1,B24122001
+B24122,444.0,B24122444,"Chemical processing machine setters, operators, and tenders",1,B24122001
+B24122,445.0,B24122445,"Crushing, grinding, polishing, mixing, and blending workers",1,B24122001
+B24122,446.0,B24122446,Cutting workers,1,B24122001
+B24122,447.0,B24122447,"Extruding, forming, pressing, and compacting machine setters, operators, and tenders",1,B24122001
+B24122,448.0,B24122448,"Furnace, kiln, oven, drier, and kettle operators and tenders",1,B24122001
+B24122,449.0,B24122449,"Inspectors, testers, sorters, samplers, and weighers",1,B24122001
+B24122,450.0,B24122450,Jewelers and precious stone and metal workers,1,B24122001
+B24122,451.0,B24122451,"Medical, dental, and ophthalmic laboratory technicians",1,B24122001
+B24122,452.0,B24122452,Packaging and filling machine operators and tenders,1,B24122001
+B24122,453.0,B24122453,Painting workers,1,B24122001
+B24122,454.0,B24122454,Photographic process workers and processing machine operators,1,B24122001
+B24122,455.0,B24122455,Semiconductor processors,1,B24122001
+B24122,456.0,B24122456,Cementing and gluing machine operators and tenders,1,B24122001
+B24122,457.0,B24122457,"Cleaning, washing, and metal pickling equipment operators and tenders",1,B24122001
+B24122,458.0,B24122458,Cooling and freezing equipment operators and tenders,1,B24122001
+B24122,459.0,B24122459,Etchers and engravers,1,B24122001
+B24122,460.0,B24122460,"Molders, shapers, and casters, except metal and plastic",1,B24122001
+B24122,461.0,B24122461,"Paper goods machine setters, operators, and tenders",1,B24122001
+B24122,462.0,B24122462,Tire builders,1,B24122001
+B24122,463.0,B24122463,Helpers--production workers,1,B24122001
+B24122,464.0,B24122464,"Production workers, all other",1,B24122001
+B24122,465.0,B24122465,"Supervisors, transportation and material moving workers",1,B24122001
+B24122,466.0,B24122466,Aircraft pilots and flight engineers,1,B24122001
+B24122,467.0,B24122467,Air traffic controllers and airfield operations specialists,1,B24122001
+B24122,468.0,B24122468,"Ambulance drivers and attendants, except emergency medical technicians",1,B24122001
+B24122,469.0,B24122469,Bus drivers,1,B24122001
+B24122,470.0,B24122470,Driver/sales workers and truck drivers,1,B24122001
+B24122,471.0,B24122471,Taxi drivers and chauffeurs,1,B24122001
+B24122,472.0,B24122472,"Motor vehicle operators, all other",1,B24122001
+B24122,473.0,B24122473,Locomotive engineers and operators,1,B24122001
+B24122,474.0,B24122474,"Railroad brake, signal, and switch operators",1,B24122001
+B24122,475.0,B24122475,Railroad conductors and yardmasters,1,B24122001
+B24122,476.0,B24122476,"Subway, streetcar, and other rail transportation workers",1,B24122001
+B24122,477.0,B24122477,Sailors and marine oilers,1,B24122001
+B24122,478.0,B24122478,Ship and boat captains and operators,1,B24122001
+B24122,479.0,B24122479,Ship engineers,1,B24122001
+B24122,480.0,B24122480,Bridge and lock tenders,1,B24122001
+B24122,481.0,B24122481,Parking lot attendants,1,B24122001
+B24122,482.0,B24122482,Service station attendants,1,B24122001
+B24122,483.0,B24122483,Transportation inspectors,1,B24122001
+B24122,484.0,B24122484,Other transportation workers,1,B24122001
+B24122,485.0,B24122485,Conveyor operators and tenders,1,B24122001
+B24122,486.0,B24122486,Crane and tower operators,1,B24122001
+B24122,487.0,B24122487,"Dredge, excavating, and loading machine operators",1,B24122001
+B24122,488.0,B24122488,Hoist and winch operators,1,B24122001
+B24122,489.0,B24122489,Industrial truck and tractor operators,1,B24122001
+B24122,490.0,B24122490,Cleaners of vehicles and equipment,1,B24122001
+B24122,491.0,B24122491,"Laborers and freight, stock, and material movers, hand",1,B24122001
+B24122,492.0,B24122492,Machine feeders and offbearers,1,B24122001
+B24122,493.0,B24122493,"Packers and packagers, hand",1,B24122001
+B24122,494.0,B24122494,Pumping station operators,1,B24122001
+B24122,495.0,B24122495,Refuse and recyclable material collectors,1,B24122001
+B24122,496.0,B24122496,Shuttle car operators,1,B24122001
+B24122,497.0,B24122497,"Tank car, truck, and ship loaders",1,B24122001
+B24122,498.0,B24122498,"Material moving workers, all other",1,B24122001
+B24122,499.0,B24122499,"Other occupations including other media and communication workers, transit and railroad police, hunters and trappers, and pile-driver operators",1,B24122001
 B24123,1.0,B24123001,Total:,0,
 B24123,2.0,B24123002,Chief executives,1,B24123001
 B24123,3.0,B24123003,General and operations managers,1,B24123001
@@ -22986,6 +23902,338 @@ B24123,164.0,B24123164,"Health diagnosing and treating practitioners, all other"
 B24123,165.0,B24123165,Clinical laboratory technologists and technicians,1,B24123001
 B24123,166.0,B24123166,Dental hygienists,1,B24123001
 B24123,167.0,B24123167,Diagnostic related technologists and technicians,1,B24123001
+B24123,168.0,B24123168,Emergency medical technicians and paramedics,1,B24123001
+B24123,169.0,B24123169,Health diagnosing and treating practitioner support technicians,1,B24123001
+B24123,170.0,B24123170,Licensed practical and licensed vocational nurses,1,B24123001
+B24123,171.0,B24123171,Medical records and health information technicians,1,B24123001
+B24123,172.0,B24123172,"Opticians, dispensing",1,B24123001
+B24123,173.0,B24123173,Miscellaneous health technologists and technicians,1,B24123001
+B24123,174.0,B24123174,Other healthcare practitioners and technical occupations,1,B24123001
+B24123,175.0,B24123175,"Nursing, psychiatric, and home health aides",1,B24123001
+B24123,176.0,B24123176,Occupational therapist assistants and aides,1,B24123001
+B24123,177.0,B24123177,Physical therapist assistants and aides,1,B24123001
+B24123,178.0,B24123178,Massage therapists,1,B24123001
+B24123,179.0,B24123179,Dental assistants,1,B24123001
+B24123,180.0,B24123180,Medical assistants and other healthcare support occupations,1,B24123001
+B24123,181.0,B24123181,First-line supervisors/managers of correctional officers,1,B24123001
+B24123,182.0,B24123182,First-line supervisors/managers of police and detectives,1,B24123001
+B24123,183.0,B24123183,First-line supervisors/managers of fire fighting and prevention workers,1,B24123001
+B24123,184.0,B24123184,"Supervisors, protective service workers, all other",1,B24123001
+B24123,185.0,B24123185,Fire fighters,1,B24123001
+B24123,186.0,B24123186,Fire inspectors,1,B24123001
+B24123,187.0,B24123187,"Bailiffs, correctional officers, and jailers",1,B24123001
+B24123,188.0,B24123188,Detectives and criminal investigators,1,B24123001
+B24123,189.0,B24123189,Fish and game wardens,1,B24123001
+B24123,190.0,B24123190,Parking enforcement workers,1,B24123001
+B24123,191.0,B24123191,Police and sheriff's patrol officers,1,B24123001
+B24123,192.0,B24123192,Animal control workers,1,B24123001
+B24123,193.0,B24123193,Private detectives and investigators,1,B24123001
+B24123,194.0,B24123194,Security guards and gaming surveillance officers,1,B24123001
+B24123,195.0,B24123195,Crossing guards,1,B24123001
+B24123,196.0,B24123196,Lifeguards and other protective service workers,1,B24123001
+B24123,197.0,B24123197,Chefs and head cooks,1,B24123001
+B24123,198.0,B24123198,First-line supervisors/managers of food preparation and serving workers,1,B24123001
+B24123,199.0,B24123199,Cooks,1,B24123001
+B24123,200.0,B24123200,Food preparation workers,1,B24123001
+B24123,201.0,B24123201,Bartenders,1,B24123001
+B24123,202.0,B24123202,"Combined food preparation and serving workers, including fast food",1,B24123001
+B24123,203.0,B24123203,"Counter attendants, cafeteria, food concession, and coffee shop",1,B24123001
+B24123,204.0,B24123204,Waiters and waitresses,1,B24123001
+B24123,205.0,B24123205,"Food servers, nonrestaurant",1,B24123001
+B24123,206.0,B24123206,Dining room and cafeteria attendants and bartender helpers,1,B24123001
+B24123,207.0,B24123207,Dishwashers,1,B24123001
+B24123,208.0,B24123208,"Hosts and hostesses, restaurant, lounge, and coffee shop",1,B24123001
+B24123,209.0,B24123209,"Food preparation and serving related workers, all other",1,B24123001
+B24123,210.0,B24123210,First-line supervisors/managers of housekeeping and janitorial workers,1,B24123001
+B24123,211.0,B24123211,"First-line supervisors/managers of landscaping, lawn service, and groundskeeping workers",1,B24123001
+B24123,212.0,B24123212,Janitors and building cleaners,1,B24123001
+B24123,213.0,B24123213,Maids and housekeeping cleaners,1,B24123001
+B24123,214.0,B24123214,Pest control workers,1,B24123001
+B24123,215.0,B24123215,Grounds maintenance workers,1,B24123001
+B24123,216.0,B24123216,First-line supervisors/managers of gaming workers,1,B24123001
+B24123,217.0,B24123217,First-line supervisors/managers of personal service workers,1,B24123001
+B24123,218.0,B24123218,Animal trainers,1,B24123001
+B24123,219.0,B24123219,Nonfarm animal caretakers,1,B24123001
+B24123,220.0,B24123220,Gaming services workers,1,B24123001
+B24123,221.0,B24123221,Motion picture projectionists,1,B24123001
+B24123,222.0,B24123222,"Ushers, lobby attendants, and ticket takers",1,B24123001
+B24123,223.0,B24123223,Miscellaneous entertainment attendants and related workers,1,B24123001
+B24123,224.0,B24123224,Funeral service workers,1,B24123001
+B24123,225.0,B24123225,Barbers,1,B24123001
+B24123,226.0,B24123226,"Hairdressers, hairstylists, and cosmetologists",1,B24123001
+B24123,227.0,B24123227,Miscellaneous personal appearance workers,1,B24123001
+B24123,228.0,B24123228,"Baggage porters, bellhops, and concierges",1,B24123001
+B24123,229.0,B24123229,Tour and travel guides,1,B24123001
+B24123,230.0,B24123230,Transportation attendants,1,B24123001
+B24123,231.0,B24123231,Child care workers,1,B24123001
+B24123,232.0,B24123232,Personal and home care aides,1,B24123001
+B24123,233.0,B24123233,Recreation and fitness workers,1,B24123001
+B24123,234.0,B24123234,Residential advisors,1,B24123001
+B24123,235.0,B24123235,"Personal care and service workers, all other",1,B24123001
+B24123,236.0,B24123236,First-line supervisors/managers of retail sales workers,1,B24123001
+B24123,237.0,B24123237,First-line supervisors/managers of non-retail sales workers,1,B24123001
+B24123,238.0,B24123238,Cashiers,1,B24123001
+B24123,239.0,B24123239,Counter and rental clerks,1,B24123001
+B24123,240.0,B24123240,Parts salespersons,1,B24123001
+B24123,241.0,B24123241,Retail salespersons,1,B24123001
+B24123,242.0,B24123242,Advertising sales agents,1,B24123001
+B24123,243.0,B24123243,Insurance sales agents,1,B24123001
+B24123,244.0,B24123244,"Securities, commodities, and financial services sales agents",1,B24123001
+B24123,245.0,B24123245,Travel agents,1,B24123001
+B24123,246.0,B24123246,"Sales representatives, services, all other",1,B24123001
+B24123,247.0,B24123247,"Sales representatives, wholesale and manufacturing",1,B24123001
+B24123,248.0,B24123248,"Models, demonstrators, and product promoters",1,B24123001
+B24123,249.0,B24123249,Real estate brokers and sales agents,1,B24123001
+B24123,250.0,B24123250,Sales engineers,1,B24123001
+B24123,251.0,B24123251,Telemarketers,1,B24123001
+B24123,252.0,B24123252,"Door-to-door sales workers, news and street vendors, and related workers",1,B24123001
+B24123,253.0,B24123253,"Sales and related workers, all other",1,B24123001
+B24123,254.0,B24123254,First-line supervisors/managers of office and administrative support workers,1,B24123001
+B24123,255.0,B24123255,"Switchboard operators, including answering service",1,B24123001
+B24123,256.0,B24123256,Telephone operators,1,B24123001
+B24123,257.0,B24123257,"Communications equipment operators, all other",1,B24123001
+B24123,258.0,B24123258,Bill and account collectors,1,B24123001
+B24123,259.0,B24123259,Billing and posting clerks and machine operators,1,B24123001
+B24123,260.0,B24123260,"Bookkeeping, accounting, and auditing clerks",1,B24123001
+B24123,261.0,B24123261,Gaming cage workers,1,B24123001
+B24123,262.0,B24123262,Payroll and timekeeping clerks,1,B24123001
+B24123,263.0,B24123263,Procurement clerks,1,B24123001
+B24123,264.0,B24123264,Tellers,1,B24123001
+B24123,265.0,B24123265,Brokerage clerks,1,B24123001
+B24123,266.0,B24123266,Correspondence clerks,1,B24123001
+B24123,267.0,B24123267,"Court, municipal, and license clerks",1,B24123001
+B24123,268.0,B24123268,"Credit authorizers, checkers, and clerks",1,B24123001
+B24123,269.0,B24123269,Customer service representatives,1,B24123001
+B24123,270.0,B24123270,"Eligibility interviewers, government programs",1,B24123001
+B24123,271.0,B24123271,File clerks,1,B24123001
+B24123,272.0,B24123272,"Hotel, motel, and resort desk clerks",1,B24123001
+B24123,273.0,B24123273,"Interviewers, except eligibility and loan",1,B24123001
+B24123,274.0,B24123274,"Library assistants, clerical",1,B24123001
+B24123,275.0,B24123275,Loan interviewers and clerks,1,B24123001
+B24123,276.0,B24123276,New accounts clerks,1,B24123001
+B24123,277.0,B24123277,Order clerks,1,B24123001
+B24123,278.0,B24123278,"Human resources assistants, except payroll and timekeeping",1,B24123001
+B24123,279.0,B24123279,Receptionists and information clerks,1,B24123001
+B24123,280.0,B24123280,Reservation and transportation ticket agents and travel clerks,1,B24123001
+B24123,281.0,B24123281,"Information and record clerks, all other",1,B24123001
+B24123,282.0,B24123282,Cargo and freight agents,1,B24123001
+B24123,283.0,B24123283,Couriers and messengers,1,B24123001
+B24123,284.0,B24123284,Dispatchers,1,B24123001
+B24123,285.0,B24123285,"Meter readers, utilities",1,B24123001
+B24123,286.0,B24123286,Postal service clerks,1,B24123001
+B24123,287.0,B24123287,Postal service mail carriers,1,B24123001
+B24123,288.0,B24123288,"Postal service mail sorters, processors, and processing machine operators",1,B24123001
+B24123,289.0,B24123289,"Production, planning, and expediting clerks",1,B24123001
+B24123,290.0,B24123290,"Shipping, receiving, and traffic clerks",1,B24123001
+B24123,291.0,B24123291,Stock clerks and order fillers,1,B24123001
+B24123,292.0,B24123292,"Weighers, measurers, checkers, and samplers, recordkeeping",1,B24123001
+B24123,293.0,B24123293,Secretaries and administrative assistants,1,B24123001
+B24123,294.0,B24123294,Computer operators,1,B24123001
+B24123,295.0,B24123295,Data entry keyers,1,B24123001
+B24123,296.0,B24123296,Word processors and typists,1,B24123001
+B24123,297.0,B24123297,Desktop publishers,1,B24123001
+B24123,298.0,B24123298,Insurance claims and policy processing clerks,1,B24123001
+B24123,299.0,B24123299,"Mail clerks and mail machine operators, except postal service",1,B24123001
+B24123,300.0,B24123300,"Office clerks, general",1,B24123001
+B24123,301.0,B24123301,"Office machine operators, except computer",1,B24123001
+B24123,302.0,B24123302,Proofreaders and copy markers,1,B24123001
+B24123,303.0,B24123303,Statistical assistants,1,B24123001
+B24123,304.0,B24123304,"Office and administrative support workers, all other",1,B24123001
+B24123,305.0,B24123305,"First-line supervisors/managers of farming, fishing, and forestry workers",1,B24123001
+B24123,306.0,B24123306,Agricultural inspectors,1,B24123001
+B24123,307.0,B24123307,Animal breeders,1,B24123001
+B24123,308.0,B24123308,"Graders and sorters, agricultural products",1,B24123001
+B24123,309.0,B24123309,Miscellaneous agricultural workers,1,B24123001
+B24123,310.0,B24123310,Fishers and related fishing workers,1,B24123001
+B24123,311.0,B24123311,Forest and conservation workers,1,B24123001
+B24123,312.0,B24123312,Logging workers,1,B24123001
+B24123,313.0,B24123313,First-line supervisors/managers of construction trades and extraction workers,1,B24123001
+B24123,314.0,B24123314,Boilermakers,1,B24123001
+B24123,315.0,B24123315,"Brickmasons, blockmasons, and stonemasons",1,B24123001
+B24123,316.0,B24123316,Carpenters,1,B24123001
+B24123,317.0,B24123317,"Carpet, floor, and tile installers and finishers",1,B24123001
+B24123,318.0,B24123318,"Cement masons, concrete finishers, and terrazzo workers",1,B24123001
+B24123,319.0,B24123319,Construction laborers,1,B24123001
+B24123,320.0,B24123320,"Paving, surfacing, and tamping equipment operators",1,B24123001
+B24123,321.0,B24123321,Operating engineers and other construction equipment operators,1,B24123001
+B24123,322.0,B24123322,"Drywall installers, ceiling tile installers, and tapers",1,B24123001
+B24123,323.0,B24123323,Electricians,1,B24123001
+B24123,324.0,B24123324,Glaziers,1,B24123001
+B24123,325.0,B24123325,Insulation workers,1,B24123001
+B24123,326.0,B24123326,"Painters, construction and maintenance",1,B24123001
+B24123,327.0,B24123327,Paperhangers,1,B24123001
+B24123,328.0,B24123328,"Pipelayers, plumbers, pipefitters, and steamfitters",1,B24123001
+B24123,329.0,B24123329,Plasterers and stucco masons,1,B24123001
+B24123,330.0,B24123330,Reinforcing iron and rebar workers,1,B24123001
+B24123,331.0,B24123331,Roofers,1,B24123001
+B24123,332.0,B24123332,Sheet metal workers,1,B24123001
+B24123,333.0,B24123333,Structural iron and steel workers,1,B24123001
+B24123,334.0,B24123334,"Helpers, construction trades",1,B24123001
+B24123,335.0,B24123335,Construction and building inspectors,1,B24123001
+B24123,336.0,B24123336,Elevator installers and repairers,1,B24123001
+B24123,337.0,B24123337,Fence erectors,1,B24123001
+B24123,338.0,B24123338,Hazardous materials removal workers,1,B24123001
+B24123,339.0,B24123339,Highway maintenance workers,1,B24123001
+B24123,340.0,B24123340,Rail-track laying and maintenance equipment operators,1,B24123001
+B24123,341.0,B24123341,Septic tank servicers and sewer pipe cleaners,1,B24123001
+B24123,342.0,B24123342,Miscellaneous construction and related workers,1,B24123001
+B24123,343.0,B24123343,"Derrick, rotary drill, and service unit operators, oil, gas, and mining",1,B24123001
+B24123,344.0,B24123344,"Earth drillers, except oil and gas",1,B24123001
+B24123,345.0,B24123345,"Explosives workers, ordnance handling experts, and blasters",1,B24123001
+B24123,346.0,B24123346,Mining machine operators,1,B24123001
+B24123,347.0,B24123347,"Roof bolters, mining",1,B24123001
+B24123,348.0,B24123348,Helpers--extraction workers,1,B24123001
+B24123,349.0,B24123349,Roustabouts and other extraction workers,1,B24123001
+B24123,350.0,B24123350,"First-line supervisors/managers of mechanics, installers, and repairers",1,B24123001
+B24123,351.0,B24123351,"Computer, automated teller, and office machine repairers",1,B24123001
+B24123,352.0,B24123352,Radio and telecommunications equipment installers and repairers,1,B24123001
+B24123,353.0,B24123353,Avionics technicians,1,B24123001
+B24123,354.0,B24123354,"Electric motor, power tool, and related repairers",1,B24123001
+B24123,355.0,B24123355,"Electrical and electronics installers and repairers, transportation equipment",1,B24123001
+B24123,356.0,B24123356,"Electrical and electronics repairers, industrial and utility",1,B24123001
+B24123,357.0,B24123357,"Electronic equipment installers and repairers, motor vehicles",1,B24123001
+B24123,358.0,B24123358,Electronic home entertainment equipment installers and repairers,1,B24123001
+B24123,359.0,B24123359,Security and fire alarm systems installers,1,B24123001
+B24123,360.0,B24123360,Aircraft mechanics and service technicians,1,B24123001
+B24123,361.0,B24123361,Automotive body and related repairers,1,B24123001
+B24123,362.0,B24123362,Automotive glass installers and repairers,1,B24123001
+B24123,363.0,B24123363,Automotive service technicians and mechanics,1,B24123001
+B24123,364.0,B24123364,Bus and truck mechanics and diesel engine specialists,1,B24123001
+B24123,365.0,B24123365,Heavy vehicle and mobile equipment service technicians and mechanics,1,B24123001
+B24123,366.0,B24123366,Small engine mechanics,1,B24123001
+B24123,367.0,B24123367,"Miscellaneous vehicle and mobile equipment mechanics, installers, and repairers",1,B24123001
+B24123,368.0,B24123368,Control and valve installers and repairers,1,B24123001
+B24123,369.0,B24123369,"Heating, air conditioning, and refrigeration mechanics and installers",1,B24123001
+B24123,370.0,B24123370,Home appliance repairers,1,B24123001
+B24123,371.0,B24123371,Industrial and refractory machinery mechanics,1,B24123001
+B24123,372.0,B24123372,"Maintenance and repair workers, general",1,B24123001
+B24123,373.0,B24123373,"Maintenance workers, machinery",1,B24123001
+B24123,374.0,B24123374,Millwrights,1,B24123001
+B24123,375.0,B24123375,Electrical power-line installers and repairers,1,B24123001
+B24123,376.0,B24123376,Telecommunications line installers and repairers,1,B24123001
+B24123,377.0,B24123377,Precision instrument and equipment repairers,1,B24123001
+B24123,378.0,B24123378,"Coin, vending, and amusement machine servicers and repairers",1,B24123001
+B24123,379.0,B24123379,Commercial divers,1,B24123001
+B24123,380.0,B24123380,Locksmiths and safe repairers,1,B24123001
+B24123,381.0,B24123381,Manufactured building and mobile home installers,1,B24123001
+B24123,382.0,B24123382,Riggers,1,B24123001
+B24123,383.0,B24123383,Signal and track switch repairers,1,B24123001
+B24123,384.0,B24123384,"Helpers--installation, maintenance, and repair workers",1,B24123001
+B24123,385.0,B24123385,"Other installation, maintenance, and repair workers",1,B24123001
+B24123,386.0,B24123386,First-line supervisors/managers of production and operating workers,1,B24123001
+B24123,387.0,B24123387,"Aircraft structure, surfaces, rigging, and systems assemblers",1,B24123001
+B24123,388.0,B24123388,"Electrical, electronics, and electromechanical assemblers",1,B24123001
+B24123,389.0,B24123389,Engine and other machine assemblers,1,B24123001
+B24123,390.0,B24123390,Structural metal fabricators and fitters,1,B24123001
+B24123,391.0,B24123391,Miscellaneous assemblers and fabricators,1,B24123001
+B24123,392.0,B24123392,Bakers,1,B24123001
+B24123,393.0,B24123393,"Butchers and other meat, poultry, and fish processing workers",1,B24123001
+B24123,394.0,B24123394,"Food and tobacco roasting, baking, and drying machine operators and tenders",1,B24123001
+B24123,395.0,B24123395,Food batchmakers,1,B24123001
+B24123,396.0,B24123396,Food cooking machine operators and tenders,1,B24123001
+B24123,397.0,B24123397,Computer control programmers and operators,1,B24123001
+B24123,398.0,B24123398,"Extruding and drawing machine setters, operators, and tenders, metal and plastic",1,B24123001
+B24123,399.0,B24123399,"Forging machine setters, operators, and tenders, metal and plastic",1,B24123001
+B24123,400.0,B24123400,"Rolling machine setters, operators, and tenders, metal and plastic",1,B24123001
+B24123,401.0,B24123401,"Cutting, punching, and press machine setters, operators, and tenders, metal and plastic",1,B24123001
+B24123,402.0,B24123402,"Drilling and boring machine tool setters, operators, and tenders, metal and plastic",1,B24123001
+B24123,403.0,B24123403,"Grinding, lapping, polishing, and buffing machine tool setters, operators, and tenders, metal and plastic",1,B24123001
+B24123,404.0,B24123404,"Lathe and turning machine tool setters, operators, and tenders, metal and plastic",1,B24123001
+B24123,405.0,B24123405,"Milling and planing machine setters, operators, and tenders, metal and plastic",1,B24123001
+B24123,406.0,B24123406,Machinists,1,B24123001
+B24123,407.0,B24123407,Metal furnace and kiln operators and tenders,1,B24123001
+B24123,408.0,B24123408,"Model makers and patternmakers, metal and plastic",1,B24123001
+B24123,409.0,B24123409,"Molders and molding machine setters, operators, and tenders, metal and plastic",1,B24123001
+B24123,410.0,B24123410,"Multiple machine tool setters, operators, and tenders, metal and plastic",1,B24123001
+B24123,411.0,B24123411,Tool and die makers,1,B24123001
+B24123,412.0,B24123412,"Welding, soldering, and brazing workers",1,B24123001
+B24123,413.0,B24123413,"Heat treating equipment setters, operators, and tenders, metal and plastic",1,B24123001
+B24123,414.0,B24123414,"Lay-out workers, metal and plastic",1,B24123001
+B24123,415.0,B24123415,"Plating and coating machine setters, operators, and tenders, metal and plastic",1,B24123001
+B24123,416.0,B24123416,"Tool grinders, filers, and sharpeners",1,B24123001
+B24123,417.0,B24123417,"Metalworkers and plastic workers, all other",1,B24123001
+B24123,418.0,B24123418,Bookbinders and bindery workers,1,B24123001
+B24123,419.0,B24123419,Job printers,1,B24123001
+B24123,420.0,B24123420,Prepress technicians and workers,1,B24123001
+B24123,421.0,B24123421,Printing machine operators,1,B24123001
+B24123,422.0,B24123422,Laundry and dry-cleaning workers,1,B24123001
+B24123,423.0,B24123423,"Pressers, textile, garment, and related materials",1,B24123001
+B24123,424.0,B24123424,Sewing machine operators,1,B24123001
+B24123,425.0,B24123425,Shoe and leather workers and repairers,1,B24123001
+B24123,426.0,B24123426,Shoe machine operators and tenders,1,B24123001
+B24123,427.0,B24123427,"Tailors, dressmakers, and sewers",1,B24123001
+B24123,428.0,B24123428,Textile bleaching and dyeing machine operators and tenders,1,B24123001
+B24123,429.0,B24123429,"Textile cutting machine setters, operators, and tenders",1,B24123001
+B24123,430.0,B24123430,"Textile knitting and weaving machine setters, operators, and tenders",1,B24123001
+B24123,431.0,B24123431,"Textile winding, twisting, and drawing out machine setters, operators, and tenders",1,B24123001
+B24123,432.0,B24123432,Fabric and apparel patternmakers,1,B24123001
+B24123,433.0,B24123433,Upholsterers,1,B24123001
+B24123,434.0,B24123434,"Miscellaneous textile, apparel, and furnishings workers",1,B24123001
+B24123,435.0,B24123435,Cabinetmakers and bench carpenters,1,B24123001
+B24123,436.0,B24123436,Furniture finishers,1,B24123001
+B24123,437.0,B24123437,"Sawing machine setters, operators, and tenders, wood",1,B24123001
+B24123,438.0,B24123438,"Woodworking machine setters, operators, and tenders, except sawing",1,B24123001
+B24123,439.0,B24123439,"Miscellenous woodworkers, including model makers and patternmakers",1,B24123001
+B24123,440.0,B24123440,"Power plant operators, distributors, and dispatchers",1,B24123001
+B24123,441.0,B24123441,Stationary engineers and boiler operators,1,B24123001
+B24123,442.0,B24123442,Water and liquid waste treatment plant and system operators,1,B24123001
+B24123,443.0,B24123443,Miscellaneous plant and system operators,1,B24123001
+B24123,444.0,B24123444,"Chemical processing machine setters, operators, and tenders",1,B24123001
+B24123,445.0,B24123445,"Crushing, grinding, polishing, mixing, and blending workers",1,B24123001
+B24123,446.0,B24123446,Cutting workers,1,B24123001
+B24123,447.0,B24123447,"Extruding, forming, pressing, and compacting machine setters, operators, and tenders",1,B24123001
+B24123,448.0,B24123448,"Furnace, kiln, oven, drier, and kettle operators and tenders",1,B24123001
+B24123,449.0,B24123449,"Inspectors, testers, sorters, samplers, and weighers",1,B24123001
+B24123,450.0,B24123450,Jewelers and precious stone and metal workers,1,B24123001
+B24123,451.0,B24123451,"Medical, dental, and ophthalmic laboratory technicians",1,B24123001
+B24123,452.0,B24123452,Packaging and filling machine operators and tenders,1,B24123001
+B24123,453.0,B24123453,Painting workers,1,B24123001
+B24123,454.0,B24123454,Photographic process workers and processing machine operators,1,B24123001
+B24123,455.0,B24123455,Semiconductor processors,1,B24123001
+B24123,456.0,B24123456,Cementing and gluing machine operators and tenders,1,B24123001
+B24123,457.0,B24123457,"Cleaning, washing, and metal pickling equipment operators and tenders",1,B24123001
+B24123,458.0,B24123458,Cooling and freezing equipment operators and tenders,1,B24123001
+B24123,459.0,B24123459,Etchers and engravers,1,B24123001
+B24123,460.0,B24123460,"Molders, shapers, and casters, except metal and plastic",1,B24123001
+B24123,461.0,B24123461,"Paper goods machine setters, operators, and tenders",1,B24123001
+B24123,462.0,B24123462,Tire builders,1,B24123001
+B24123,463.0,B24123463,Helpers--production workers,1,B24123001
+B24123,464.0,B24123464,"Production workers, all other",1,B24123001
+B24123,465.0,B24123465,"Supervisors, transportation and material moving workers",1,B24123001
+B24123,466.0,B24123466,Aircraft pilots and flight engineers,1,B24123001
+B24123,467.0,B24123467,Air traffic controllers and airfield operations specialists,1,B24123001
+B24123,468.0,B24123468,"Ambulance drivers and attendants, except emergency medical technicians",1,B24123001
+B24123,469.0,B24123469,Bus drivers,1,B24123001
+B24123,470.0,B24123470,Driver/sales workers and truck drivers,1,B24123001
+B24123,471.0,B24123471,Taxi drivers and chauffeurs,1,B24123001
+B24123,472.0,B24123472,"Motor vehicle operators, all other",1,B24123001
+B24123,473.0,B24123473,Locomotive engineers and operators,1,B24123001
+B24123,474.0,B24123474,"Railroad brake, signal, and switch operators",1,B24123001
+B24123,475.0,B24123475,Railroad conductors and yardmasters,1,B24123001
+B24123,476.0,B24123476,"Subway, streetcar, and other rail transportation workers",1,B24123001
+B24123,477.0,B24123477,Sailors and marine oilers,1,B24123001
+B24123,478.0,B24123478,Ship and boat captains and operators,1,B24123001
+B24123,479.0,B24123479,Ship engineers,1,B24123001
+B24123,480.0,B24123480,Bridge and lock tenders,1,B24123001
+B24123,481.0,B24123481,Parking lot attendants,1,B24123001
+B24123,482.0,B24123482,Service station attendants,1,B24123001
+B24123,483.0,B24123483,Transportation inspectors,1,B24123001
+B24123,484.0,B24123484,Other transportation workers,1,B24123001
+B24123,485.0,B24123485,Conveyor operators and tenders,1,B24123001
+B24123,486.0,B24123486,Crane and tower operators,1,B24123001
+B24123,487.0,B24123487,"Dredge, excavating, and loading machine operators",1,B24123001
+B24123,488.0,B24123488,Hoist and winch operators,1,B24123001
+B24123,489.0,B24123489,Industrial truck and tractor operators,1,B24123001
+B24123,490.0,B24123490,Cleaners of vehicles and equipment,1,B24123001
+B24123,491.0,B24123491,"Laborers and freight, stock, and material movers, hand",1,B24123001
+B24123,492.0,B24123492,Machine feeders and offbearers,1,B24123001
+B24123,493.0,B24123493,"Packers and packagers, hand",1,B24123001
+B24123,494.0,B24123494,Pumping station operators,1,B24123001
+B24123,495.0,B24123495,Refuse and recyclable material collectors,1,B24123001
+B24123,496.0,B24123496,Shuttle car operators,1,B24123001
+B24123,497.0,B24123497,"Tank car, truck, and ship loaders",1,B24123001
+B24123,498.0,B24123498,"Material moving workers, all other",1,B24123001
+B24123,499.0,B24123499,"Other occupations including other media and communication workers, transit and railroad police, hunters and trappers, and pile-driver operators",1,B24123001
 B25001,1.0,B25001001,Total,0,
 B25002,1.0,B25002001,Total:,0,
 B25002,2.0,B25002002,Occupied,1,B25002001
