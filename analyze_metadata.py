@@ -3,12 +3,14 @@
 
 import csv
 import os
+import re
 from collections import defaultdict
-import json
 
 tables_by_code = defaultdict(list)
 
 tables_by_release = defaultdict(dict)
+
+tables_by_tabulation = defaultdict(dict)
 
 columns_by_release = defaultdict(dict)
 
@@ -23,7 +25,11 @@ for dirpath, dirnames, filenames in os.walk('precomputed'):
             header = r.next()
             for row in r:
                 table_code = row[0]
+                tabulation_code = re.search(r'\D*(\d*)\D*', table_code).groups()[0]
                 tables_by_release[release][table_code] = row
+                if tabulation_code not in tables_by_tabulation[release]:
+                    tables_by_tabulation[release][tabulation_code] = {}
+                tables_by_tabulation[release][tabulation_code][table_code] = row
                 tables_by_code[table_code].append(release)
                 centopics[row[3]].add(table_code)
                 for topic in eval(row[-1]):
@@ -199,25 +205,22 @@ def compute_shorthand(breakdown):
             s += '_'
     return s
 
-           
-def generate_unified_table_csv(outputfile="unified_metadata.csv"):
+def generate_unified_table_csv(outputfile="precomputed/unified_metadata.csv"):
     a1 = table_breakdown(tables_by_release['acs2012_1yr'])
     a3 = table_breakdown(tables_by_release['acs2012_3yr'])
     a5 = table_breakdown(tables_by_release['acs2012_5yr'])
     tab_codes = set(a1.keys())
     tab_codes.update(set(a3.keys()))
     tab_codes.update(set(a5.keys()))
-    h = ['tabulation_code', 'table_title', 'simple_table_title', 'subject_area', 'universe', 'denominator_column_id', 'topics', 'weight', '1_yr', '3_yr', '5_yr']
+    h = ['tabulation_code', 'table_title', 'simple_table_title', 'subject_area', 'universe', 'topics', 'weight', 'tables_in_1_yr', 'tables_in_3_yr', 'tables_in_5_yr']
     w = csv.writer(open(outputfile,'w'))
     w.writerow(h)
     for code in sorted(tab_codes):
-        r = [code]
-        r.extend(find_base_table_data(code)[1:])
+        base_table_data = find_base_table_data(code)
+        r = [code, base_table_data[1], base_table_data[2], base_table_data[3], base_table_data[4], base_table_data[6]]
         r.append('0') # weight
-        for breakdown in [a1, a3, a5]:
-            try:
-                r.append(compute_shorthand(breakdown[code]))
-            except:
-                r.append('')
+        for release in ['acs2012_1yr', 'acs2012_3yr', 'acs2012_5yr']:
+            r.append('{' + ','.join(['"%s"' % t for t in sorted(tables_by_tabulation[release].get(code, []))]) + '}')
         w.writerow(r)
 
+generate_unified_table_csv()
