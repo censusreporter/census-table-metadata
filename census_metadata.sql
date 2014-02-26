@@ -379,17 +379,16 @@ CREATE TABLE public.census_tabulation_metadata (
     simple_table_title text,
     subject_area text,
     universe text,
-    denominator_column_id varchar(16),
     topics text[],
     weight smallint,
-    one_yr char[],
-    three_yr char[],
-    five_yr char[],
+    tables_in_one_yr text[],
+    tables_in_three_yr text[],
+    tables_in_five_yr text[],
     PRIMARY KEY (tabulation_code)
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE INDEX ON public.census_tabulation_metadata USING GIN(topics);
-CREATE INDEX ON public.census_tabulation_metadata USING GIN(one_yr);
-CREATE INDEX ON public.census_tabulation_metadata USING GIN(three_yr);
-CREATE INDEX ON public.census_tabulation_metadata USING GIN(five_yr);
+CREATE INDEX ON public.census_tabulation_metadata USING GIN(tables_in_one_yr);
+CREATE INDEX ON public.census_tabulation_metadata USING GIN(tables_in_three_yr);
+CREATE INDEX ON public.census_tabulation_metadata USING GIN(tables_in_five_yr);
 CREATE INDEX ON public.census_tabulation_metadata (lower(table_title) text_pattern_ops);
