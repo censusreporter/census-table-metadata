@@ -34,7 +34,7 @@ for dirpath, dirnames, filenames in os.walk('precomputed'):
                 centopics[row[3]].add(table_code)
                 for topic in eval(row[-1]):
                     topics[topic].add(table_code)
-                    
+
         if 'census_column_metadata.csv' in filenames:
             columns_by_release[release] = defaultdict(dict)
             r = csv.reader(open("%s/census_column_metadata.csv" % dirpath))
@@ -42,16 +42,16 @@ for dirpath, dirnames, filenames in os.walk('precomputed'):
             for row in r:
                 try:
                     columns_by_release[release][row[0]].append(row)
-                except:    
+                except:
                     columns_by_release[release][row[0]] = [row]
 
-# keep track of how many tables appear in how many releases. We act as though 
+# keep track of how many tables appear in how many releases. We act as though
 # all tables are in all releases
 table_counter = defaultdict(list)
 
 for k,v in tables_by_code.items():
     table_counter[len(v)].append(k)
-    
+
 def table_name(code):
     return table_data(code)[1]
 
@@ -66,7 +66,7 @@ def table_data(code):
     code = code.upper()
     best_release = tables_by_code[code][-1]
     return tables_by_release[best_release][code]
-    
+
 def columns(code,include_code=False):
     code = code.upper()
     best_release = tables_by_code[code][-1]
@@ -104,7 +104,7 @@ def table_breakdown(codes):
             analyzed[key][code[0]] = True
         if code[-1].isalpha():
             analyzed[key]['I'] = True
-    return dict(analyzed) # undefault it    
+    return dict(analyzed) # undefault it
 
 def add_footnotes(code,analyzed):
     marks = ''
@@ -115,10 +115,10 @@ def add_footnotes(code,analyzed):
     if analyzed['PR']:
         marks += u'§'
     if not analyzed['B']:
-        mark += u'ª'
+        marks += u'ª'
     if marks:
         return "**%s<sup>%s</sup>**" % (code, marks)
-    return "**%s**" % code    
+    return "**%s**" % code
 
 FOOTNOTES = {
     u"†": u"""<sup>†</sup>Table also available in racial iterations; add a letter **A-I** to get the racial sub-table:\n
@@ -156,8 +156,8 @@ def build_footnote_explainers(codes):
         footnote_explanations.append('')
         footnote_explanations.append(FOOTNOTES[u"ª"])
 
-    return footnote_explanations        
-            
+    return footnote_explanations
+
 def render_markdown(codes,fltr=None):
     """if Filter is passed, it should be a function which takes 'code,name' and returns True if the table should be in the output"""
     keys = key_tables(codes)
@@ -171,7 +171,7 @@ def render_markdown(codes,fltr=None):
 
     lines.extend(build_footnote_explainers(codes))
 
-    return u"\n".join(lines)    
+    return u"\n".join(lines)
 
 
 def universe(code):
