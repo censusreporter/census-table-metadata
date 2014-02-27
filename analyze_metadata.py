@@ -205,6 +205,26 @@ def compute_shorthand(breakdown):
             s += '_'
     return s
 
+def remove_iterative_only_text_from_title(table_data):
+    table_data[1] = re.sub(r' \(White Alone\)$', '', table_data[1])
+    table_data[2] = re.sub(r' \(White Alone\)$', '', table_data[2])
+    table_data[1] = re.sub(r'in the Past Year \(White Alone\)', 'in the Past Year', table_data[1])
+    table_data[2] = re.sub(r'in the Past Year \(White Alone\)', 'in the Past Year', table_data[2])
+    table_data[1] = re.sub(r'Birth \(White Alone\)', 'Birth', table_data[1])
+    table_data[2] = re.sub(r'Birth \(White Alone\)', 'Birth', table_data[2])
+    table_data[4] = re.sub(r'White Alone Population', 'Specified Race Population', table_data[4])
+    table_data[4] = re.sub(r'White Alone Workers', 'Specified Race Workers', table_data[4])
+    table_data[4] = re.sub(r'Is White Alone', 'Is A Specified Race', table_data[4])
+
+    return table_data
+
+custom_tabulation_weight = {
+    # Suggestions from P. Overberg:
+    '17001': '20', # Mentioned as preferred for 'poverty'
+    '17002': '19', # Another 'poverty' suggestion
+    '21100': '10', # Mentioned for 'veterans' search phrase
+}
+
 def generate_unified_table_csv(outputfile="precomputed/unified_metadata.csv"):
     a1 = table_breakdown(tables_by_release['acs2012_1yr'])
     a3 = table_breakdown(tables_by_release['acs2012_3yr'])
@@ -217,8 +237,14 @@ def generate_unified_table_csv(outputfile="precomputed/unified_metadata.csv"):
     w.writerow(h)
     for code in sorted(tab_codes):
         base_table_data = find_base_table_data(code)
+
+        if code in ('06004', '07004', '07404', '08105', '08505', '17020', '22005', '23002'):
+            base_table_data = remove_iterative_only_text_from_title(base_table_data)
+
         r = [code, base_table_data[1], base_table_data[2], base_table_data[3], base_table_data[4], base_table_data[6]]
-        r.append('0') # weight
+
+        r.append(custom_tabulation_weight.get(code, '0'))
+
         for release in ['acs2012_1yr', 'acs2012_3yr', 'acs2012_5yr']:
             r.append('{' + ','.join(['"%s"' % t for t in sorted(tables_by_tabulation[release].get(code, []))]) + '}')
         w.writerow(r)
