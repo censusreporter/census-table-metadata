@@ -388,7 +388,4 @@ CREATE TABLE public.census_tabulation_metadata (
 )
 WITH (autovacuum_enabled = FALSE);
 CREATE INDEX ON public.census_tabulation_metadata USING GIN(topics);
-CREATE INDEX ON public.census_tabulation_metadata USING GIN(tables_in_one_yr);
-CREATE INDEX ON public.census_tabulation_metadata USING GIN(tables_in_three_yr);
-CREATE INDEX ON public.census_tabulation_metadata USING GIN(tables_in_five_yr);
 CREATE INDEX ON public.census_tabulation_metadata (lower(table_title) text_pattern_ops);
