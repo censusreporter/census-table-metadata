@@ -20,7 +20,8 @@ information, you currently need to point the script at the corresponding
 `merge_5_6.xls` file as a second argument.
 
 '''
-import csv
+
+import json
 import sys
 import os
 from xlrd import open_workbook
@@ -50,28 +51,10 @@ root_dir = os.path.dirname(filename)
 if not root_dir:
     root_dir = "./"
 
-table_metadata_fieldnames = [
-    'table_id',
-    'table_title',
-    'simple_table_title',
-    'subject_area',
-    'universe',
-    'denominator_column_id',
-    'topics'
-]
-table_csv = csv.DictWriter(open("%s/census_table_metadata.csv" % root_dir, 'w'), table_metadata_fieldnames)
-table_csv.writeheader()
+release = filename[:11]
 
-column_metadata_fieldnames = [
-    'table_id',
-    'line_number',
-    'column_id',
-    'column_title',
-    'indent',
-    'parent_column_id'
-]
-column_csv = csv.DictWriter(open("%s/census_column_metadata.csv" % root_dir, 'w'), column_metadata_fieldnames)
-column_csv.writeheader()
+table_file = open("%s/census_table_metadata.txt" % root_dir, 'w')
+column_file = open("%s/census_column_metadata.txt" % root_dir, 'w')
 
 TABLE_NAME_REPLACEMENTS = [ # mostly problems with slashes and -- characters
     (r'minor Civil Division Level for 12 Selected States \(Ct, Me, Ma, Mi, Mn, Nh, Nj, Ny, Pa, Ri, Vt, Wi\)',
@@ -266,15 +249,15 @@ def build_topics(table):
             all_areas.update(map(lambda x:x.strip(),v.split(',')))
     return map(lambda x: x.strip(), all_areas)
 
-def find_denominator_column(table, rows):
-    if rows and len(rows) > 1 and rows[0]['column_title'].lower().startswith('total') and table and not table['table_title'].lower().startswith('median'):
-        return rows[0]['column_id']
+def find_denominator_column(table, columns):
+    if columns and len(columns) > 1 and columns[0]['column_title'].lower().startswith('total') and table and not table['table_title'].lower().startswith('median'):
+        return columns[0]['column_id']
     else:
         return None
 
 hierarchy_stack = [None]*10
 table = {}
-rows = []
+columns = []
 for r in range(1, sheet.nrows):
     r_data = sheet.row(r)
 
@@ -291,13 +274,17 @@ for r in range(1, sheet.nrows):
     if not line_number and title and title.isupper():
         # Write out the previous table's data
         if table and table_id != table['table_id']:
-            table['denominator_column_id'] = find_denominator_column(table, rows)
-            table['topics'] = '{%s}' % ','.join(['"%s"' % topic for topic in build_topics(table)])
-            table_csv.writerow(table)
-            column_csv.writerows(rows)
+            table['denominator_column_id'] = find_denominator_column(table, columns)
+            table['topics'] = build_topics(table)
+            table['release'] = release
+            table_file.write(json.dumps({'index': {'_index': 'census', '_type': 'table', '_id': release + table['table_id']}}) + "\n")
+            table_file.write(json.dumps(table) + "\n")
+            for column in columns:
+                column_file.write(json.dumps({'index': {'_index': 'census', '_type': 'column', '_id': release + column['column_id']}}) + "\n")
+                column_file.write(json.dumps(column) + "\n")
             hierarchy_stack = [None]*10
             table = {}
-            rows = []
+            columns = []
 
         # The all-caps description of the table
         table['table_title'] = clean_table_name(title).encode('utf8')
@@ -310,23 +297,24 @@ for r in range(1, sheet.nrows):
     elif not line_number and title.lower().startswith('universe:'):
         table['universe'] = titlecase(title.split(':')[-1]).strip()
     elif line_number and (r_data[1].ctype == 2) and title:
-        row = {}
-        row['line_number'] = line_number
-        row['table_id'] = table['table_id']
+        column = {}
+        column['line_number'] = line_number
+        column['table_id'] = table['table_id']
+        column['release'] = release
 
         line_number_str = str(line_number)
         if line_number_str.endswith('.7') or line_number_str.endswith('.5'):
             # This is a subhead (not an actual data column), so we'll have to synthesize a column_id
-            row['column_id'] = "%s%05.1f" % (table_id, line_number)
+            column['column_id'] = "%s%05.1f" % (table_id, line_number)
         else:
-            row['column_id'] = "%s%03d" % (table_id, line_number)
-        row['column_title'] = title.encode('utf8')
+            column['column_id'] = "%s%03d" % (table_id, line_number)
+        column['column_title'] = title.encode('utf8')
 
         cell = sheet.cell(r, 3)
         indent = xlsfile.xf_list[cell.xf_index].alignment.indent_level
-        row['indent'] = indent
+        column['indent'] = indent
 
-        hierarchy_stack[indent] = row['column_id']
+        hierarchy_stack[indent] = column['column_id']
         if indent > 0:
             parent_column_id = hierarchy_stack[indent - 1]
 
@@ -334,15 +322,23 @@ for r in range(1, sheet.nrows):
             if not parent_column_id:
                 parent_column_id = hierarchy_stack[indent - 2]
 
-            row['parent_column_id'] = parent_column_id
+            column['parent_column_id'] = parent_column_id
 
-        rows.append(row)
+        columns.append(column)
 
 # Write out the last table's data
 if table:
-    table['denominator_column_id'] = find_denominator_column(table, rows)
-    table['topics'] = '{%s}' % ','.join(['"%s"' % topic for topic in build_topics(table)])
-    table_csv.writerow(table)
-    column_csv.writerows(rows)
+    table['denominator_column_id'] = find_denominator_column(table, columns)
+    table['topics'] = build_topics(table)
+    table['release'] = release
+
+    table_file.write(json.dumps({'index': {'_index': 'census', '_type': 'table', '_id': release + table['table_id']}}) + "\n")
+    table_file.write(json.dumps(table) + "\n")
+    for column in columns:
+        column_file.write(json.dumps({'index': {'_index': 'census', '_type': 'column', '_id': release + column['column_id']}}) + "\n")
+        column_file.write(json.dumps(column) + "\n")
     table = {}
-    rows = []
+    columns = []
+
+table_file.close()
+column_file.close()
