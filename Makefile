@@ -2,28 +2,26 @@ ACS2007_SHELLS = $(shell find acs2007_shells -type f -name '*.xls')
 ACS2008_SHELLS = $(shell find acs2008_shells -type f -name '*.xls')
 
 all: \
-	precomputed/acs2007_1yr/census_table_metadata.txt \
-	precomputed/acs2007_3yr/census_table_metadata.txt \
-	precomputed/acs2008_1yr/census_table_metadata.txt \
-	precomputed/acs2008_3yr/census_table_metadata.txt \
-	precomputed/acs2009_1yr/census_table_metadata.txt \
-	precomputed/acs2009_3yr/census_table_metadata.txt \
-	precomputed/acs2010_1yr/census_table_metadata.txt \
-	precomputed/acs2010_3yr/census_table_metadata.txt \
-	precomputed/acs2010_5yr/census_table_metadata.txt \
-	precomputed/acs2011_1yr/census_table_metadata.txt \
-	precomputed/acs2011_3yr/census_table_metadata.txt \
-	precomputed/acs2011_5yr/census_table_metadata.txt \
-	precomputed/acs2012_1yr/census_table_metadata.txt \
-	precomputed/acs2012_3yr/census_table_metadata.txt \
-	precomputed/acs2012_5yr/census_table_metadata.txt
+	precomputed/acs2007_1yr/census_table_metadata.csv \
+	precomputed/acs2007_3yr/census_table_metadata.csv \
+	precomputed/acs2008_1yr/census_table_metadata.csv \
+	precomputed/acs2008_3yr/census_table_metadata.csv \
+	precomputed/acs2009_1yr/census_table_metadata.csv \
+	precomputed/acs2009_3yr/census_table_metadata.csv \
+	precomputed/acs2010_1yr/census_table_metadata.csv \
+	precomputed/acs2010_3yr/census_table_metadata.csv \
+	precomputed/acs2010_5yr/census_table_metadata.csv \
+	precomputed/acs2011_1yr/census_table_metadata.csv \
+	precomputed/acs2011_3yr/census_table_metadata.csv \
+	precomputed/acs2011_5yr/census_table_metadata.csv \
+	precomputed/acs2012_1yr/census_table_metadata.csv \
+	precomputed/acs2012_3yr/census_table_metadata.csv \
+	precomputed/acs2012_5yr/census_table_metadata.csv
 
 clean:
-	rm -rf precomputed/
-
-clean-source:
 	rm -rf acs2007_shells/ \
 		acs2008_shells/ \
+		precomputed/ \
 		acs2007_1yr_merge_5_6.xls \
 		acs2007_3yr_merge_5_6.xls \
 		acs2008_1yr_merge_5_6.xls \
@@ -50,8 +48,6 @@ clean-source:
 		acs2012_3yr_table_shells.xls \
 		acs2012_5yr_merge_5_6.xls \
 		acs2012_5yr_table_shells.xls
-
-clean-all: clean-source clean
 
 acs2007_shells/:
 	mkdir acs2007_shells
@@ -132,77 +128,77 @@ acs2012_5yr_merge_5_6.xls:
 acs2012_5yr_table_shells.xls:
 	curl -f "http://www2.census.gov/acs2012_5yr/summaryfile/ACS2012_5-Year_TableShells.xls" -o acs2012_5yr_table_shells.xls
 
-precomputed/acs2007_1yr/census_table_metadata.txt: acs2007_1yr_merge_5_6.xls acs2007_shells/
+precomputed/acs2007_1yr/census_table_metadata.csv: acs2007_1yr_merge_5_6.xls acs2007_shells/
 	python process_merge.py acs2007_1yr_merge_5_6.xls acs2007_shells
 	mkdir -p precomputed/acs2007_1yr/
-	mv census_column_metadata.txt census_table_metadata.txt precomputed/acs2007_1yr/
+	mv census_column_metadata.csv census_table_metadata.csv precomputed/acs2007_1yr/
 
-precomputed/acs2007_3yr/census_table_metadata.txt: acs2007_3yr_merge_5_6.xls acs2007_shells/
+precomputed/acs2007_3yr/census_table_metadata.csv: acs2007_3yr_merge_5_6.xls acs2007_shells/
 	python process_merge.py acs2007_3yr_merge_5_6.xls acs2007_shells
 	mkdir -p precomputed/acs2007_3yr/
-	mv census_column_metadata.txt census_table_metadata.txt precomputed/acs2007_3yr/
+	mv census_column_metadata.csv census_table_metadata.csv precomputed/acs2007_3yr/
 
-precomputed/acs2008_1yr/census_table_metadata.txt: acs2008_1yr_merge_5_6.xls acs2008_shells/
+precomputed/acs2008_1yr/census_table_metadata.csv: acs2008_1yr_merge_5_6.xls acs2008_shells/
 	python process_merge.py acs2008_1yr_merge_5_6.xls acs2008_shells
 	mkdir -p precomputed/acs2008_1yr/
-	mv census_column_metadata.txt census_table_metadata.txt precomputed/acs2008_1yr/
+	mv census_column_metadata.csv census_table_metadata.csv precomputed/acs2008_1yr/
 
-precomputed/acs2008_3yr/census_table_metadata.txt: acs2008_3yr_merge_5_6.xls acs2008_shells/
+precomputed/acs2008_3yr/census_table_metadata.csv: acs2008_3yr_merge_5_6.xls acs2008_shells/
 	python process_merge.py acs2008_3yr_merge_5_6.xls acs2008_shells
 	mkdir -p precomputed/acs2008_3yr/
-	mv census_column_metadata.txt census_table_metadata.txt precomputed/acs2008_3yr/
+	mv census_column_metadata.csv census_table_metadata.csv precomputed/acs2008_3yr/
 
-precomputed/acs2009_1yr/census_table_metadata.txt: acs2009_1yr_merge_5_6.xls acs2009_1yr_table_shells.xls
+precomputed/acs2009_1yr/census_table_metadata.csv: acs2009_1yr_merge_5_6.xls acs2009_1yr_table_shells.xls
 	python process_shells.py acs2009_1yr_table_shells.xls acs2009_1yr_merge_5_6.xls
 	mkdir -p precomputed/acs2009_1yr/
-	mv census_column_metadata.txt census_table_metadata.txt precomputed/acs2009_1yr/
+	mv census_column_metadata.csv census_table_metadata.csv precomputed/acs2009_1yr/
 
-precomputed/acs2009_3yr/census_table_metadata.txt: acs2009_3yr_merge_5_6.xls acs2009_3yr_table_shells.xls
+precomputed/acs2009_3yr/census_table_metadata.csv: acs2009_3yr_merge_5_6.xls acs2009_3yr_table_shells.xls
 	python process_shells.py acs2009_3yr_table_shells.xls acs2009_3yr_merge_5_6.xls
 	mkdir -p precomputed/acs2009_3yr/
-	mv census_column_metadata.txt census_table_metadata.txt precomputed/acs2009_3yr/
+	mv census_column_metadata.csv census_table_metadata.csv precomputed/acs2009_3yr/
 
-precomputed/acs2010_1yr/census_table_metadata.txt: acs2010_1yr_merge_5_6.xls acs2010_1yr_table_shells.xls
+precomputed/acs2010_1yr/census_table_metadata.csv: acs2010_1yr_merge_5_6.xls acs2010_1yr_table_shells.xls
 	python process_shells.py acs2010_1yr_table_shells.xls acs2010_1yr_merge_5_6.xls
 	mkdir -p precomputed/acs2010_1yr/
-	mv census_column_metadata.txt census_table_metadata.txt precomputed/acs2010_1yr/
+	mv census_column_metadata.csv census_table_metadata.csv precomputed/acs2010_1yr/
 
-precomputed/acs2010_3yr/census_table_metadata.txt: acs2010_3yr_merge_5_6.xls acs2010_3yr_table_shells.xls
+precomputed/acs2010_3yr/census_table_metadata.csv: acs2010_3yr_merge_5_6.xls acs2010_3yr_table_shells.xls
 	python process_shells.py acs2010_3yr_table_shells.xls acs2010_3yr_merge_5_6.xls
 	mkdir -p precomputed/acs2010_3yr/
-	mv census_column_metadata.txt census_table_metadata.txt precomputed/acs2010_3yr/
+	mv census_column_metadata.csv census_table_metadata.csv precomputed/acs2010_3yr/
 
-precomputed/acs2010_5yr/census_table_metadata.txt: acs2010_5yr_merge_5_6.xls acs2010_5yr_table_shells.xls
+precomputed/acs2010_5yr/census_table_metadata.csv: acs2010_5yr_merge_5_6.xls acs2010_5yr_table_shells.xls
 	python process_shells.py acs2010_5yr_table_shells.xls acs2010_5yr_merge_5_6.xls
 	mkdir -p precomputed/acs2010_5yr/
-	mv census_column_metadata.txt census_table_metadata.txt precomputed/acs2010_5yr/
+	mv census_column_metadata.csv census_table_metadata.csv precomputed/acs2010_5yr/
 
-precomputed/acs2011_1yr/census_table_metadata.txt: acs2011_1yr_merge_5_6.xls acs2011_1yr_table_shells.xls
+precomputed/acs2011_1yr/census_table_metadata.csv: acs2011_1yr_merge_5_6.xls acs2011_1yr_table_shells.xls
 	python process_shells.py acs2011_1yr_table_shells.xls acs2011_1yr_merge_5_6.xls
 	mkdir -p precomputed/acs2011_1yr/
-	mv census_column_metadata.txt census_table_metadata.txt precomputed/acs2011_1yr/
+	mv census_column_metadata.csv census_table_metadata.csv precomputed/acs2011_1yr/
 
-precomputed/acs2011_3yr/census_table_metadata.txt: acs2011_3yr_merge_5_6.xls acs2011_3yr_table_shells.xls
+precomputed/acs2011_3yr/census_table_metadata.csv: acs2011_3yr_merge_5_6.xls acs2011_3yr_table_shells.xls
 	python process_shells.py acs2011_3yr_table_shells.xls acs2011_3yr_merge_5_6.xls
 	mkdir -p precomputed/acs2011_3yr/
-	mv census_column_metadata.txt census_table_metadata.txt precomputed/acs2011_3yr/
+	mv census_column_metadata.csv census_table_metadata.csv precomputed/acs2011_3yr/
 
-precomputed/acs2011_5yr/census_table_metadata.txt: acs2011_5yr_merge_5_6.xls acs2011_5yr_table_shells.xls
+precomputed/acs2011_5yr/census_table_metadata.csv: acs2011_5yr_merge_5_6.xls acs2011_5yr_table_shells.xls
 	python process_shells.py acs2011_5yr_table_shells.xls acs2011_5yr_merge_5_6.xls
 	mkdir -p precomputed/acs2011_5yr/
-	mv census_column_metadata.txt census_table_metadata.txt precomputed/acs2011_5yr/
+	mv census_column_metadata.csv census_table_metadata.csv precomputed/acs2011_5yr/
 
-precomputed/acs2012_1yr/census_table_metadata.txt: acs2012_1yr_merge_5_6.xls acs2012_1yr_table_shells.xls
+precomputed/acs2012_1yr/census_table_metadata.csv: acs2012_1yr_merge_5_6.xls acs2012_1yr_table_shells.xls
 	python process_shells.py acs2012_1yr_table_shells.xls acs2012_1yr_merge_5_6.xls
 	mkdir -p precomputed/acs2012_1yr/
-	mv census_column_metadata.txt census_table_metadata.txt precomputed/acs2012_1yr/
+	mv census_column_metadata.csv census_table_metadata.csv precomputed/acs2012_1yr/
 
-precomputed/acs2012_3yr/census_table_metadata.txt: acs2012_3yr_merge_5_6.xls acs2012_3yr_table_shells.xls
+precomputed/acs2012_3yr/census_table_metadata.csv: acs2012_3yr_merge_5_6.xls acs2012_3yr_table_shells.xls
 	python process_shells.py acs2012_3yr_table_shells.xls acs2012_3yr_merge_5_6.xls
 	mkdir -p precomputed/acs2012_3yr/
-	mv census_column_metadata.txt census_table_metadata.txt precomputed/acs2012_3yr/
+	mv census_column_metadata.csv census_table_metadata.csv precomputed/acs2012_3yr/
 
-precomputed/acs2012_5yr/census_table_metadata.txt: acs2012_5yr_merge_5_6.xls acs2012_5yr_table_shells.xls
+precomputed/acs2012_5yr/census_table_metadata.csv: acs2012_5yr_merge_5_6.xls acs2012_5yr_table_shells.xls
 	python process_shells.py acs2012_5yr_table_shells.xls acs2012_5yr_merge_5_6.xls
 	mkdir -p precomputed/acs2012_5yr/
-	mv census_column_metadata.txt census_table_metadata.txt precomputed/acs2012_5yr/
+	mv census_column_metadata.csv census_table_metadata.csv precomputed/acs2012_5yr/

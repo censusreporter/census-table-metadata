@@ -12,7 +12,7 @@ Run as follows:
 [0] http://www2.census.gov/acs/downloads/shells/2007/Detailed_Tables/
 '''
 
-import json
+import csv
 from xlrd import open_workbook
 import sys
 import os
@@ -82,10 +82,28 @@ root_dir = os.path.dirname(filename)
 if not root_dir:
     root_dir = "./"
 
-release = filename[:11]
+table_metadata_fieldnames = [
+    'table_id',
+    'table_title',
+    'simple_table_title',
+    'subject_area',
+    'universe',
+    'denominator_column_id',
+    'topics'
+]
+table_csv = csv.DictWriter(open("%s/census_table_metadata.csv" % root_dir, 'w'), table_metadata_fieldnames)
+table_csv.writeheader()
 
-table_file = open("%s/census_table_metadata.txt" % root_dir, 'w')
-column_file = open("%s/census_column_metadata.txt" % root_dir, 'w')
+column_metadata_fieldnames = [
+    'table_id',
+    'line_number',
+    'column_id',
+    'column_title',
+    'indent',
+    'parent_column_id'
+]
+column_csv = csv.DictWriter(open("%s/census_column_metadata.csv" % root_dir, 'w'), column_metadata_fieldnames)
+column_csv.writeheader()
 
 TABLE_NAME_REPLACEMENTS = [ # mostly problems with slashes and -- characters
     (r'minor Civil Division Level for 12 Selected States \(Ct, Me, Ma, Mi, Mn, Nh, Nj, Ny, Pa, Ri, Vt, Wi\)',
@@ -280,15 +298,15 @@ def build_topics(table):
             all_areas.update(map(lambda x:x.strip(),v.split(',')))
     return map(lambda x: x.strip(), all_areas)
 
-def find_denominator_column(table, cols):
-    if cols and len(cols) > 1 and cols[0]['column_title'].lower().startswith('total') and table and not table['table_title'].lower().startswith('median'):
-        return cols[0]['column_id']
+def find_denominator_column(table, rows):
+    if rows and len(rows) > 1 and rows[0]['column_title'].lower().startswith('total') and table and not table['table_title'].lower().startswith('median'):
+        return rows[0]['column_id']
     else:
         return None
 
 table_ids_already_written = set()
 table = {}
-columns = []
+rows = []
 for r in range(1, sheet.nrows):
     r_data = sheet.row(r)
 
@@ -307,21 +325,16 @@ for r in range(1, sheet.nrows):
     if not line_number and cells:
         # Write out the previous table's data
         if table and table_id != table['table_id']:
-            table['denominator_column_id'] = find_denominator_column(table, columns)
-            table['topics'] = build_topics(table)
+            table['denominator_column_id'] = find_denominator_column(table, rows)
+            table['topics'] = '{%s}' % ','.join(['"%s"' % topic for topic in build_topics(table)])
             if table['table_id'] in table_ids_already_written:
                 print 'Skipping %s' % table['table_id']
             else:
-                table['release'] = release
-
-                table_file.write(json.dumps({'index': {'_index': 'census', '_type': 'table', '_id': release + table['table_id']}}) + "\n")
-                table_file.write(json.dumps(table) + "\n")
-                for column in columns:
-                    column_file.write(json.dumps({'index': {'_index': 'census', '_type': 'column', '_id': release + column['column_id']}}) + "\n")
-                    column_file.write(json.dumps(column) + "\n")
+                table_csv.writerow(table)
+                column_csv.writerows(rows)
             table_ids_already_written.add(table['table_id'])
             table = {}
-            columns = []
+            rows = []
 
         # The all-caps description of the table
         table['table_title'] = clean_table_name(title).encode('utf8')
@@ -335,43 +348,34 @@ for r in range(1, sheet.nrows):
     elif not line_number and not cells and title.lower().startswith('universe:'):
         table['universe'] = titlecase(title.split(':')[-1]).strip()
     elif line_number:
-        column = {}
-        column['line_number'] = line_number
-        column['table_id'] = table['table_id']
-        column['release'] = release
+        row = {}
+        row['line_number'] = line_number
+        row['table_id'] = table['table_id']
 
         line_number_str = str(line_number)
         if line_number_str.endswith('.7') or line_number_str.endswith('.5'):
             # This is a subhead (not an actual data column), so we'll have to synthesize a column_id
-            column['column_id'] = "%s%05.1f" % (table['table_id'], line_number)
+            row['column_id'] = "%s%05.1f" % (row['table_id'], line_number)
         else:
-            column['column_id'] = '%s%03d' % (table['table_id'], line_number)
-        column['column_title'] = title.encode('utf8')
+            row['column_id'] = '%s%03d' % (row['table_id'], line_number)
+        row['column_title'] = title.encode('utf8')
 
-        column_info = external_shell_lookup.get(column['column_id'])
+        column_info = external_shell_lookup.get(row['column_id'])
         if column_info:
-            column['indent'] = column_info['indent']
-            column['parent_column_id'] = column_info['parent_column_id']
+            row['indent'] = column_info['indent']
+            row['parent_column_id'] = column_info['parent_column_id']
 
-        columns.append(column)
+        rows.append(row)
 
 # Write out the last table's data
 if table:
-    table['denominator_column_id'] = find_denominator_column(table, columns)
+    table['denominator_column_id'] = find_denominator_column(table, rows)
     table['topics'] = '{%s}' % ','.join(['"%s"' % topic for topic in build_topics(table)])
     if table['table_id'] in table_ids_already_written:
         print 'Skipping %s' % table['table_id']
     else:
-        table['release'] = release
-
-        table_file.write(json.dumps({'index': {'_index': 'census', '_type': 'table', '_id': release + table['table_id']}}) + "\n")
-        table_file.write(json.dumps(table) + "\n")
-        for column in columns:
-            column_file.write(json.dumps({'index': {'_index': 'census', '_type': 'column', '_id': release + column['column_id']}}) + "\n")
-            column_file.write(json.dumps(column) + "\n")
+        table_csv.writerow(table)
+        column_csv.writerows(rows)
     table_ids_already_written.add(table['table_id'])
     table = {}
-    columns = []
-
-table_file.close()
-column_file.close()
+    rows = []
