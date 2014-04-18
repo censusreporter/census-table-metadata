@@ -18,30 +18,37 @@ import sys
 import os
 import re
 from titlecase import titlecase
+import json
 
-filename = sys.argv[1]
+def read_shells(path):
+    lookup = {}
 
+    if os.path.isdir(path):
+        for shell_file in os.listdir(path):
+            single_shell = read_shell(os.path.join(path, shell_file))
+            # print json.dumps(single_shell, indent=2)
+            lookup.update(single_shell)
+    elif os.path.isfile(path):
+        lookup = read_shell(path)
 
-def read_shell(table_id):
+    return lookup
 
-    if table_id.endswith('PR'):
-        table_id = table_id[:-2]
-    if table_id.startswith('C'):
-        table_id = 'B%s' % table_id[1:]
-
+def read_shell(path):
     lookup = {}
     hierarchy_stack = [None]*10
-    try:
-        xlsfile = open_workbook('%s/%s.xls' % (sys.argv[2], table_id), formatting_info=True)
-    except IOError, e:
-        if e.errno == 2:
-            print "Missing table %s/%s.xls" % (sys.argv[2], table_id)
-            return lookup
+    xlsfile = open_workbook(path, formatting_info=True)
     sheet = xlsfile.sheet_by_index(0)
     for r in range(1, sheet.nrows):
         r_data = sheet.row(r)
 
         table_id = r_data[0].value.strip()
+
+        if table_id == "":
+            continue
+
+        if table_id not in lookup:
+            lookup[table_id] = {}
+
         line_number = r_data[1].value
 
         if table_id and line_number and r_data[1].ctype == 2:
@@ -68,12 +75,15 @@ def read_shell(table_id):
                 if not parent_column_id:
                     parent_column_id = hierarchy_stack[indent - 2]
 
-            lookup[column_id] = {
+            lookup[table_id][column_id] = {
                 "indent": indent,
                 "parent_column_id": parent_column_id
             }
 
     return lookup
+
+filename = sys.argv[1]
+shell_lookup = read_shells(sys.argv[2])
 
 xlsfile = open_workbook(filename)
 sheet = xlsfile.sheet_by_index(0)
@@ -322,13 +332,22 @@ for r in range(1, sheet.nrows):
     title = title.strip()
     subject_area = r_data[8].value
 
+    # print "table_id: {}, line_number: {}, position: {}, cells: {}, title: {}, subject_area: {}".format(table_id, line_number, position, cells, title, subject_area)
+
+    # In 2009 metadata, they seem to have used "." to signify null.
+    # In 2012 metadata, they seem to have used " " to signify null.
+    if line_number in ('.', ' '):
+        line_number = None
+    if position in ('.', ' '):
+        position = None
+
     if not line_number and cells:
         # Write out the previous table's data
         if table and table_id != table['table_id']:
             table['denominator_column_id'] = find_denominator_column(table, rows)
             table['topics'] = '{%s}' % ','.join(['"%s"' % topic for topic in build_topics(table)])
             if table['table_id'] in table_ids_already_written:
-                print 'Skipping %s' % table['table_id']
+                print 'Skipping %s because it was already written.' % table['table_id']
             else:
                 table_csv.writerow(table)
                 column_csv.writerows(rows)
@@ -344,7 +363,9 @@ for r in range(1, sheet.nrows):
 
         table['table_id'] = table_id
 
-        external_shell_lookup = read_shell(table['table_id'])
+        external_shell_lookup = shell_lookup.get(table['table_id'], {})
+        if not external_shell_lookup:
+            print "Could not find shells for table {}".format(table['table_id'])
     elif not line_number and not cells and title.lower().startswith('universe:'):
         table['universe'] = titlecase(title.split(':')[-1]).strip()
     elif line_number:
@@ -372,7 +393,7 @@ if table:
     table['denominator_column_id'] = find_denominator_column(table, rows)
     table['topics'] = '{%s}' % ','.join(['"%s"' % topic for topic in build_topics(table)])
     if table['table_id'] in table_ids_already_written:
-        print 'Skipping %s' % table['table_id']
+        print 'Skipping %s because it was already written.' % table['table_id']
     else:
         table_csv.writerow(table)
         column_csv.writerows(rows)
