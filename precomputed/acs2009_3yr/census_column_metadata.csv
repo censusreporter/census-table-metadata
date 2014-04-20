@@ -329,46 +329,46 @@ B01001I,28.0,B01001I028,55 to 64 years,2,B01001I017
 B01001I,29.0,B01001I029,65 to 74 years,2,B01001I017
 B01001I,30.0,B01001I030,75 to 84 years,2,B01001I017
 B01001I,31.0,B01001I031,85 years and over,2,B01001I017
+B01002,0.5,B01002000,Median age --,,
 B01002,1.0,B01002001,Total:,1,
 B01002,2.0,B01002002,Male,1,
 B01002,3.0,B01002003,Female,1,
-B01002,5.0,B01002005,Median age --,,
+B01002A,0.5,B01002A000,Median age --,,
 B01002A,1.0,B01002A001,Total:,1,
 B01002A,2.0,B01002A002,Male,1,
 B01002A,3.0,B01002A003,Female,1,
-B01002A,5.0,B01002A005,Median age --,,
+B01002B,0.5,B01002B000,Median age --,,
 B01002B,1.0,B01002B001,Total:,1,
 B01002B,2.0,B01002B002,Male,1,
 B01002B,3.0,B01002B003,Female,1,
-B01002B,5.0,B01002B005,Median age --,,
+B01002C,0.5,B01002C000,Median age --,,
 B01002C,1.0,B01002C001,Total:,1,
 B01002C,2.0,B01002C002,Male,1,
 B01002C,3.0,B01002C003,Female,1,
-B01002C,5.0,B01002C005,Median age --,,
+B01002D,0.5,B01002D000,Median age --,,
 B01002D,1.0,B01002D001,Total:,1,
 B01002D,2.0,B01002D002,Male,1,
 B01002D,3.0,B01002D003,Female,1,
-B01002D,5.0,B01002D005,Median age --,,
+B01002E,0.5,B01002E000,Median age --,,
 B01002E,1.0,B01002E001,Total:,1,
 B01002E,2.0,B01002E002,Male,1,
 B01002E,3.0,B01002E003,Female,1,
-B01002E,5.0,B01002E005,Median age --,,
+B01002F,0.5,B01002F000,Median age --,,
 B01002F,1.0,B01002F001,Total:,1,
 B01002F,2.0,B01002F002,Male,1,
 B01002F,3.0,B01002F003,Female,1,
-B01002F,5.0,B01002F005,Median age --,,
+B01002G,0.5,B01002G000,Median age --,,
 B01002G,1.0,B01002G001,Total:,1,
 B01002G,2.0,B01002G002,Male,1,
 B01002G,3.0,B01002G003,Female,1,
-B01002G,5.0,B01002G005,Median age --,,
+B01002H,0.5,B01002H000,Median age --,,
 B01002H,1.0,B01002H001,Total:,1,
 B01002H,2.0,B01002H002,Male,1,
 B01002H,3.0,B01002H003,Female,1,
-B01002H,5.0,B01002H005,Median age --,,
+B01002I,0.5,B01002I000,Median age --,,
 B01002I,1.0,B01002I001,Total:,1,
 B01002I,2.0,B01002I002,Male,1,
 B01002I,3.0,B01002I003,Female,1,
-B01002I,5.0,B01002I005,Median age --,,
 B01003,1.0,B01003001,Total,0,
 B02001,1.0,B02001001,Total:,0,
 B02001,2.0,B02001002,White alone,1,B02001001
@@ -2073,17 +2073,17 @@ B06001PR,57.0,B06001PR057,60 and 61 years,2,B06001PR049
 B06001PR,58.0,B06001PR058,62 to 64 years,2,B06001PR049
 B06001PR,59.0,B06001PR059,65 to 74 years,2,B06001PR049
 B06001PR,60.0,B06001PR060,75 years and over,2,B06001PR049
+B06002,0.5,B06002000,Median age --,,
 B06002,1.0,B06002001,Total:,1,
 B06002,2.0,B06002002,Born in state of residence,2,B06002001
 B06002,3.0,B06002003,Born in other state of the United States,2,B06002001
 B06002,4.0,B06002004,Native; born outside the United States,2,B06002001
-B06002,5.0,B06002005,Median age --,2,B06002001
 B06002,5.0,B06002005,Foreign born,2,B06002001
+B06002PR,0.5,B06002PR000,Median age --,,
 B06002PR,1.0,B06002PR001,Total:,1,
 B06002PR,2.0,B06002PR002,Born in Puerto Rico,2,B06002PR001
 B06002PR,3.0,B06002PR003,Born in the United States,2,B06002PR001
 B06002PR,4.0,B06002PR004,Native; born elsewhere,2,B06002PR001
-B06002PR,5.0,B06002PR005,Median age --,2,B06002PR001
 B06002PR,5.0,B06002PR005,Foreign born,2,B06002PR001
 B06003,1.0,B06003001,Total:,0,
 B06003,2.0,B06003002,Male,2,B06003001
@@ -2515,17 +2515,17 @@ B06010PR,52.0,B06010PR052,"$35,000 to $49,999",3,B06010PR047
 B06010PR,53.0,B06010PR053,"$50,000 to $64,999",3,B06010PR047
 B06010PR,54.0,B06010PR054,"$65,000 to $74,999",3,B06010PR047
 B06010PR,55.0,B06010PR055,"$75,000 or more",3,B06010PR047
+B06011,0.5,B06011000,Median income in the past 12 months --,,
 B06011,1.0,B06011001,Total:,1,
 B06011,2.0,B06011002,Born in state of residence,2,B06011001
 B06011,3.0,B06011003,Born in other state of the United States,2,B06011001
 B06011,4.0,B06011004,Native; born outside the United States,2,B06011001
-B06011,5.0,B06011005,Median income in the past 12 months --,2,B06011001
 B06011,5.0,B06011005,Foreign born,2,B06011001
+B06011PR,0.5,B06011PR000,Median income in the past 12 months --,,
 B06011PR,1.0,B06011PR001,Total:,1,
 B06011PR,2.0,B06011PR002,Born in Puerto Rico,2,B06011PR001
 B06011PR,3.0,B06011PR003,Born in other state of the United States,2,B06011PR001
 B06011PR,4.0,B06011PR004,Native; born elsewhere,2,B06011PR001
-B06011PR,5.0,B06011PR005,Median income in the past 12 months --,2,B06011PR001
 B06011PR,5.0,B06011PR005,Foreign born,2,B06011PR001
 B06012,1.0,B06012001,Total:,0,
 B06012,2.0,B06012002,Below 100 percent of the poverty level,2,B06012001
@@ -2759,18 +2759,18 @@ B07001PR,93.0,B07001PR093,60 to 64 years,2,B07001PR081
 B07001PR,94.0,B07001PR094,65 to 69 years,2,B07001PR081
 B07001PR,95.0,B07001PR095,70 to 74 years,2,B07001PR081
 B07001PR,96.0,B07001PR096,75 years and over,2,B07001PR081
+B07002,0.5,B07002000,Median age --,,
 B07002,1.0,B07002001,Total:,1,
 B07002,2.0,B07002002,Same house 1 year ago,2,B07002001
 B07002,3.0,B07002003,Moved within same county,2,B07002001
 B07002,4.0,B07002004,Moved from different county within same state,2,B07002001
-B07002,5.0,B07002005,Median age --,2,B07002001
 B07002,5.0,B07002005,Moved from different state,2,B07002001
 B07002,6.0,B07002006,Moved from abroad,2,B07002001
+B07002PR,0.5,B07002PR000,Median age --,,
 B07002PR,1.0,B07002PR001,Total:,1,
 B07002PR,2.0,B07002PR002,Same house 1 year ago,2,B07002PR001
 B07002PR,3.0,B07002PR003,Moved within same municipio,2,B07002PR001
 B07002PR,4.0,B07002PR004,Moved from different municipio,2,B07002PR001
-B07002PR,5.0,B07002PR005,Median age --,2,B07002PR001
 B07002PR,5.0,B07002PR005,Moved from the United States,2,B07002PR001
 B07002PR,6.0,B07002PR006,Moved from elsewhere,2,B07002PR001
 B07003,1.0,B07003001,Total:,0,
@@ -3253,18 +3253,18 @@ B07010PR,63.0,B07010PR063,"$35,000 to $49,999",3,B07010PR058
 B07010PR,64.0,B07010PR064,"$50,000 to $64,999",3,B07010PR058
 B07010PR,65.0,B07010PR065,"$65,000 to $74,999",3,B07010PR058
 B07010PR,66.0,B07010PR066,"$75,000 or more",3,B07010PR058
+B07011,0.5,B07011000,Median income in the past 12 months --,,
 B07011,1.0,B07011001,Total:,1,
 B07011,2.0,B07011002,Same house 1 year ago,2,B07011001
 B07011,3.0,B07011003,Moved within same county,2,B07011001
 B07011,4.0,B07011004,Moved from different county within same state,2,B07011001
-B07011,5.0,B07011005,Median income in the past 12 months --,2,B07011001
 B07011,5.0,B07011005,Moved from different state,2,B07011001
 B07011,6.0,B07011006,Moved from abroad,2,B07011001
+B07011PR,0.5,B07011PR000,Median income in the past 12 months --,,
 B07011PR,1.0,B07011PR001,Total:,1,
 B07011PR,2.0,B07011PR002,Same house 1 year ago,2,B07011PR001
 B07011PR,3.0,B07011PR003,Moved within same municipio,2,B07011PR001
 B07011PR,4.0,B07011PR004,Moved from different municipio,2,B07011PR001
-B07011PR,5.0,B07011PR005,Median income in the past 12 months --,2,B07011PR001
 B07011PR,5.0,B07011PR005,Moved from the United States,2,B07011PR001
 B07011PR,6.0,B07011PR006,Moved from elsewhere,2,B07011PR001
 B07012,1.0,B07012001,Total:,0,
@@ -3355,6 +3355,7 @@ B07101,1.0,B07101001,Total:,0,
 B07101,2.0,B07101002,Same residence (non-movers),2,B07101001
 B07101,3.0,B07101003,Movers within same state,2,B07101001
 B07101,4.0,B07101004,Movers to different state:,2,B07101001
+B07101,4.5,B07101004,Residence 1 year ago--,2,B07101001
 B07101,5.0,B07101005,Northeast,4,B07101004
 B07101,6.0,B07101006,Midwest,4,B07101004
 B07101,7.0,B07101007,South,4,B07101004
@@ -3367,6 +3368,7 @@ B07101,13.0,B07101013,Current residence; Northeast:,1,B07101001
 B07101,14.0,B07101014,Same residence (non-movers),2,B07101013
 B07101,15.0,B07101015,Movers within same state,2,B07101013
 B07101,16.0,B07101016,Movers to different state:,2,B07101013
+B07101,16.5,B07101016,Residence 1 year ago--,2,B07101013
 B07101,17.0,B07101017,Northeast,4,B07101012
 B07101,18.0,B07101018,Midwest,4,B07101012
 B07101,19.0,B07101019,South,4,B07101012
@@ -3379,6 +3381,7 @@ B07101,25.0,B07101025,Current residence; Midwest:,1,B07101001
 B07101,26.0,B07101026,Same residence (non-movers),2,B07101025
 B07101,27.0,B07101027,Movers within same state,2,B07101025
 B07101,28.0,B07101028,Movers to different state:,2,B07101025
+B07101,28.5,B07101028,Residence 1 year ago--,2,B07101025
 B07101,29.0,B07101029,Northeast,4,B07101024
 B07101,30.0,B07101030,Midwest,4,B07101024
 B07101,31.0,B07101031,South,4,B07101024
@@ -3391,11 +3394,11 @@ B07101,37.0,B07101037,Current residence; South:,1,B07101001
 B07101,38.0,B07101038,Same residence (non-movers),2,B07101037
 B07101,39.0,B07101039,Movers within same state,2,B07101037
 B07101,40.0,B07101040,Movers to different state:,2,B07101037
+B07101,40.5,B07101040,Residence 1 year ago--,2,B07101037
 B07101,41.0,B07101041,Northeast,4,B07101036
 B07101,42.0,B07101042,Midwest,4,B07101036
 B07101,43.0,B07101043,South,4,B07101036
 B07101,44.0,B07101044,West,4,B07101036
-B07101,45.0,B07101045,Residence 1 year ago--,2,B07101037
 B07101,45.0,B07101045,Movers from abroad:,2,B07101037
 B07101,46.0,B07101046,Puerto Rico,3,B07101045
 B07101,47.0,B07101047,U.S. Island Areas,3,B07101045
@@ -3404,6 +3407,7 @@ B07101,49.0,B07101049,Current residence; West:,1,B07101001
 B07101,50.0,B07101050,Same residence (non-movers),2,B07101049
 B07101,51.0,B07101051,Movers within same state,2,B07101049
 B07101,52.0,B07101052,Movers to different state:,2,B07101049
+B07101,52.5,B07101052,Residence 1 year ago--,2,B07101049
 B07101,53.0,B07101053,Northeast,4,B07101048
 B07101,54.0,B07101054,Midwest,4,B07101048
 B07101,55.0,B07101055,South,4,B07101048
@@ -3412,10 +3416,6 @@ B07101,57.0,B07101057,Movers from abroad:,2,B07101049
 B07101,58.0,B07101058,Puerto Rico,3,B07101057
 B07101,59.0,B07101059,U.S. Island Areas,3,B07101057
 B07101,60.0,B07101060,Foreign country,3,B07101057
-B07101,165.0,B07101165,Residence 1 year ago--,,
-B07101,285.0,B07101285,Residence 1 year ago--,,
-B07101,405.0,B07101405,Residence 1 year ago--,,
-B07101,525.0,B07101525,Residence 1 year ago--,,
 B07201,1.0,B07201001,Total:,0,
 B07201,2.0,B07201002,Same house 1 year ago,1,B07201001
 B07201,3.0,B07201003,Different house in United States 1 year ago:,1,B07201001
@@ -3692,17 +3692,17 @@ B07401PR,77.0,B07401PR077,60 to 64 years,2,B07401PR065
 B07401PR,78.0,B07401PR078,65 to 69 years,2,B07401PR065
 B07401PR,79.0,B07401PR079,70 to 74 years,2,B07401PR065
 B07401PR,80.0,B07401PR080,75 years and over,2,B07401PR065
+B07402,0.5,B07402000,Median age --,,
 B07402,1.0,B07402001,Total living in area 1 year ago:,1,
 B07402,2.0,B07402002,Same house,2,B07402001
 B07402,3.0,B07402003,Moved within same county,2,B07402001
 B07402,4.0,B07402004,Moved to different county within same state,2,B07402001
-B07402,5.0,B07402005,Median age --,2,B07402001
 B07402,5.0,B07402005,Moved to different state,2,B07402001
+B07402PR,0.5,B07402PR000,Median age --,,
 B07402PR,1.0,B07402PR001,Total living in area 1 year ago:,1,
 B07402PR,2.0,B07402PR002,Same house,2,B07402PR001
 B07402PR,3.0,B07402PR003,Moved within same municipio,2,B07402PR001
 B07402PR,4.0,B07402PR004,Moved to different municipio,2,B07402PR001
-B07402PR,5.0,B07402PR005,Median age --,2,B07402PR001
 B07402PR,5.0,B07402PR005,Moved to the United States,2,B07402PR001
 B07403,1.0,B07403001,Total living in area 1 year ago:,0,
 B07403,2.0,B07403002,Male,2,B07403001
@@ -4104,17 +4104,17 @@ B07410PR,52.0,B07410PR052,"$35,000 to $49,999",3,B07410PR047
 B07410PR,53.0,B07410PR053,"$50,000 to $64,999",3,B07410PR047
 B07410PR,54.0,B07410PR054,"$65,000 to $74,999",3,B07410PR047
 B07410PR,55.0,B07410PR055,"$75,000 or more",3,B07410PR047
+B07411,0.5,B07411000,Median income in the past 12 months --,,
 B07411,1.0,B07411001,Total living in area 1 year ago:,1,
 B07411,2.0,B07411002,Same house,2,B07411001
 B07411,3.0,B07411003,Moved within same county,2,B07411001
 B07411,4.0,B07411004,Moved to different county within same state,2,B07411001
-B07411,5.0,B07411005,Median income in the past 12 months --,2,B07411001
 B07411,5.0,B07411005,Moved to different state,2,B07411001
+B07411PR,0.5,B07411PR000,Median income in the past 12 months --,,
 B07411PR,1.0,B07411PR001,Total living in area 1 year ago:,1,
 B07411PR,2.0,B07411PR002,Same house,2,B07411PR001
 B07411PR,3.0,B07411PR003,Moved within same municipio,2,B07411PR001
 B07411PR,4.0,B07411PR004,Moved to different municipio,2,B07411PR001
-B07411PR,5.0,B07411PR005,Median income in the past 12 months --,2,B07411PR001
 B07411PR,5.0,B07411PR005,Moved to the United States,2,B07411PR001
 B07412,1.0,B07412001,Total living in area 1 year ago:,0,
 B07412,2.0,B07412002,Below 100 percent of the poverty level,2,B07412001
@@ -4503,11 +4503,11 @@ B08101,53.0,B08101053,45 to 54 years,2,B08101049
 B08101,54.0,B08101054,55 to 59 years,2,B08101049
 B08101,55.0,B08101055,60 to 64 years,2,B08101049
 B08101,56.0,B08101056,65 years and over,2,B08101049
+B08103,0.5,B08103000,Median age --,,
 B08103,1.0,B08103001,Total:,1,
 B08103,2.0,B08103002,"Car, truck, or van - drove alone",2,B08103001
 B08103,3.0,B08103003,"Car, truck, or van - carpooled",2,B08103001
 B08103,4.0,B08103004,Public transportation (excluding taxicab),2,B08103001
-B08103,5.0,B08103005,Median age --,2,B08103001
 B08103,5.0,B08103005,Walked,2,B08103001
 B08103,6.0,B08103006,"Taxicab, motorcycle, bicycle, or other means",2,B08103001
 B08103,7.0,B08103007,Worked at home,2,B08103001
@@ -4728,11 +4728,11 @@ B08119,60.0,B08119060,"$35,000 to $49,999",2,B08119055
 B08119,61.0,B08119061,"$50,000 to $64,999",2,B08119055
 B08119,62.0,B08119062,"$65,000 to $74,999",2,B08119055
 B08119,63.0,B08119063,"$75,000 or more",2,B08119055
+B08121,0.5,B08121000,Median earnings in the past 12 months --,,
 B08121,1.0,B08121001,Total:,1,
 B08121,2.0,B08121002,"Car, truck, or van - drove alone",2,B08121001
 B08121,3.0,B08121003,"Car, truck, or van - carpooled",2,B08121001
 B08121,4.0,B08121004,Public transportation (excluding taxicab),2,B08121001
-B08121,5.0,B08121005,Median earnings in the past 12 months --,2,B08121001
 B08121,5.0,B08121005,Walked,2,B08121001
 B08121,6.0,B08121006,"Taxicab, motorcycle, bicycle, or other means",2,B08121001
 B08121,7.0,B08121007,Worked at home,2,B08121001
@@ -5611,11 +5611,11 @@ B08501,53.0,B08501053,45 to 54 years,2,B08501049
 B08501,54.0,B08501054,55 to 59 years,2,B08501049
 B08501,55.0,B08501055,60 to 64 years,2,B08501049
 B08501,56.0,B08501056,65 years and over,2,B08501049
+B08503,0.5,B08503000,Median age --,,
 B08503,1.0,B08503001,Total:,1,
 B08503,2.0,B08503002,"Car, truck, or van - drove alone",2,B08503001
 B08503,3.0,B08503003,"Car, truck, or van - carpooled",2,B08503001
 B08503,4.0,B08503004,Public transportation (excluding taxicab),2,B08503001
-B08503,5.0,B08503005,Median age --,2,B08503001
 B08503,5.0,B08503005,Walked,2,B08503001
 B08503,6.0,B08503006,"Taxicab, motorcycle, bicycle, or other means",2,B08503001
 B08503,7.0,B08503007,Worked at home,2,B08503001
@@ -5836,11 +5836,11 @@ B08519,60.0,B08519060,"$35,000 to $49,999",2,B08519055
 B08519,61.0,B08519061,"$50,000 to $64,999",2,B08519055
 B08519,62.0,B08519062,"$65,000 to $74,999",2,B08519055
 B08519,63.0,B08519063,"$75,000 or more",2,B08519055
+B08521,0.5,B08521000,Median earnings in the past 12 months --,,
 B08521,1.0,B08521001,Total:,1,
 B08521,2.0,B08521002,"Car, truck, or van - drove alone",2,B08521001
 B08521,3.0,B08521003,"Car, truck, or van - carpooled",2,B08521001
 B08521,4.0,B08521004,Public transportation (excluding taxicab),2,B08521001
-B08521,5.0,B08521005,Median earnings in the past 12 months --,2,B08521001
 B08521,5.0,B08521005,Walked,2,B08521001
 B08521,6.0,B08521006,"Taxicab, motorcycle, bicycle, or other means",2,B08521001
 B08521,7.0,B08521007,Worked at home,2,B08521001
@@ -6558,10 +6558,10 @@ B10002,2.0,B10002002,Grandparent householder responsible for own grandchildren u
 B10002,3.0,B10002003,Parent present,2,B10002002
 B10002,4.0,B10002004,No parent present,2,B10002002
 B10002,5.0,B10002005,Grandparent householder not responsible for own grandchildren under 18 years,1,B10002001
+B10010,0.5,B10010000,Median family income in the past 12 months--,,
 B10010,1.0,B10010001,Total:,1,
 B10010,2.0,B10010002,Grandparent householder and/or spouse responsible for grandchildren under 18 years (dollars),1,
 B10010,3.0,B10010003,Grandparent householder and/or spouse responsible for grandchildren under 18 years and no parent present (dollars),1,
-B10010,5.0,B10010005,Median family income in the past 12 months--,,
 B10050,1.0,B10050001,Total:,0,
 B10050,2.0,B10050002,Living with own grandchildren under 18 years:,1,B10050001
 B10050,3.0,B10050003,Grandparent responsible for own grandchildren under 18 years:,2,B10050002
@@ -7534,36 +7534,36 @@ B12006,53.0,B12006053,In labor force:,3,B12006052
 B12006,54.0,B12006054,Employed or in Armed Forces,4,B12006053
 B12006,55.0,B12006055,Unemployed,4,B12006053
 B12006,56.0,B12006056,Not in labor force,3,B12006052
+B12007,0.5,B12007000,Median age at first marriage --,,
 B12007,1.0,B12007001,Male,1,
 B12007,2.0,B12007002,Female,1,
-B12007,5.0,B12007005,Median age at first marriage --,,
+B12007A,0.5,B12007A000,Median age at first marriage --,,
 B12007A,1.0,B12007A001,Male,1,
 B12007A,2.0,B12007A002,Female,1,
-B12007A,5.0,B12007A005,Median age at first marriage --,,
+B12007B,0.5,B12007B000,Median age at first marriage --,,
 B12007B,1.0,B12007B001,Male,1,
 B12007B,2.0,B12007B002,Female,1,
-B12007B,5.0,B12007B005,Median age at first marriage --,,
+B12007C,0.5,B12007C000,Median age at first marriage --,,
 B12007C,1.0,B12007C001,Male,1,
 B12007C,2.0,B12007C002,Female,1,
-B12007C,5.0,B12007C005,Median age at first marriage --,,
+B12007D,0.5,B12007D000,Median age at first marriage --,,
 B12007D,1.0,B12007D001,Male,1,
 B12007D,2.0,B12007D002,Female,1,
-B12007D,5.0,B12007D005,Median age at first marriage --,,
+B12007E,0.5,B12007E000,Median age at first marriage --,,
 B12007E,1.0,B12007E001,Male,1,
 B12007E,2.0,B12007E002,Female,1,
-B12007E,5.0,B12007E005,Median age at first marriage --,,
+B12007F,0.5,B12007F000,Median age at first marriage --,,
 B12007F,1.0,B12007F001,Male,1,
 B12007F,2.0,B12007F002,Female,1,
-B12007F,5.0,B12007F005,Median age at first marriage --,,
+B12007G,0.5,B12007G000,Median age at first marriage --,,
 B12007G,1.0,B12007G001,Male,1,
 B12007G,2.0,B12007G002,Female,1,
-B12007G,5.0,B12007G005,Median age at first marriage --,,
+B12007H,0.5,B12007H000,Median age at first marriage --,,
 B12007H,1.0,B12007H001,Male,1,
 B12007H,2.0,B12007H002,Female,1,
-B12007H,5.0,B12007H005,Median age at first marriage --,,
+B12007I,0.5,B12007I000,Median age at first marriage --,,
 B12007I,1.0,B12007I001,Male,1,
 B12007I,2.0,B12007I002,Female,1,
-B12007I,5.0,B12007I005,Median age at first marriage --,,
 B13001,1.0,B13001001,Total:,0,
 B13001,2.0,B13001002,Now married (including spouse absent):,1,B13001001
 B13001,3.0,B13001003,15 to 19 years,2,B13001002
@@ -11409,11 +11409,11 @@ B19037I,66.0,B19037I066,"$100,000 to $124,999",2,B19037I053
 B19037I,67.0,B19037I067,"$125,000 to $149,999",2,B19037I053
 B19037I,68.0,B19037I068,"$150,000 to $199,999",2,B19037I053
 B19037I,69.0,B19037I069,"$200,000 or more",2,B19037I053
+B19049,0.5,B19049000,Median household income in the past 12 months (in 2009 inflation-adjusted dollars) --,,
 B19049,1.0,B19049001,Total:,1,
 B19049,2.0,B19049002,Householder under 25 years,1,
 B19049,3.0,B19049003,Householder 25 to 44 years,1,
 B19049,4.0,B19049004,Householder 45 to 64 years,1,
-B19049,5.0,B19049005,Median household income in the past 12 months (in 2009 inflation-adjusted dollars) --,1,
 B19049,5.0,B19049005,Householder 65 years and over,1,
 B19050,1.0,B19050001,Aggregate household income in the past 12 months (in 2009 inflation-adjusted dollars):,0,
 B19050,2.0,B19050002,Householder under 25 years,1,B19050001
@@ -11672,26 +11672,26 @@ B19121,2.0,B19121002,No earners (dollars),1,B19121001
 B19121,3.0,B19121003,1 earner (dollars),1,B19121001
 B19121,4.0,B19121004,2 earners (dollars),1,B19121001
 B19121,5.0,B19121005,3 or more earners (dollars),1,B19121001
+B19125,0.5,B19125000,Median family income in the past 12 months (in 2009 inflation-adjusted dollars) --,,
 B19125,1.0,B19125001,Total:,0,
 B19125,2.0,B19125002,With own children under 18 years,1,B19125001
 B19125,3.0,B19125003,No own children under 18 years,1,B19125001
-B19125,5.0,B19125005,Median family income in the past 12 months (in 2009 inflation-adjusted dollars) --,,
+B19126,0.5,B19126000,Median family income in the past 12 months (in 2009 inflation-adjusted dollars) --,,
 B19126,1.0,B19126001,Total:,1,
+B19126,1.5,B19126001,Married-couple family --,1,
 B19126,2.0,B19126002,Total,2,B19126001
 B19126,3.0,B19126003,With own children under 18 years,2,B19126001
 B19126,4.0,B19126004,No own children under 18 years,2,B19126001
-B19126,5.0,B19126005,Median family income in the past 12 months (in 2009 inflation-adjusted dollars) --,2,B19126001
+B19126,4.5,B19126004,Other family --,2,B19126001
 B19126,5.0,B19126005,Total,2,B19126001
+B19126,5.5,B19126005,"Male householder, no wife present --",2,B19126001
 B19126,6.0,B19126006,Total,3,B19126005
 B19126,7.0,B19126007,With own children under 18 years,3,B19126005
 B19126,8.0,B19126008,No own children under 18 years,3,B19126005
+B19126,8.5,B19126008,"Female householder, no husband present --",3,B19126005
 B19126,9.0,B19126009,Total,3,B19126005
 B19126,10.0,B19126010,With own children under 18 years,3,B19126005
 B19126,11.0,B19126011,No own children under 18 years,3,B19126005
-B19126,15.0,B19126015,Married-couple family --,,
-B19126,45.0,B19126045,Other family --,,
-B19126,55.0,B19126055,"Male householder, no wife present --",,
-B19126,85.0,B19126085,"Female householder, no husband present --",,
 B19127,1.0,B19127001,Aggregate family income in the past 12 months (in 2009 inflation-adjusted dollars),0,
 B19128,1.0,B19128001,Aggregate family income in the past 12 months (in 2009 inflation-adjusted dollars):,0,
 B19128,2.0,B19128002,Married-couple family:,1,B19128001
@@ -11875,28 +11875,28 @@ B19202G,1.0,B19202G001,Median nonfamily household income in the past 12 months (
 B19202H,1.0,B19202H001,Median nonfamily household income in the past 12 months (in 2009 inflation-adjusted dollars),0,
 B19202I,1.0,B19202I001,Median nonfamily household income in the past 12 months (in 2009 inflation-adjusted dollars),0,
 B19214,1.0,B19214001,Aggregate nonfamily household income in the past 12 months (in 2009 inflation-adjusted dollars),0,
+B19215,0.5,B19215000,Median nonfamily household income in the past 12 months (in 2009 inflation-adjusted dollars) --,,
 B19215,1.0,B19215001,Total (dollars):,1,
+B19215,1.5,B19215001,Male householder --,1,
 B19215,2.0,B19215002,Total (dollars),2,B19215001
+B19215,2.5,B19215002,Living alone --,2,B19215001
 B19215,3.0,B19215003,Total (dollars),3,B19215002
 B19215,4.0,B19215004,Householder 15 to 64 years (dollars),3,B19215002
-B19215,5.0,B19215005,Median nonfamily household income in the past 12 months (in 2009 inflation-adjusted dollars) --,3,B19215002
 B19215,5.0,B19215005,Householder 65 years and over (dollars),3,B19215002
+B19215,5.5,B19215005,Not living alone --,3,B19215002
 B19215,6.0,B19215006,Total (dollars),3,B19215002
 B19215,7.0,B19215007,Householder 15 to 64 years (dollars),3,B19215002
 B19215,8.0,B19215008,Householder 65 years and over (dollars),3,B19215002
+B19215,8.5,B19215008,Female householder --,3,B19215002
 B19215,9.0,B19215009,Total (dollars),2,B19215001
+B19215,9.5,B19215009,Living alone --,2,B19215001
 B19215,10.0,B19215010,Total (dollars),3,B19215009
 B19215,11.0,B19215011,Householder 15 to 64 years (dollars),3,B19215009
 B19215,12.0,B19215012,Householder 65 years and over (dollars),3,B19215009
+B19215,12.5,B19215012,Not living alone --,3,B19215009
 B19215,13.0,B19215013,Total (dollars),3,B19215009
 B19215,14.0,B19215014,Householder 15 to 64 years (dollars),3,B19215009
-B19215,15.0,B19215015,Male householder --,3,B19215009
 B19215,15.0,B19215015,Householder 65 years and over (dollars),3,B19215009
-B19215,25.0,B19215025,Living alone --,,
-B19215,55.0,B19215055,Not living alone --,,
-B19215,85.0,B19215085,Female householder --,,
-B19215,95.0,B19215095,Living alone --,,
-B19215,125.0,B19215125,Not living alone --,,
 B19216,1.0,B19216001,Aggregate nonfamily household income in the past 12 months (in 2009 inflation-adjusted dollars):,0,
 B19216,2.0,B19216002,Male householder (dollars):,1,B19216001
 B19216,3.0,B19216003,Living alone (dollars):,2,B19216002
@@ -12027,16 +12027,16 @@ B19325,92.0,B19325092,"$55,000 to $64,999",4,B19325075
 B19325,93.0,B19325093,"$65,000 to $74,999",4,B19325075
 B19325,94.0,B19325094,"$75,000 to $99,999",4,B19325075
 B19325,95.0,B19325095,"$100,000 or more",4,B19325075
+B19326,0.5,B19326000,Median income in the past 12 months (in 2009 inflation-adjusted dollars) --,,
 B19326,1.0,B19326001,Total (dollars):,1,
+B19326,1.5,B19326001,Male --,1,
 B19326,2.0,B19326002,Total (dollars),2,B19326001
 B19326,3.0,B19326003,"Worked full-time, year-round in the past 12 months (dollars)",2,B19326001
 B19326,4.0,B19326004,Other (dollars),2,B19326001
-B19326,5.0,B19326005,Median income in the past 12 months (in 2009 inflation-adjusted dollars) --,2,B19326001
+B19326,4.5,B19326004,Female --,2,B19326001
 B19326,5.0,B19326005,Total (dollars),2,B19326001
 B19326,6.0,B19326006,"Worked full-time, year-round in the past 12 months (dollars)",2,B19326001
 B19326,7.0,B19326007,Other (dollars),2,B19326001
-B19326,15.0,B19326015,Male --,,
-B19326,45.0,B19326045,Female --,,
 B20001,1.0,B20001001,Total:,0,
 B20001,2.0,B20001002,Male:,1,B20001001
 B20001,3.0,B20001003,"$1 to $2,499 or loss",2,B20001002
@@ -12080,10 +12080,10 @@ B20001,40.0,B20001040,"$55,000 to $64,999",2,B20001023
 B20001,41.0,B20001041,"$65,000 to $74,999",2,B20001023
 B20001,42.0,B20001042,"$75,000 to $99,999",2,B20001023
 B20001,43.0,B20001043,"$100,000 or more",2,B20001023
+B20002,0.5,B20002000,Median earnings in the past 12 months (in 2009 inflation-adjusted dollars) --,,
 B20002,1.0,B20002001,Total:,1,
 B20002,2.0,B20002002,Male,1,
 B20002,3.0,B20002003,Female,1,
-B20002,5.0,B20002005,Median earnings in the past 12 months (in 2009 inflation-adjusted dollars) --,,
 B20003,1.0,B20003001,Aggregate earnings in the past 12 months (in 2009 inflation-adjusted dollars):,0,
 B20003,2.0,B20003002,Male:,1,B20003001
 B20003,3.0,B20003003,"Worked full-time, year-round in the past 12 months",2,B20003002
@@ -13059,106 +13059,106 @@ B20005I,92.0,B20005I092,"$55,000 to $64,999",4,B20005I075
 B20005I,93.0,B20005I093,"$65,000 to $74,999",4,B20005I075
 B20005I,94.0,B20005I094,"$75,000 to $99,999",4,B20005I075
 B20005I,95.0,B20005I095,"$100,000 or more",4,B20005I075
+B20017,0.5,B20017000,Median earnings in the past 12 months (in 2009 inflation-adjusted dollars) --,,
 B20017,1.0,B20017001,Total (dollars):,1,
+B20017,1.5,B20017001,Male --,1,
 B20017,2.0,B20017002,Total (dollars),2,B20017001
 B20017,3.0,B20017003,"Worked full-time, year-round in the past 12 months (dollars)",2,B20017001
 B20017,4.0,B20017004,Other (dollars),2,B20017001
-B20017,5.0,B20017005,Median earnings in the past 12 months (in 2009 inflation-adjusted dollars) --,2,B20017001
+B20017,4.5,B20017004,Female --,2,B20017001
 B20017,5.0,B20017005,Total (dollars),2,B20017001
 B20017,6.0,B20017006,"Worked full-time, year-round in the past 12 months (dollars)",2,B20017001
 B20017,7.0,B20017007,Other (dollars),2,B20017001
-B20017,15.0,B20017015,Male --,,
-B20017,45.0,B20017045,Female --,,
+B20017A,0.5,B20017A000,Median earnings in the past 12 months (in 2009 inflation-adjusted dollars) --,,
 B20017A,1.0,B20017A001,Total:,1,
+B20017A,1.5,B20017A001,Male --,1,
 B20017A,2.0,B20017A002,Total,2,B20017A001
 B20017A,3.0,B20017A003,"Worked full-time, year-round in the past 12 months",2,B20017A001
 B20017A,4.0,B20017A004,Other,2,B20017A001
-B20017A,5.0,B20017A005,Median earnings in the past 12 months (in 2009 inflation-adjusted dollars) --,2,B20017A001
+B20017A,4.5,B20017A004,Female --,2,B20017A001
 B20017A,5.0,B20017A005,Total,2,B20017A001
 B20017A,6.0,B20017A006,"Worked full-time, year-round in the past 12 months",2,B20017A001
 B20017A,7.0,B20017A007,Other,2,B20017A001
-B20017A,15.0,B20017A015,Male --,,
-B20017A,45.0,B20017A045,Female --,,
+B20017B,0.5,B20017B000,Median earnings in the past 12 months (in 2009 inflation-adjusted dollars) --,,
 B20017B,1.0,B20017B001,Total:,1,
+B20017B,1.5,B20017B001,Male --,1,
 B20017B,2.0,B20017B002,Total,2,B20017B001
 B20017B,3.0,B20017B003,"Worked full-time, year-round in the past 12 months",2,B20017B001
 B20017B,4.0,B20017B004,Other,2,B20017B001
-B20017B,5.0,B20017B005,Median earnings in the past 12 months (in 2009 inflation-adjusted dollars) --,2,B20017B001
+B20017B,4.5,B20017B004,Female --,2,B20017B001
 B20017B,5.0,B20017B005,Total,2,B20017B001
 B20017B,6.0,B20017B006,"Worked full-time, year-round in the past 12 months",2,B20017B001
 B20017B,7.0,B20017B007,Other,2,B20017B001
-B20017B,15.0,B20017B015,Male --,,
-B20017B,45.0,B20017B045,Female --,,
+B20017C,0.5,B20017C000,Median earnings in the past 12 months (in 2009 inflation-adjusted dollars) --,,
 B20017C,1.0,B20017C001,Total:,1,
+B20017C,1.5,B20017C001,Male --,1,
 B20017C,2.0,B20017C002,Total,2,B20017C001
 B20017C,3.0,B20017C003,"Worked full-time, year-round in the past 12 months",2,B20017C001
 B20017C,4.0,B20017C004,Other,2,B20017C001
-B20017C,5.0,B20017C005,Median earnings in the past 12 months (in 2009 inflation-adjusted dollars) --,2,B20017C001
+B20017C,4.5,B20017C004,Female --,2,B20017C001
 B20017C,5.0,B20017C005,Total,2,B20017C001
 B20017C,6.0,B20017C006,"Worked full-time, year-round in the past 12 months",2,B20017C001
 B20017C,7.0,B20017C007,Other,2,B20017C001
-B20017C,15.0,B20017C015,Male --,,
-B20017C,45.0,B20017C045,Female --,,
+B20017D,0.5,B20017D000,Median earnings in the past 12 months (in 2009 inflation-adjusted dollars) --,,
 B20017D,1.0,B20017D001,Total:,1,
+B20017D,1.5,B20017D001,Male --,1,
 B20017D,2.0,B20017D002,Total,2,B20017D001
 B20017D,3.0,B20017D003,"Worked full-time, year-round in the past 12 months",2,B20017D001
 B20017D,4.0,B20017D004,Other,2,B20017D001
-B20017D,5.0,B20017D005,Median earnings in the past 12 months (in 2009 inflation-adjusted dollars) --,2,B20017D001
+B20017D,4.5,B20017D004,Female --,2,B20017D001
 B20017D,5.0,B20017D005,Total,2,B20017D001
 B20017D,6.0,B20017D006,"Worked full-time, year-round in the past 12 months",2,B20017D001
 B20017D,7.0,B20017D007,Other,2,B20017D001
-B20017D,15.0,B20017D015,Male --,,
-B20017D,45.0,B20017D045,Female --,,
+B20017E,0.5,B20017E000,Median earnings in the past 12 months (in 2009 inflation-adjusted dollars) --,,
 B20017E,1.0,B20017E001,Total:,1,
+B20017E,1.5,B20017E001,Male --,1,
 B20017E,2.0,B20017E002,Total,2,B20017E001
 B20017E,3.0,B20017E003,"Worked full-time, year-round in the past 12 months",2,B20017E001
 B20017E,4.0,B20017E004,Other,2,B20017E001
-B20017E,5.0,B20017E005,Median earnings in the past 12 months (in 2009 inflation-adjusted dollars) --,2,B20017E001
+B20017E,4.5,B20017E004,Female --,2,B20017E001
 B20017E,5.0,B20017E005,Total,2,B20017E001
 B20017E,6.0,B20017E006,"Worked full-time, year-round in the past 12 months",2,B20017E001
 B20017E,7.0,B20017E007,Other,2,B20017E001
-B20017E,15.0,B20017E015,Male --,,
-B20017E,45.0,B20017E045,Female --,,
+B20017F,0.5,B20017F000,Median earnings in the past 12 months (in 2009 inflation-adjusted dollars) --,,
 B20017F,1.0,B20017F001,Total:,1,
+B20017F,1.5,B20017F001,Male --,1,
 B20017F,2.0,B20017F002,Total,2,B20017F001
 B20017F,3.0,B20017F003,"Worked full-time, year-round in the past 12 months",2,B20017F001
 B20017F,4.0,B20017F004,Other,2,B20017F001
-B20017F,5.0,B20017F005,Median earnings in the past 12 months (in 2009 inflation-adjusted dollars) --,2,B20017F001
+B20017F,4.5,B20017F004,Female --,2,B20017F001
 B20017F,5.0,B20017F005,Total,2,B20017F001
 B20017F,6.0,B20017F006,"Worked full-time, year-round in the past 12 months",2,B20017F001
 B20017F,7.0,B20017F007,Other,2,B20017F001
-B20017F,15.0,B20017F015,Male --,,
-B20017F,45.0,B20017F045,Female --,,
+B20017G,0.5,B20017G000,Median earnings in the past 12 months (in 2009 inflation-adjusted dollars) --,,
 B20017G,1.0,B20017G001,Total:,1,
+B20017G,1.5,B20017G001,Male --,1,
 B20017G,2.0,B20017G002,Total,2,B20017G001
 B20017G,3.0,B20017G003,"Worked full-time, year-round in the past 12 months",2,B20017G001
 B20017G,4.0,B20017G004,Other,2,B20017G001
-B20017G,5.0,B20017G005,Median earnings in the past 12 months (in 2009 inflation-adjusted dollars) --,2,B20017G001
+B20017G,4.5,B20017G004,Female --,2,B20017G001
 B20017G,5.0,B20017G005,Total,2,B20017G001
 B20017G,6.0,B20017G006,"Worked full-time, year-round in the past 12 months",2,B20017G001
 B20017G,7.0,B20017G007,Other,2,B20017G001
-B20017G,15.0,B20017G015,Male --,,
-B20017G,45.0,B20017G045,Female --,,
+B20017H,0.5,B20017H000,Median earnings in the past 12 months (in 2009 inflation-adjusted dollars) --,,
 B20017H,1.0,B20017H001,Total:,1,
+B20017H,1.5,B20017H001,Male --,1,
 B20017H,2.0,B20017H002,Total,2,B20017H001
 B20017H,3.0,B20017H003,"Worked full-time, year-round in the past 12 months",2,B20017H001
 B20017H,4.0,B20017H004,Other,2,B20017H001
-B20017H,5.0,B20017H005,Median earnings in the past 12 months (in 2009 inflation-adjusted dollars) --,2,B20017H001
+B20017H,4.5,B20017H004,Female --,2,B20017H001
 B20017H,5.0,B20017H005,Total,2,B20017H001
 B20017H,6.0,B20017H006,"Worked full-time, year-round in the past 12 months",2,B20017H001
 B20017H,7.0,B20017H007,Other,2,B20017H001
-B20017H,15.0,B20017H015,Male --,,
-B20017H,45.0,B20017H045,Female --,,
+B20017I,0.5,B20017I000,Median earnings in the past 12 months (in 2009 inflation-adjusted dollars) --,,
 B20017I,1.0,B20017I001,Total:,1,
+B20017I,1.5,B20017I001,Male --,1,
 B20017I,2.0,B20017I002,Total,2,B20017I001
 B20017I,3.0,B20017I003,"Worked full-time, year-round in the past 12 months",2,B20017I001
 B20017I,4.0,B20017I004,Other,2,B20017I001
-B20017I,5.0,B20017I005,Median earnings in the past 12 months (in 2009 inflation-adjusted dollars) --,2,B20017I001
+B20017I,4.5,B20017I004,Female --,2,B20017I001
 B20017I,5.0,B20017I005,Total,2,B20017I001
 B20017I,6.0,B20017I006,"Worked full-time, year-round in the past 12 months",2,B20017I001
 B20017I,7.0,B20017I007,Other,2,B20017I001
-B20017I,15.0,B20017I015,Male --,,
-B20017I,45.0,B20017I045,Female --,,
 B21001,1.0,B21001001,Total:,0,
 B21001,2.0,B21001002,Male:,1,B21001001
 B21001,3.0,B21001003,18 to 34 years:,2,B21001002
@@ -13516,11 +13516,11 @@ B21003,8.0,B21003008,Less than high school graduate,2,B21003007
 B21003,9.0,B21003009,High school graduate (includes equivalency),2,B21003007
 B21003,10.0,B21003010,Some college or associate's degree,2,B21003007
 B21003,11.0,B21003011,Bachelor's degree or higher,2,B21003007
+B21004,0.5,B21004000,Median income in the past 12 months (in 2009 inflation-adjusted dollars)--,,
 B21004,1.0,B21004001,Total:,0,
 B21004,2.0,B21004002,Veteran:,1,B21004001
 B21004,3.0,B21004003,Male,2,B21004002
 B21004,4.0,B21004004,Female,2,B21004002
-B21004,5.0,B21004005,Median income in the past 12 months (in 2009 inflation-adjusted dollars)--,1,B21004001
 B21004,5.0,B21004005,Nonveteran:,1,B21004001
 B21004,6.0,B21004006,Male,2,B21004005
 B21004,7.0,B21004007,Female,2,B21004005
@@ -13669,10 +13669,10 @@ B22007,40.0,B22007040,No workers,4,B22007039
 B22007,41.0,B22007041,1 worker,4,B22007039
 B22007,42.0,B22007042,2 workers,4,B22007039
 B22007,43.0,B22007043,3 or more workers,4,B22007039
+B22008,0.5,B22008000,Median household income in the past 12 months (in 2009 inflation-adjusted dollars)--,,
 B22008,1.0,B22008001,Total:,0,
 B22008,2.0,B22008002,Household received Food Stamps/SNAP in the past 12 months,1,B22008001
 B22008,3.0,B22008003,Household did not receive Food Stamps/SNAP in the past 12 months,1,B22008001
-B22008,5.0,B22008005,Median household income in the past 12 months (in 2009 inflation-adjusted dollars)--,,
 B23001,1.0,B23001001,Total:,0,
 B23001,2.0,B23001002,Male:,1,B23001001
 B23001,3.0,B23001003,16 to 19 years:,2,B23001002
@@ -14791,17 +14791,17 @@ B23010,24.0,B23010024,Householder did not work in the past 12 months:,2,B2301001
 B23010,25.0,B23010025,"Spouse worked full-time, year-round in the past 12 months",3,B23010024
 B23010,26.0,B23010026,"Spouse worked less than full-time, year-round in the past 12 months",3,B23010024
 B23010,27.0,B23010027,Spouse did not work in the past 12 months,3,B23010024
+B23013,0.5,B23013000,Median age--,,
 B23013,1.0,B23013001,Total:,0,
 B23013,2.0,B23013002,Male,1,B23013001
 B23013,3.0,B23013003,Female,1,B23013001
-B23013,5.0,B23013005,Median age--,,
 B23018,1.0,B23018001,Aggregate usual hours:,0,
 B23018,2.0,B23018002,Male,1,B23018001
 B23018,3.0,B23018003,Female,1,B23018001
+B23020,0.5,B23020000,Mean usual hours--,,
 B23020,1.0,B23020001,Total:,0,
 B23020,2.0,B23020002,Male,1,B23020001
 B23020,3.0,B23020003,Female,1,B23020001
-B23020,5.0,B23020005,Mean usual hours--,,
 B23022,1.0,B23022001,Total:,0,
 B23022,2.0,B23022002,Male:,1,B23022001
 B23022,3.0,B23022003,Worked in the past 12 months:,3,B23022002
@@ -20497,10 +20497,10 @@ B25009,14.0,B25009014,4-person household,2,B25009010
 B25009,15.0,B25009015,5-person household,2,B25009010
 B25009,16.0,B25009016,6-person household,2,B25009010
 B25009,17.0,B25009017,7-or-more person household,2,B25009010
+B25010,0.5,B25010000,Average household size --,,
 B25010,1.0,B25010001,Total:,0,
 B25010,2.0,B25010002,Owner occupied,1,B25010001
 B25010,3.0,B25010003,Renter occupied,1,B25010001
-B25010,5.0,B25010005,Average household size --,,
 B25011,1.0,B25011001,Total:,0,
 B25011,2.0,B25011002,Owner occupied:,1,B25011001
 B25011,3.0,B25011003,Family households:,2,B25011002
@@ -20697,10 +20697,10 @@ B25020,18.0,B25020018,6 rooms,2,B25020012
 B25020,19.0,B25020019,7 rooms,2,B25020012
 B25020,20.0,B25020020,8 rooms,2,B25020012
 B25020,21.0,B25020021,9 or more rooms,2,B25020012
+B25021,0.5,B25021000,Median number of rooms --,,
 B25021,1.0,B25021001,Total:,1,
 B25021,2.0,B25021002,Owner occupied,1,
 B25021,3.0,B25021003,Renter occupied,1,
-B25021,5.0,B25021005,Median number of rooms --,,
 B25022,1.0,B25022001,Aggregate number of rooms:,0,
 B25022,2.0,B25022002,Owner occupied,1,B25022001
 B25022,3.0,B25022003,Renter occupied,1,B25022001
@@ -20922,10 +20922,10 @@ B25036,18.0,B25036018,Built 1960 to 1969,2,B25036012
 B25036,19.0,B25036019,Built 1950 to 1959,2,B25036012
 B25036,20.0,B25036020,Built 1940 to 1949,2,B25036012
 B25036,21.0,B25036021,Built 1939 or earlier,2,B25036012
+B25037,0.5,B25037000,Median year structure built --,,
 B25037,1.0,B25037001,Total:,1,
 B25037,2.0,B25037002,Owner occupied,1,
 B25037,3.0,B25037003,Renter occupied,1,
-B25037,5.0,B25037005,Median year structure built --,,
 B25038,1.0,B25038001,Total:,0,
 B25038,2.0,B25038002,Owner occupied:,1,B25038001
 B25038,3.0,B25038003,Moved in 2005 or later,2,B25038002
@@ -20941,10 +20941,10 @@ B25038,12.0,B25038012,Moved in 1990 to 1999,2,B25038009
 B25038,13.0,B25038013,Moved in 1980 to 1989,2,B25038009
 B25038,14.0,B25038014,Moved in 1970 to 1979,2,B25038009
 B25038,15.0,B25038015,Moved in 1969 or earlier,2,B25038009
+B25039,0.5,B25039000,Median year householder moved into unit --,,
 B25039,1.0,B25039001,Total:,1,
 B25039,2.0,B25039002,Owner occupied,1,
 B25039,3.0,B25039003,Renter occupied,1,
-B25039,5.0,B25039005,Median year householder moved into unit --,,
 B25040,1.0,B25040001,Total:,0,
 B25040,2.0,B25040002,Utility gas,1,B25040001
 B25040,3.0,B25040003,"Bottled, tank, or LP gas",1,B25040001
@@ -21475,10 +21475,10 @@ B25087,26.0,B25087026,$400 to $499,2,B25087018
 B25087,27.0,B25087027,$500 to $599,2,B25087018
 B25087,28.0,B25087028,$600 to $699,2,B25087018
 B25087,29.0,B25087029,$700 or more,2,B25087018
+B25088,0.5,B25088000,Median selected monthly owner costs (dollars) --,,
 B25088,1.0,B25088001,Total:,1,
 B25088,2.0,B25088002,Housing units with a mortgage (dollars),1,
 B25088,3.0,B25088003,Housing units without a mortgage (dollars),1,
-B25088,5.0,B25088005,Median selected monthly owner costs (dollars) --,,
 B25089,1.0,B25089001,Aggregate selected monthly owner costs (dollars):,0,
 B25089,2.0,B25089002,Housing units with a mortgage (dollars),1,B25089001
 B25089,3.0,B25089003,Housing units without a mortgage (dollars),1,B25089001
@@ -21505,10 +21505,10 @@ B25091,20.0,B25091020,35.0 to 39.9 percent,2,B25091013
 B25091,21.0,B25091021,40.0 to 49.9 percent,2,B25091013
 B25091,22.0,B25091022,50.0 percent or more,2,B25091013
 B25091,23.0,B25091023,Not computed,2,B25091013
+B25092,0.5,B25092000,Median selected monthly owner costs as a percentage of household income in the past 12 months --,,
 B25092,1.0,B25092001,Total:,1,
 B25092,2.0,B25092002,Housing units with a mortgage,1,
 B25092,3.0,B25092003,Housing units without a mortgage,1,
-B25092,5.0,B25092005,Median selected monthly owner costs as a percentage of household income in the past 12 months --,,
 B25093,1.0,B25093001,Total:,0,
 B25093,2.0,B25093002,Householder 15 to 24 years:,1,B25093001
 B25093,3.0,B25093003,Less than 20.0 percent,2,B25093002
@@ -21626,10 +21626,10 @@ B25096,14.0,B25096014,"$150,000 to $199,999",2,B25096010
 B25096,15.0,B25096015,"$200,000 to $299,999",2,B25096010
 B25096,16.0,B25096016,"$300,000 to $499,999",2,B25096010
 B25096,17.0,B25096017,"$500,000 or more",2,B25096010
+B25097,0.5,B25097000,Median value --,,
 B25097,1.0,B25097001,Total:,1,
 B25097,2.0,B25097002,Median value for units with a mortgage,2,B25097001
 B25097,3.0,B25097003,Median value for units without a mortgage,2,B25097001
-B25097,5.0,B25097005,Median value --,,
 B25098,1.0,B25098001,Total:,0,
 B25098,2.0,B25098002,With a mortgage:,1,B25098001
 B25098,3.0,B25098003,"Less than $10,000",2,B25098002
@@ -21649,10 +21649,10 @@ B25098,16.0,B25098016,"$50,000 to $74,999",2,B25098011
 B25098,17.0,B25098017,"$75,000 to $99,999",2,B25098011
 B25098,18.0,B25098018,"$100,000 to $149,999",2,B25098011
 B25098,19.0,B25098019,"$150,000 or more",2,B25098011
+B25099,0.5,B25099000,Median household income --,,
 B25099,1.0,B25099001,Total:,1,
 B25099,2.0,B25099002,Median household income for units with a mortgage,2,B25099001
 B25099,3.0,B25099003,Median household income for units without a mortgage,2,B25099001
-B25099,5.0,B25099005,Median household income --,,
 B25100,1.0,B25100001,Total:,0,
 B25100,2.0,B25100002,With a mortgage:,1,B25100001
 B25100,3.0,B25100003,Less than 2.0,2,B25100002
@@ -21722,10 +21722,10 @@ B25102,8.0,B25102008,Less than $800,2,B25102007
 B25102,9.0,B25102009,"$800 to $1,499",2,B25102007
 B25102,10.0,B25102010,"$1,500 or more",2,B25102007
 B25102,11.0,B25102011,No real estate taxes paid,2,B25102007
+B25103,0.5,B25103000,Median real estate taxes paid --,,
 B25103,1.0,B25103001,Total:,1,
 B25103,2.0,B25103002,Median real estate taxes paid for units with a mortgage,2,B25103001
 B25103,3.0,B25103003,Median real estate taxes paid for units without a mortgage,2,B25103001
-B25103,5.0,B25103005,Median real estate taxes paid --,,
 B25104,1.0,B25104001,Total:,0,
 B25104,2.0,B25104002,Less than $100,1,B25104001
 B25104,3.0,B25104003,$100 to $199,1,B25104001
@@ -21788,11 +21788,11 @@ B25106,43.0,B25106043,20 to 29 percent,3,B25106041
 B25106,44.0,B25106044,30 percent or more,3,B25106041
 B25106,45.0,B25106045,Zero or negative income,2,B25106024
 B25106,46.0,B25106046,No cash rent,2,B25106024
+B25107,0.5,B25107000,Median value --,,
 B25107,1.0,B25107001,Total:,1,
 B25107,2.0,B25107002,Built 2005 or later,2,B25107001
 B25107,3.0,B25107003,Built 2000 to 2004,2,B25107001
 B25107,4.0,B25107004,Built 1990 to 1999,2,B25107001
-B25107,5.0,B25107005,Median value --,2,B25107001
 B25107,5.0,B25107005,Built 1980 to 1989,2,B25107001
 B25107,6.0,B25107006,Built 1970 to 1979,2,B25107001
 B25107,7.0,B25107007,Built 1960 to 1969,2,B25107001
@@ -21809,11 +21809,11 @@ B25108,7.0,B25108007,Built 1960 to 1969,1,B25108001
 B25108,8.0,B25108008,Built 1950 to 1959,1,B25108001
 B25108,9.0,B25108009,Built 1940 to 1949,1,B25108001
 B25108,10.0,B25108010,Built 1939 or earlier,1,B25108001
+B25109,0.5,B25109000,Median value --,,
 B25109,1.0,B25109001,Total:,1,
 B25109,2.0,B25109002,Moved in 2005 or later,2,B25109001
 B25109,3.0,B25109003,Moved in 2000 to 2004,2,B25109001
 B25109,4.0,B25109004,Moved in 1990 to 1999,2,B25109001
-B25109,5.0,B25109005,Median value --,2,B25109001
 B25109,5.0,B25109005,Moved in 1980 to 1989,2,B25109001
 B25109,6.0,B25109006,Moved in 1970 to 1979,2,B25109001
 B25109,7.0,B25109007,Moved in 1969 or earlier,2,B25109001
@@ -21824,11 +21824,11 @@ B25110,4.0,B25110004,Moved in 1990 to 1999,1,B25110001
 B25110,5.0,B25110005,Moved in 1980 to 1989,1,B25110001
 B25110,6.0,B25110006,Moved in 1970 to 1979,1,B25110001
 B25110,7.0,B25110007,Moved in 1969 or earlier,1,B25110001
+B25111,0.5,B25111000,Median gross rent --,,
 B25111,1.0,B25111001,Total:,1,
 B25111,2.0,B25111002,Built 2005 or later,2,B25111001
 B25111,3.0,B25111003,Built 2000 to 2004,2,B25111001
 B25111,4.0,B25111004,Built 1990 to 1999,2,B25111001
-B25111,5.0,B25111005,Median gross rent --,2,B25111001
 B25111,5.0,B25111005,Built 1980 to 1989,2,B25111001
 B25111,6.0,B25111006,Built 1970 to 1979,2,B25111001
 B25111,7.0,B25111007,Built 1960 to 1969,2,B25111001
@@ -21845,11 +21845,11 @@ B25112,7.0,B25112007,Built 1960 to 1969,1,B25112001
 B25112,8.0,B25112008,Built 1950 to 1959,1,B25112001
 B25112,9.0,B25112009,Built 1940 to 1949,1,B25112001
 B25112,10.0,B25112010,Built 1939 or earlier,1,B25112001
+B25113,0.5,B25113000,Median gross rent --,,
 B25113,1.0,B25113001,Total:,1,
 B25113,2.0,B25113002,Moved in 2005 or later,2,B25113001
 B25113,3.0,B25113003,Moved in 2000 to 2004,2,B25113001
 B25113,4.0,B25113004,Moved in 1990 to 1999,2,B25113001
-B25113,5.0,B25113005,Median gross rent --,2,B25113001
 B25113,5.0,B25113005,Moved in 1980 to 1989,2,B25113001
 B25113,6.0,B25113006,Moved in 1970 to 1979,2,B25113001
 B25113,7.0,B25113007,Moved in 1969 or earlier,2,B25113001
@@ -21956,16 +21956,17 @@ B25118,22.0,B25118022,"$50,000 to $74,999",2,B25118014
 B25118,23.0,B25118023,"$75,000 to $99,999",2,B25118014
 B25118,24.0,B25118024,"$100,000 to $149,999",2,B25118014
 B25118,25.0,B25118025,"$150,000 or more",2,B25118014
+B25119,0.5,B25119000,Median household income in the past 12 months (in 2009 inflation-adjusted dollars) --,,
 B25119,1.0,B25119001,Total:,1,
 B25119,2.0,B25119002,Owner occupied (dollars),1,
 B25119,3.0,B25119003,Renter occupied (dollars),1,
-B25119,5.0,B25119005,Median household income in the past 12 months (in 2009 inflation-adjusted dollars) --,,
 B25120,1.0,B25120001,Aggregate household income in the past 12 months (in 2009 inflation-adjusted dollars):,0,
 B25120,2.0,B25120002,Owner occupied :,1,B25120001
 B25120,3.0,B25120003,Housing units with a mortgage,2,B25120002
 B25120,4.0,B25120004,Housing units without a mortgage,2,B25120002
 B25120,5.0,B25120005,Renter occupied,1,B25120001
 B25121,1.0,B25121001,Total:,0,
+B25121,1.5,B25121001,Household income the past 12 months (in 2009 inflation-adjusted dollars) --,0,
 B25121,2.0,B25121002,"Less than $10,000:",2,B25121001
 B25121,3.0,B25121003,"Value less than $10,000",3,B25121002
 B25121,4.0,B25121004,"Value $10,000 to $19,999",3,B25121002
@@ -21979,7 +21980,6 @@ B25121,11.0,B25121011,"Value $80,000 to $89,999",3,B25121002
 B25121,12.0,B25121012,"Value $90,000 to $99,999",3,B25121002
 B25121,13.0,B25121013,"Value $100,000 to $199,999",3,B25121002
 B25121,14.0,B25121014,"Value $200,000 to $249,999",3,B25121002
-B25121,15.0,B25121015,Household income the past 12 months (in 2009 inflation-adjusted dollars) --,3,B25121002
 B25121,15.0,B25121015,"Value $250,000 to $499,999",3,B25121002
 B25121,16.0,B25121016,"Value $500,000 or more",3,B25121002
 B25121,17.0,B25121017,"$10,000 to $19,999:",2,B25121001
@@ -22073,6 +22073,7 @@ B25121,104.0,B25121104,"Value $200,000 to $249,999",3,B25121092
 B25121,105.0,B25121105,"Value $250,000 to $499,999",3,B25121092
 B25121,106.0,B25121106,"Value $500,000 or more",3,B25121092
 B25122,1.0,B25122001,Total:,0,
+B25122,1.5,B25122001,Household income in the past 12 months (in 2009 inflation-adjusted dollars) --,0,
 B25122,2.0,B25122002,"Less than $10,000:",2,B25122001
 B25122,3.0,B25122003,With cash rent:,3,B25122002
 B25122,4.0,B25122004,Less than $100,4,B25122003
@@ -22086,7 +22087,6 @@ B25122,11.0,B25122011,$700 to $799,4,B25122003
 B25122,12.0,B25122012,$800 to $899,4,B25122003
 B25122,13.0,B25122013,$900 to $999,4,B25122003
 B25122,14.0,B25122014,"$1,000 to $1,249",4,B25122003
-B25122,15.0,B25122015,Household income in the past 12 months (in 2009 inflation-adjusted dollars) --,4,B25122003
 B25122,15.0,B25122015,"$1,250 to $1,499",4,B25122003
 B25122,16.0,B25122016,"$1,500 to $1,999",4,B25122003
 B25122,17.0,B25122017,"$2,000 or more",4,B25122003
@@ -22306,16 +22306,16 @@ B99082,4.0,B99082004,Not imputed,2,B99082002
 B99082,5.0,B99082005,Other means (including those who worked at home),1,B99082001
 B99083,1.0,B99083001,Total:,0,
 B99083,2.0,B99083002,Did not work at home:,1,B99083001
+B99083,2.5,B99083002,Time leaving home to go to work --,1,B99083001
 B99083,3.0,B99083003,Imputed,3,B99083002
 B99083,4.0,B99083004,Not imputed,3,B99083002
 B99083,5.0,B99083005,Worked at home,1,B99083001
-B99083,25.0,B99083025,Time leaving home to go to work --,,
 B99084,1.0,B99084001,Total:,0,
 B99084,2.0,B99084002,Did not work at home:,1,B99084001
+B99084,2.5,B99084002,Travel time to work --,1,B99084001
 B99084,3.0,B99084003,Imputed,3,B99084002
 B99084,4.0,B99084004,Not imputed,3,B99084002
 B99084,5.0,B99084005,Worked at home,1,B99084001
-B99084,25.0,B99084025,Travel time to work --,,
 B99085,1.0,B99085001,Total:,0,
 B99085,2.0,B99085002,Imputed,1,B99085001
 B99085,3.0,B99085003,Not imputed,1,B99085001
@@ -22324,16 +22324,16 @@ B99086,2.0,B99086002,Imputed,1,B99086001
 B99086,3.0,B99086003,Not imputed,1,B99086001
 B99087,1.0,B99087001,Total:,0,
 B99087,2.0,B99087002,Did not work at home:,1,B99087001
+B99087,2.5,B99087002,Time arriving at work from home --,1,B99087001
 B99087,3.0,B99087003,Imputed for either departure time or minutes to work,3,B99087002
 B99087,4.0,B99087004,Not imputed for either departure time or minutes to work,3,B99087002
 B99087,5.0,B99087005,Worked at home,1,B99087001
-B99087,25.0,B99087025,Time arriving at work from home --,,
 B99088,1.0,B99088001,Total:,0,
 B99088,2.0,B99088002,Did not work at home:,1,B99088001
+B99088,2.5,B99088002,Travel time to work --,1,B99088001
 B99088,3.0,B99088003,Imputed,3,B99088002
 B99088,4.0,B99088004,Not imputed,3,B99088002
 B99088,5.0,B99088005,Worked at home,1,B99088001
-B99088,25.0,B99088025,Travel time to work --,,
 B99089,1.0,B99089001,Total:,0,
 B99089,2.0,B99089002,Imputed,1,B99089001
 B99089,3.0,B99089003,Not imputed,1,B99089001
@@ -22349,11 +22349,11 @@ B99103,3.0,B99103003,Not imputed,1,B99103001
 B99104,1.0,B99104001,Total:,0,
 B99104,2.0,B99104002,Living with own grandchildren under 18 years:,1,B99104001
 B99104,3.0,B99104003,Grandparent responsible for own grandchildren under 18 years:,2,B99104002
+B99104,3.5,B99104003,Length of time --,2,B99104002
 B99104,4.0,B99104004,Imputed,4,B99104003
 B99104,5.0,B99104005,Not imputed,4,B99104003
 B99104,6.0,B99104006,Grandparent not responsible for own grandchildren under 18 years,2,B99104002
 B99104,7.0,B99104007,Not living with own grandchildren under 18 years,1,B99104001
-B99104,35.0,B99104035,Length of time --,,
 B99121,1.0,B99121001,Total:,0,
 B99121,2.0,B99121002,Imputed,1,B99121001
 B99121,3.0,B99121003,Not imputed,1,B99121001
@@ -22378,18 +22378,19 @@ B99161,3.0,B99161003,Not imputed,1,B99161001
 B99162,1.0,B99162001,Total:,0,
 B99162,2.0,B99162002,Speak only English,1,B99162001
 B99162,3.0,B99162003,Speak other languages:,1,B99162001
+B99162,3.5,B99162003,Specific languages spoken --,1,B99162001
 B99162,4.0,B99162004,Imputed:,3,B99162003
 B99162,5.0,B99162005,Language status imputed,4,B99162004
 B99162,6.0,B99162006,Language status not imputed,4,B99162004
 B99162,7.0,B99162007,Not imputed,3,B99162003
-B99162,35.0,B99162035,Specific languages spoken --,,
 B99163,1.0,B99163001,Total:,0,
 B99163,2.0,B99163002,Speak only English,1,B99163001
 B99163,3.0,B99163003,Speak other languages:,1,B99163001
+B99163,3.5,B99163003,Ability to speak English --,1,B99163001
 B99163,4.0,B99163004,Imputed,3,B99163003
 B99163,5.0,B99163005,Not imputed,3,B99163003
-B99163,35.0,B99163035,Ability to speak English --,,
 B99171,1.0,B99171001,Total:,0,
+B99171,1.5,B99171001,Percent of income imputed for individuals with income in the past 12 months below poverty level --,0,
 B99171,2.0,B99171002,No income imputed,1,B99171001
 B99171,3.0,B99171003,Dollar value of zero imputed,1,B99171001
 B99171,4.0,B99171004,More than 0 to less than 10 percent of total income for individual imputed,1,B99171001
@@ -22397,16 +22398,16 @@ B99171,5.0,B99171005,10 to less than 25 percent of total income for individual i
 B99171,6.0,B99171006,25 to less than 50 percent of total income for individual imputed,1,B99171001
 B99171,7.0,B99171007,50 to less than 100 percent of total income for individual imputed,1,B99171001
 B99171,8.0,B99171008,100 percent of total income for individual imputed,1,B99171001
+B99171,8.5,B99171008,Percent of income imputed for individuals with income in the past 12 months at or above poverty level --,1,B99171001
 B99171,9.0,B99171009,No income imputed,1,B99171001
 B99171,10.0,B99171010,Dollar value of zero imputed,1,B99171001
 B99171,11.0,B99171011,More than 0 to less than 10 percent of total income for individual imputed,1,B99171001
 B99171,12.0,B99171012,10 to less than 25 percent of total income for individual imputed,1,B99171001
 B99171,13.0,B99171013,25 to less than 50 percent of total income for individual imputed,1,B99171001
 B99171,14.0,B99171014,50 to less than 100 percent of total income for individual imputed,1,B99171001
-B99171,15.0,B99171015,Percent of income imputed for individuals with income in the past 12 months below poverty level --,1,B99171001
 B99171,15.0,B99171015,100 percent of total income for individual imputed,1,B99171001
-B99171,85.0,B99171085,Percent of income imputed for individuals with income in the past 12 months at or above poverty level --,,
 B99172,1.0,B99172001,Total:,0,
+B99172,1.5,B99172001,Percent of family income imputed for families with income in the past 12 months below poverty level --,0,
 B99172,2.0,B99172002,No income imputed,1,B99172001
 B99172,3.0,B99172003,Dollar value of zero imputed,1,B99172001
 B99172,4.0,B99172004,More than 0 to less than 10 percent of total income for family imputed,1,B99172001
@@ -22414,16 +22415,16 @@ B99172,5.0,B99172005,10 to less than 25 percent of total income for family imput
 B99172,6.0,B99172006,25 to less than 50 percent of total income for family imputed,1,B99172001
 B99172,7.0,B99172007,50 to less than 100 percent of total income for family imputed,1,B99172001
 B99172,8.0,B99172008,100 percent of total income for family imputed,1,B99172001
+B99172,8.5,B99172008,Percent of family income imputed for families with income in the past 12 months at or above poverty level --,1,B99172001
 B99172,9.0,B99172009,No income imputed,1,B99172001
 B99172,10.0,B99172010,Dollar value of zero imputed,1,B99172001
 B99172,11.0,B99172011,More than 0 to less than 10 percent of total income for family imputed,1,B99172001
 B99172,12.0,B99172012,10 to less than 25 percent of total income for family imputed,1,B99172001
 B99172,13.0,B99172013,25 to less than 50 percent of total income for family imputed,1,B99172001
 B99172,14.0,B99172014,50 to less than 100 percent of total income for family imputed,1,B99172001
-B99172,15.0,B99172015,Percent of family income imputed for families with income in the past 12 months below poverty level --,1,B99172001
 B99172,15.0,B99172015,100 percent of total income for family imputed,1,B99172001
-B99172,85.0,B99172085,Percent of family income imputed for families with income in the past 12 months at or above poverty level --,,
 B99191,1.0,B99191001,Total:,0,
+B99191,1.5,B99191001,Percent of income imputed --,0,
 B99191,2.0,B99191002,No income imputed,1,B99191001
 B99191,3.0,B99191003,Dollar value of zero imputed,1,B99191001
 B99191,4.0,B99191004,More than 0 to less than 10 percent of total income for individual imputed,1,B99191001
@@ -22431,8 +22432,8 @@ B99191,5.0,B99191005,10 to less than 25 percent of total income for individual i
 B99191,6.0,B99191006,25 to less than 50 percent of total income for individual imputed,1,B99191001
 B99191,7.0,B99191007,50 to less than 100 percent of total income for individual imputed,1,B99191001
 B99191,8.0,B99191008,100 percent of total income for individual imputed,1,B99191001
-B99191,15.0,B99191015,Percent of income imputed --,,
 B99192,1.0,B99192001,Total:,0,
+B99192,1.5,B99192001,Percent of income imputed --,0,
 B99192,2.0,B99192002,No income imputed,1,B99192001
 B99192,3.0,B99192003,Dollar value of zero imputed,1,B99192001
 B99192,4.0,B99192004,More than 0 to less than 10 percent of total income for household imputed,1,B99192001
@@ -22440,8 +22441,8 @@ B99192,5.0,B99192005,10 to less than 25 percent of total income for household im
 B99192,6.0,B99192006,25 to less than 50 percent of total income for household imputed,1,B99192001
 B99192,7.0,B99192007,50 to less than 100 percent of total income for household imputed,1,B99192001
 B99192,8.0,B99192008,100 percent of total income for household imputed,1,B99192001
-B99192,15.0,B99192015,Percent of income imputed --,,
 B99193,1.0,B99193001,Total:,0,
+B99193,1.5,B99193001,Percent of income imputed --,0,
 B99193,2.0,B99193002,No income imputed,1,B99193001
 B99193,3.0,B99193003,Dollar value of zero imputed,1,B99193001
 B99193,4.0,B99193004,More than 0 to less than 10 percent of total income for family imputed,1,B99193001
@@ -22449,8 +22450,8 @@ B99193,5.0,B99193005,10 to less than 25 percent of total income for family imput
 B99193,6.0,B99193006,25 to less than 50 percent of total income for family imputed,1,B99193001
 B99193,7.0,B99193007,50 to less than 100 percent of total income for family imputed,1,B99193001
 B99193,8.0,B99193008,100 percent of total income for family imputed,1,B99193001
-B99193,15.0,B99193015,Percent of income imputed --,,
 B99194,1.0,B99194001,Total:,0,
+B99194,1.5,B99194001,Percent of income imputed --,0,
 B99194,2.0,B99194002,No income imputed,1,B99194001
 B99194,3.0,B99194003,Dollar value of zero imputed,1,B99194001
 B99194,4.0,B99194004,More than 0 to less than 10 percent of total income for household imputed,1,B99194001
@@ -22458,8 +22459,8 @@ B99194,5.0,B99194005,10 to less than 25 percent of total income for household im
 B99194,6.0,B99194006,25 to less than 50 percent of total income for household imputed,1,B99194001
 B99194,7.0,B99194007,50 to less than 100 percent of total income for household imputed,1,B99194001
 B99194,8.0,B99194008,100 percent of total income for household imputed,1,B99194001
-B99194,15.0,B99194015,Percent of income imputed --,,
 B99201,1.0,B99201001,Total:,0,
+B99201,1.5,B99201001,Percent of earnings imputed --,0,
 B99201,2.0,B99201002,No earnings imputed,1,B99201001
 B99201,3.0,B99201003,Dollar value of zero imputed,1,B99201001
 B99201,4.0,B99201004,More than 0 to less than 10 percent of total earnings for individual imputed,1,B99201001
@@ -22467,7 +22468,6 @@ B99201,5.0,B99201005,10 to less than 25 percent of total earnings for individual
 B99201,6.0,B99201006,25 to less than 50 percent of total earnings for individual imputed,1,B99201001
 B99201,7.0,B99201007,50 to less than 100 percent of total earnings for individual imputed,1,B99201001
 B99201,8.0,B99201008,100 percent of total earnings for individual imputed,1,B99201001
-B99201,15.0,B99201015,Percent of earnings imputed --,,
 B99211,1.0,B99211001,Total:,0,
 B99211,2.0,B99211002,Imputed,1,B99211001
 B99211,3.0,B99211003,Not imputed,1,B99211001
@@ -22485,16 +22485,16 @@ B99232,2.0,B99232002,Imputed,1,B99232001
 B99232,3.0,B99232003,Not imputed,1,B99232001
 B99233,1.0,B99233001,Total:,0,
 B99233,2.0,B99233002,Worked in the past 12 months:,1,B99233001
+B99233,2.5,B99233002,Usual hours worked per week in the past 12 months --,1,B99233001
 B99233,3.0,B99233003,Imputed,3,B99233002
 B99233,4.0,B99233004,Not imputed,3,B99233002
 B99233,5.0,B99233005,Did not work in the past 12 months,1,B99233001
-B99233,25.0,B99233025,Usual hours worked per week in the past 12 months --,,
 B99234,1.0,B99234001,Total:,0,
 B99234,2.0,B99234002,Worked in the past 12 months:,1,B99234001
+B99234,2.5,B99234002,Weeks worked in the past 12 months --,1,B99234001
 B99234,3.0,B99234003,Imputed,3,B99234002
 B99234,4.0,B99234004,Not imputed,3,B99234002
 B99234,5.0,B99234005,Did not work in the past 12 months,1,B99234001
-B99234,25.0,B99234025,Weeks worked in the past 12 months --,,
 B99241,1.0,B99241001,Total:,0,
 B99241,2.0,B99241002,Imputed,1,B99241001
 B99241,3.0,B99241003,Not Imputed,1,B99241001
@@ -22551,13 +22551,13 @@ B992521,2.0,B992521002,Imputed,1,B992521001
 B992521,3.0,B992521003,Not imputed,1,B992521001
 B992522,1.0,B992522001,Total:,0,
 B992522,2.0,B992522002,Housing units with a mortgage:,1,B992522001
+B992522,2.5,B992522002,Selected monthly owner costs --,1,B992522001
 B992522,3.0,B992522003,One or more items imputed,3,B992522002
 B992522,4.0,B992522004,No items imputed,3,B992522002
 B992522,5.0,B992522005,Housing units without a mortgage:,1,B992522001
+B992522,5.5,B992522005,Selected monthly owner costs --,1,B992522001
 B992522,6.0,B992522006,One or more items imputed,3,B992522005
 B992522,7.0,B992522007,No items imputed,3,B992522005
-B992522,25.0,B992522025,Selected monthly owner costs --,,
-B992522,55.0,B992522055,Selected monthly owner costs --,,
 B992523,1.0,B992523001,Total:,0,
 B992523,2.0,B992523002,1 or more items imputed,1,B992523001
 B992523,3.0,B992523003,Not imputed,1,B992523001
@@ -29850,6 +29850,7 @@ C25117,9.0,C25117009,Electricity,2,C25117007
 C25117,10.0,C25117010,"Fuel oil, kerosene, etc.",2,C25117007
 C25117,11.0,C25117011,All other fuels and no fuel used,2,C25117007
 C25121,1.0,C25121001,Total:,0,
+C25121,1.5,C25121001,Household income the past 12 months (in 2009 inflation-adjusted dollars) --,0,
 C25121,2.0,C25121002,"Less than $10,000:",2,C25121001
 C25121,3.0,C25121003,"Value less than $60,000",3,C25121002
 C25121,4.0,C25121004,"Value $60,000 to $99,999",3,C25121002
@@ -29863,7 +29864,6 @@ C25121,11.0,C25121011,"Value $200,000 or more",3,C25121007
 C25121,12.0,C25121012,"$20,000 to $34,999:",2,C25121001
 C25121,13.0,C25121013,"Value less than $60,000",3,C25121012
 C25121,14.0,C25121014,"Value $60,000 to $99,999",3,C25121012
-C25121,15.0,C25121015,Household income the past 12 months (in 2009 inflation-adjusted dollars) --,3,C25121012
 C25121,15.0,C25121015,"Value $100,000 to $199,999",3,C25121012
 C25121,16.0,C25121016,"Value $200,000 or more",3,C25121012
 C25121,17.0,C25121017,"$35,000 to $49,999:",2,C25121001
@@ -29882,6 +29882,7 @@ C25121,29.0,C25121029,"Value $60,000 to $99,999",3,C25121027
 C25121,30.0,C25121030,"Value $100,000 to $199,999",3,C25121027
 C25121,31.0,C25121031,"Value $200,000 or more",3,C25121027
 C25122,1.0,C25122001,Total:,0,
+C25122,1.5,C25122001,Household income in the past 12 months (in 2009 inflation-adjusted dollars) --,0,
 C25122,2.0,C25122002,"Less than $10,000:",2,C25122001
 C25122,3.0,C25122003,Less than $500,3,C25122002
 C25122,4.0,C25122004,$500 to $999,3,C25122002
@@ -29895,7 +29896,6 @@ C25122,11.0,C25122011,No cash rent,3,C25122007
 C25122,12.0,C25122012,"$20,000 to $34,999:",2,C25122001
 C25122,13.0,C25122013,Less than $500,3,C25122012
 C25122,14.0,C25122014,$500 to $999,3,C25122012
-C25122,15.0,C25122015,Household income in the past 12 months (in 2009 inflation-adjusted dollars) --,3,C25122012
 C25122,15.0,C25122015,"$1,000 or more",3,C25122012
 C25122,16.0,C25122016,No cash rent,3,C25122012
 C25122,17.0,C25122017,"$35,000 to $49,999:",2,C25122001
