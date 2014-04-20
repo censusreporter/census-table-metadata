@@ -12,7 +12,7 @@ Run as follows:
 [0] http://www2.census.gov/acs/downloads/shells/2007/Detailed_Tables/
 '''
 
-import csv
+import unicodecsv
 from xlrd import open_workbook
 import sys
 import os
@@ -35,23 +35,41 @@ def read_shells(path):
 
 def read_shell(path):
     lookup = {}
-    hierarchy_stack = [None]*10
     xlsfile = open_workbook(path, formatting_info=True)
     sheet = xlsfile.sheet_by_index(0)
+
+    # Find the columns we're interested in
+    header = sheet.row(0)
+    title_column = None
+    table_id_column = None
+    line_number_column = None
+    col_number = 0
+    for col in header:
+        clean_column_name = re.sub(r'\s+', '', col.value)
+        if clean_column_name == 'Stub':
+            title_column = col_number
+        elif clean_column_name == 'TableID':
+            table_id_column = col_number
+        elif 'Line' in clean_column_name or 'Order' in clean_column_name:
+            # 2010 5yr uses "Order" instead of line number. >:(
+            line_number_column = col_number
+        col_number += 1
+
     for r in range(1, sheet.nrows):
         r_data = sheet.row(r)
 
-        table_id = r_data[0].value.strip()
+        table_id = r_data[table_id_column].value.strip()
 
-        if table_id == "":
+        if not table_id:
             continue
 
         if table_id not in lookup:
             lookup[table_id] = {}
+            hierarchy_stack = [None]*10
 
-        line_number = r_data[1].value
+        line_number = r_data[line_number_column].value
 
-        if table_id and line_number and r_data[1].ctype == 2:
+        if table_id and line_number and r_data[line_number_column].ctype == 2:
             line_number_str = str(line_number)
             if line_number_str.endswith('.7') or line_number_str.endswith('.5'):
                 # This is a subhead (not an actual data column), so we'll have to synthesize a column_id
@@ -59,7 +77,7 @@ def read_shell(path):
             else:
                 column_id = "%s%03d" % (table_id, line_number)
 
-            cell = sheet.cell(r, 2)
+            cell = sheet.cell(r, title_column)
             indent = xlsfile.xf_list[cell.xf_index].alignment.indent_level
             if not indent and cell.value.startswith('  '):
                 # In the 2008 shells they show the indent level with two spaces instead of XLS indents
@@ -88,32 +106,6 @@ shell_lookup = read_shells(sys.argv[2])
 xlsfile = open_workbook(filename)
 sheet = xlsfile.sheet_by_index(0)
 
-root_dir = os.path.dirname(filename)
-if not root_dir:
-    root_dir = "./"
-
-table_metadata_fieldnames = [
-    'table_id',
-    'table_title',
-    'simple_table_title',
-    'subject_area',
-    'universe',
-    'denominator_column_id',
-    'topics'
-]
-table_csv = csv.DictWriter(open("%s/census_table_metadata.csv" % root_dir, 'w'), table_metadata_fieldnames)
-table_csv.writeheader()
-
-column_metadata_fieldnames = [
-    'table_id',
-    'line_number',
-    'column_id',
-    'column_title',
-    'indent',
-    'parent_column_id'
-]
-column_csv = csv.DictWriter(open("%s/census_column_metadata.csv" % root_dir, 'w'), column_metadata_fieldnames)
-column_csv.writeheader()
 
 TABLE_NAME_REPLACEMENTS = [ # mostly problems with slashes and -- characters
     (r'minor Civil Division Level for 12 Selected States \(Ct, Me, Ma, Mi, Mn, Nh, Nj, Ny, Pa, Ri, Vt, Wi\)',
@@ -314,7 +306,7 @@ def find_denominator_column(table, rows):
     else:
         return None
 
-table_ids_already_written = set()
+tables = {}
 table = {}
 rows = []
 for r in range(1, sheet.nrows):
@@ -323,7 +315,6 @@ for r in range(1, sheet.nrows):
     # The column names seem to change between releases but their order doesn't
     table_id = r_data[1].value.strip()
     line_number = r_data[3].value
-    position = r_data[4].value
     cells = r_data[5].value
     if r_data[7].ctype == 2:
         title = str(r_data[7].value)
@@ -332,26 +323,22 @@ for r in range(1, sheet.nrows):
     title = title.strip()
     subject_area = r_data[8].value
 
-    # print "table_id: {}, line_number: {}, position: {}, cells: {}, title: {}, subject_area: {}".format(table_id, line_number, position, cells, title, subject_area)
+    # print "table_id:{}, line_number:{}, cells:{}, title:{}, subject_area:{},".format(table_id, line_number, cells, title, subject_area)
 
     # In 2009 metadata, they seem to have used "." to signify null.
     # In 2012 metadata, they seem to have used " " to signify null.
-    if line_number in ('.', ' '):
+    if type(line_number) is not float:
         line_number = None
-    if position in ('.', ' '):
-        position = None
 
     if not line_number and cells:
-        # Write out the previous table's data
+        # Save the previous table's data
         if table and table_id != table['table_id']:
             table['denominator_column_id'] = find_denominator_column(table, rows)
             table['topics'] = '{%s}' % ','.join(['"%s"' % topic for topic in build_topics(table)])
-            if table['table_id'] in table_ids_already_written:
+            if table['table_id'] in tables:
                 print 'Skipping %s because it was already written.' % table['table_id']
-            else:
-                table_csv.writerow(table)
-                column_csv.writerows(rows)
-            table_ids_already_written.add(table['table_id'])
+            table['columns'] = rows
+            tables[table['table_id']] = table
             table = {}
             rows = []
 
@@ -382,21 +369,56 @@ for r in range(1, sheet.nrows):
         row['column_title'] = title.encode('utf8')
 
         column_info = external_shell_lookup.get(row['column_id'])
+        # print "Row {} has info {}".format(row['column_id'], column_info)
         if column_info:
             row['indent'] = column_info['indent']
             row['parent_column_id'] = column_info['parent_column_id']
 
         rows.append(row)
 
-# Write out the last table's data
+# Save the last table's data
 if table:
     table['denominator_column_id'] = find_denominator_column(table, rows)
     table['topics'] = '{%s}' % ','.join(['"%s"' % topic for topic in build_topics(table)])
-    if table['table_id'] in table_ids_already_written:
+    if table['table_id'] in tables:
         print 'Skipping %s because it was already written.' % table['table_id']
-    else:
-        table_csv.writerow(table)
-        column_csv.writerows(rows)
-    table_ids_already_written.add(table['table_id'])
+    table['columns'] = rows
+    tables[table['table_id']] = table
     table = {}
     rows = []
+
+# Write out the tables and columns to CSV
+root_dir = os.path.dirname(filename)
+if not root_dir:
+    root_dir = "./"
+
+with open("%s/census_table_metadata.csv" % root_dir, 'wb') as table_file:
+    table_metadata_fieldnames = [
+        'table_id',
+        'table_title',
+        'simple_table_title',
+        'subject_area',
+        'universe',
+        'denominator_column_id',
+        'topics'
+    ]
+    table_csv = unicodecsv.DictWriter(table_file, table_metadata_fieldnames)
+    table_csv.writeheader()
+
+    with open("%s/census_column_metadata.csv" % root_dir, 'wb') as column_file:
+        column_metadata_fieldnames = [
+            'table_id',
+            'line_number',
+            'column_id',
+            'column_title',
+            'indent',
+            'parent_column_id'
+        ]
+        column_csv = unicodecsv.DictWriter(column_file, column_metadata_fieldnames)
+        column_csv.writeheader()
+
+        for table_id, table in sorted(tables.iteritems()):
+            columns = table.pop('columns')
+            table_csv.writerow(table)
+            for column in sorted(columns, key=lambda a: a['column_id']):
+                column_csv.writerow(column)
