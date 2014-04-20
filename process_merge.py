@@ -93,6 +93,7 @@ def read_shell(path):
                 if not parent_column_id:
                     parent_column_id = hierarchy_stack[indent - 2]
 
+            # print "{}, {} has indent {} parent column {}".format(table_id, column_id, indent, parent_column_id)
             lookup[table_id][column_id] = {
                 "indent": indent,
                 "parent_column_id": parent_column_id
@@ -309,6 +310,7 @@ def find_denominator_column(table, rows):
 tables = {}
 table = {}
 rows = []
+previous_line_number = 0
 for r in range(1, sheet.nrows):
     r_data = sheet.row(r)
 
@@ -341,6 +343,7 @@ for r in range(1, sheet.nrows):
             tables[table['table_id']] = table
             table = {}
             rows = []
+            previous_line_number = 0
 
         # The all-caps description of the table
         table['table_title'] = clean_table_name(title).encode('utf8')
@@ -357,10 +360,16 @@ for r in range(1, sheet.nrows):
         table['universe'] = titlecase(title.split(':')[-1]).strip()
     elif line_number:
         row = {}
-        row['line_number'] = line_number
         row['table_id'] = table['table_id']
 
         line_number_str = str(line_number)
+        if title.endswith('--') and (line_number - previous_line_number > 1.0):
+            # In the 2009 releases, the line numbers that are headers (x.5 and x.7) don't have decimals
+            # so lets manufacture them here if this line is out of order.
+            line_number = line_number / 10.0
+        row['line_number'] = line_number
+        previous_line_number = line_number
+
         if line_number_str.endswith('.7') or line_number_str.endswith('.5'):
             # This is a subhead (not an actual data column), so we'll have to synthesize a column_id
             row['column_id'] = "%s%05.1f" % (row['table_id'], line_number)
@@ -386,6 +395,7 @@ if table:
     tables[table['table_id']] = table
     table = {}
     rows = []
+    previous_line_number = 0
 
 # Write out the tables and columns to CSV
 root_dir = os.path.dirname(filename)
