@@ -6432,12 +6432,12 @@ B10054,4.0,B10054004,30 to 59 years,3,B10054003
 B10054,5.0,B10054005,60 years and over,3,B10054003
 B10054,6.0,B10054006,Grandparent not responsible for own grandchildren under 18 years,2,B10054002
 B10054,7.0,B10054007,Speak other language:,1,B10054001
-B10054,8.0,B10054008,Speak English  “very well” :,2,B10054007
+B10054,8.0,B10054008,Speak English  very well :,2,B10054007
 B10054,9.0,B10054009,Grandparent responsible for own grandchildren under 18 years:,3,B10054008
 B10054,10.0,B10054010,30 to 59 years,4,B10054009
 B10054,11.0,B10054011,60 years and over,4,B10054009
 B10054,12.0,B10054012,Grandparent not responsible for own grandchildren under 18 years,3,B10054008
-B10054,13.0,B10054013,Speak English less than “very well”:,2,B10054007
+B10054,13.0,B10054013,Speak English less than very well:,2,B10054007
 B10054,14.0,B10054014,Grandparent responsible for own grandchildren under 18 years:,3,B10054013
 B10054,15.0,B10054015,30 to 59 years,4,B10054014
 B10054,16.0,B10054016,60 years and over,4,B10054014
