@@ -18,8 +18,12 @@ def grouper(n, iterable):
 def convert_table_rows(rows):
     for row in rows:
 
+        input_names = []
+        input_names.extend(row.get('names'))
+        input_names.append(row.get('table_id'))
+
         row['name_suggest'] = {
-            'input': row.get('names'),
+            'input': input_names,
             'output': row.get('table_title'),
             'payload': {
                 'table_id': row.get('table_id')
@@ -39,8 +43,12 @@ def process_single_table_query(cur, es, query):
 def convert_column_rows(rows):
     for row in rows:
 
+        input_names = []
+        input_names.extend(row.get('names'))
+        input_names.append(row.get('column_id'))
+
         row['name_suggest'] = {
-            'input': row.get('names'),
+            'input': input_names,
             'output': row.get('column_title'),
             'payload': {
                 'column_id': row.get('column_id'),
@@ -97,7 +105,62 @@ def main():
                     "my_synonyms": {
                         "type": "synonym",
                         "synonyms": [
-                            ""
+                            "speak english, language",
+                            "grandparent, grandparents, 65 years and over, seniors",
+                            "grandchildren, grandkids",
+                            "housing unit, housing units, rent, residence, homes, home, houses, house",
+                            "ambulatory difficulty, living difficulty, disability, handicapped, disabled, disabilities",
+                            "american indian, native, native american",
+                            "ancestry, heritage",
+                            "household, family, families",
+                            "public assistance, welfare, government assistance, medicaid, medicare",
+                            "children, kids",
+                            "citizenship, immigrant, foreign",
+                            "employed, employment, jobs, workers",
+                            "earnings, money, income, salary, salaries",
+                            "18 to 64, 18 years and over, 25 years and over, 65 years and over, adults",
+                            "under 18, kids",
+                            "cognitive difficulty, learning impaired, disabled",
+                            "graduate school, college, higher education, grad school, first major",
+                            "divorced, divorces, marriage, marital status",
+                            "educational attainment, schools, learning",
+                            "employer-based, jobs, workers, benefits",
+                            "females, women",
+                            "fertility, births",
+                            "ancestry, heritage",
+                            "income inequality, poverty, money, class",
+                            "hearing difficulty, deaf, disability, disabilities",
+                            "heating, utility, utilities, homes",
+                            "kitchen, housing, utilities",
+                            "labor force, jobs, workers",
+                            "ability to speak english, language spoken at home, immigrants, esl, immigration",
+                            "school, education",
+                            "living alone, living arrangements, family, families, housing",
+                            "mobility, migration, moving",
+                            "mobile home, housing, houses",
+                            "nativity, place of birth, nationality",
+                            "nonfamily household, nonrelative, roommates, unrelated individuals, cohabitation, unmarried partner",
+                            "vehicles, driving",
+                            "commuting, commute, driving",
+                            "military service, veterans",
+                            "price asked, list price, listing price, listed price, housing, houses, homes",
+                            "poverty level, poor",
+                            "real estate, home",
+                            "retirement, seniors",
+                            "tribal, tribes, native american",
+                            "self-care, disabled",
+                            "shares of household, inequality",
+                            "social security, retirement",
+                            "supplemental security income, welfare, public assistance, poverty, poor, seniors, disabled",
+                            "telephone, utilities, utility",
+                            "arriving at work, to go to work, commute, commuting, jobs, traffic",
+                            "bachelor's degrees, college, education, higher education",
+                            "units in structure, year structure built, construction, housing",
+                            "hours worked, jobs, workers, labor",
+                            "vacancy, vacant, housing",
+                            "vision difficulty, disabled, disabilities, disability, blindness, blind",
+                            "widowed, death, marital status, marriages",
+                            "who had a birth, fertility",
                         ]
                     }
                 }
