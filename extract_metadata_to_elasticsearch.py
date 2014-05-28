@@ -70,30 +70,30 @@ def main():
                 "analyzer": {
                     "synonym_ngram_analyzer": {
                         "type": "custom",
-                        "tokenizer": "standard",
+                        "tokenizer": "whitespace",
                         "filter": [
-                            "lowercase",
                             "synonym_filter",
-                            "stop",
                             "ngram_filter",
+                            "stop",
+                            "lowercase",
                         ],
                     },
                     "synonym_analyzer": {
                         "type": "custom",
-                        "tokenizer": "standard",
+                        "tokenizer": "whitespace",
                         "filter": [
-                            "lowercase",
                             "synonym_filter",
                             "stop",
+                            "lowercase",
                         ],
                     },
                 },
                 "filter": {
                     "ngram_filter": {
                         "type": "nGram",
-                        "min_gram": 4,
+                        "min_gram": 2,
                         "max_gram": 20,
-                        "token_chars": [ "letter" ],
+                        "token_chars": [ "letter", "digit" ],
                     },
                     "synonym_filter": {
                         "type": "synonym",
@@ -187,7 +187,7 @@ def main():
                             "Income Deficit  of Unrelated Individuals, money, earnings, salary, salaries, budget",
                             "Independent Living Difficulty, disability, disabilities",
                             "Individual Income, money, earnings, salary, salaries, budget",
-                            "Individuals' Income, money, earnings, salary, salaries, budget",
+                            "Individuals Income, money, earnings, salary, salaries, budget",
                             "Industry, jobs, occupations, workers, labor, job, occupation, worker",
                             "Industry and Median Earnings, jobs, occupations, workers, labor, job, occupation, worker, income, money, salary, salaries",
                             "Interest, Dividends, or Net Rental Income, investments, housing",
@@ -423,7 +423,7 @@ def main():
     # print "Loading test row"
     # obj = {
     #     'uid': 'foo',
-    #     'column_title': 'Ability to Speak English',
+    #     'column_title': 'Vacant - Current Residence Elsewhere',
     # }
     # es.index(obj, index='census', doc_type='column', id=obj.pop('uid'))
 
@@ -472,65 +472,65 @@ def main():
     FROM acs2012_5yr.census_column_metadata col LEFT JOIN acs2012_5yr.census_table_metadata tab ON (tab.table_id=col.table_id);"""
     process_single_column_query(cur, es, q)
 
-    # print "Loading ACS 2012 3-year tables..."
-    # q = """SELECT
-    #     tab.table_title,
-    #     tab.table_id,
-    #     10 as weight,
-    #     'acs2012_3yr' as release,
-    #     'acs2012_3yr_' || tab.table_id as uid,
-    #     tab.universe,
-    #     tab.denominator_column_id,
-    #     tab.topics
-    # FROM acs2012_3yr.census_table_metadata tab;"""
-    # process_single_table_query(cur, es, q)
+    print "Loading ACS 2012 3-year tables..."
+    q = """SELECT
+        tab.table_title,
+        tab.table_id,
+        10 as weight,
+        'acs2012_3yr' as release,
+        'acs2012_3yr_' || tab.table_id as uid,
+        tab.universe,
+        tab.denominator_column_id,
+        tab.topics
+    FROM acs2012_3yr.census_table_metadata tab;"""
+    process_single_table_query(cur, es, q)
 
-    # print "Loading ACS 2012 3-year columns..."
-    # q = """SELECT
-    #     col.column_title,
-    #     col.column_id,
-    #     tab.table_title,
-    #     tab.table_id,
-    #     5 as weight,
-    #     'acs2012_3yr' as release,
-    #     'acs2012_3yr_' || col.column_id as uid,
-    #     col.parent_column_id,
-    #     col.indent,
-    #     tab.universe,
-    #     tab.denominator_column_id,
-    #     tab.topics
-    # FROM acs2012_3yr.census_column_metadata col LEFT JOIN acs2012_3yr.census_table_metadata tab ON (tab.table_id=col.table_id);"""
-    # process_single_column_query(cur, es, q)
+    print "Loading ACS 2012 3-year columns..."
+    q = """SELECT
+        col.column_title,
+        col.column_id,
+        tab.table_title,
+        tab.table_id,
+        5 as weight,
+        'acs2012_3yr' as release,
+        'acs2012_3yr_' || col.column_id as uid,
+        col.parent_column_id,
+        col.indent,
+        tab.universe,
+        tab.denominator_column_id,
+        tab.topics
+    FROM acs2012_3yr.census_column_metadata col LEFT JOIN acs2012_3yr.census_table_metadata tab ON (tab.table_id=col.table_id);"""
+    process_single_column_query(cur, es, q)
 
-    # print "Loading ACS 2012 1-year tables..."
-    # q = """SELECT
-    #     tab.table_title,
-    #     tab.table_id,
-    #     10 as weight,
-    #     'acs2012_1yr' as release,
-    #     'acs2012_1yr_' || tab.table_id as uid,
-    #     tab.universe,
-    #     tab.denominator_column_id,
-    #     tab.topics
-    # FROM acs2012_1yr.census_table_metadata tab;"""
-    # process_single_table_query(cur, es, q)
+    print "Loading ACS 2012 1-year tables..."
+    q = """SELECT
+        tab.table_title,
+        tab.table_id,
+        10 as weight,
+        'acs2012_1yr' as release,
+        'acs2012_1yr_' || tab.table_id as uid,
+        tab.universe,
+        tab.denominator_column_id,
+        tab.topics
+    FROM acs2012_1yr.census_table_metadata tab;"""
+    process_single_table_query(cur, es, q)
 
-    # print "Loading ACS 2012 1-year columns..."
-    # q = """SELECT
-    #     col.column_title,
-    #     col.column_id,
-    #     tab.table_title,
-    #     tab.table_id,
-    #     5 as weight,
-    #     'acs2012_1yr' as release,
-    #     'acs2012_1yr_' || col.column_id as uid,
-    #     col.parent_column_id,
-    #     col.indent,
-    #     tab.universe,
-    #     tab.denominator_column_id,
-    #     tab.topics
-    # FROM acs2012_1yr.census_column_metadata col LEFT JOIN acs2012_1yr.census_table_metadata tab ON (tab.table_id=col.table_id);"""
-    # process_single_column_query(cur, es, q)
+    print "Loading ACS 2012 1-year columns..."
+    q = """SELECT
+        col.column_title,
+        col.column_id,
+        tab.table_title,
+        tab.table_id,
+        5 as weight,
+        'acs2012_1yr' as release,
+        'acs2012_1yr_' || col.column_id as uid,
+        col.parent_column_id,
+        col.indent,
+        tab.universe,
+        tab.denominator_column_id,
+        tab.topics
+    FROM acs2012_1yr.census_column_metadata col LEFT JOIN acs2012_1yr.census_table_metadata tab ON (tab.table_id=col.table_id);"""
+    process_single_column_query(cur, es, q)
 
     index_manager.refresh()
 
