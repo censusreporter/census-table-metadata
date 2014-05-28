@@ -8,6 +8,10 @@ To use this, open up a tunnel to the API server (assuming you have the SSH key):
 
 (Port 5432 is for Postgres and 9200 is for Elasticsearch)
 
+If you need to, install the dependencies for this repo:
+    mkvirtualenv --no-site-packages census-table-metadata
+    pip install -r requirements.txt
+
 Then run this script to perform the load:
 
     python extract_metadata_to_elasticsearch.py
