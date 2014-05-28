@@ -1,3 +1,28 @@
+"""
+Extracts table information from the Postgres database, translates it
+into something that makes sense for Elasticsearch, and loads it into Elasticsearch.
+
+To use this, open up a tunnel to the API server (assuming you have the SSH key):
+
+    ssh -i ~/.ssh/censusreporter.ec2_key.pem -L 5432:localhost:5432 -L 9200:localhost:9200 ubuntu@censusreporter.org
+
+(Port 5432 is for Postgres and 9200 is for Elasticsearch)
+
+Then run this script to perform the load:
+
+    python extract_metadata_to_elasticsearch.py
+
+You can then test the results by curling directly against the Elasticsearch HTTP search endpoint:
+
+    curl http://localhost:9200/census/tabulation,table,column/_search -d '
+    {
+        "query": {
+            "term": { "column_title": "housing" }
+        }
+    }
+    '
+"""
+
 import logging
 import itertools
 import pyes
