@@ -68,7 +68,7 @@ def main():
         "settings": {
             "analysis": {
                 "analyzer": {
-                    "synonym_analyzer": {
+                    "synonym_ngram_analyzer": {
                         "type": "custom",
                         "tokenizer": "standard",
                         "filter": [
@@ -77,7 +77,16 @@ def main():
                             "stop",
                             "ngram_filter",
                         ],
-                    }
+                    },
+                    "synonym_analyzer": {
+                        "type": "custom",
+                        "tokenizer": "standard",
+                        "filter": [
+                            "lowercase",
+                            "synonym_filter",
+                            "stop",
+                        ],
+                    },
                 },
                 "filter": {
                     "ngram_filter": {
@@ -104,7 +113,12 @@ def main():
                 "properties": {
                     "table_title": {
                         "type": "string",
-                        "analyzer": "synonym_analyzer",
+                        "index_analyzer": "synonym_ngram_analyzer",
+                        "search_analyzer": "synonym_analyzer",
+                    },
+                    "topics": {
+                        "type": "string",
+                        "index": "not_analyzed",
                     },
                 }
             },
@@ -112,7 +126,12 @@ def main():
                 "properties": {
                     "table_title": {
                         "type": "string",
-                        "analyzer": "synonym_analyzer",
+                        "index_analyzer": "synonym_ngram_analyzer",
+                        "search_analyzer": "synonym_analyzer",
+                    },
+                    "topics": {
+                        "type": "string",
+                        "index": "not_analyzed",
                     },
                 }
             },
@@ -120,7 +139,12 @@ def main():
                 "properties": {
                     "column_title": {
                         "type": "string",
-                        "analyzer": "synonym_analyzer",
+                        "index_analyzer": "synonym_ngram_analyzer",
+                        "search_analyzer": "synonym_analyzer",
+                    },
+                    "topics": {
+                        "type": "string",
+                        "index": "not_analyzed",
                     },
                 }
             },
