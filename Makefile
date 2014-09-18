@@ -134,9 +134,9 @@ acs2012_5yr_table_shells.xls:
 	curl -f "http://www2.census.gov/acs2012_5yr/summaryfile/ACS2012_5-Year_TableShells.xls" -o acs2012_5yr_table_shells.xls
 
 acs2013_1yr_merge_5_6.xls:
-	curl -f "https://www.census.gov/embargo/acs/summaryfile/Sequence_Number_and_Table_Number_Lookup.xls" -o acs2013_1yr_merge_5_6.xls
+	curl -f "http://census-backup.s3.amazonaws.com/acs/2013/acs2013_1yr/Sequence_Number_and_Table_Number_Lookup.xls" -o acs2013_1yr_merge_5_6.xls
 acs2013_1yr_table_shells.xls:
-	curl -f "https://www.census.gov/embargo/acs/summaryfile/ACS2012_5-Year_TableShells.xls" -o acs2013_1yr_table_shells.xls
+	curl -f "http://census-backup.s3.amazonaws.com/acs/2013/acs2013_1yr/ACS2013_1-Year_TableShells.xls" -o acs2013_1yr_table_shells.xls
 
 precomputed/acs2007_1yr/census_table_metadata.csv: acs2007_1yr_merge_5_6.xls acs2007_shells/
 	python process_merge.py acs2007_1yr_merge_5_6.xls acs2007_shells
