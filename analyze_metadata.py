@@ -6,6 +6,7 @@ import os
 import re
 from collections import defaultdict
 
+releases_to_analyze = ['acs2013_1yr', 'acs2012_3yr', 'acs2012_5yr']
 tables_by_code = defaultdict(list)
 
 tables_by_release = defaultdict(dict)
@@ -19,7 +20,7 @@ centopics = defaultdict(set)
 
 for dirpath, dirnames, filenames in os.walk('precomputed'):
     release = dirpath.split('/')[-1]
-    if release.startswith('acs2012'):
+    if release in releases_to_analyze:
         if 'census_table_metadata.csv' in filenames:
             r = csv.reader(open("%s/census_table_metadata.csv" % dirpath))
             header = r.next()
@@ -226,7 +227,7 @@ custom_tabulation_weight = {
 }
 
 def generate_unified_table_csv(outputfile="precomputed/unified_metadata.csv"):
-    a1 = table_breakdown(tables_by_release['acs2012_1yr'])
+    a1 = table_breakdown(tables_by_release['acs2013_1yr'])
     a3 = table_breakdown(tables_by_release['acs2012_3yr'])
     a5 = table_breakdown(tables_by_release['acs2012_5yr'])
     tab_codes = set(a1.keys())
@@ -245,7 +246,7 @@ def generate_unified_table_csv(outputfile="precomputed/unified_metadata.csv"):
 
         r.append(custom_tabulation_weight.get(code, '0'))
 
-        for release in ['acs2012_1yr', 'acs2012_3yr', 'acs2012_5yr']:
+        for release in releases_to_analyze:
             r.append('{' + ','.join(['"%s"' % t for t in sorted(tables_by_tabulation[release].get(code, []))]) + '}')
         w.writerow(r)
 
