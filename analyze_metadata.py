@@ -227,12 +227,10 @@ custom_tabulation_weight = {
 }
 
 def generate_unified_table_csv(outputfile="precomputed/unified_metadata.csv"):
-    a1 = table_breakdown(tables_by_release['acs2013_1yr'])
-    a3 = table_breakdown(tables_by_release['acs2012_3yr'])
-    a5 = table_breakdown(tables_by_release['acs2012_5yr'])
-    tab_codes = set(a1.keys())
-    tab_codes.update(set(a3.keys()))
-    tab_codes.update(set(a5.keys()))
+    tab_codes = set()
+    for release in releases_to_analyze:
+        breakdown = table_breakdown(tables_by_release[release])
+        tab_codes.update(breakdown.keys())
     h = ['tabulation_code', 'table_title', 'simple_table_title', 'subject_area', 'universe', 'topics', 'weight', 'tables_in_1_yr', 'tables_in_3_yr', 'tables_in_5_yr']
     w = csv.writer(open(outputfile,'w'))
     w.writerow(h)
