@@ -35,7 +35,11 @@ def read_shells(path):
 
 def read_shell(path):
     lookup = {}
-    xlsfile = open_workbook(path, formatting_info=True)
+    try:
+        xlsfile = open_workbook(path, formatting_info=True)
+    except NotImplementedError:
+        print "ERROR: You're trying to open an .xlsx. Open '{}' in Excel and save it as an .xls file and try again.".format(path)
+        sys.exit(22)
     sheet = xlsfile.sheet_by_index(0)
 
     # Find the columns we're interested in
