@@ -186,6 +186,7 @@ SUBJECT_AREA_TO_TOPICS = {
     'Residence Last Year - Migration': 'migration',
     'School Enrollment': 'education',
     'Veteran Status': 'veterans',
+    'Computer and Internet Usage': 'computer, internet',
 
     'Housing': 'housing',
     'Unweighted Count': 'technical',
@@ -343,8 +344,9 @@ for r in range(1, sheet.nrows):
             table['topics'] = '{%s}' % ','.join(['"%s"' % topic for topic in build_topics(table)])
             if table['table_id'] in tables:
                 print 'Skipping %s because it was already written.' % table['table_id']
-            table['columns'] = rows
-            tables[table['table_id']] = table
+            else:
+                table['columns'] = rows
+                tables[table['table_id']] = table
             table = {}
             rows = []
             previous_line_number = 0
@@ -359,7 +361,8 @@ for r in range(1, sheet.nrows):
 
         external_shell_lookup = shell_lookup.get(table['table_id'], {})
         if not external_shell_lookup:
-            print "Could not find shells for table {}".format(table['table_id'])
+            tables[table['table_id']] = None
+            print "Could not find shells for table '{}', won't write that table out as its likely deleted from the release.".format(table['table_id'])
     elif not line_number and not cells and title.lower().startswith('universe:'):
         table['universe'] = titlecase(title.split(':')[-1]).strip()
     elif line_number:
@@ -432,6 +435,10 @@ with open("%s/census_table_metadata.csv" % root_dir, 'wb') as table_file:
         column_csv.writeheader()
 
         for table_id, table in sorted(tables.iteritems()):
+            if not table:
+                # don't write out a table that was marked to be skipped on purpose
+                continue
+
             columns = table.pop('columns')
             table_csv.writerow(table)
             for column in sorted(columns, key=lambda a: a['column_id']):
