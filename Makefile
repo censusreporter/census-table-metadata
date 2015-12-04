@@ -20,7 +20,8 @@ all: \
 	precomputed/acs2013_1yr/census_table_metadata.csv \
 	precomputed/acs2013_3yr/census_table_metadata.csv \
 	precomputed/acs2013_5yr/census_table_metadata.csv \
-	precomputed/acs2014_1yr/census_table_metadata.csv
+	precomputed/acs2014_1yr/census_table_metadata.csv \
+	precomputed/acs2014_5yr/census_table_metadata.csv
 
 clean:
 	rm -rf precomputed/
@@ -61,7 +62,9 @@ clean-all: clean
 		acs2013_5yr_merge_5_6.xls \
 		acs2013_5yr_table_shells.xls \
 		acs2014_1yr_merge_5_6.xls \
-		acs2014_1yr_table_shells.xls
+		acs2014_1yr_table_shells.xls \
+		acs2014_5yr_merge_5_6.xls \
+		acs2014_5yr_table_shells.xls
 
 acs2007_shells/:
 	mkdir acs2007_shells
@@ -162,6 +165,11 @@ acs2014_1yr_merge_5_6.xls:
 acs2014_1yr_table_shells.xls:
 	curl -f "http://www2.census.gov/programs-surveys/acs/summary_file/2014/documentation/user_tools/ACS2014_Table_Shells.xlsx" -o acs2014_1yr_table_shells.xls
 
+acs2014_5yr_merge_5_6.xls:
+	curl -f "http://www2.census.gov/programs-surveys/acs/summary_file/2014/documentation/user_tools/ACS_5yr_Seq_Table_Number_Lookup.xls" -o acs2014_5yr_merge_5_6.xls
+acs2014_5yr_table_shells.xls:
+	curl -f "http://www2.census.gov/programs-surveys/acs/summary_file/2014/documentation/user_tools/ACS2014_Table_Shells.xlsx" -o acs2014_5yr_table_shells.xls
+
 
 precomputed/acs2007_1yr/census_table_metadata.csv: acs2007_1yr_merge_5_6.xls acs2007_shells/
 	python process_merge.py acs2007_1yr_merge_5_6.xls acs2007_shells
@@ -257,3 +265,8 @@ precomputed/acs2014_1yr/census_table_metadata.csv: acs2014_1yr_merge_5_6.xls acs
 	python process_merge.py acs2014_1yr_merge_5_6.xls acs2014_1yr_table_shells.xls
 	mkdir -p precomputed/acs2014_1yr/
 	mv census_column_metadata.csv census_table_metadata.csv precomputed/acs2014_1yr/
+
+precomputed/acs2014_5yr/census_table_metadata.csv: acs2014_5yr_merge_5_6.xls acs2014_5yr_table_shells.xls
+	python process_merge.py acs2014_5yr_merge_5_6.xls acs2014_5yr_table_shells.xls
+	mkdir -p precomputed/acs2014_5yr/
+	mv census_column_metadata.csv census_table_metadata.csv precomputed/acs2014_5yr/
