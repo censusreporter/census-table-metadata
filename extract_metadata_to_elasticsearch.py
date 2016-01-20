@@ -38,10 +38,10 @@ logging.basicConfig()
 def grouper(n, iterable):
     it = iter(iterable)
     while True:
-       chunk = tuple(itertools.islice(it, n))
-       if not chunk:
-           return
-       yield chunk
+        chunk = tuple(itertools.islice(it, n))
+        if not chunk:
+            return
+        yield chunk
 
 def convert_table_rows(rows):
     for row in rows:
@@ -411,8 +411,7 @@ def main():
                 "properties": {
                     "table_title": {
                         "type": "string",
-                        "index_analyzer": "synonym_ngram_analyzer",
-                        "search_analyzer": "synonym_analyzer",
+                        "analyzer": "synonym_ngram_analyzer",
                     },
                     "topics": {
                         "type": "string",
@@ -424,8 +423,7 @@ def main():
                 "properties": {
                     "table_title": {
                         "type": "string",
-                        "index_analyzer": "synonym_ngram_analyzer",
-                        "search_analyzer": "synonym_analyzer",
+                        "analyzer": "synonym_ngram_analyzer",
                     },
                     "topics": {
                         "type": "string",
@@ -437,8 +435,7 @@ def main():
                 "properties": {
                     "column_title": {
                         "type": "string",
-                        "index_analyzer": "synonym_ngram_analyzer",
-                        "search_analyzer": "synonym_analyzer",
+                        "analyzer": "synonym_ngram_analyzer",
                     },
                     "topics": {
                         "type": "string",
@@ -471,94 +468,94 @@ def main():
     FROM public.census_tabulation_metadata tab;"""
     process_single_tabulation_query(cur, es, q)
 
-    print "Loading ACS 2012 5-year tables..."
+    print "Loading ACS 2014 5-year tables..."
     q = """SELECT
         tab.table_title,
         tab.table_id,
         10 as weight,
-        'acs2012_5yr' as release,
-        'acs2012_5yr_' || tab.table_id as uid,
+        'acs2014_5yr' as release,
+        'acs2014_5yr_' || tab.table_id as uid,
         tab.universe,
         tab.denominator_column_id,
         tab.topics
-    FROM acs2012_5yr.census_table_metadata tab;"""
+    FROM acs2014_5yr.census_table_metadata tab;"""
     process_single_table_query(cur, es, q)
 
-    print "Loading ACS 2012 5-year columns..."
+    print "Loading ACS 2014 5-year columns..."
     q = """SELECT
         col.column_title,
         col.column_id,
         tab.table_title,
         tab.table_id,
         5 as weight,
-        'acs2012_5yr' as release,
-        'acs2012_5yr_' || col.column_id as uid,
+        'acs2014_5yr' as release,
+        'acs2014_5yr_' || col.column_id as uid,
         col.parent_column_id,
         col.indent,
         tab.universe,
         tab.denominator_column_id,
         tab.topics
-    FROM acs2012_5yr.census_column_metadata col LEFT JOIN acs2012_5yr.census_table_metadata tab ON (tab.table_id=col.table_id);"""
+    FROM acs2014_5yr.census_column_metadata col LEFT JOIN acs2014_5yr.census_table_metadata tab ON (tab.table_id=col.table_id);"""
     process_single_column_query(cur, es, q)
 
-    print "Loading ACS 2012 3-year tables..."
+    print "Loading ACS 2013 3-year tables..."
     q = """SELECT
         tab.table_title,
         tab.table_id,
         10 as weight,
-        'acs2012_3yr' as release,
-        'acs2012_3yr_' || tab.table_id as uid,
+        'acs2013_3yr' as release,
+        'acs2013_3yr_' || tab.table_id as uid,
         tab.universe,
         tab.denominator_column_id,
         tab.topics
-    FROM acs2012_3yr.census_table_metadata tab;"""
+    FROM acs2013_3yr.census_table_metadata tab;"""
     process_single_table_query(cur, es, q)
 
-    print "Loading ACS 2012 3-year columns..."
+    print "Loading ACS 2013 3-year columns..."
     q = """SELECT
         col.column_title,
         col.column_id,
         tab.table_title,
         tab.table_id,
         5 as weight,
-        'acs2012_3yr' as release,
-        'acs2012_3yr_' || col.column_id as uid,
+        'acs2013_3yr' as release,
+        'acs2013_3yr_' || col.column_id as uid,
         col.parent_column_id,
         col.indent,
         tab.universe,
         tab.denominator_column_id,
         tab.topics
-    FROM acs2012_3yr.census_column_metadata col LEFT JOIN acs2012_3yr.census_table_metadata tab ON (tab.table_id=col.table_id);"""
+    FROM acs2013_3yr.census_column_metadata col LEFT JOIN acs2013_3yr.census_table_metadata tab ON (tab.table_id=col.table_id);"""
     process_single_column_query(cur, es, q)
 
-    print "Loading ACS 2012 1-year tables..."
+    print "Loading ACS 2014 1-year tables..."
     q = """SELECT
         tab.table_title,
         tab.table_id,
         10 as weight,
-        'acs2012_1yr' as release,
-        'acs2012_1yr_' || tab.table_id as uid,
+        'acs2014_1yr' as release,
+        'acs2014_1yr_' || tab.table_id as uid,
         tab.universe,
         tab.denominator_column_id,
         tab.topics
-    FROM acs2012_1yr.census_table_metadata tab;"""
+    FROM acs2014_1yr.census_table_metadata tab;"""
     process_single_table_query(cur, es, q)
 
-    print "Loading ACS 2012 1-year columns..."
+    print "Loading ACS 2014 1-year columns..."
     q = """SELECT
         col.column_title,
         col.column_id,
         tab.table_title,
         tab.table_id,
         5 as weight,
-        'acs2012_1yr' as release,
-        'acs2012_1yr_' || col.column_id as uid,
+        'acs2014_1yr' as release,
+        'acs2014_1yr_' || col.column_id as uid,
         col.parent_column_id,
         col.indent,
         tab.universe,
         tab.denominator_column_id,
         tab.topics
-    FROM acs2012_1yr.census_column_metadata col LEFT JOIN acs2012_1yr.census_table_metadata tab ON (tab.table_id=col.table_id);"""
+    FROM acs2014_1yr.census_column_metadata col LEFT JOIN acs2014_1yr.census_table_metadata tab ON (tab.table_id=col.table_id);"""
     process_single_column_query(cur, es, q)
 
     index_manager.refresh()
