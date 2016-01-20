@@ -417,6 +417,10 @@ def main():
                         "type": "string",
                         "index": "not_analyzed",
                     },
+                    "importance": {
+                        "type": "integer",
+                        "index": "not_analyzed",
+                    },
                 }
             },
             "table": {
@@ -429,6 +433,10 @@ def main():
                         "type": "string",
                         "index": "not_analyzed",
                     },
+                    "importance": {
+                        "type": "integer",
+                        "index": "not_analyzed",
+                    },
                 }
             },
             "column": {
@@ -439,6 +447,10 @@ def main():
                     },
                     "topics": {
                         "type": "string",
+                        "index": "not_analyzed",
+                    },
+                    "importance": {
+                        "type": "integer",
                         "index": "not_analyzed",
                     },
                 }
