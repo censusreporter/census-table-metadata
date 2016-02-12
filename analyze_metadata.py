@@ -7,6 +7,7 @@ import re
 from collections import defaultdict
 
 releases_to_analyze = ['acs2014_1yr', 'acs2014_5yr']
+releases_to_output = ['acs2014_1yr', None, 'acs2014_5yr']
 tables_by_code = defaultdict(list)
 
 tables_by_release = defaultdict(dict)
@@ -244,8 +245,11 @@ def generate_unified_table_csv(outputfile="precomputed/unified_metadata.csv"):
 
         r.append(custom_tabulation_weight.get(code, '0'))
 
-        for release in releases_to_analyze:
-            r.append('{' + ','.join(['"%s"' % t for t in sorted(tables_by_tabulation[release].get(code, []))]) + '}')
+        for release in releases_to_output:
+            if release:
+                r.append('{' + ','.join(['"%s"' % t for t in sorted(tables_by_tabulation[release].get(code, []))]) + '}')
+            else:
+                r.append('{}')
         w.writerow(r)
 
 generate_unified_table_csv()
