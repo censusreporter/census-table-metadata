@@ -6,8 +6,8 @@ import os
 import re
 from collections import defaultdict
 
-releases_to_analyze = ['acs2015_1yr', 'acs2014_5yr']
-releases_to_output = ['acs2015_1yr', None, 'acs2014_5yr']
+releases_to_analyze = ['acs2015_1yr', 'acs2015_5yr']
+releases_to_output = ['acs2015_1yr', None, 'acs2015_5yr']
 tables_by_code = defaultdict(list)
 
 tables_by_release = defaultdict(dict)
