@@ -24,7 +24,9 @@ all: \
 	precomputed/acs2014_5yr/census_table_metadata.csv \
 	precomputed/acs2015_1yr/census_table_metadata.csv \
 	precomputed/acs2015_5yr/census_table_metadata.csv \
-	precomputed/acs2016_1yr/census_table_metadata.csv
+	precomputed/acs2016_1yr/census_table_metadata.csv \
+	precomputed/acs2016_5yr/census_table_metadata.csv \
+	precomputed/acs2017_1yr/census_table_metadata.csv
 
 clean:
 	rm -rf precomputed/
@@ -73,7 +75,11 @@ clean-all: clean
 		acs2015_5yr_merge_5_6.xls \
 		acs2015_5yr_table_shells.xls \
 		acs2016_1yr_merge_5_6.xls \
-		acs2016_1yr_table_shells.xls
+		acs2016_1yr_table_shells.xls \
+		acs2016_5yr_merge_5_6.xls \
+		acs2016_5yr_table_shells.xls \
+		acs2017_1yr_merge_5_6.xls \
+		acs2017_1yr_table_shells.xls
 
 acs2007_shells/:
 	mkdir acs2007_shells
@@ -194,6 +200,16 @@ acs2016_1yr_merge_5_6.xls:
 acs2016_1yr_table_shells.xls:
 	curl -f "https://www2.census.gov/programs-surveys/acs/summary_file/2016/documentation/user_tools/ACS2016_Table_Shells.xlsx" -o acs2016_1yr_table_shells.xls
 
+acs2016_5yr_merge_5_6.xls:
+	curl -f "https://www2.census.gov/programs-surveys/acs/summary_file/2016/documentation/user_tools/ACS_5yr_Seq_Table_Number_Lookup.xls" -o acs2016_5yr_merge_5_6.xls
+acs2016_5yr_table_shells.xls:
+	curl -f "https://www2.census.gov/programs-surveys/acs/summary_file/2016/documentation/user_tools/ACS2016_Table_Shells.xlsx" -o acs2016_5yr_table_shells.xls
+
+acs2017_1yr_merge_5_6.xls:
+	curl -f "https://www2.census.gov/programs-surveys/acs/summary_file/2017/documentation/user_tools/ACS_1yr_Seq_Table_Number_Lookup.xls" -o acs2017_1yr_merge_5_6.xls
+acs2017_1yr_table_shells.xls:
+	curl -f "https://www2.census.gov/programs-surveys/acs/summary_file/2017/documentation/user_tools/ACS2017_Table_Shells.xlsx" -o acs2017_1yr_table_shells.xls
+
 
 precomputed/acs2007_1yr/census_table_metadata.csv: acs2007_1yr_merge_5_6.xls acs2007_shells/
 	python process_merge.py acs2007_1yr_merge_5_6.xls acs2007_shells
@@ -309,3 +325,13 @@ precomputed/acs2016_1yr/census_table_metadata.csv: acs2016_1yr_merge_5_6.xls acs
 	python process_merge.py acs2016_1yr_merge_5_6.xls acs2016_1yr_table_shells.xls
 	mkdir -p precomputed/acs2016_1yr/
 	mv census_column_metadata.csv census_table_metadata.csv precomputed/acs2016_1yr/
+
+precomputed/acs2016_5yr/census_table_metadata.csv: acs2016_5yr_merge_5_6.xls acs2016_5yr_table_shells.xls
+	python process_merge.py acs2016_5yr_merge_5_6.xls acs2016_5yr_table_shells.xls
+	mkdir -p precomputed/acs2016_5yr/
+	mv census_column_metadata.csv census_table_metadata.csv precomputed/acs2016_5yr/
+
+precomputed/acs2017_1yr/census_table_metadata.csv: acs2017_1yr_merge_5_6.xls acs2017_1yr_table_shells.xls
+	python process_merge.py acs2017_1yr_merge_5_6.xls acs2017_1yr_table_shells.xls
+	mkdir -p precomputed/acs2017_1yr/
+	mv census_column_metadata.csv census_table_metadata.csv precomputed/acs2017_1yr/

@@ -38,7 +38,8 @@ def read_shell(path):
     try:
         xlsfile = open_workbook(path, formatting_info=True)
     except NotImplementedError:
-        print "ERROR: You're trying to open an .xlsx. Open '{}' in Excel and save it as an .xls file and try again.".format(path)
+        # https://stackoverflow.com/a/13914953/73004
+        print("ERROR: You're trying to open an .xlsx. Open '{}' in Excel and save it as an .xls file and try again.".format(path))
         sys.exit(22)
     sheet = xlsfile.sheet_by_index(0)
 
@@ -86,7 +87,7 @@ def read_shell(path):
             if not indent and cell.value.startswith('  '):
                 # In the 2008 shells they show the indent level with two spaces instead of XLS indents
                 (spaces, table_name) = re.search('^([  ]*)(.*)$', cell.value).groups()
-                indent = len(spaces) / 2
+                indent = len(spaces) // 2
 
             hierarchy_stack[indent] = column_id
             parent_column_id = None
@@ -130,32 +131,32 @@ TABLE_NAME_REPLACEMENTS = [ # mostly problems with slashes and -- characters
 
 def clean_table_name(table_name):
     """ title case, strip bogus white space, a few observed direct fixes for title casing..."""
-    table_name = re.sub('\s+',' ',table_name) # some have multiple white spaces
+    table_name = re.sub(r'\s+', ' ', table_name) # some have multiple white spaces
     table_name = titlecase(table_name.lower())
     for problem,fix in TABLE_NAME_REPLACEMENTS:
         table_name = re.sub(problem,fix,table_name)
     return table_name.strip()
 
 COLLOQUIAL_REPLACEMENTS = [
-    (re.compile(r'in the Past 12 Months'),''),
-    (re.compile(r'\(In \d{4} Inflation-adjusted Dollars\)',re.IGNORECASE),''),
-    (re.compile('for the Population \d+ Years and Over',re.IGNORECASE), ''),
-    (re.compile('Civilian Employed Population 16 Years and Over',re.IGNORECASE),'Civilian Population'),
-    (re.compile(r'((grand)?children) Under 18 Years',re.IGNORECASE),r'\1'),
-    (re.compile(r'Women \d+ to \d+ Years Who Had a Birth'),'Women Who Had a Birth'),
-    (re.compile(r'Field of Bachelor\'s Degree for First Major the Population 25 Years and Over',re.IGNORECASE),'Field of Bachelor\'s Degree for First Major'),
-    (re.compile(r'Married Population 15 Years and Over',re.IGNORECASE),'Married Population'),
-    (re.compile(r'Population 16 Years and Over',re.IGNORECASE),'Population'), # seems to always have to do with employment, where I think we can take the age for granted
-    (re.compile(r'Place of Work for Workers 16 Years and Over',re.IGNORECASE),'Place of Work'),
-    (re.compile(r'For Workplace Geography',re.IGNORECASE),''),
-    (re.compile(r'\(In Minutes\)',re.IGNORECASE),''),
+    (re.compile(r'in the Past 12 Months'), ''),
+    (re.compile(r'\(In \d{4} Inflation-adjusted Dollars\)',re.IGNORECASE), ''),
+    (re.compile(r'for the Population \d+ Years and Over',re.IGNORECASE), ''),
+    (re.compile(r'Civilian Employed Population 16 Years and Over',re.IGNORECASE), 'Civilian Population'),
+    (re.compile(r'((grand)?children) Under 18 Years',re.IGNORECASE), r'\1'),
+    (re.compile(r'Women \d+ to \d+ Years Who Had a Birth'), 'Women Who Had a Birth'),
+    (re.compile(r'Field of Bachelor\'s Degree for First Major the Population 25 Years and Over',re.IGNORECASE), 'Field of Bachelor\'s Degree for First Major'),
+    (re.compile(r'Married Population 15 Years and Over',re.IGNORECASE), 'Married Population'),
+    (re.compile(r'Population 16 Years and Over',re.IGNORECASE), 'Population'), # seems to always have to do with employment, where I think we can take the age for granted
+    (re.compile(r'Place of Work for Workers 16 Years and Over',re.IGNORECASE), 'Place of Work'),
+    (re.compile(r'For Workplace Geography',re.IGNORECASE), ''),
+    (re.compile(r'\(In Minutes\)',re.IGNORECASE), ''),
 ]
 
 def simplified_table_name(table_name):
     """Make some editorial choices about how to simplify table names for more casual use"""
-    for regexp,substitution in COLLOQUIAL_REPLACEMENTS:
-        table_name = re.sub(regexp,substitution,table_name)
-    table_name = re.sub('\s+',' ',table_name)
+    for regexp, substitution in COLLOQUIAL_REPLACEMENTS:
+        table_name = re.sub(regexp, substitution, table_name)
+    table_name = re.sub(r'\s+', ' ', table_name)
     return table_name.strip()
 
 SUBJECT_AREA_TO_TOPICS = {
@@ -307,7 +308,7 @@ def build_topics(table):
     return map(lambda x: x.strip(), all_areas)
 
 def find_denominator_column(table, rows):
-    if rows and len(rows) > 1 and rows[0]['column_title'].lower().startswith('total') and table and not table['table_title'].lower().startswith('median'):
+    if rows and rows[0]['column_title'].lower().startswith('total') and table and not table['table_title'].lower().startswith('median'):
         return rows[0]['column_id']
     else:
         return None
@@ -343,7 +344,7 @@ for r in range(1, sheet.nrows):
             table['denominator_column_id'] = find_denominator_column(table, rows)
             table['topics'] = '{%s}' % ','.join(['"%s"' % topic for topic in build_topics(table)])
             if table['table_id'] in tables:
-                print 'Skipping %s because it was already written.' % table['table_id']
+                print('Skipping %s because it was already written.' % table['table_id'])
             else:
                 table['columns'] = rows
                 tables[table['table_id']] = table
@@ -352,7 +353,7 @@ for r in range(1, sheet.nrows):
             previous_line_number = 0
 
         # The all-caps description of the table
-        table['table_title'] = clean_table_name(title).encode('utf8')
+        table['table_title'] = clean_table_name(title)
         table['simple_table_title'] = simplified_table_name(table['table_title'])
         # ... this row also includes the subject area text
         table['subject_area'] = subject_area.strip()
@@ -362,7 +363,7 @@ for r in range(1, sheet.nrows):
         external_shell_lookup = shell_lookup.get(table['table_id'], {})
         if not external_shell_lookup:
             tables[table['table_id']] = None
-            print "Could not find shells for table '{}', won't write that table out as its likely deleted from the release.".format(table['table_id'])
+            print("Could not find shells for table '{}', won't write that table out as its likely deleted from the release.".format(table['table_id']))
     elif not line_number and not cells and title.lower().startswith('universe:'):
         table['universe'] = titlecase(title.split(':')[-1]).strip()
     elif line_number:
@@ -382,7 +383,7 @@ for r in range(1, sheet.nrows):
             row['column_id'] = "%s%05.1f" % (row['table_id'], line_number)
         else:
             row['column_id'] = '%s%03d' % (row['table_id'], line_number)
-        row['column_title'] = title.encode('utf8')
+        row['column_title'] = title
 
         column_info = external_shell_lookup.get(row['column_id'])
         # print "Row {} has info {}".format(row['column_id'], column_info)
@@ -397,7 +398,7 @@ if table:
     table['denominator_column_id'] = find_denominator_column(table, rows)
     table['topics'] = '{%s}' % ','.join(['"%s"' % topic for topic in build_topics(table)])
     if table['table_id'] in tables:
-        print 'Skipping %s because it was already written.' % table['table_id']
+        print('Skipping %s because it was already written.' % table['table_id'])
     table['columns'] = rows
     tables[table['table_id']] = table
     table = {}
@@ -434,7 +435,7 @@ with open("%s/census_table_metadata.csv" % root_dir, 'wb') as table_file:
         column_csv = unicodecsv.DictWriter(column_file, column_metadata_fieldnames)
         column_csv.writeheader()
 
-        for table_id, table in sorted(tables.iteritems()):
+        for table_id, table in sorted(tables.items()):
             if not table:
                 # don't write out a table that was marked to be skipped on purpose
                 continue
