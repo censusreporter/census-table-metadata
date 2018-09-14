@@ -24,7 +24,7 @@ for dirpath, dirnames, filenames in os.walk('precomputed'):
     if release in releases_to_analyze:
         if 'census_table_metadata.csv' in filenames:
             r = csv.reader(open("%s/census_table_metadata.csv" % dirpath))
-            header = r.next()
+            header = next(r)
             for row in r:
                 table_code = row[0]
                 tabulation_code = re.search(r'\D*(\d*)\D*', table_code).groups()[0]
@@ -40,7 +40,7 @@ for dirpath, dirnames, filenames in os.walk('precomputed'):
         if 'census_column_metadata.csv' in filenames:
             columns_by_release[release] = defaultdict(dict)
             r = csv.reader(open("%s/census_column_metadata.csv" % dirpath))
-            header = r.next()
+            header = next(r)
             for row in r:
                 try:
                     columns_by_release[release][row[0]].append(row)
@@ -145,7 +145,7 @@ def build_footnote_explainers(codes):
         footnote_explanations.append('')
         footnote_explanations.append(FOOTNOTES[u"†"])
         if not all(map(lambda x: x['B'],analyzed.values())):
-            print "WARNING: At least one B table in this set has no root, only iterations"
+            print("WARNING: At least one B table in this set has no root, only iterations")
     if any(map(lambda x: x['C'],analyzed.values())):
         footnote_explanations.append('')
         footnote_explanations.append(FOOTNOTES[u"‡"])
