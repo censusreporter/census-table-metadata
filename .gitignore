@@ -4,3 +4,4 @@ shell_files/
 generated_csv/
 taxonified/
 *.pyc
+.vscode
