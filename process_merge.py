@@ -310,7 +310,7 @@ def build_topics(table):
     for k,v in TABLE_NAME_TEXT_TO_FACETS.items():
         if k in table_name.lower():
             all_areas.update(map(lambda x:x.strip(),v.split(',')))
-    return map(lambda x: x.strip(), all_areas)
+    return map(lambda x: x.strip(), sorted(all_areas))
 
 def find_denominator_column(table, rows):
     """For most tables, the first row is a total row, and that row is the thing to use
