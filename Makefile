@@ -27,7 +27,8 @@ all: \
 	precomputed/acs2016_1yr/census_table_metadata.csv \
 	precomputed/acs2016_5yr/census_table_metadata.csv \
 	precomputed/acs2017_1yr/census_table_metadata.csv \
-	precomputed/acs2017_5yr/census_table_metadata.csv
+	precomputed/acs2017_5yr/census_table_metadata.csv \
+	precomputed/acs2018_1yr/census_table_metadata.csv
 
 clean:
 	rm -rf precomputed/
@@ -82,7 +83,9 @@ clean-all: clean
 		acs2017_1yr_merge_5_6.xls \
 		acs2017_1yr_table_shells.xls \
 		acs2017_5yr_merge_5_6.xls \
-		acs2017_5yr_table_shells.xls
+		acs2017_5yr_table_shells.xls \
+		acs2018_1yr_merge_5_6.xls \
+		acs2018_1yr_table_shells.xls
 
 acs2007_shells/:
 	mkdir acs2007_shells
@@ -218,6 +221,13 @@ acs2017_5yr_merge_5_6.xls:
 acs2017_5yr_table_shells.xls:
 	curl -f "https://www2.census.gov/programs-surveys/acs/summary_file/2017/documentation/user_tools/ACS2017_Table_Shells.xlsx" -o acs2017_5yr_table_shells.xls
 
+acs2018_1yr_merge_5_6.xls:
+	# The Census doesn't have a 2018 1yr XLS file at this time, so I manually converted this CSV to XLS with Excel.
+	curl -f "https://www2.census.gov/programs-surveys/acs/summary_file/2018/documentation/user_tools/ACS_1yr_Seq_Table_Number_Lookup.csv" -o acs2018_1yr_merge_5_6.csv
+	echo "You need to manually convert the .csv to .xls to continue"
+acs2018_1yr_table_shells.xls:
+	curl -f "https://www2.census.gov/programs-surveys/acs/summary_file/2018/documentation/user_tools/ACS2018_Table_Shells.xlsx" -o acs2018_1yr_table_shells.xls
+
 precomputed/acs2007_1yr/census_table_metadata.csv: acs2007_1yr_merge_5_6.xls acs2007_shells/
 	python process_merge.py acs2007_1yr_merge_5_6.xls acs2007_shells
 	mkdir -p precomputed/acs2007_1yr/
@@ -347,3 +357,8 @@ precomputed/acs2017_5yr/census_table_metadata.csv: acs2017_5yr_merge_5_6.xls acs
 	python process_merge.py acs2017_5yr_merge_5_6.xls acs2017_5yr_table_shells.xls
 	mkdir -p precomputed/acs2017_5yr/
 	mv census_column_metadata.csv census_table_metadata.csv precomputed/acs2017_5yr/
+
+precomputed/acs2018_1yr/census_table_metadata.csv: acs2018_1yr_merge_5_6.xls acs2018_1yr_table_shells.xls
+	python process_merge.py acs2018_1yr_merge_5_6.xls acs2018_1yr_table_shells.xls
+	mkdir -p precomputed/acs2018_1yr/
+	mv census_column_metadata.csv census_table_metadata.csv precomputed/acs2018_1yr/
