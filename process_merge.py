@@ -314,11 +314,11 @@ def build_topics(table):
 
 def find_denominator_column(table, rows):
     """For most tables, the first row is a total row, and that row is the thing to use
-       to show estimates as percentages.  But a table must have at least 3 rows for 
-       percentages to be meaningful -- and percentages are not meaningful for 
+       to show estimates as percentages.  But a table must have at least 3 rows for
+       percentages to be meaningful -- and percentages are not meaningful for
        median estimates, so sometimes we return None
     """
-    if rows len(rows) > 2 and rows[0]['column_title'].lower().startswith('total') and table and not table['table_title'].lower().startswith('median'):
+    if rows and len(rows) > 2 and rows[0]['column_title'].lower().startswith('total') and table and not table['table_title'].lower().startswith('median'):
         return rows[0]['column_id']
     else:
         return None
