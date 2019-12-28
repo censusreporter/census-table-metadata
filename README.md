@@ -9,13 +9,13 @@ based on sequence lookup and table shell files.
 You can use the CSV files inside the `precomputed` directory or build them
 yourself with the `make` command:
 
-Set up a virtualenv with the requirements and then run `make`. You'll end up
+Install `pipenv`, run `pipenv install` and `pipenv shell`, then run `make`. You'll end up
 with the ACS table metadata downloaded and parsed into CSV appropriate for
 loading in to a PostgreSQL schema:
 
 ```
-mkvirtualenv --no-site-packages census-table
-pip install -r requirements.txt
+pipenv install
+pipenv shell
 make
 ```
 
