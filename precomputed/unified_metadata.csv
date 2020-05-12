@@ -1,4 +1,4 @@
-tabulation_code,table_title,simple_table_title,subject_area,universe,topics,weight,tables_in_1_yr,tables_in_5_yr
+tabulation_code,table_title,simple_table_title,subject_area,universe,topics,weight,tables_in_1_yr,tables_in_3_yr,tables_in_5_yr
 00001,Unweighted Sample Count of the Population,Unweighted Sample Count of the Population,Unweighted Count,Total Population,"{""technical""}",0,"{""B00001""}",{},"{""B00001""}"
 00002,Unweighted Sample Housing Units,Unweighted Sample Housing Units,Unweighted Count,Housing Units,"{""technical""}",0,"{""B00002""}",{},"{""B00002""}"
 01001,Sex by Age,Sex by Age,Age-Sex,Total Population,"{""age"",""sex""}",0,"{""B01001"",""B01001A"",""B01001B"",""B01001C"",""B01001D"",""B01001E"",""B01001F"",""B01001G"",""B01001H"",""B01001I"",""C01001A"",""C01001B"",""C01001C"",""C01001D"",""C01001E"",""C01001F"",""C01001G"",""C01001H"",""C01001I""}",{},"{""B01001"",""B01001A"",""B01001B"",""B01001C"",""B01001D"",""B01001E"",""B01001F"",""B01001G"",""B01001H"",""B01001I""}"

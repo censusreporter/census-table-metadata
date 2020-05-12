@@ -232,7 +232,7 @@ def generate_unified_table_csv(outputfile="precomputed/unified_metadata.csv"):
     for release in releases_to_analyze:
         breakdown = table_breakdown(tables_by_release[release])
         tab_codes.update(breakdown.keys())
-    h = ['tabulation_code', 'table_title', 'simple_table_title', 'subject_area', 'universe', 'topics', 'weight', 'tables_in_1_yr', 'tables_in_5_yr']
+    h = ['tabulation_code', 'table_title', 'simple_table_title', 'subject_area', 'universe', 'topics', 'weight', 'tables_in_1_yr', 'tables_in_3_yr', 'tables_in_5_yr']
     w = csv.writer(open(outputfile,'w'))
     w.writerow(h)
     for code in sorted(tab_codes):
@@ -252,4 +252,5 @@ def generate_unified_table_csv(outputfile="precomputed/unified_metadata.csv"):
                 r.append('{}')
         w.writerow(r)
 
-generate_unified_table_csv()
+if __name__ == '__main__':
+    generate_unified_table_csv()
