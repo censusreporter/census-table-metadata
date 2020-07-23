@@ -191,7 +191,7 @@ SUBJECT_AREA_TO_TOPICS = {
     'Residence Last Year - Migration': 'migration',
     'School Enrollment': 'education',
     'Veteran Status': 'veterans',
-    'Voting-Age Population': 'citizen',
+    'Voting-Age Population': 'cvap',
     'Computer and Internet Usage': 'computer, internet',
 
     'Housing': 'housing',
