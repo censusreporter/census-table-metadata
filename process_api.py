@@ -243,6 +243,99 @@ def find_denominator_column(table, rows):
     else:
         return None
 
+def get_vars(var_url):
+    """Parse the official ACS metadata JSON for the given schema (ACS release) and return a dict 
+       with table IDs for keys and a list of metadata objects for each column in that table as values.
+       Because this works through a list one variable at a time, it isn't able to handle pseudo-columns:
+       that is, labels which have no data associated with them, but which must be managed to present
+       a proper hierarchy of columns. That comes in a separate step, finish_fixing_table"""
+    try:
+        resp = requests.get(var_url)
+        resp.raise_for_status()
+        var_json = resp.json()
+
+        var_dict = {}
+        for k,v in var_json['variables'].items():
+            if '_' in k and k.endswith('E'):
+                v['column_id'] = k.replace('_','')[:-1]
+
+                # reconstruct the label without leading 'Estimate'
+                split_label = v['label'].split('!!')[1:]
+                v['label'] = '!!'.join(split_label) 
+
+                # parent_label is used to work out parent_column_id in finish_fixing_table
+                v['parent_label'] = '!!'.join(split_label[:-1])
+                v['indent'] = len(split_label) - 1
+                v['leaf_label'] = split_label[-1]
+                v['label_parts'] = split_label
+                try:
+                    var_dict[v['group']].append(v)
+                except KeyError:
+                    var_dict[v['group']] = [ v ]
+    except KeyError:
+        raise Exception("Invalid schema [{}]".format(schema))
+    sorted_var_dict = {}
+    for k,v in var_dict.items():
+        v = [(var['column_id'], var) for var in v]
+        v.sort()
+        sorted_var_dict[k] = [var[1] for var in v]            
+    return sorted_var_dict
+
+def extract_line_number(group, column_id):
+    "Construct a line number based on the column ID, using the group as a 'mask'"
+    line_number_str = column_id.replace(group,'')
+    line_number_str = line_number_str.lstrip('0')
+    if line_number_str[0] == '.':
+        line_number_str = '0{}'.format(line_number_str)
+    if '.' in line_number_str: # pseudo
+        return line_number_str
+    return "{}.0".format(line_number_str)
+
+def finish_fixing_table(var_list):
+    """Given the complete list of real variables for a given table, from the get_vars process
+        assign the parent_column_id and line_number,
+        handling pseudo-header columns as well. (groupers that don't have variables)
+    """
+    by_label = dict((v['label'], v) for v in var_list)
+    for var in var_list:
+        var['line_number'] = extract_line_number(var['group'],var['column_id'])
+        if var['parent_label']:
+            try:
+                parent = by_label[var['parent_label']]
+            except KeyError: # create the parent that doesn't exist
+                col_number = int(var['column_id'][-3:]) - 1
+                column_id = "{}{:03}.5".format(var['group'],col_number) # create a pseudo-column ID
+
+                label_parts = var['parent_label'].split('!!')
+                parent_label = '!!'.join(label_parts[:-1])
+                leaf_label = label_parts[-1]
+                try:
+                    parent_column_id = by_label[parent_label]['column_id']
+                except KeyError:
+                    parent_column_id = ''
+                parent = { # preserving a number of properties we may not use for a while
+                    'label': var['parent_label'],
+                    'concept': var['concept'],
+                    'group': var['group'],
+                    'column_id': column_id,
+                    'indent': var['indent'] - 1,
+                    'leaf_label': leaf_label,
+                    'parent_label': parent_label,
+                    'label_parts': label_parts,
+                    'parent_column_id': parent_column_id
+                }
+                parent['line_number'] = extract_line_number(parent['group'],parent['column_id'])
+                by_label[parent['label']] = parent
+            var['parent_column_id'] = parent['column_id']
+        else:
+            # must be first row?
+            var['parent_column_id'] = ''
+
+    # make sure everything is sorted correctly before returning
+    new_list = [(x['column_id'], x) for x in by_label.values()]
+    new_list.sort()
+    return [x[1] for x in new_list]
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -252,46 +345,20 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # Gather the indent information from the variables URL
-    resp = requests.get(args.variables_url)
-    resp.raise_for_status()
-    variables = resp.json()
+    raw_vars = get_vars(args.variables_url)
 
-    lookup = {}
+    # build the lookup table to augment data missing from CSV list of sequence IDs
+    lookup = defaultdict(dict)
 
-    for k, v in sorted(variables.get('variables', {}).items()):
-        if k in ('for', 'in', 'ucgid'):
-            continue
-
-        if v['label'] in ('Geography', 'GEO_ID Component'):
-            continue
-
-        try:
-            table_id, line_number = k[:-1].split('_')  # The variable name in this file has an extra 'E' at the end
-        except:
-            print(k, v)
-            raise
-
-        if table_id not in lookup:
-            lookup[table_id] = {}
-            hierarchy_stack = [None]*10
-
-        column_id = f'{table_id}{line_number}'
-        indent = len(v['label'].split('!!')) - 2
-
-        hierarchy_stack[indent] = column_id
-        parent_column_id = None
-        if indent > 0:
-            parent_column_id = hierarchy_stack[indent - 1]
-
-            # Sometimes the parent is actually 2 levels up for some reason
-            if not parent_column_id:
-                parent_column_id = hierarchy_stack[indent - 2]
-
-        # print(f"{table_id}, {column_id} has indent {indent} parent column {parent_column_id}")
-        lookup[table_id][column_id] = {
-            "indent": indent,
-            "parent_column_id": parent_column_id
-        }
+    for table_id, col_list in raw_vars.items():
+        fixed_cols = finish_fixing_table(col_list)
+        for col in fixed_cols:
+            column_id = col['column_id']
+            lookup[table_id][column_id] = {
+                "column_id": column_id,
+                "indent": col['indent'],
+                "parent_column_id": col.get('parent_column_id','')
+            }
 
     tables = {}
     table = {}
