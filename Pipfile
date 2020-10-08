@@ -6,5 +6,6 @@ name = "pypi"
 [packages]
 unicodecsv = "*"
 xlrd = "*"
+requests = "*"
 
 [dev-packages]
