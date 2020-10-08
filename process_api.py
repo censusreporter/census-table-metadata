@@ -445,11 +445,11 @@ if __name__ == "__main__":
             previous_line_number = 0
 
     with open(os.path.join(args.root_dir, "census_table_metadata.csv"), 'w') as table_file:
-        table_writer = csv.DictWriter(table_file, table_metadata_fieldnames)
+        table_writer = csv.DictWriter(table_file, table_metadata_fieldnames, lineterminator='\n')
         table_writer.writeheader()
 
         with open(os.path.join(args.root_dir, "census_column_metadata.csv"), 'w') as column_file:
-            column_writer = csv.DictWriter(column_file, column_metadata_fieldnames)
+            column_writer = csv.DictWriter(column_file, column_metadata_fieldnames, lineterminator='\n')
             column_writer.writeheader()
 
             for table_id, table in sorted(tables.items()):
