@@ -244,7 +244,7 @@ def find_denominator_column(table, rows):
         return None
 
 def get_vars(var_url):
-    """Parse the official ACS metadata JSON for the given schema (ACS release) and return a dict 
+    """Parse the official ACS metadata JSON for the given schema (ACS release) and return a dict
        with table IDs for keys and a list of metadata objects for each column in that table as values.
        Because this works through a list one variable at a time, it isn't able to handle pseudo-columns:
        that is, labels which have no data associated with them, but which must be managed to present
@@ -261,7 +261,7 @@ def get_vars(var_url):
 
                 # reconstruct the label without leading 'Estimate'
                 split_label = v['label'].split('!!')[1:]
-                v['label'] = '!!'.join(split_label) 
+                v['label'] = '!!'.join(split_label)
 
                 # parent_label is used to work out parent_column_id in finish_fixing_table
                 v['parent_label'] = '!!'.join(split_label[:-1])
@@ -278,7 +278,7 @@ def get_vars(var_url):
     for k,v in var_dict.items():
         v = [(var['column_id'], var) for var in v]
         v.sort()
-        sorted_var_dict[k] = [var[1] for var in v]            
+        sorted_var_dict[k] = [var[1] for var in v]
     return sorted_var_dict
 
 def extract_line_number(group, column_id):
@@ -370,7 +370,7 @@ if __name__ == "__main__":
     resp.raise_for_status()
     with closing(resp) as r:
 
-        reader = csv.DictReader(codecs.iterdecode(r.iter_lines(), 'utf-8'))
+        reader = csv.DictReader(codecs.iterdecode(r.iter_lines(), 'iso-8859-1'))
         for line in reader:
 
             table_id = line['Table ID']
