@@ -403,7 +403,7 @@ if __name__ == "__main__":
                 table_lookup = lookup.get(table_id)
 
             elif not line_number and not cells and title.lower().startswith('universe:'):
-                table['universe'] = titlecase(title.split(':')[-1]).strip()
+                table['universe'] = titlecase(title.split(':')[-1].strip().lower())
 
             elif line_number:
                 row = {}
