@@ -82,6 +82,21 @@ def clean_table_name(table_name):
     return table_name.strip()
 
 
+UNIVERSE_REPLACEMENTS = [
+    (r'Nhpi', 'NHPI'),
+    (r'Aian', 'AIAN'),
+]
+
+
+def clean_universe(universe):
+    """ title case, strip bogus white space, a few observed direct fixes for title casing..."""
+    universe = universe.strip()
+    universe = titlecase(universe.lower())
+    for problem, fix in UNIVERSE_REPLACEMENTS:
+        universe = re.sub(problem, fix, universe)
+    return universe.strip()
+
+
 SUBJECT_AREA_TO_TOPICS = {
     'Age-Sex': 'age, sex',
     'Hispanic Origin': 'race',
@@ -403,7 +418,7 @@ if __name__ == "__main__":
                 table_lookup = lookup.get(table_id)
 
             elif not line_number and not cells and title.lower().startswith('universe:'):
-                table['universe'] = titlecase(title.split(':')[-1].strip().lower())
+                table['universe'] = clean_universe(title.split(':')[-1])
 
             elif line_number:
                 row = {}
