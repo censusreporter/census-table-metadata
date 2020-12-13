@@ -30,7 +30,8 @@ all: \
 	precomputed/acs2017_5yr/census_table_metadata.csv \
 	precomputed/acs2018_1yr/census_table_metadata.csv \
 	precomputed/acs2018_5yr/census_table_metadata.csv \
-	precomputed/acs2019_1yr/census_table_metadata.csv
+	precomputed/acs2019_1yr/census_table_metadata.csv \
+	precomputed/acs2019_5yr/census_table_metadata.csv
 
 clean:
 	rm -rf precomputed/
@@ -378,3 +379,7 @@ precomputed/acs2018_5yr/census_table_metadata.csv: acs2018_5yr_merge_5_6.xls acs
 precomputed/acs2019_1yr/census_table_metadata.csv:
 	mkdir -p precomputed/acs2019_1yr/
 	python process_api.py https://api.census.gov/data/2019/acs/acs1/variables.json https://www2.census.gov/programs-surveys/acs/summary_file/2019/documentation/user_tools/ACS_1yr_Seq_Table_Number_Lookup.txt precomputed/acs2019_1yr
+
+precomputed/acs2019_5yr/census_table_metadata.csv:
+	mkdir -p precomputed/acs2019_5yr/
+	python process_api.py https://api.census.gov/data/2019/acs/acs5/variables.json https://www2.census.gov/programs-surveys/acs/summary_file/2019/documentation/user_tools/ACS_5yr_Seq_Table_Number_Lookup.txt precomputed/acs2019_5yr
