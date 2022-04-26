@@ -89,3 +89,6 @@ COPY acs2019_1yr.census_column_metadata FROM '/home/ubuntu/census-table-metadata
 
 COPY acs2019_5yr.census_table_metadata  FROM '/home/ubuntu/census-table-metadata/precomputed/acs2019_5yr/census_table_metadata.csv' WITH csv ENCODING 'utf8' HEADER;
 COPY acs2019_5yr.census_column_metadata FROM '/home/ubuntu/census-table-metadata/precomputed/acs2019_5yr/census_column_metadata.csv' WITH csv ENCODING 'utf8' HEADER;
+
+COPY acs2020_5yr.census_table_metadata  FROM '/home/ubuntu/census-table-metadata/precomputed/acs2020_5yr/census_table_metadata.csv' WITH csv ENCODING 'utf8' HEADER;
+COPY acs2020_5yr.census_column_metadata FROM '/home/ubuntu/census-table-metadata/precomputed/acs2020_5yr/census_column_metadata.csv' WITH csv ENCODING 'utf8' HEADER;
