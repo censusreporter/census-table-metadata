@@ -157,3 +157,8 @@ DROP TABLE IF EXISTS acs2021_1yr.census_table_metadata;
 DROP TABLE IF EXISTS acs2021_1yr.census_column_metadata;
 DROP TABLE IF EXISTS acs2021_1yr.census_topics;
 DROP TABLE IF EXISTS acs2021_1yr.census_table_topics;
+
+DROP TABLE IF EXISTS acs2021_5yr.census_table_metadata;
+DROP TABLE IF EXISTS acs2021_5yr.census_column_metadata;
+DROP TABLE IF EXISTS acs2021_5yr.census_topics;
+DROP TABLE IF EXISTS acs2021_5yr.census_table_topics;

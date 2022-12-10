@@ -239,7 +239,7 @@ tabulation_code,table_title,simple_table_title,subject_area,universe,topics,weig
 17024,Age by Ratio of Income to Poverty Level in the Past 12 Months,Age by Ratio of Income to Poverty Level,Poverty,Population for Whom Poverty Status Is Determined,"{""age"",""income"",""poverty""}",0,"{""B17024"",""C17024""}",{},"{""B17024""}"
 17025,Poverty Status in the Past 12 Months by Nativity,Poverty Status by Nativity,Poverty,Population for Whom Poverty Status Is Determined,"{""place of birth"",""poverty""}",0,"{""B17025"",""C17025""}",{},"{""B17025""}"
 17026,Ratio of Income to Poverty Level of Families in the Past 12 Months,Ratio of Income to Poverty Level of Families,Poverty,Families,"{""families"",""income"",""poverty""}",0,"{""B17026"",""C17026""}",{},"{""B17026""}"
-17101,Poverty Status in the Past 12 Months of People in Housing Units,Poverty Status of People in Housing Units,Poverty,Population in Housing Units for Whom Poverty Status Is Determined,"{""poverty""}",0,"{""B17101""}",{},{}
+17101,Poverty Status in the Past 12 Months of People in Housing Units,Poverty Status of People in Housing Units,Poverty,Population in Housing Units for Whom Poverty Status Is Determined,"{""poverty""}",0,"{""B17101""}",{},"{""B17101""}"
 18101,Sex by Age by Disability Status,Sex by Age by Disability Status,Disability,Civilian Noninstitutionalized Population,"{""age"",""disability"",""sex""}",0,"{""B18101"",""B18101A"",""B18101B"",""B18101C"",""B18101D"",""B18101E"",""B18101F"",""B18101G"",""B18101H"",""B18101I"",""C18101""}",{},"{""B18101"",""B18101A"",""B18101B"",""B18101C"",""B18101D"",""B18101E"",""B18101F"",""B18101G"",""B18101H"",""B18101I""}"
 18102,Sex by Age by Hearing Difficulty,Sex by Age by Hearing Difficulty,Disability,Civilian Noninstitutionalized Population,"{""age"",""disability"",""sex""}",0,"{""B18102"",""C18102""}",{},"{""B18102""}"
 18103,Sex by Age by Vision Difficulty,Sex by Age by Vision Difficulty,Disability,Civilian Noninstitutionalized Population,"{""age"",""disability"",""sex""}",0,"{""B18103"",""C18103""}",{},"{""B18103""}"
@@ -501,10 +501,10 @@ tabulation_code,table_title,simple_table_title,subject_area,universe,topics,weig
 25129,Tenure by Year Householder Moved Into Unit by Units in Structure,Tenure by Year Householder Moved Into Unit by Units in Structure,Housing,Occupied Housing Units,"{""families"",""housing"",""physical characteristics"",""tenure""}",0,"{""B25129""}",{},"{""B25129""}"
 25130,Other Vacancy Status,Other Vacancy Status,Housing,"Vacant Housing Units, Other","{""housing"",""occupancy""}",0,"{""B25130""}",{},{}
 25131,Vacancy Duration,Vacancy Duration,Housing,Vacant Housing Units,"{""housing"",""occupancy""}",0,"{""B25131""}",{},{}
-25132,Monthly Electricity Costs,Monthly Electricity Costs,Housing,Occupied Housing Units,"{""costs and value"",""housing""}",0,"{""B25132""}",{},{}
-25133,Monthly Gas Costs,Monthly Gas Costs,Housing,Occupied Housing Units,"{""costs and value"",""housing""}",0,"{""B25133""}",{},{}
-25134,Annual Water and Sewer Costs,Annual Water and Sewer Costs,Housing,Occupied Housing Units,"{""costs and value"",""housing""}",0,"{""B25134""}",{},{}
-25135,Annual Other Fuel Costs,Annual Other Fuel Costs,Housing,Occupied Housing Units,"{""costs and value"",""housing""}",0,"{""B25135""}",{},{}
+25132,Monthly Electricity Costs,Monthly Electricity Costs,Housing,Occupied Housing Units,"{""costs and value"",""housing""}",0,"{""B25132""}",{},"{""B25132""}"
+25133,Monthly Gas Costs,Monthly Gas Costs,Housing,Occupied Housing Units,"{""costs and value"",""housing""}",0,"{""B25133""}",{},"{""B25133""}"
+25134,Annual Water and Sewer Costs,Annual Water and Sewer Costs,Housing,Occupied Housing Units,"{""costs and value"",""housing""}",0,"{""B25134""}",{},"{""B25134""}"
+25135,Annual Other Fuel Costs,Annual Other Fuel Costs,Housing,Occupied Housing Units,"{""costs and value"",""housing""}",0,"{""B25135""}",{},"{""B25135""}"
 26001,Group Quarters Population,Group Quarters Population,Group Quarters,Population in Group Quarters,"{""group quarters""}",0,"{""B26001""}",{},"{""B26001""}"
 26101,Group Quarters Type (3 Types) by Sex by Age,Group Quarters Type (3 Types) by Sex by Age,Group Quarters,Total Population,"{""age"",""group quarters"",""sex""}",0,"{""B26101""}",{},"{""B26101""}"
 26102,Median Age by Group Quarters Type (3 Types),Median Age by Group Quarters Type (3 Types),Group Quarters,Total Population,"{""age"",""group quarters""}",0,"{""B26102""}",{},"{""B26102""}"
