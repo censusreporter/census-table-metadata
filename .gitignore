@@ -5,3 +5,4 @@ generated_csv/
 taxonified/
 *.pyc
 .vscode
+.ipynb_checkpoints

@@ -410,3 +410,7 @@ precomputed/acs2021_1yr/census_table_metadata.csv:
 precomputed/acs2021_5yr/census_table_metadata.csv:
 	mkdir -p precomputed/acs2021_5yr/
 	python process_api.py https://api.census.gov/data/2021/acs/acs5/variables.json https://www2.census.gov/programs-surveys/acs/summary_file/2021/sequence-based-SF/documentation/user_tools/ACS_5yr_Seq_Table_Number_Lookup.txt precomputed/acs2021_5yr
+
+precomputed/acs2021_1yr_tables/census_table_metadata.csv:
+	mkdir -p precomputed/acs2021_1yr_tables/
+	python process_table_based_shells.py https://www2.census.gov/programs-surveys/acs/summary_file/2021/table-based-SF/documentation/ACS20211YR_Table_Shells.txt precomputed/acs2021_1yr_tables
