@@ -279,7 +279,7 @@ def build_topics(table_name, subject_area):
     return list(map(lambda x: x.strip(), sorted(all_areas)))
 
 
-def find_denominator_column(table, rows):
+def find_denominator_column(table: dict, rows: list):
     """For most tables, the first row is a total row, and that row is the thing to use
        to show estimates as percentages.  But a table must have at least 3 rows for
        percentages to be meaningful -- and percentages are not meaningful for
@@ -289,203 +289,6 @@ def find_denominator_column(table, rows):
         return rows[0]['column_id']
     else:
         return None
-
-def get_vars(var_url):
-    """Parse the official ACS metadata JSON for the given schema (ACS release) and return a dict
-       with table IDs for keys and a list of metadata objects for each column in that table as values.
-       Because this works through a list one variable at a time, it isn't able to handle pseudo-columns:
-       that is, labels which have no data associated with them, but which must be managed to present
-       a proper hierarchy of columns. That comes in a separate step, finish_fixing_table"""
-    try:
-        resp = requests.get(var_url)
-        resp.raise_for_status()
-        var_json = resp.json()
-
-        var_dict = {}
-        for k,v in var_json['variables'].items():
-            if '_' in k and k.endswith('E'):
-                v['column_id'] = k.replace('_','')[:-1]
-
-                # reconstruct the label without leading 'Estimate'
-                split_label = v['label'].split('!!')[1:]
-                v['label'] = '!!'.join(split_label)
-
-                # parent_label is used to work out parent_column_id in finish_fixing_table
-                v['parent_label'] = '!!'.join(split_label[:-1])
-                v['indent'] = len(split_label) - 1
-                v['leaf_label'] = split_label[-1]
-                v['label_parts'] = split_label
-                try:
-                    var_dict[v['group']].append(v)
-                except KeyError:
-                    var_dict[v['group']] = [ v ]
-    except KeyError:
-        raise Exception("Invalid schema [{}]".format(schema))
-    sorted_var_dict = {}
-    for k,v in var_dict.items():
-        v = [(var['column_id'], var) for var in v]
-        v.sort()
-        sorted_var_dict[k] = [var[1] for var in v]
-    return sorted_var_dict
-
-def extract_line_number(group, column_id):
-    "Construct a line number based on the column ID, using the group as a 'mask'"
-    line_number_str = column_id.replace(group,'')
-    line_number_str = line_number_str.lstrip('0')
-    if line_number_str[0] == '.':
-        line_number_str = '0{}'.format(line_number_str)
-    if '.' in line_number_str: # pseudo
-        return line_number_str
-    return "{}.0".format(line_number_str)
-
-def finish_fixing_table(var_list):
-    """Given the complete list of real variables for a given table, from the get_vars process
-        assign the parent_column_id and line_number,
-        handling pseudo-header columns as well. (groupers that don't have variables)
-    """
-    by_label = dict((v['label'], v) for v in var_list)
-    for var in var_list:
-        var['line_number'] = extract_line_number(var['group'],var['column_id'])
-        if var['parent_label']:
-            try:
-                parent = by_label[var['parent_label']]
-            except KeyError: # create the parent that doesn't exist
-                col_number = int(var['column_id'][-3:]) - 1
-                column_id = "{}{:03}.5".format(var['group'],col_number) # create a pseudo-column ID
-
-                label_parts = var['parent_label'].split('!!')
-                parent_label = '!!'.join(label_parts[:-1])
-                leaf_label = label_parts[-1]
-                try:
-                    parent_column_id = by_label[parent_label]['column_id']
-                except KeyError:
-                    parent_column_id = ''
-                parent = { # preserving a number of properties we may not use for a while
-                    'label': var['parent_label'],
-                    'concept': var['concept'],
-                    'group': var['group'],
-                    'column_id': column_id,
-                    'indent': var['indent'] - 1,
-                    'leaf_label': leaf_label,
-                    'parent_label': parent_label,
-                    'label_parts': label_parts,
-                    'parent_column_id': parent_column_id
-                }
-                parent['line_number'] = extract_line_number(parent['group'],parent['column_id'])
-                by_label[parent['label']] = parent
-            var['parent_column_id'] = parent['column_id']
-        else:
-            # must be first row?
-            var['parent_column_id'] = ''
-
-    # make sure everything is sorted correctly before returning
-    new_list = [(x['column_id'], x) for x in by_label.values()]
-    new_list.sort()
-    return [x[1] for x in new_list]
-
-
-def old_main(root_dir, variables_url, merge_url):
-    # Gather the indent information from the variables URL
-    raw_vars = get_vars(variables_url)
-
-    # build the lookup table to augment data missing from CSV list of sequence IDs
-    lookup = defaultdict(dict)
-
-    for table_id, col_list in raw_vars.items():
-        fixed_cols = finish_fixing_table(col_list)
-        for col in fixed_cols:
-            column_id = col['column_id']
-            lookup[table_id][column_id] = {
-                "column_id": column_id,
-                "indent": col['indent'],
-                "parent_column_id": col.get('parent_column_id','')
-            }
-
-    tables = {}
-    table = {}
-    rows = []
-    previous_line_number = 0
-
-    # Gather the column information from the merge CSV
-    resp = requests.get(merge_url, stream=True)
-    resp.raise_for_status()
-    with closing(resp) as r:
-
-        reader = csv.DictReader(codecs.iterdecode(r.iter_lines(), 'iso-8859-1'))
-        for line in reader:
-
-            table_id = line['Table ID']
-            line_number = line['Line Number']
-            cells = line['Total Cells in Table']
-            title = line['Table Title'].strip()
-            subject_area = line['Subject Area']
-
-            if not line_number and cells:
-                # Save the previous table's data
-                if table and table_id != table['table_id']:
-                    table['denominator_column_id'] = find_denominator_column(table, rows)
-                    table['topics'] = '{%s}' % ','.join(['"%s"' % topic for topic in build_topics(table)])
-                    if table['table_id'] in tables:
-                        print('Skipping %s because it was already written.' % table['table_id'])
-                    else:
-                        table['columns'] = rows
-                        tables[table['table_id']] = table
-                    table = {}
-                    rows = []
-                    previous_line_number = 0
-
-                # The all-caps description of the table
-                table['table_title'] = clean_table_name(title)
-                table['simple_table_title'] = simplified_table_name(table['table_title'])
-                # ... this row also includes the subject area text
-                table['subject_area'] = subject_area.strip()
-
-                table['table_id'] = table_id
-                table_lookup = lookup.get(table_id)
-
-            elif not line_number and not cells and title.lower().startswith('universe:'):
-                table['universe'] = clean_universe(title.split(':')[-1])
-
-            elif line_number:
-                row = {}
-                row['table_id'] = table['table_id']
-                line_number = float(line_number)
-
-                line_number_str = str(line_number)
-                if title.endswith('--') and (line_number - previous_line_number > 1.0):
-                    # In the 2009 releases, the line numbers that are headers (x.5 and x.7) don't have decimals
-                    # so lets manufacture them here if this line is out of order.
-                    line_number = line_number / 10.0
-                row['line_number'] = line_number
-                previous_line_number = line_number
-
-                if line_number_str.endswith('.7') or line_number_str.endswith('.5'):
-                    # This is a subhead (not an actual data column), so we'll have to synthesize a column_id
-                    row['column_id'] = "%s%05.1f" % (row['table_id'], line_number)
-                else:
-                    row['column_id'] = '%s%03d' % (row['table_id'], line_number)
-                row['column_title'] = title
-
-                column_info = table_lookup.get(row['column_id'])
-                if column_info:
-                    row['indent'] = column_info['indent']
-                    row['parent_column_id'] = column_info['parent_column_id']
-
-                rows.append(row)
-
-        # Save the last table's data
-        if table:
-            table['denominator_column_id'] = find_denominator_column(table, rows)
-            table['topics'] = '{%s}' % ','.join(['"%s"' % topic for topic in build_topics(table)])
-            if table['table_id'] in tables:
-                print('Skipping %s because it was already written.' % table['table_id'])
-            table['columns'] = rows
-            tables[table['table_id']] = table
-            table = {}
-            rows = []
-            previous_line_number = 0
-
-    write_files(root_dir, tables)
 
 def write_files(root_dir, tables):
     with open(os.path.join(root_dir, "census_table_metadata.csv"), 'w') as table_file:
@@ -562,6 +365,10 @@ def read_table_shell(url):
                 }
                 table['columns'].append(column)
 
+    for table in tables.values():
+        denom_col = find_denominator_column(table, table['columns'])
+        table['denominator_column_id'] = denom_col
+
     return tables
 
 def main(root_dir, merge_url):
@@ -576,7 +383,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     # parser.add_argument("variables_url", help="The URL to the JSON variables file for the release you're processing")
     parser.add_argument("merge_url", help="The URL to the pipe-delimited basic 'table shell' file")
-    parser.add_argument("root_dir", help="Path to directory to write out the reulsting table and column metadata CSV files")
+    parser.add_argument("root_dir", help="Path to directory to write out the resulting table and column metadata CSV files")
     args = parser.parse_args()
 
     main(args.root_dir, args.merge_url)
