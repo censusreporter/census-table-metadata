@@ -773,6 +773,7 @@ CREATE INDEX ON acs2020_5yr.census_table_metadata USING GIN(topics);
 CREATE INDEX ON acs2020_5yr.census_table_metadata (lower(table_title) text_pattern_ops);
 CREATE INDEX ON acs2020_5yr.census_column_metadata (lower(column_title) text_pattern_ops);
 
+-- acs2021_1yr
 CREATE TABLE acs2021_1yr.census_table_metadata (
     table_id varchar(10),
     table_title text,
@@ -798,6 +799,7 @@ CREATE INDEX ON acs2021_1yr.census_table_metadata USING GIN(topics);
 CREATE INDEX ON acs2021_1yr.census_table_metadata (lower(table_title) text_pattern_ops);
 CREATE INDEX ON acs2021_1yr.census_column_metadata (lower(column_title) text_pattern_ops);
 
+-- acs2021_5yr
 CREATE TABLE acs2021_5yr.census_table_metadata (
     table_id varchar(10),
     table_title text,
@@ -822,6 +824,35 @@ WITH (autovacuum_enabled = FALSE);
 CREATE INDEX ON acs2021_5yr.census_table_metadata USING GIN(topics);
 CREATE INDEX ON acs2021_5yr.census_table_metadata (lower(table_title) text_pattern_ops);
 CREATE INDEX ON acs2021_5yr.census_column_metadata (lower(column_title) text_pattern_ops);
+
+-- acs2021_1yr_tables
+-- this schema is provisional while testing a new load process and may not belong here long-term
+CREATE TABLE acs2021_1yr_tables.census_table_metadata (
+    table_id varchar(10),
+    table_title text,
+    simple_table_title text,
+    subject_area text,
+    universe text,
+    denominator_column_id varchar(16),
+    topics text[],
+    PRIMARY KEY (table_id)
+)
+WITH (autovacuum_enabled = FALSE);
+CREATE TABLE acs2021_1yr_tables.census_column_metadata (
+    table_id varchar(10),
+    line_number numeric(4,1),
+    column_id varchar(16),
+    column_title text,
+    indent smallint,
+    parent_column_id varchar(16),
+    PRIMARY KEY (column_id)
+)
+WITH (autovacuum_enabled = FALSE);
+CREATE INDEX ON acs2021_1yr_tables.census_table_metadata USING GIN(topics);
+CREATE INDEX ON acs2021_1yr_tables.census_table_metadata (lower(table_title) text_pattern_ops);
+CREATE INDEX ON acs2021_1yr_tables.census_column_metadata (lower(column_title) text_pattern_ops);
+
+
 
 CREATE TABLE public.census_tabulation_metadata (
     tabulation_code varchar(6),
