@@ -34,7 +34,8 @@ all: \
 	precomputed/acs2019_5yr/census_table_metadata.csv \
 	precomputed/acs2020_5yr/census_table_metadata.csv \
 	precomputed/acs2021_1yr/census_table_metadata.csv \
-	precomputed/acs2021_5yr/census_table_metadata.csv
+	precomputed/acs2021_5yr/census_table_metadata.csv \
+	precomputed/acs2022_1yr/census_table_metadata.csv
 
 clean:
 	rm -rf precomputed/
@@ -104,7 +105,8 @@ clean-all: clean
 		acs2020_5yr_merge_5_6.xls \
 		acs2021_table_shells.xls \
 		acs2021_1yr_merge_5_6.xls \
-		acs2021_5yr_merge_5_6.xls
+		acs2021_5yr_merge_5_6.xls \
+		acs2022_table_shells.xls
 
 acs2007_shells/:
 	mkdir acs2007_shells
@@ -414,3 +416,7 @@ precomputed/acs2021_5yr/census_table_metadata.csv:
 precomputed/acs2021_1yr_tables/census_table_metadata.csv:
 	mkdir -p precomputed/acs2021_1yr_tables/
 	python process_table_based_shells.py https://www2.census.gov/programs-surveys/acs/summary_file/2021/table-based-SF/documentation/ACS20211YR_Table_Shells.txt precomputed/acs2021_1yr_tables
+
+precomputed/acs2022_1yr/census_table_metadata.csv:
+	mkdir -p precomputed/acs2022_1yr/
+	python process_table_based_shells.py https://www2.census.gov/programs-surveys/acs/summary_file/2022/table-based-SF/documentation/ACS20221YR_Table_Shells.txt precomputed/acs2022_1yr
