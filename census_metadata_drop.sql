@@ -173,3 +173,6 @@ DROP TABLE IF EXISTS acs2022_5yr.census_table_metadata;
 DROP TABLE IF EXISTS acs2022_5yr.census_column_metadata;
 DROP TABLE IF EXISTS acs2022_5yr.census_topics;
 DROP TABLE IF EXISTS acs2022_5yr.census_table_topics;
+
+DROP TABLE IF EXISTS acs2023_1yr.census_table_metadata;
+DROP TABLE IF EXISTS acs2023_1yr.census_column_metadata;

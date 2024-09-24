@@ -36,7 +36,8 @@ all: \
 	precomputed/acs2021_1yr/census_table_metadata.csv \
 	precomputed/acs2021_5yr/census_table_metadata.csv \
 	precomputed/acs2022_1yr/census_table_metadata.csv \
-	precomputed/acs2022_5yr/census_table_metadata.csv
+	precomputed/acs2022_5yr/census_table_metadata.csv \
+	precomputed/acs2023_1yr/census_table_metadata.csv
 
 clean:
 	rm -rf precomputed/
@@ -425,3 +426,7 @@ precomputed/acs2022_1yr/census_table_metadata.csv:
 precomputed/acs2022_5yr/census_table_metadata.csv:
 	mkdir -p precomputed/acs2022_5yr/
 	python process_table_based_shells.py https://www2.census.gov/programs-surveys/acs/summary_file/2022/table-based-SF/documentation/ACS20225YR_Table_Shells.txt precomputed/acs2022_5yr
+
+precomputed/acs2023_1yr/census_table_metadata.csv:
+	mkdir -p precomputed/acs2023_1yr/
+	python process_table_based_shells.py https://www2.census.gov/programs-surveys/acs/summary_file/2023/table-based-SF/documentation/ACS20231YR_Table_Shells.txt precomputed/acs2023_1yr
