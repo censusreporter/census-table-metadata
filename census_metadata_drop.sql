@@ -179,3 +179,9 @@ DROP TABLE IF EXISTS acs2023_1yr.census_column_metadata;
 
 DROP TABLE IF EXISTS acs2023_5yr.census_table_metadata;
 DROP TABLE IF EXISTS acs2023_5yr.census_column_metadata;
+
+DROP TABLE IF EXISTS acs2024_1yr.census_table_metadata;
+DROP TABLE IF EXISTS acs2024_1yr.census_column_metadata;
+
+DROP TABLE IF EXISTS acs2024_5yr.census_table_metadata;
+DROP TABLE IF EXISTS acs2024_5yr.census_column_metadata;
